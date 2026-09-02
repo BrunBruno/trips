@@ -1,0 +1,393 @@
+/* =========================================================
+   TRIP MODAL
+   ========================================================= */
+
+.trip-modal {
+  inset: 0;
+  z-index: 1000;
+  background: #111315;
+  color: #fff;
+  padding: 60px 7vw 100px;
+  box-sizing: border-box;
+  animation: tripModalIn 0.35s ease;
+}
+
+@keyframes tripModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.trip-modal-header {
+  text-align: center;
+
+  margin: 0 auto 70px;
+  max-width: 900px;
+}
+
+.trip-modal-header h1 {
+  margin: 0;
+  font-size: clamp(42px, 6vw, 90px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+
+.trip-modal-header span {
+  display: block;
+  margin-top: 18px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #888;
+}
+
+/* =========================================================
+   PHOTO STACK
+   ========================================================= */
+
+.trip-cover {
+  height: 820px;
+  padding-bottom: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-stack {
+  position: relative;
+
+  width: 340px;
+  height: 460px;
+}
+
+/* Wszystkie zdjęcia */
+
+.stack-photo {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 280px;
+  height: 380px;
+
+  object-fit: cover;
+
+  padding: 10px;
+  border-radius: 10px;
+
+  background: #f5f5f5;
+  box-shadow:
+    0 12px 30px #0008,
+    0 2px 5px #0006;
+
+  transform-origin: center center;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Rozrzucenie zdjęć */
+
+.stack-photo-0 {
+  transform: translate(-50%, -50%) rotate(-13deg);
+}
+
+.stack-photo-1 {
+  transform: translate(-50%, -50%) rotate(8deg);
+}
+
+.stack-photo-2 {
+  transform: translate(-50%, -50%) rotate(-5deg);
+}
+
+.stack-photo-3 {
+  transform: translate(-50%, -50%) rotate(16deg);
+}
+
+.stack-photo-4 {
+  transform: translate(-50%, -50%) rotate(-18deg);
+}
+
+.stack-photo-5 {
+  transform: translate(-50%, -50%) rotate(4deg);
+}
+
+.stack-photo-6 {
+  transform: translate(-50%, -50%) rotate(-9deg);
+}
+
+.stack-photo-7 {
+  transform: translate(-50%, -50%) rotate(12deg);
+}
+
+.stack-photo-8 {
+  transform: translate(-50%, -50%) rotate(-3deg);
+}
+
+.stack-photo-9 {
+  transform: translate(-50%, -50%) rotate(20deg);
+}
+
+.stack-photo-10 {
+  transform: translate(-50%, -50%) rotate(-15deg);
+}
+
+.stack-photo-11 {
+  transform: translate(-50%, -50%) rotate(6deg);
+}
+
+/* Efekt po najechaniu na stos */
+
+/* .trip-cover.scattered .stack-photo-0 {
+  transform: translate(-110%, -55%) rotate(-20deg);
+}
+
+.trip-cover.scattered .stack-photo-1 {
+  transform: translate(-25%, -70%) rotate(12deg);
+}
+
+.trip-cover.scattered .stack-photo-2 {
+  transform: translate(-125%, -5%) rotate(-12deg);
+}
+
+.trip-cover.scattered .stack-photo-3 {
+  transform: translate(5%, -5%) rotate(20deg);
+}
+
+.trip-cover.scattered .stack-photo-4 {
+  transform: translate(-100%, 25%) rotate(-18deg);
+}
+
+.trip-cover.scattered .stack-photo-5 {
+  transform: translate(-5%, 65%) rotate(8deg);
+}
+
+.trip-cover.scattered .stack-photo-6 {
+  transform: translate(-115%, 50%) rotate(-8deg);
+}
+
+.trip-cover.scattered .stack-photo-7 {
+  transform: translate(20%, 50%) rotate(15deg);
+}
+
+.trip-cover.scattered .stack-photo-8 {
+  transform: translate(-70%, -85%) rotate(-7deg);
+}
+
+.trip-cover.scattered .stack-photo-9 {
+  transform: translate(50%, -45%) rotate(25deg);
+}
+
+.trip-cover.scattered .stack-photo-10 {
+  transform: translate(-155%, 25%) rotate(-25deg);
+}
+
+.trip-cover.scattered .stack-photo-10 {
+  transform: translate(-40%, 20%) rotate(-25deg);
+} */
+.trip-cover.scattered .stack-photo-0 {
+  transform: translate(-50%, -50%) translate(-155px, -85px) rotate(-17deg);
+  z-index: 4;
+}
+
+.trip-cover.scattered .stack-photo-1 {
+  transform: translate(-50%, -50%) translate(-55px, -170px) rotate(8deg);
+  z-index: 8;
+}
+
+.trip-cover.scattered .stack-photo-2 {
+  transform: translate(-50%, -50%) translate(65px, -155px) rotate(19deg);
+  z-index: 3;
+}
+
+.trip-cover.scattered .stack-photo-3 {
+  transform: translate(-50%, -50%) translate(155px, -85px) rotate(-11deg);
+  z-index: 10;
+}
+
+.trip-cover.scattered .stack-photo-4 {
+  transform: translate(-50%, -50%) translate(185px, 25px) rotate(14deg);
+  z-index: 5;
+}
+
+.trip-cover.scattered .stack-photo-5 {
+  transform: translate(-50%, -50%) translate(130px, 120px) rotate(-7deg);
+  z-index: 11;
+}
+
+.trip-cover.scattered .stack-photo-6 {
+  transform: translate(-50%, -50%) translate(35px, 170px) rotate(17deg);
+  z-index: 2;
+}
+
+.trip-cover.scattered .stack-photo-7 {
+  transform: translate(-50%, -50%) translate(-85px, 155px) rotate(-15deg);
+  z-index: 7;
+}
+
+.trip-cover.scattered .stack-photo-8 {
+  transform: translate(-50%, -50%) translate(-175px, 85px) rotate(6deg);
+  z-index: 12;
+}
+
+.trip-cover.scattered .stack-photo-9 {
+  transform: translate(-50%, -50%) translate(-185px, -15px) rotate(-21deg);
+  z-index: 6;
+}
+
+.trip-cover.scattered .stack-photo-10 {
+  transform: translate(-50%, -50%) translate(-100px, -140px) rotate(12deg);
+  z-index: 1;
+}
+
+.trip-cover.scattered .stack-photo-11 {
+  transform: translate(-50%, -50%) translate(80px, 55px) rotate(-18deg);
+  z-index: 9;
+}
+
+/* =========================================================
+   MAP
+   ========================================================= */
+
+.trip-map {
+  position: relative;
+  width: min(1100px, 100%);
+  height: 600px;
+  margin: 0 auto 120px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px;
+  box-sizing: border-box;
+  border-radius: 24px;
+
+  background: #fff;
+  box-shadow: 0 15px 50px #0006;
+  overflow: hidden;
+}
+
+.trip-map::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* =========================================================
+   GALLERY
+   ========================================================= */
+
+.trip-gallery {
+  width: min(1500px, 100%);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 14px;
+}
+
+.trip-gallery img {
+  display: block;
+
+  width: 100%;
+  aspect-ratio: 4 / 3;
+
+  object-fit: cover;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.trip-gallery img:hover {
+  transform: scale(1.025);
+
+  filter: brightness(0.9);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  .trip-modal {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .trip-gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+  }
+
+  .trip-cover {
+    height: 520px;
+  }
+}
+
+@media (max-width: 700px) {
+  .trip-modal {
+    padding: 40px 15px 70px;
+  }
+
+  .trip-modal-close {
+    top: 15px;
+    right: 15px;
+    width: 42px;
+    height: 42px;
+    font-size: 27px;
+  }
+
+  .trip-modal-header {
+    margin-bottom: 30px;
+  }
+
+  .trip-modal-header h1 {
+    font-size: 48px;
+  }
+
+  .photo-stack {
+    transform: scale(0.8);
+  }
+
+  .trip-map {
+    height: 400px;
+    padding: 15px;
+    margin-bottom: 70px;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 450px) {
+  .trip-modal-header h1 {
+    font-size: 40px;
+  }
+
+  .photo-stack {
+    transform: scale(0.65);
+  }
+}

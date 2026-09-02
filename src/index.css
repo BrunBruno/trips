@@ -17,10 +17,9 @@ body {
 
 /* APP */
 
-.app {
-  width: min(1400px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 50px 0 70px;
+.world {
+  width: 100%;
+  padding: 50px;
 }
 
 /* HEADER */
@@ -46,7 +45,7 @@ body {
 
 .country-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -129,6 +128,10 @@ body {
 }
 
 @media (max-width: 800px) {
+  .world {
+    padding: 0;
+  }
+
   .country-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -207,4 +210,31 @@ body {
 
 .map-close:hover {
   color: #151515;
+}
+
+/* =========================================================
+   CLOSE
+   ========================================================= */
+
+.trip-modal-close {
+  position: fixed;
+  top: 25px;
+  right: 30px;
+
+  width: 48px;
+  height: 48px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #222;
+  color: #fff;
+  box-shadow: 0 4px 20px #0008;
+
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1;
+  z-index: 1200;
+
+  cursor: pointer;
 }
