@@ -9,7 +9,7 @@ import { useState } from "react";
 
 export type MapPlace = {
   name: string;
-  image: string;
+  image?: string;
   position: {
     lat: number;
     lng: number;
