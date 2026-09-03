@@ -203,6 +203,7 @@ const countries: CountryRecord[] = [
   {
     name: "Marsa Alam",
     year: 2025,
+    month: 3,
     flag: Egypt,
     folder: "egypt-marsa-alam",
     map: MarsaAlamMap,
@@ -210,6 +211,7 @@ const countries: CountryRecord[] = [
   {
     name: "Doha",
     year: 2025,
+    month: 10,
     flag: Qatar,
     folder: "qatar-doha",
     map: DohaMap,
@@ -217,6 +219,7 @@ const countries: CountryRecord[] = [
   {
     name: "Kuala Lumpur",
     year: 2025,
+    month: 10,
     flag: Malaysia,
     folder: "malaysia-kuala-lumpur",
     map: KualaLumpurMap,
@@ -224,6 +227,7 @@ const countries: CountryRecord[] = [
   {
     name: "Bali",
     year: 2025,
+    month: 9,
     flag: Indonesia,
     folder: "indonesia-bali",
     map: BaliMap,
@@ -231,6 +235,7 @@ const countries: CountryRecord[] = [
   {
     name: "Split",
     year: 2026,
+    month: 7,
     flag: Croatia,
     folder: "croatia-split",
     map: SplitMap,

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import countries from "./data";
 import TripModal from "./TripModal";
@@ -9,6 +9,14 @@ function World() {
   const [selectedCountry, setSelectedCountry] = useState<
     (typeof countries)[number] | null
   >(null);
+
+  useEffect(() => {
+    if (selectedCountry) {
+      window.scrollTo({
+        top: 0,
+      });
+    }
+  }, [selectedCountry]);
 
   return (
     <main className="world">
