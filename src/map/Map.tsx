@@ -9,6 +9,7 @@ import { useState } from "react";
 
 export type MapPlace = {
   name: string;
+  image: string;
   position: {
     lat: number;
     lng: number;
@@ -27,15 +28,14 @@ type MapProps = {
 const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
 function Map({ center, zoom, places }: MapProps) {
-  const [selectedPlace, setSelectedPlace] =
-    useState<MapPlace | null>(null);
+  const [selectedPlace, setSelectedPlace] = useState<MapPlace | null>(null);
 
   return (
     <APIProvider apiKey={API_KEY}>
       <GoogleMap
         defaultCenter={center}
         defaultZoom={zoom}
-        gestureHandling="greedy"
+        gestureHandling="none"
         disableDefaultUI={false}
         className="world-map"
       >
@@ -53,7 +53,10 @@ function Map({ center, zoom, places }: MapProps) {
             position={selectedPlace.position}
             onCloseClick={() => setSelectedPlace(null)}
           >
-            <strong>{selectedPlace.name}</strong>
+            <div className="map-info">
+              <img src={selectedPlace.image} alt={selectedPlace.name} />
+              <strong>{selectedPlace.name}</strong>
+            </div>
           </InfoWindow>
         )}
       </GoogleMap>

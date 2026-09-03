@@ -3,6 +3,7 @@ import Map, { type MapPlace } from "./Map";
 const OSLO_PLACES: MapPlace[] = [
   {
     name: "Oslo",
+    image: "/trips/norway-oslo/thumbnail/001.jpg",
     position: {
       lat: 59.9139,
       lng: 10.7522,

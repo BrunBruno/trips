@@ -1,0 +1,36 @@
+from pathlib import Path
+import sys
+
+if len(sys.argv) != 2:
+    print("Użycie: python rename.py <nazwa_folderu>")
+    sys.exit(1)
+
+folder_name = sys.argv[1]
+folder = Path(__file__).parent / "public" / folder_name / "full"
+
+if not folder.exists() or not folder.is_dir():
+    print(f"Nie znaleziono folderu: {folder}")
+    sys.exit(1)
+
+extensions = {".jpg", ".jpeg", ".png", ".webp", ".heic"}
+
+files = sorted(
+    file
+    for file in folder.iterdir()
+    if file.is_file()
+    and file.suffix.lower() in extensions
+    and len(file.stem) != 3
+)
+
+temp_files = []
+
+for i, file in enumerate(files, start=13):
+    temp_file = folder / f"__temp_{i:03d}{file.suffix.lower()}"
+    file.rename(temp_file)
+    temp_files.append((temp_file, folder / f"{i:03d}{file.suffix.lower()}"))
+
+for temp_file, new_file in temp_files:
+    temp_file.rename(new_file)
+
+print(f"Folder: {folder_name}")
+print(f"Zmieniono nazwę {len(files)} zdjęć.")

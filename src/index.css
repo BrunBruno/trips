@@ -129,7 +129,7 @@ body {
 
 @media (max-width: 800px) {
   .world {
-    padding: 0;
+    padding: 1rem 2rem;
   }
 
   .country-grid {
@@ -144,17 +144,12 @@ body {
   }
 
   .country-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
+    /* grid-template-columns: repeat(2, minmax(0, 1fr)); */
   }
 
   .flag {
     height: 100px;
-  }
-}
-
-@media (max-width: 400px) {
-  .country-grid {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -237,4 +232,22 @@ body {
   z-index: 1200;
 
   cursor: pointer;
+}
+
+.map-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.map-info img {
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+
+.map-info strong {
+  font-size: 16px;
+  color: #000;
 }

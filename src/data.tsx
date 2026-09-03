@@ -179,10 +179,12 @@ const countries: CountryRecord[] = [
   },
   {
     name: "Oslo",
-    year: 2024,
+    year: 2023,
+    month: 8,
     flag: Norway,
     folder: "norway-oslo",
     map: OsloMap,
+    imgCount: 30,
   },
   {
     name: "Dubaj",
