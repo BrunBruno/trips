@@ -338,7 +338,7 @@
 
 @media (max-width: 700px) {
   .trip-modal {
-    padding: 40px 15px 70px;
+    padding: 0;
   }
 
   .trip-modal-close {
