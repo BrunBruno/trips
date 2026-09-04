@@ -1,7 +1,3 @@
-/* =========================================================
-   TRIP MODAL
-   ========================================================= */
-
 .trip-modal {
   inset: 0;
   z-index: 1000;
@@ -10,17 +6,25 @@
   box-sizing: border-box;
   overflow-x: hidden;
   padding: 0 2rem;
+  height: 100vh;
+
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
-/* =========================================================
-   HEADER
-   ========================================================= */
+.trip-modal::-webkit-scrollbar {
+  display: none;
+}
 
 .trip-modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   text-align: center;
-  max-width: 900px;
   margin: 0 auto;
-  margin-bottom: 5rem;
+  height: 100vh;
 }
 
 .trip-modal-header h1 {
@@ -40,13 +44,8 @@
   color: #888;
 }
 
-/* =========================================================
-   PHOTO STACK
-   ========================================================= */
-
 .trip-cover {
-  height: calc(100vh - 10rem);
-  margin-bottom: 5rem;
+  /* height: 120vh; */
 
   display: flex;
   align-items: center;
@@ -100,9 +99,9 @@
   height: 280px;
 }
 
-.stack-photo:hover {
+/* .stack-photo:hover {
   z-index: 100 !important;
-}
+} */
 
 /* Rozrzucenie zdjęć */
 
@@ -156,53 +155,6 @@
 
 /* Efekt po najechaniu na stos */
 
-/* .trip-cover.scattered .stack-photo-0 {
-  transform: translate(-50%, -50%) translate(-155px, -85px) rotate(-17deg);
-}
-
-.trip-cover.scattered .stack-photo-1 {
-  transform: translate(-50%, -50%) translate(-55px, -170px) rotate(8deg);
-}
-
-.trip-cover.scattered .stack-photo-2 {
-  transform: translate(-50%, -50%) translate(65px, -155px) rotate(19deg);
-}
-
-.trip-cover.scattered .stack-photo-3 {
-  transform: translate(-50%, -50%) translate(155px, -85px) rotate(-11deg);
-}
-
-.trip-cover.scattered .stack-photo-4 {
-  transform: translate(-50%, -50%) translate(185px, 25px) rotate(14deg);
-}
-
-.trip-cover.scattered .stack-photo-5 {
-  transform: translate(-50%, -50%) translate(130px, 120px) rotate(-7deg);
-}
-
-.trip-cover.scattered .stack-photo-6 {
-  transform: translate(-50%, -50%) translate(35px, 170px) rotate(17deg);
-}
-
-.trip-cover.scattered .stack-photo-7 {
-  transform: translate(-50%, -50%) translate(-85px, 155px) rotate(-15deg);
-}
-
-.trip-cover.scattered .stack-photo-8 {
-  transform: translate(-50%, -50%) translate(-175px, 85px) rotate(6deg);
-}
-
-.trip-cover.scattered .stack-photo-9 {
-  transform: translate(-50%, -50%) translate(-185px, -15px) rotate(-21deg);
-}
-
-.trip-cover.scattered .stack-photo-10 {
-  transform: translate(-50%, -50%) translate(-100px, -140px) rotate(12deg);
-}
-
-.trip-cover.scattered .stack-photo-11 {
-  transform: translate(-50%, -50%) translate(80px, 55px) rotate(-18deg);
-} */
 @media (orientation: landscape) {
   .trip-cover.scattered .stack-photo-0 {
     transform: translate(-50%, -50%) translate(-380px, -65px) rotate(-17deg);
@@ -255,63 +207,66 @@
 
 @media (orientation: portrait) {
   .trip-cover.scattered .stack-photo-0 {
-    transform: translate(-50%, -50%) translate(-75px, -190px) rotate(-17deg);
+    transform: translate(-50%, -50%) translate(-85px, -480px) rotate(-17deg);
   }
 
   .trip-cover.scattered .stack-photo-1 {
-    transform: translate(-50%, -50%) translate(5px, -225px) rotate(8deg);
+    transform: translate(-50%, -50%) translate(175px, -450px) rotate(8deg);
   }
 
   .trip-cover.scattered .stack-photo-2 {
-    transform: translate(-50%, -50%) translate(80px, -175px) rotate(19deg);
+    transform: translate(-50%, -50%) translate(80px, -300px) rotate(19deg);
   }
 
   .trip-cover.scattered .stack-photo-3 {
-    transform: translate(-50%, -50%) translate(115px, -80px) rotate(-11deg);
+    transform: translate(-50%, -50%) translate(125px, -160px) rotate(-11deg);
   }
 
   .trip-cover.scattered .stack-photo-4 {
-    transform: translate(-50%, -50%) translate(105px, 45px) rotate(14deg);
+    transform: translate(-50%, -50%) translate(155px, 90px) rotate(14deg);
   }
 
   .trip-cover.scattered .stack-photo-5 {
-    transform: translate(-50%, -50%) translate(75px, 140px) rotate(-7deg);
+    transform: translate(-50%, -50%) translate(100px, 280px) rotate(-7deg);
   }
 
   .trip-cover.scattered .stack-photo-6 {
-    transform: translate(-50%, -50%) translate(20px, 205px) rotate(17deg);
+    transform: translate(-50%, -50%) translate(120px, 410px) rotate(17deg);
   }
 
   .trip-cover.scattered .stack-photo-7 {
-    transform: translate(-50%, -50%) translate(-65px, 180px) rotate(-15deg);
+    transform: translate(-50%, -50%) translate(-125px, 360px) rotate(-15deg);
   }
 
   .trip-cover.scattered .stack-photo-8 {
-    transform: translate(-50%, -50%) translate(-105px, 95px) rotate(6deg);
+    transform: translate(-50%, -50%) translate(-145px, 190px) rotate(6deg);
   }
 
   .trip-cover.scattered .stack-photo-9 {
-    transform: translate(-50%, -50%) translate(-125px, 0px) rotate(-21deg);
+    transform: translate(-50%, -50%) translate(-105px, 0px) rotate(-21deg);
   }
 
   .trip-cover.scattered .stack-photo-10 {
-    transform: translate(-50%, -50%) translate(-85px, -120px) rotate(12deg);
+    transform: translate(-50%, -50%) translate(-165px, -240px) rotate(12deg);
   }
 
   .trip-cover.scattered .stack-photo-11 {
-    transform: translate(-50%, -50%) translate(60px, 70px) rotate(-18deg);
+    transform: translate(-50%, -50%) translate(60px, 140px) rotate(-18deg);
   }
 }
 
-/* =========================================================
-   MAP
-   ========================================================= */
-
 .trip-map {
+  width: 100%;
+  /* height: 120vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-container {
   position: relative;
   width: min(1200px, 100%);
-  height: 660px;
-  margin: 0 auto 120px;
+  height: 640px;
 
   display: flex;
   justify-content: center;
@@ -323,7 +278,6 @@
 
   background: #fff;
   overflow: hidden;
-  margin-top: 5rem;
 }
 
 /* .trip-map::after {
@@ -336,44 +290,44 @@
   background-color: rgba(0, 0, 0, 0.1);
 } */
 
-/* =========================================================
-   GALLERY
-   ========================================================= */
-
 .trip-gallery {
-  width: min(1500px, 100%);
-
-  margin: 0 auto;
-
-  display: grid;
-
-  grid-template-columns: repeat(4, 1fr);
-
-  gap: 14px;
-}
-
-.trip-gallery img {
-  display: block;
-
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-align: start;
+}
 
+.trip-gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-row {
+  display: flex;
+  width: 100%;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.gallery-item {
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-
-  cursor: pointer;
-
-  transition:
-    transform 0.3s ease,
-    filter 0.3s ease;
+  object-position: center;
 }
 
-.trip-gallery img:hover {
-  filter: brightness(0.9);
+.trip-modal-header,
+.trip-cover,
+.trip-map {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
 
 @media (max-width: 1000px) {
   .trip-gallery {
@@ -407,11 +361,11 @@
     transform: scale(0.8);
   }
 
-  .trip-map {
-    height: 400px;
-    padding: 15px;
-    margin-bottom: 70px;
-    border-radius: 15px;
+  .map-container {
+    height: 700px;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
   }
 }
 
