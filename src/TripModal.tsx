@@ -1,163 +1,37 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./trip-modal.css";
-
-type Trip = {
-  name: string;
-  year: number;
-  month?: number;
-  folder: string;
-  map?: React.ComponentType;
-};
+import type { CountryRecord } from "./data";
 
 type TripModalProps = {
-  trip: Trip;
-  imgCount: number;
+  trip: CountryRecord;
 };
 
-type GalleryImage = {
-  src: string;
-  width: number;
-  height: number;
-  ratio: number;
-  orientation: "landscape" | "portrait" | "square";
-};
+const imageCount = 24;
 
-function buildRows(
-  images: GalleryImage[],
-  containerWidth: number,
-  targetRowHeight = 220,
-  gap = 8,
-): GalleryImage[][] {
-  const rows: GalleryImage[][] = [];
-
-  let row: GalleryImage[] = [];
-
-  const getRowWidth = (items: GalleryImage[]) => {
-    const ratio = items.reduce((sum, image) => sum + image.ratio, 0);
-
-    return ratio * targetRowHeight + (items.length - 1) * gap;
-  };
-
-  for (let i = 0; i < images.length; i++) {
-    const image = images[i];
-
-    const testRow = [...row, image];
-
-    if (row.length > 0 && getRowWidth(testRow) > containerWidth) {
-      rows.push(row);
-      row = [image];
-    } else {
-      row = testRow;
-    }
-  }
-
-  if (row.length > 0) {
-    rows.push(row);
-  }
-
-  return rows;
-}
-
-function TripModal({ trip, imgCount }: TripModalProps) {
+function TripModal({ trip }: TripModalProps) {
   const [scattered, setScattered] = useState(false);
   const [images, setImages] = useState<string[]>([]);
+  const [selected, setSelected] = useState<number>(0);
+  const [nextZIndex, setNextZIndex] = useState(3);
+  const [selectionOrder, setSelectionOrder] = useState<Record<number, number>>(
+    {},
+  );
 
-  const [loadedImages, setLoadedImages] = useState<GalleryImage[]>([]);
-  const [galleryWidth, setGalleryWidth] = useState(0);
-
-  const galleryRef = useRef<HTMLElement>(null);
+  const [randomStyles] = useState(() =>
+    Array.from({ length: imageCount }, () => ({
+      rotate: Math.random() * 40 - 20,
+      zIndex: Math.floor(Math.random() * 2 + 1),
+    })),
+  );
 
   useEffect(() => {
     const photos = Array.from(
-      { length: imgCount },
-      (_, i) =>
-        `${trip.folder}/thumbnail/${String(i + 1).padStart(3, "0")}.jpg`,
+      { length: imageCount },
+      (_, i) => `${trip.folder}/${String(i + 1).padStart(3, "0")}.jpg`,
     );
 
     setImages(photos);
-  }, [trip.folder, imgCount]);
-
-  useEffect(() => {
-    if (images.length === 0) {
-      setLoadedImages([]);
-      return;
-    }
-
-    let cancelled = false;
-
-    const loadImages = async () => {
-      const result = await Promise.all(
-        images.map(
-          (src) =>
-            new Promise<GalleryImage>((resolve, reject) => {
-              const img = new Image();
-
-              img.onload = () => {
-                const originalRatio = img.naturalWidth / img.naturalHeight;
-
-                let orientation: GalleryImage["orientation"];
-                let ratio: number;
-
-                if (originalRatio > 1.05) {
-                  orientation = "landscape";
-                  ratio = Math.min(originalRatio, 5 / 4);
-                } else if (originalRatio < 0.95) {
-                  orientation = "portrait";
-                  ratio = Math.max(originalRatio, 4 / 5);
-                } else {
-                  orientation = "square";
-                  ratio = 1;
-                }
-
-                resolve({
-                  src,
-                  width: img.naturalWidth,
-                  height: img.naturalHeight,
-                  ratio,
-                  orientation,
-                });
-              };
-
-              img.onerror = () => {
-                reject(new Error(`Could not load image: ${src}`));
-              };
-
-              img.src = src;
-            }),
-        ),
-      );
-
-      if (!cancelled) {
-        setLoadedImages(result);
-      }
-    };
-
-    loadImages();
-
-    return () => {
-      cancelled = true;
-    };
-  }, [images]);
-
-  useEffect(() => {
-    const gallery = galleryRef.current;
-
-    if (!gallery) return;
-
-    const updateWidth = () => {
-      setGalleryWidth(gallery.clientWidth);
-    };
-
-    updateWidth();
-
-    const observer = new ResizeObserver(updateWidth);
-
-    observer.observe(gallery);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  }, [trip.folder]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -188,16 +62,83 @@ function TripModal({ trip, imgCount }: TripModalProps) {
     return months[month - 1] ?? "";
   }
 
-  const coverImages = images.slice(0, 12);
-  const Map = trip.map;
+  const getImgStyle = (index: number) => {
+    const imageId = index + 1;
+    const sel = selected === imageId;
 
-  const galleryRows =
-    galleryWidth > 0 ? buildRows(loadedImages, galleryWidth, 220, 8) : [];
+    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+
+    const columns = isPortrait ? 3 : 6;
+
+    const xInd = sel ? -100 * (index % columns) + (isPortrait ? 100 : 250) : 50;
+
+    const yInd = sel
+      ? -100 * Math.floor(index / columns) + (isPortrait ? 350 : 150)
+      : 50;
+
+    const translate = sel ? "0,0" : "-50%,-50%";
+    const rotate = sel ? 0 : randomStyles[index].rotate;
+
+    const zIndex = sel
+      ? 1000
+      : (selectionOrder[imageId] ?? randomStyles[index].zIndex);
+
+    const scale = sel ? 2 : 1;
+    const brightness = !selected ? 100 : sel ? 100 : 50;
+
+    return {
+      left: `${xInd}%`,
+      top: `${yInd}%`,
+      zIndex,
+      filter: `brightness(${brightness}%)`,
+      transform: `translate(${translate}) rotate(${rotate}deg) scale(${scale})`,
+    };
+  };
+
+  // const getImgStyle = (index: number) => {
+  //   const imageId = index + 1;
+  //   const sel = selected === imageId;
+
+  //   const xInd = sel ? -100 * (index % 6) + 250 : 50;
+  //   const yInd = sel ? -100 * Math.floor(index / 6) + 150 : 50;
+
+  //   const translate = sel ? "0,0" : "-50%,-50%";
+  //   const rotate = sel ? 0 : randomStyles[index].rotate;
+  //   const zIndex = sel
+  //     ? 1000
+  //     : (selectionOrder[imageId] ?? randomStyles[index].zIndex);
+  //   const scale = sel ? 2 : 1;
+  //   const brightness = !selected ? 100 : sel ? 100 : 50;
+
+  //   return {
+  //     left: `${xInd}%`,
+  //     top: `${yInd}%`,
+  //     zIndex,
+  //     filter: `brightness(${brightness}%)`,
+  //     transform: `translate(${translate}) rotate(${rotate}deg) scale(${scale})`,
+  //   };
+  // };
+
+  const coverImages = images.slice(0, imageCount);
+  const Map = trip.map;
 
   return (
     <div className="trip-modal">
       <header className="trip-modal-header">
+        <picture className="header-cover">
+          {/* <source
+            media="(orientation: portrait)"
+            srcSet={`/trips/${trip.folder}/cover-p.jpg`}
+          /> */}
+
+          {/* <img src={`/trips/${trip.folder}/cover-l.jpg`} alt="" /> */}
+          <img src={`/trips/${trip.folder}/cover.jpg`} alt="" />
+        </picture>
+
+        <trip.flag />
+
         <h1>{trip.name}</h1>
+        <h2>{trip.country}</h2>
 
         <span>
           {trip.year} {getMonth(trip.month)}
@@ -207,31 +148,50 @@ function TripModal({ trip, imgCount }: TripModalProps) {
       <section className={`trip-cover ${scattered ? "scattered" : ""}`}>
         <div className="photo-stack">
           {coverImages.map((image, index) => (
-            <img
-              onClick={() => alert(index + 1)}
-              key={image + index}
-              src={image}
-              className={`stack-photo stack-photo-${index}`}
-              style={{ zIndex: 12 - index }}
-              onLoad={(e) => {
-                const img = e.currentTarget;
+            <div key={image + index} className="stack-element">
+              <div className="photo-con" style={getImgStyle(index)}>
+                <img
+                  src={image}
+                  className={`stack-photo stack-photo-${index}`}
+                  onClick={() => {
+                    const imageId = index + 1;
 
-                img.classList.toggle(
-                  "portrait",
-                  img.naturalHeight > img.naturalWidth,
-                );
+                    setSelected((prev) => {
+                      if (prev === imageId) {
+                        setSelectionOrder((order) => ({
+                          ...order,
+                          [imageId]: nextZIndex,
+                        }));
 
-                img.classList.toggle(
-                  "landscape",
-                  img.naturalWidth > img.naturalHeight,
-                );
+                        setNextZIndex((value) => value + 1);
 
-                img.classList.toggle(
-                  "square",
-                  img.naturalWidth === img.naturalHeight,
-                );
-              }}
-            />
+                        return 0;
+                      }
+
+                      return imageId;
+                    });
+                  }}
+                  onLoad={(e) => {
+                    const img = e.currentTarget;
+
+                    img.classList.toggle(
+                      "portrait",
+                      img.naturalHeight > img.naturalWidth,
+                    );
+
+                    img.classList.toggle(
+                      "landscape",
+                      img.naturalWidth > img.naturalHeight,
+                    );
+
+                    img.classList.toggle(
+                      "square",
+                      img.naturalWidth === img.naturalHeight,
+                    );
+                  }}
+                />
+              </div>
+            </div>
           ))}
         </div>
       </section>
@@ -243,47 +203,6 @@ function TripModal({ trip, imgCount }: TripModalProps) {
           </div>
         </section>
       )}
-
-      <section className="trip-gallery" ref={galleryRef}>
-        {galleryRows.map((row, rowIndex) => {
-          const gap = 8;
-
-          const totalRatio = row.reduce((sum, image) => sum + image.ratio, 0);
-
-          const totalGap = (row.length - 1) * gap;
-
-          const isLastRow = rowIndex === galleryRows.length - 1;
-
-          let rowHeight = (galleryWidth - totalGap) / totalRatio;
-
-          if (isLastRow) {
-            rowHeight = Math.min(rowHeight, 220);
-          }
-
-          return (
-            <div
-              className={`gallery-row ${isLastRow ? "gallery-row-last" : ""}`}
-              key={rowIndex}
-              style={{
-                height: rowHeight,
-              }}
-            >
-              {row.map((image) => (
-                <div
-                  className="gallery-item"
-                  key={image.src}
-                  style={{
-                    width: image.ratio * rowHeight,
-                    height: rowHeight,
-                  }}
-                >
-                  <img src={image.src} alt="" />
-                </div>
-              ))}
-            </div>
-          );
-        })}
-      </section>
     </div>
   );
 }

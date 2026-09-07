@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import countries from "./data";
 import TripModal from "./TripModal";
@@ -10,21 +10,10 @@ function World() {
     (typeof countries)[number] | null
   >(null);
 
-  useEffect(() => {
-    if (selectedCountry) {
-      window.scrollTo({
-        top: 0,
-      });
-    }
-  }, [selectedCountry]);
-
   return (
     <main className="world">
       {selectedCountry ? (
-        <TripModal
-          trip={selectedCountry}
-          imgCount={selectedCountry.imgCount ? selectedCountry.imgCount : 12}
-        />
+        <TripModal trip={selectedCountry} />
       ) : (
         <section className="country-grid">
           {countriesYearOrder.map((country, index) => {
@@ -36,6 +25,13 @@ function World() {
                 key={`${country.name}-${index}`}
                 onClick={() => setSelectedCountry(country)}
               >
+                <div
+                  className="country-card-bg"
+                  style={{
+                    backgroundImage: `url(/trips/${country.folder}/cover.jpg)`,
+                  }}
+                />
+
                 <div className="flag">
                   <Flag />
                 </div>

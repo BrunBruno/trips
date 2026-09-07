@@ -3,7 +3,7 @@ import Map, { type MapPlace } from "./Map";
 const MARSA_ALAM_PLACES: MapPlace[] = [
   {
     name: "Marsa Alam",
-    image: "/trips/egypt-marsa-alam/thumbnail/003.jpg",
+    image: "/trips/egypt-marsa-alam/003.jpg",
     position: {
       lat: 25.0719,
       lng: 34.8931,
@@ -11,7 +11,7 @@ const MARSA_ALAM_PLACES: MapPlace[] = [
   },
   {
     name: "Luxor",
-    image: "/trips/egypt-marsa-alam/thumbnail/008.jpg",
+    image: "/trips/egypt-marsa-alam/008.jpg",
     position: {
       lat: 25.6872,
       lng: 32.6396,
@@ -19,7 +19,7 @@ const MARSA_ALAM_PLACES: MapPlace[] = [
   },
   {
     name: "Świątynia Hatszepsut",
-    image: "/trips/egypt-marsa-alam/thumbnail/014.jpg",
+    image: "/trips/egypt-marsa-alam/014.jpg",
     position: {
       lat: 25.7382,
       lng: 32.6064,
@@ -27,7 +27,7 @@ const MARSA_ALAM_PLACES: MapPlace[] = [
   },
   {
     name: "Dolina Królów",
-    image: "/trips/egypt-marsa-alam/thumbnail/015.jpg",
+    image: "/trips/egypt-marsa-alam/015.jpg",
     position: {
       lat: 25.7402,
       lng: 32.6014,
@@ -35,7 +35,7 @@ const MARSA_ALAM_PLACES: MapPlace[] = [
   },
   {
     name: "Świątynia Luksorska",
-    image: "/trips/egypt-marsa-alam/thumbnail/010.jpg",
+    image: "/trips/egypt-marsa-alam/010.jpg",
     position: {
       lat: 25.6995,
       lng: 32.6396,
@@ -43,7 +43,7 @@ const MARSA_ALAM_PLACES: MapPlace[] = [
   },
   {
     name: "Dream Lagoon",
-    image: "/trips/egypt-marsa-alam/thumbnail/002.jpg",
+    image: "/trips/egypt-marsa-alam/002.jpg",
     position: {
       lat: 24.9736,
       lng: 34.9417,

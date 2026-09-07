@@ -3,7 +3,7 @@ import Map, { type MapPlace } from "./Map";
 const KUALA_LUMPUR_PLACES: MapPlace[] = [
   {
     name: "Kuala Lumpur",
-    image: "/trips/malaysia-kuala-lumpur/thumbnail/001.jpg",
+    image: "/trips/malaysia-kuala-lumpur/001.jpg",
     position: {
       lat: 3.139,
       lng: 101.6869,
@@ -11,7 +11,7 @@ const KUALA_LUMPUR_PLACES: MapPlace[] = [
   },
   {
     name: "Petronas Towers",
-    image: "/trips/malaysia-kuala-lumpur/thumbnail/002.jpg",
+    image: "/trips/malaysia-kuala-lumpur/002.jpg",
     position: {
       lat: 3.1579,
       lng: 101.7116,
@@ -19,7 +19,7 @@ const KUALA_LUMPUR_PLACES: MapPlace[] = [
   },
   {
     name: "KLCC Park",
-    image: "/trips/malaysia-kuala-lumpur/thumbnail/003.jpg",
+    image: "/trips/malaysia-kuala-lumpur/003.jpg",
     position: {
       lat: 3.1556,
       lng: 101.7123,
@@ -27,7 +27,7 @@ const KUALA_LUMPUR_PLACES: MapPlace[] = [
   },
   {
     name: "Świątynia Thean Hou",
-    image: "/trips/malaysia-kuala-lumpur/thumbnail/005.jpg",
+    image: "/trips/malaysia-kuala-lumpur/005.jpg",
     position: {
       lat: 3.1248,
       lng: 101.6869,
@@ -35,7 +35,7 @@ const KUALA_LUMPUR_PLACES: MapPlace[] = [
   },
   {
     name: "Lord Murugan Statue",
-    image: "/trips/malaysia-kuala-lumpur/thumbnail/006.jpg",
+    image: "/trips/malaysia-kuala-lumpur/006.jpg",
     position: {
       lat: 3.2379,
       lng: 101.684,
@@ -43,7 +43,7 @@ const KUALA_LUMPUR_PLACES: MapPlace[] = [
   },
   {
     name: "Batu Caves",
-    image: "/trips/malaysia-kuala-lumpur/thumbnail/007.jpg",
+    image: "/trips/malaysia-kuala-lumpur/007.jpg",
     position: {
       lat: 3.2379,
       lng: 101.6847,
@@ -58,11 +58,7 @@ const KUALA_LUMPUR_CENTER = {
 
 function KualaLumpurMap() {
   return (
-    <Map
-      center={KUALA_LUMPUR_CENTER}
-      zoom={11}
-      places={KUALA_LUMPUR_PLACES}
-    />
+    <Map center={KUALA_LUMPUR_CENTER} zoom={11} places={KUALA_LUMPUR_PLACES} />
   );
 }
 

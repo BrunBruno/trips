@@ -1,0 +1,110 @@
+from pathlib import Path
+from PIL import Image, ImageOps
+import sys
+
+MAX_SIZE = (800, 800)
+
+EXTENSIONS = {
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".webp",
+    ".heic",
+}
+
+BASE_DIR = Path(__file__).parent
+TEMP_FOLDER = BASE_DIR / "public" / "temp"
+
+try:
+    from pillow_heif import register_heif_opener
+    register_heif_opener()
+except ImportError:
+    pass
+
+if len(sys.argv) != 2:
+    print("Użycie: python photos.py <nazwa_folderu>")
+    sys.exit(1)
+
+folder_name = sys.argv[1]
+TARGET_FOLDER = BASE_DIR / "public" / folder_name
+
+TARGET_FOLDER.mkdir(parents=True, exist_ok=True)
+
+if not TEMP_FOLDER.exists() or not TEMP_FOLDER.is_dir():
+    print(f"Nie znaleziono folderu: {TEMP_FOLDER}")
+    sys.exit(1)
+
+files = sorted(
+    file
+    for file in TEMP_FOLDER.iterdir()
+    if file.is_file()
+    and file.suffix.lower() in EXTENSIONS
+)
+
+if not files:
+    print("Folder temp nie zawiera żadnych zdjęć.")
+    sys.exit(0)
+
+existing_numbers = []
+
+for file in TARGET_FOLDER.iterdir():
+    if file.is_file() and file.stem.isdigit():
+        existing_numbers.append(int(file.stem))
+
+next_number = max(existing_numbers, default=0) + 1
+
+processed = 0
+
+for file in files:
+    number = next_number + processed
+    output = TARGET_FOLDER / f"{number:03d}.jpg"
+
+    try:
+        with Image.open(file) as image:
+            image = ImageOps.exif_transpose(image)
+
+            image.thumbnail(
+                MAX_SIZE,
+                Image.Resampling.LANCZOS
+            )
+
+            if image.mode in ("RGBA", "LA", "P"):
+                if image.mode == "P":
+                    image = image.convert("RGBA")
+
+                background = Image.new(
+                    "RGB",
+                    image.size,
+                    "white"
+                )
+
+                background.paste(
+                    image,
+                    mask=image.getchannel("A")
+                )
+
+                image = background
+            else:
+                image = image.convert("RGB")
+
+            image.save(
+                output,
+                "JPEG",
+                quality=75,
+                optimize=True
+            )
+
+        file.unlink()
+
+        print(f"{file.name} -> {output.name}")
+
+        processed += 1
+
+    except Exception as error:
+        print(f"BŁĄD: {file.name}")
+        print(f"       {error}")
+
+print()
+print(f"Folder: {folder_name}")
+print(f"Przetworzono: {processed} zdjęć.")
+print(f"Rozmiar maksymalny: {MAX_SIZE[0]}x{MAX_SIZE[1]} px")

@@ -5,7 +5,7 @@ import {
   InfoWindow,
 } from "@vis.gl/react-google-maps";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export type MapPlace = {
   name: string;
@@ -22,19 +22,41 @@ type MapProps = {
     lng: number;
   };
   zoom: number;
+  zoomPortrait?: number;
   places: MapPlace[];
 };
 
 const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
-function Map({ center, zoom, places }: MapProps) {
+function Map({ center, zoom, zoomPortrait, places }: MapProps) {
   const [selectedPlace, setSelectedPlace] = useState<MapPlace | null>(null);
+
+  const [isPortrait, setIsPortrait] = useState(
+    () => window.matchMedia("(orientation: portrait)").matches,
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(orientation: portrait)");
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      setIsPortrait(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
+
+  const currentZoom =
+    isPortrait && zoomPortrait !== undefined ? zoomPortrait : zoom;
 
   return (
     <APIProvider apiKey={API_KEY}>
       <GoogleMap
         defaultCenter={center}
-        defaultZoom={zoom}
+        defaultZoom={currentZoom}
         gestureHandling="none"
         disableDefaultUI={false}
         className="world-map"

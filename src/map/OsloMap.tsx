@@ -3,7 +3,7 @@ import Map, { type MapPlace } from "./Map";
 const OSLO_PLACES: MapPlace[] = [
   {
     name: "Oslo",
-    image: "/trips/norway-oslo/thumbnail/001.jpg",
+    image: "/trips/norway-oslo/001.jpg",
     position: {
       lat: 59.9139,
       lng: 10.7522,
@@ -11,7 +11,7 @@ const OSLO_PLACES: MapPlace[] = [
   },
   {
     name: "Holmenkollbakken",
-    image: "/trips/norway-oslo/thumbnail/011.jpg",
+    image: "/trips/norway-oslo/011.jpg",
     position: {
       lat: 59.9633,
       lng: 10.6678,
@@ -19,7 +19,7 @@ const OSLO_PLACES: MapPlace[] = [
   },
   {
     name: "Hovedøya",
-    image: "/trips/norway-oslo/thumbnail/004.jpg",
+    image: "/trips/norway-oslo/004.jpg",
     position: {
       lat: 59.8948,
       lng: 10.7337,
@@ -27,7 +27,7 @@ const OSLO_PLACES: MapPlace[] = [
   },
   {
     name: "Oslo Opera House",
-    image: "/trips/norway-oslo/thumbnail/010.jpg",
+    image: "/trips/norway-oslo/010.jpg",
     position: {
       lat: 59.9075,
       lng: 10.7531,
@@ -35,7 +35,7 @@ const OSLO_PLACES: MapPlace[] = [
   },
   {
     name: "The Royal Palace",
-    image: "/trips/norway-oslo/thumbnail/020.jpg",
+    image: "/trips/norway-oslo/020.jpg",
     position: {
       lat: 59.9169,
       lng: 10.7276,
@@ -43,7 +43,7 @@ const OSLO_PLACES: MapPlace[] = [
   },
   {
     name: "Vigeland Park",
-    image: "/trips/norway-oslo/thumbnail/007.jpg",
+    image: "/trips/norway-oslo/007.jpg",
     position: {
       lat: 59.927,
       lng: 10.7005,
