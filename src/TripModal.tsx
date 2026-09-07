@@ -67,61 +67,6 @@ function TripModal({ trip, imgCount }: TripModalProps) {
 
   const galleryRef = useRef<HTMLElement>(null);
 
-  // useEffect(() => {
-  //   const modal = document.querySelector<HTMLElement>(".trip-modal");
-
-  //   if (!modal) return;
-
-  //   const sections = Array.from(
-  //     modal.querySelectorAll<HTMLElement>(
-  //       ".trip-modal-header, .trip-cover, .trip-map, .trip-gallery",
-  //     ),
-  //   );
-
-  //   let currentIndex = 0;
-  //   let locked = false;
-
-  //   const handleWheel = (e: WheelEvent) => {
-  //     e.preventDefault();
-
-  //     if (locked) return;
-
-  //     const delta = e.deltaY;
-
-  //     if (Math.abs(delta) < 1) return;
-
-  //     const direction = delta > 0 ? 1 : -1;
-
-  //     const nextIndex = Math.max(
-  //       0,
-  //       Math.min(currentIndex + direction, sections.length - 1),
-  //     );
-
-  //     if (nextIndex === currentIndex) return;
-
-  //     currentIndex = nextIndex;
-  //     locked = true;
-
-  //     sections[currentIndex].scrollIntoView({
-  //       // behavior: "smooth",
-  //       block: "start",
-  //     });
-
-  //     // Prevent one wheel gesture from triggering multiple sections
-  //     window.setTimeout(() => {
-  //       locked = false;
-  //     }, 900);
-  //   };
-
-  //   modal.addEventListener("wheel", handleWheel, {
-  //     passive: false,
-  //   });
-
-  //   return () => {
-  //     modal.removeEventListener("wheel", handleWheel);
-  //   };
-  // }, []);
-
   useEffect(() => {
     const photos = Array.from(
       { length: imgCount },
@@ -263,10 +208,10 @@ function TripModal({ trip, imgCount }: TripModalProps) {
         <div className="photo-stack">
           {coverImages.map((image, index) => (
             <img
+              onClick={() => alert(index + 1)}
               key={image + index}
               src={image}
               className={`stack-photo stack-photo-${index}`}
-              alt=""
               style={{ zIndex: 12 - index }}
               onLoad={(e) => {
                 const img = e.currentTarget;

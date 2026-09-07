@@ -24,7 +24,7 @@ files = sorted(
 
 temp_files = []
 
-for i, file in enumerate(files, start=13):
+for i, file in enumerate(files, start=1):
     temp_file = folder / f"__temp_{i:03d}{file.suffix.lower()}"
     file.rename(temp_file)
     temp_files.append((temp_file, folder / f"{i:03d}{file.suffix.lower()}"))

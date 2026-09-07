@@ -128,10 +128,6 @@ body {
 }
 
 @media (max-width: 800px) {
-  .world {
-    padding: 1rem 2rem;
-  }
-
   .country-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }

@@ -40,6 +40,7 @@ import {
 import SriLankaMap from "./map/SriLankaMap";
 import EuropeanUnion from "./svg/eeu";
 import type { ComponentType } from "react";
+import SousseMap from "./map/SousseMap";
 
 type CountryRecord = {
   name: string;
@@ -55,8 +56,11 @@ const countries: CountryRecord[] = [
   {
     name: "Sousse",
     year: 2008,
+    month: 6,
     flag: Tunisia,
     folder: "tunisia-sousse",
+    imgCount: 18,
+    map: SousseMap,
   },
   {
     name: "Alanya",

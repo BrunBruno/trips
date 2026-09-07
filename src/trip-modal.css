@@ -60,6 +60,10 @@
   height: 460px;
 }
 
+.cover-photo:active {
+  z-index: 100 !important;
+}
+
 /* Wszystkie zdjęcia */
 
 .stack-photo {
@@ -98,10 +102,6 @@
   width: 280px;
   height: 280px;
 }
-
-/* .stack-photo:hover {
-  z-index: 100 !important;
-} */
 
 /* Rozrzucenie zdjęć */
 
@@ -197,7 +197,7 @@
   }
 
   .trip-cover.scattered .stack-photo-10 {
-    transform: translate(-50%, -50%) translate(-360px, -125px) rotate(12deg);
+    transform: translate(-50%, -50%) translate(-460px, -145px) rotate(12deg);
   }
 
   .trip-cover.scattered .stack-photo-11 {
@@ -266,7 +266,7 @@
 .map-container {
   position: relative;
   width: min(1200px, 100%);
-  height: 640px;
+  height: 90vh;
 
   display: flex;
   justify-content: center;
@@ -362,7 +362,6 @@
   }
 
   .map-container {
-    height: 700px;
     width: 100%;
     padding: 0.5rem;
     border-radius: 0.5rem;
