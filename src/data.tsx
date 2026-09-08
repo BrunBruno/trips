@@ -40,8 +40,6 @@ import {
 } from "./svg";
 
 import SriLankaMap from "./map/SriLankaMap";
-import EuropeanUnion from "./svg/eeu";
-import type { ComponentType } from "react";
 import SousseMap from "./map/SousseMap";
 import AlanyaMap from "./map/AlanyaMap";
 import HurghadaMap from "./map/HurghadaMap";
@@ -49,6 +47,18 @@ import LeptokariaMap from "./map/LeptokariaMap";
 import OrebicMap from "./map/OrebicMap";
 import GoldenSands18Map from "./map/GoldenSands18Map";
 import GoldenSands19Map from "./map/GoldenSands19Map";
+import PragueMap from "./map/PragueMap";
+import BerlinMap from "./map/BerlinMap";
+import ParisMap from "./map/ParisMap";
+import LloretDeMarMap from "./map/LloretDeMarMap";
+import CannesMap from "./map/CannesMap";
+import MilanMap from "./map/MilanMap";
+import BerninapassMap from "./map/BerninapassMap";
+import WienMap from "./map/WienMap";
+
+import EuropeanUnion from "./svg/eeu";
+
+import type { ComponentType } from "react";
 
 export type CountryRecord = {
   name: string;
@@ -63,7 +73,7 @@ export type CountryRecord = {
 const countries: CountryRecord[] = [
   {
     name: "Sousse",
-    country: "Tunisia",
+    country: "Tunezja",
     year: 2008,
     month: 6,
     flag: Tunisia,
@@ -72,7 +82,7 @@ const countries: CountryRecord[] = [
   },
   {
     name: "Alanya",
-    country: "Turkey",
+    country: "Turcja",
     year: 2010,
     flag: Turkey,
     folder: "turkey-alanya",
@@ -80,7 +90,7 @@ const countries: CountryRecord[] = [
   },
   {
     name: "Hurghada",
-    country: "Egypt",
+    country: "Egipt",
     year: 2012,
     flag: Egypt,
     folder: "egypt-hurghada",
@@ -88,7 +98,7 @@ const countries: CountryRecord[] = [
   },
   {
     name: "Leptokaria",
-    country: "Greece",
+    country: "Grecja",
     year: 2014,
     flag: Greece,
     folder: "greece-leptokaria",
@@ -96,7 +106,7 @@ const countries: CountryRecord[] = [
   },
   {
     name: "Orebić",
-    country: "Croatia",
+    country: "Chorwacja",
     year: 2017,
     flag: Croatia,
     folder: "croatia-orebic",
@@ -104,7 +114,7 @@ const countries: CountryRecord[] = [
   },
   {
     name: "Złote Piaski",
-    country: "Bulgaria",
+    country: "Bułgaria",
     year: 2018,
     flag: Bulgaria,
     folder: "bulgaria-zlote-piaski-18",
@@ -112,7 +122,7 @@ const countries: CountryRecord[] = [
   },
   {
     name: "Złote Piaski",
-    country: "Bulgaria",
+    country: "Bułgaria",
     year: 2019,
     flag: Bulgaria,
     folder: "bulgaria-zlote-piaski-19",
@@ -120,7 +130,7 @@ const countries: CountryRecord[] = [
   },
   {
     name: "Kreta",
-    country: "Greece",
+    country: "Grecja",
     year: 2021,
     flag: Greece,
     folder: "greece-crete",
@@ -128,7 +138,7 @@ const countries: CountryRecord[] = [
   },
   {
     name: "EuroTrip",
-    country: "Europe",
+    country: "Europa",
     year: 2022,
     flag: EuropeanUnion,
     folder: "european-union-eurotrip",
@@ -140,59 +150,67 @@ const countries: CountryRecord[] = [
     year: 2022,
     flag: Austria,
     folder: "austria-wieden",
+    map: WienMap,
   },
   {
-    name: "Berninapass",
-    country: "Switzerland",
+    name: "Przełęcz Bernina",
+    country: "Szwajcaria",
     year: 2022,
     flag: Switzerland,
     folder: "switzerland-berninapass",
+    map: BerninapassMap,
   },
   {
     name: "Mediolan",
-    country: "Italy",
+    country: "Włochy",
     year: 2022,
     flag: Italy,
     folder: "italy-milan",
+    map: MilanMap,
   },
   {
     name: "Cannes",
-    country: "France",
+    country: "Francja",
     year: 2022,
     flag: France,
     folder: "france-cannes",
+    map: CannesMap,
   },
   {
     name: "Lloret de Mar",
-    country: "Spain",
+    country: "Hiszpania",
     year: 2022,
     flag: Spain,
     folder: "spain-lloret-de-mar",
+    map: LloretDeMarMap,
   },
   {
     name: "Paryż",
-    country: "France",
+    country: "Francja",
     year: 2022,
     flag: France,
     folder: "france-paris",
+    map: ParisMap,
   },
   {
     name: "Berlin",
-    country: "Germany",
+    country: "Niemcy",
     year: 2022,
     flag: Germany,
     folder: "germany-berlin",
+    map: BerlinMap,
   },
   {
     name: "Praga",
-    country: "Czechia",
+    country: "Czechy",
     year: 2022,
     flag: Czechia,
     folder: "czechia-prague",
+    map: PragueMap,
   },
   {
     name: "Cypr",
-    country: "Cyprus",
+    country: "Cypr",
     year: 2023,
     flag: Cyprus,
     folder: "cyprus",
@@ -200,7 +218,7 @@ const countries: CountryRecord[] = [
   },
   {
     name: "Madera",
-    country: "Portugal",
+    country: "Portugalia",
     year: 2023,
     flag: Madeira,
     folder: "madeira",
@@ -208,15 +226,15 @@ const countries: CountryRecord[] = [
   },
   {
     name: "Sycylia",
-    country: "Italy",
-    year: 2023,
+    country: "Włochy",
+    year: 2024,
     flag: Sicily,
     folder: "sicily",
     map: SicilyMap,
   },
   {
     name: "Oslo",
-    country: "Norway",
+    country: "Norwegia",
     year: 2023,
     month: 8,
     flag: Norway,
@@ -225,7 +243,7 @@ const countries: CountryRecord[] = [
   },
   {
     name: "Dubaj",
-    country: "United Arab Emirates",
+    country: "Zjednoczone Emiraty Arabskie",
     year: 2024,
     flag: UAE,
     folder: "uae-dubai",
@@ -241,7 +259,7 @@ const countries: CountryRecord[] = [
   },
   {
     name: "Marsa Alam",
-    country: "Egypt",
+    country: "Egipt",
     year: 2025,
     month: 3,
     flag: Egypt,
@@ -250,7 +268,7 @@ const countries: CountryRecord[] = [
   },
   {
     name: "Doha",
-    country: "Qatar",
+    country: "Katar",
     year: 2025,
     month: 10,
     flag: Qatar,
@@ -259,7 +277,7 @@ const countries: CountryRecord[] = [
   },
   {
     name: "Kuala Lumpur",
-    country: "Malaysia",
+    country: "Malezja",
     year: 2025,
     month: 10,
     flag: Malaysia,
@@ -268,7 +286,7 @@ const countries: CountryRecord[] = [
   },
   {
     name: "Bali",
-    country: "Indonesia",
+    country: "Indonezja",
     year: 2025,
     month: 9,
     flag: Indonesia,
@@ -277,7 +295,7 @@ const countries: CountryRecord[] = [
   },
   {
     name: "Split",
-    country: "Croatia",
+    country: "Chorwacja",
     year: 2026,
     month: 7,
     flag: Croatia,
@@ -286,7 +304,7 @@ const countries: CountryRecord[] = [
   },
   {
     name: "Cieszyn",
-    country: "Czechia",
+    country: "Czechy",
     year: 2026,
     flag: Czechia,
     folder: "czechia-cieszyn",
