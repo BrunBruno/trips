@@ -1,18 +1,4 @@
-import {
-  BaliMap,
-  CieszynMap,
-  CreteMap,
-  CyprusMap,
-  DohaMap,
-  DubajMap,
-  EuropeanUnionMap,
-  KualaLumpurMap,
-  MadeiraMap,
-  MarsaAlamMap,
-  OsloMap,
-  SicilyMap,
-  SplitMap,
-} from "./map";
+import type { ComponentType } from "react";
 
 import {
   Tunisia,
@@ -55,10 +41,17 @@ import CannesMap from "./map/CannesMap";
 import MilanMap from "./map/MilanMap";
 import BerninapassMap from "./map/BerninapassMap";
 import WienMap from "./map/WienMap";
-
-import EuropeanUnion from "./svg/eeu";
-
-import type { ComponentType } from "react";
+import MadeiraMap from "./map/MadeiraMap";
+import BaliMap from "./map/BaliMap";
+import CreteMap from "./map/CreteMap";
+import CyprusMap from "./map/CyprusMap";
+import DohaMap from "./map/DohaMap";
+import DubajMap from "./map/DubajMap";
+import KualaLumpurMap from "./map/KualaLumpurMap";
+import MarsaAlamMap from "./map/MarsaAlamMap";
+import OsloMap from "./map/OsloMap";
+import SicilyMap from "./map/SicilyMap";
+import SplitMap from "./map/SplitMap";
 
 export type CountryRecord = {
   name: string;
@@ -136,14 +129,14 @@ const countries: CountryRecord[] = [
     folder: "greece-crete",
     map: CreteMap,
   },
-  {
-    name: "EuroTrip",
-    country: "Europa",
-    year: 2022,
-    flag: EuropeanUnion,
-    folder: "european-union-eurotrip",
-    map: EuropeanUnionMap,
-  },
+  // {
+  //   name: "EuroTrip",
+  //   country: "Europa",
+  //   year: 2022,
+  //   flag: EuropeanUnion,
+  //   folder: "european-union-eurotrip",
+  //   map: EuropeanUnionMap,
+  // },
   {
     name: "Wiedeń",
     country: "Austria",
@@ -294,6 +287,15 @@ const countries: CountryRecord[] = [
     map: BaliMap,
   },
   {
+    name: "Nusa Penida",
+    country: "Indonezja",
+    year: 2025,
+    month: 9,
+    flag: Indonesia,
+    folder: "indonesia-nusa-penida",
+    map: BaliMap,
+  },
+  {
     name: "Split",
     country: "Chorwacja",
     year: 2026,
@@ -302,14 +304,14 @@ const countries: CountryRecord[] = [
     folder: "croatia-split",
     map: SplitMap,
   },
-  {
-    name: "Cieszyn",
-    country: "Czechy",
-    year: 2026,
-    flag: Czechia,
-    folder: "czechia-cieszyn",
-    map: CieszynMap,
-  },
+  // {
+  //   name: "Cieszyn",
+  //   country: "Czechy",
+  //   year: 2026,
+  //   flag: Czechia,
+  //   folder: "czechia-cieszyn",
+  //   map: CieszynMap,
+  // },
 ];
 
 export default countries;

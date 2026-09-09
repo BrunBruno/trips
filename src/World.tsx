@@ -28,7 +28,7 @@ function World() {
                 <div
                   className="country-card-bg"
                   style={{
-                    backgroundImage: `url(/trips/${country.folder}/cover.jpg)`,
+                    backgroundImage: `url(/trips/${country.folder}/thumbnail.jpg)`,
                   }}
                 />
 
