@@ -2,7 +2,7 @@ from pathlib import Path
 from PIL import Image, ImageOps
 import sys
 
-MAX_SIZE = (1200, 1200)
+MAX_SIZE = (2000, 2000)
 
 EXTENSIONS = {
     ".jpg",

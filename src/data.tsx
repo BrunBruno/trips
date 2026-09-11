@@ -61,6 +61,7 @@ export type CountryRecord = {
   month?: number;
   flag: ComponentType;
   map?: ComponentType;
+  imgCount?: number;
 };
 
 const countries: CountryRecord[] = [
@@ -303,6 +304,7 @@ const countries: CountryRecord[] = [
     flag: Croatia,
     folder: "croatia-split",
     map: SplitMap,
+    imgCount: 48,
   },
   // {
   //   name: "Cieszyn",

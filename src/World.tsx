@@ -13,7 +13,10 @@ function World() {
   return (
     <main className="world">
       {selectedCountry ? (
-        <TripModal trip={selectedCountry} />
+        <TripModal
+          trip={selectedCountry}
+          imgDataCount={selectedCountry.imgCount}
+        />
       ) : (
         <section className="country-grid">
           {countriesYearOrder.map((country, index) => {

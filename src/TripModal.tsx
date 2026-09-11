@@ -4,11 +4,12 @@ import type { CountryRecord } from "./data";
 
 type TripModalProps = {
   trip: CountryRecord;
+  imgDataCount?: number;
 };
 
-const imageCount = 24;
+const defSize = 24;
 
-function TripModal({ trip }: TripModalProps) {
+function TripModal({ trip, imgDataCount }: TripModalProps) {
   const [scattered, setScattered] = useState(false);
   const [images, setImages] = useState<string[]>([]);
   const [selected, setSelected] = useState<number>(0);
@@ -16,6 +17,9 @@ function TripModal({ trip }: TripModalProps) {
   const [selectionOrder, setSelectionOrder] = useState<Record<number, number>>(
     {},
   );
+
+  const imageCount = imgDataCount ? imgDataCount : defSize;
+  const windowCount = imageCount / defSize;
 
   const [randomStyles] = useState(() =>
     Array.from({ length: imageCount }, () => ({
@@ -95,30 +99,6 @@ function TripModal({ trip }: TripModalProps) {
     };
   };
 
-  // const getImgStyle = (index: number) => {
-  //   const imageId = index + 1;
-  //   const sel = selected === imageId;
-
-  //   const xInd = sel ? -100 * (index % 6) + 250 : 50;
-  //   const yInd = sel ? -100 * Math.floor(index / 6) + 150 : 50;
-
-  //   const translate = sel ? "0,0" : "-50%,-50%";
-  //   const rotate = sel ? 0 : randomStyles[index].rotate;
-  //   const zIndex = sel
-  //     ? 1000
-  //     : (selectionOrder[imageId] ?? randomStyles[index].zIndex);
-  //   const scale = sel ? 2 : 1;
-  //   const brightness = !selected ? 100 : sel ? 100 : 50;
-
-  //   return {
-  //     left: `${xInd}%`,
-  //     top: `${yInd}%`,
-  //     zIndex,
-  //     filter: `brightness(${brightness}%)`,
-  //     transform: `translate(${translate}) rotate(${rotate}deg) scale(${scale})`,
-  //   };
-  // };
-
   const coverImages = images.slice(0, imageCount);
   const Map = trip.map;
 
@@ -126,12 +106,6 @@ function TripModal({ trip }: TripModalProps) {
     <div className="trip-modal">
       <header className="trip-modal-header">
         <picture className="header-cover">
-          {/* <source
-            media="(orientation: portrait)"
-            srcSet={`/trips/${trip.folder}/cover-p.jpg`}
-          /> */}
-
-          {/* <img src={`/trips/${trip.folder}/cover-l.jpg`} alt="" /> */}
           <img src={`/trips/${trip.folder}/cover.jpg`} alt="" />
         </picture>
 
@@ -145,7 +119,10 @@ function TripModal({ trip }: TripModalProps) {
         </span>
       </header>
 
-      <section className={`trip-cover ${scattered ? "scattered" : ""}`}>
+      <section
+        className={`trip-cover ${scattered ? "scattered" : ""}`}
+        style={{ height: `${windowCount * 128}dvh` }}
+      >
         <div className="photo-stack">
           {coverImages.map((image, index) => (
             <div key={image + index} className="stack-element">
@@ -195,7 +172,6 @@ function TripModal({ trip }: TripModalProps) {
           ))}
         </div>
       </section>
-
       {Map && (
         <section className="trip-map">
           <div className="map-container">
