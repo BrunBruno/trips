@@ -29,8 +29,10 @@ const CYPRUS_CENTER = {
   lng: 33.0242,
 };
 
-function CyprusMap() {
-  return <Map center={CYPRUS_CENTER} zoom={9} places={CYPRUS_PLACES} />;
+function CyprusMap(path: string) {
+  return (
+    <Map path={path} center={CYPRUS_CENTER} zoom={9} places={CYPRUS_PLACES} />
+  );
 }
 
 export default CyprusMap;

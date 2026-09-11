@@ -48,14 +48,9 @@ const SPLIT_CENTER = {
   lng: 16.35,
 };
 
-function SplitMap() {
+function SplitMap(path: string) {
   return (
-    <Map
-      center={SPLIT_CENTER}
-      zoom={11}
-      places={SPLIT_PLACES}
-      path={"/trips/croatia-split/"}
-    />
+    <Map path={path} center={SPLIT_CENTER} zoom={11} places={SPLIT_PLACES} />
   );
 }
 

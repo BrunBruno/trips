@@ -24,9 +24,10 @@ const MILAN_CENTER = {
   lng: 9.216,
 };
 
-function MilanMap() {
+function MilanMap(path: string) {
   return (
     <Map
+      path={path}
       center={MILAN_CENTER}
       zoom={9}
       zoomPortrait={8}

@@ -16,9 +16,10 @@ const PRAGUE_CENTER = {
   lng: 14.39896,
 };
 
-function PragueMap() {
+function PragueMap(path: string) {
   return (
     <Map
+      path={path}
       center={PRAGUE_CENTER}
       zoom={14}
       zoomPortrait={12}

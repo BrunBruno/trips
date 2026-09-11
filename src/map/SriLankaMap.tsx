@@ -57,8 +57,15 @@ const SRI_LANKA_CENTER = {
   lng: 80.4851,
 };
 
-function SriLankaMap() {
-  return <Map center={SRI_LANKA_CENTER} zoom={8} places={SRI_LANKA_PLACES} />;
+function SriLankaMap(path: string) {
+  return (
+    <Map
+      path={path}
+      center={SRI_LANKA_CENTER}
+      zoom={8}
+      places={SRI_LANKA_PLACES}
+    />
+  );
 }
 
 export default SriLankaMap;

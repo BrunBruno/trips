@@ -16,9 +16,10 @@ const CANNES_CENTER = {
   lng: 6.99044,
 };
 
-function CannesMap() {
+function CannesMap(path: string) {
   return (
     <Map
+      path={path}
       center={CANNES_CENTER}
       zoom={13}
       zoomPortrait={11}

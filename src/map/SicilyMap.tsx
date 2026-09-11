@@ -22,8 +22,10 @@ const SICILY_CENTER = {
   lng: 15.1847,
 };
 
-function SicilyMap() {
-  return <Map center={SICILY_CENTER} zoom={10} places={SICILY_PLACES} />;
+function SicilyMap(path: string) {
+  return (
+    <Map path={path} center={SICILY_CENTER} zoom={10} places={SICILY_PLACES} />
+  );
 }
 
 export default SicilyMap;

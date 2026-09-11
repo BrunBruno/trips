@@ -16,9 +16,10 @@ const WIEN_CENTER = {
   lng: 16.33271,
 };
 
-function WienMap() {
+function WienMap(path: string) {
   return (
     <Map
+      path={path}
       center={WIEN_CENTER}
       zoom={13}
       zoomPortrait={11}

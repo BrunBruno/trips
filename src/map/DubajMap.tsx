@@ -15,8 +15,10 @@ const DUBAJ_CENTER = {
   lng: 55.2708,
 };
 
-function DubajMap() {
-  return <Map center={DUBAJ_CENTER} zoom={11} places={DUBAJ_PLACES} />;
+function DubajMap(path: string) {
+  return (
+    <Map path={path} center={DUBAJ_CENTER} zoom={11} places={DUBAJ_PLACES} />
+  );
 }
 
 export default DubajMap;

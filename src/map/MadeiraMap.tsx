@@ -50,8 +50,15 @@ const MADEIRA_CENTER = {
   lng: -17.0221,
 };
 
-function MadeiraMap() {
-  return <Map center={MADEIRA_CENTER} zoom={10} places={MADEIRA_PLACES} />;
+function MadeiraMap(path: string) {
+  return (
+    <Map
+      path={path}
+      center={MADEIRA_CENTER}
+      zoom={10}
+      places={MADEIRA_PLACES}
+    />
+  );
 }
 
 export default MadeiraMap;

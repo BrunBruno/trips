@@ -56,9 +56,14 @@ const KUALA_LUMPUR_CENTER = {
   lng: 101.6869,
 };
 
-function KualaLumpurMap() {
+function KualaLumpurMap(path: string) {
   return (
-    <Map center={KUALA_LUMPUR_CENTER} zoom={11} places={KUALA_LUMPUR_PLACES} />
+    <Map
+      path={path}
+      center={KUALA_LUMPUR_CENTER}
+      zoom={11}
+      places={KUALA_LUMPUR_PLACES}
+    />
   );
 }
 

@@ -16,9 +16,10 @@ const OREBIC_CENTER = {
   lng: 17.1748,
 };
 
-function OrebicMap() {
+function OrebicMap(path: string) {
   return (
     <Map
+      path={path}
       center={OREBIC_CENTER}
       zoom={14}
       zoomPortrait={12}

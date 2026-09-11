@@ -16,9 +16,10 @@ const GOLDEN_SANDS_19_CENTER = {
   lng: 28.0417,
 };
 
-function GoldenSands19Map() {
+function GoldenSands19Map(path: string) {
   return (
     <Map
+      path={path}
       center={GOLDEN_SANDS_19_CENTER}
       zoom={14}
       zoomPortrait={12}

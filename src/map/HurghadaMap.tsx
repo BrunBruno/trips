@@ -16,9 +16,10 @@ const HURGHADA_CENTER = {
   lng: 33.8358,
 };
 
-function HurghadaMap() {
+function HurghadaMap(path: string) {
   return (
     <Map
+      path={path}
       center={HURGHADA_CENTER}
       zoom={14}
       zoomPortrait={12}

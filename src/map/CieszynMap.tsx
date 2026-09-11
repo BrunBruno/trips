@@ -18,15 +18,16 @@ const CIESZYN_PLACES: MapPlace[] = [
 ];
 
 const CIESZYN_CENTER = {
-  lat: 49.7460,
-  lng: 18.6250,
+  lat: 49.746,
+  lng: 18.625,
 };
 
-function CieszynMap() {
+function CieszynMap(path: string) {
   return (
     <Map
+      path={path}
       center={CIESZYN_CENTER}
-      zoom={14} 
+      zoom={14}
       places={CIESZYN_PLACES}
     />
   );

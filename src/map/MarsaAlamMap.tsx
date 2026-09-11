@@ -56,8 +56,15 @@ const MARSA_ALAM_CENTER = {
   lng: 33.7663,
 };
 
-function MarsaAlamMap() {
-  return <Map center={MARSA_ALAM_CENTER} zoom={8} places={MARSA_ALAM_PLACES} />;
+function MarsaAlamMap(path: string) {
+  return (
+    <Map
+      path={path}
+      center={MARSA_ALAM_CENTER}
+      zoom={8}
+      places={MARSA_ALAM_PLACES}
+    />
+  );
 }
 
 export default MarsaAlamMap;

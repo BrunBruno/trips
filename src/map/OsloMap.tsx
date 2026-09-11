@@ -56,8 +56,10 @@ const OSLO_CENTER = {
   lng: 10.7522,
 };
 
-function OsloMap() {
-  return <Map center={OSLO_CENTER} zoom={11} places={OSLO_PLACES} />;
+function OsloMap(path: string) {
+  return (
+    <Map path={path} center={OSLO_CENTER} zoom={11} places={OSLO_PLACES} />
+  );
 }
 
 export default OsloMap;

@@ -16,9 +16,10 @@ const BERLIN_CENTER = {
   lng: 13.3815,
 };
 
-function BerlinMap() {
+function BerlinMap(path: string) {
   return (
     <Map
+      path={path}
       center={BERLIN_CENTER}
       zoom={13}
       zoomPortrait={11}

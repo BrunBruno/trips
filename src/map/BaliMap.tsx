@@ -64,8 +64,8 @@ const BALI_PLACES: MapPlace[] = [
 ];
 const BALI_CENTER = { lat: -8.55, lng: 115.25 };
 
-function BaliMap() {
-  return <Map center={BALI_CENTER} zoom={9} places={BALI_PLACES} />;
+function BaliMap(path: string) {
+  return <Map path={path} center={BALI_CENTER} zoom={9} places={BALI_PLACES} />;
 }
 
 export default BaliMap;

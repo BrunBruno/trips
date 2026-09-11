@@ -16,9 +16,10 @@ const ALANYA_CENTER = {
   lng: 31.8178,
 };
 
-function AlanyaMap() {
+function AlanyaMap(path: string) {
   return (
     <Map
+      path={path}
       center={ALANYA_CENTER}
       zoom={14}
       zoomPortrait={12}

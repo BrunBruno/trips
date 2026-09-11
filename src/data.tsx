@@ -52,6 +52,7 @@ import MarsaAlamMap from "./map/MarsaAlamMap";
 import OsloMap from "./map/OsloMap";
 import SicilyMap from "./map/SicilyMap";
 import SplitMap from "./map/SplitMap";
+import type { JSX } from "react/jsx-dev-runtime";
 
 export type CountryRecord = {
   name: string;
@@ -60,7 +61,7 @@ export type CountryRecord = {
   year: number;
   month?: number;
   flag: ComponentType;
-  map?: ComponentType;
+  map?: JSX.Element;
   imgCount?: number;
 };
 
@@ -72,160 +73,180 @@ const countries: CountryRecord[] = [
     month: 6,
     flag: Tunisia,
     folder: "tunisia-sousse",
-    map: SousseMap,
+    map: SousseMap("tunisia-sousse"),
   },
+
   {
     name: "Alanya",
     country: "Turcja",
     year: 2010,
     flag: Turkey,
     folder: "turkey-alanya",
-    map: AlanyaMap,
+    map: AlanyaMap("turkey-alanya"),
   },
+
   {
     name: "Hurghada",
     country: "Egipt",
     year: 2012,
     flag: Egypt,
     folder: "egypt-hurghada",
-    map: HurghadaMap,
+    map: HurghadaMap("egypt-hurghada"),
   },
+
   {
     name: "Leptokaria",
     country: "Grecja",
     year: 2014,
     flag: Greece,
     folder: "greece-leptokaria",
-    map: LeptokariaMap,
+    map: LeptokariaMap("greece-leptokaria"),
   },
+
   {
     name: "Orebić",
     country: "Chorwacja",
     year: 2017,
     flag: Croatia,
     folder: "croatia-orebic",
-    map: OrebicMap,
+    map: OrebicMap("croatia-orebic"),
   },
+
   {
     name: "Złote Piaski",
     country: "Bułgaria",
     year: 2018,
     flag: Bulgaria,
     folder: "bulgaria-zlote-piaski-18",
-    map: GoldenSands18Map,
+    map: GoldenSands18Map("bulgaria-zlote-piaski-18"),
   },
+
   {
     name: "Złote Piaski",
     country: "Bułgaria",
     year: 2019,
     flag: Bulgaria,
     folder: "bulgaria-zlote-piaski-19",
-    map: GoldenSands19Map,
+    map: GoldenSands19Map("bulgaria-zlote-piaski-19"),
   },
+
   {
     name: "Kreta",
     country: "Grecja",
     year: 2021,
     flag: Greece,
     folder: "greece-crete",
-    map: CreteMap,
+    map: CreteMap("greece-crete"),
   },
+
   // {
   //   name: "EuroTrip",
   //   country: "Europa",
   //   year: 2022,
   //   flag: EuropeanUnion,
   //   folder: "european-union-eurotrip",
-  //   map: EuropeanUnionMap,
+  //   map: EuropeanUnionMap("european-union-eurotrip"),
   // },
+
   {
     name: "Wiedeń",
     country: "Austria",
     year: 2022,
     flag: Austria,
     folder: "austria-wieden",
-    map: WienMap,
+    map: WienMap("austria-wieden"),
   },
+
   {
     name: "Przełęcz Bernina",
     country: "Szwajcaria",
     year: 2022,
     flag: Switzerland,
     folder: "switzerland-berninapass",
-    map: BerninapassMap,
+    map: BerninapassMap("switzerland-berninapass"),
   },
+
   {
     name: "Mediolan",
     country: "Włochy",
     year: 2022,
     flag: Italy,
     folder: "italy-milan",
-    map: MilanMap,
+    map: MilanMap("italy-milan"),
   },
+
   {
     name: "Cannes",
     country: "Francja",
     year: 2022,
     flag: France,
     folder: "france-cannes",
-    map: CannesMap,
+    map: CannesMap("france-cannes"),
   },
+
   {
     name: "Lloret de Mar",
     country: "Hiszpania",
     year: 2022,
     flag: Spain,
     folder: "spain-lloret-de-mar",
-    map: LloretDeMarMap,
+    map: LloretDeMarMap("spain-lloret-de-mar"),
   },
+
   {
     name: "Paryż",
     country: "Francja",
     year: 2022,
     flag: France,
     folder: "france-paris",
-    map: ParisMap,
+    map: ParisMap("france-paris"),
   },
+
   {
     name: "Berlin",
     country: "Niemcy",
     year: 2022,
     flag: Germany,
     folder: "germany-berlin",
-    map: BerlinMap,
+    map: BerlinMap("germany-berlin"),
   },
+
   {
     name: "Praga",
     country: "Czechy",
     year: 2022,
     flag: Czechia,
     folder: "czechia-prague",
-    map: PragueMap,
+    map: PragueMap("czechia-prague"),
   },
+
   {
     name: "Cypr",
     country: "Cypr",
     year: 2023,
     flag: Cyprus,
     folder: "cyprus",
-    map: CyprusMap,
+    map: CyprusMap("cyprus"),
   },
+
   {
     name: "Madera",
     country: "Portugalia",
     year: 2023,
     flag: Madeira,
     folder: "madeira",
-    map: MadeiraMap,
+    map: MadeiraMap("madeira"),
   },
+
   {
     name: "Sycylia",
     country: "Włochy",
     year: 2024,
     flag: Sicily,
     folder: "sicily",
-    map: SicilyMap,
+    map: SicilyMap("sicily"),
   },
+
   {
     name: "Oslo",
     country: "Norwegia",
@@ -233,24 +254,27 @@ const countries: CountryRecord[] = [
     month: 8,
     flag: Norway,
     folder: "norway-oslo",
-    map: OsloMap,
+    map: OsloMap("norway-oslo"),
   },
+
   {
     name: "Dubaj",
     country: "Zjednoczone Emiraty Arabskie",
     year: 2024,
     flag: UAE,
     folder: "uae-dubai",
-    map: DubajMap,
+    map: DubajMap("uae-dubai"),
   },
+
   {
     name: "Sri Lanka",
     country: "Sri Lanka",
     year: 2024,
     flag: SriLanka,
     folder: "sri-lanka",
-    map: SriLankaMap,
+    map: SriLankaMap("sri-lanka"),
   },
+
   {
     name: "Marsa Alam",
     country: "Egipt",
@@ -258,8 +282,9 @@ const countries: CountryRecord[] = [
     month: 3,
     flag: Egypt,
     folder: "egypt-marsa-alam",
-    map: MarsaAlamMap,
+    map: MarsaAlamMap("egypt-marsa-alam"),
   },
+
   {
     name: "Doha",
     country: "Katar",
@@ -267,8 +292,9 @@ const countries: CountryRecord[] = [
     month: 10,
     flag: Qatar,
     folder: "qatar-doha",
-    map: DohaMap,
+    map: DohaMap("qatar-doha"),
   },
+
   {
     name: "Kuala Lumpur",
     country: "Malezja",
@@ -276,8 +302,9 @@ const countries: CountryRecord[] = [
     month: 10,
     flag: Malaysia,
     folder: "malaysia-kuala-lumpur",
-    map: KualaLumpurMap,
+    map: KualaLumpurMap("malaysia-kuala-lumpur"),
   },
+
   {
     name: "Bali",
     country: "Indonezja",
@@ -285,8 +312,9 @@ const countries: CountryRecord[] = [
     month: 9,
     flag: Indonesia,
     folder: "indonesia-bali",
-    map: BaliMap,
+    map: BaliMap("indonesia-bali"),
   },
+
   {
     name: "Nusa Penida",
     country: "Indonezja",
@@ -294,8 +322,9 @@ const countries: CountryRecord[] = [
     month: 9,
     flag: Indonesia,
     folder: "indonesia-nusa-penida",
-    map: BaliMap,
+    map: BaliMap("indonesia-nusa-penida"),
   },
+
   {
     name: "Split",
     country: "Chorwacja",
@@ -303,16 +332,17 @@ const countries: CountryRecord[] = [
     month: 7,
     flag: Croatia,
     folder: "croatia-split",
-    map: SplitMap,
+    map: SplitMap("croatia-split"),
     imgCount: 48,
   },
+
   // {
   //   name: "Cieszyn",
   //   country: "Czechy",
   //   year: 2026,
   //   flag: Czechia,
   //   folder: "czechia-cieszyn",
-  //   map: CieszynMap,
+  //   map: CieszynMap("czechia-cieszyn"),
   // },
 ];
 

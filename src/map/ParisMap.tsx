@@ -16,9 +16,10 @@ const PARIS_CENTER = {
   lng: 2.37878,
 };
 
-function ParisMap() {
+function ParisMap(path: string) {
   return (
     <Map
+      path={path}
       center={PARIS_CENTER}
       zoom={13}
       zoomPortrait={11}

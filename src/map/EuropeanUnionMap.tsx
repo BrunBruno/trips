@@ -168,9 +168,10 @@ const EUROPEAN_UNION_CENTER = {
   lng: 9.0,
 };
 
-function EuropeanUnionMap() {
+function EuropeanUnionMap(path: string) {
   return (
     <Map
+      path={path}
       center={EUROPEAN_UNION_CENTER}
       zoom={5}
       zoomPortrait={4}

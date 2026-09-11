@@ -40,8 +40,10 @@ const DOHA_CENTER = {
   lng: 51.531,
 };
 
-function DohaMap() {
-  return <Map center={DOHA_CENTER} zoom={11} places={DOHA_PLACES} />;
+function DohaMap(path: string) {
+  return (
+    <Map path={path} center={DOHA_CENTER} zoom={11} places={DOHA_PLACES} />
+  );
 }
 
 export default DohaMap;

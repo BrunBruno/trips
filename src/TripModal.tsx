@@ -100,7 +100,6 @@ function TripModal({ trip, imgDataCount }: TripModalProps) {
   };
 
   const coverImages = images.slice(0, imageCount);
-  const Map = trip.map;
 
   return (
     <div className="trip-modal">
@@ -174,9 +173,7 @@ function TripModal({ trip, imgDataCount }: TripModalProps) {
       </section>
       {Map && (
         <section className="trip-map">
-          <div className="map-container">
-            <Map />
-          </div>
+          <div className="map-container">{trip.map}</div>
         </section>
       )}
     </div>

@@ -16,9 +16,10 @@ const LEPTOKARIA_CENTER = {
   lng: 22.5657,
 };
 
-function LeptokariaMap() {
+function LeptokariaMap(path: string) {
   return (
     <Map
+      path={path}
       center={LEPTOKARIA_CENTER}
       zoom={14}
       zoomPortrait={12}

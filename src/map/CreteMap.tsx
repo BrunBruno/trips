@@ -36,8 +36,10 @@ const CRETE_CENTER = {
   lng: 24.8,
 };
 
-function CreteMap() {
-  return <Map center={CRETE_CENTER} zoom={8} places={CRETE_PLACES} />;
+function CreteMap(path: string) {
+  return (
+    <Map path={path} center={CRETE_CENTER} zoom={8} places={CRETE_PLACES} />
+  );
 }
 
 export default CreteMap;

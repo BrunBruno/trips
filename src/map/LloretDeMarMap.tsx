@@ -16,9 +16,10 @@ const LLORET_DE_MAR_CENTER = {
   lng: 2.8442,
 };
 
-function LloretDeMarMap() {
+function LloretDeMarMap(path: string) {
   return (
     <Map
+      path={path}
       center={LLORET_DE_MAR_CENTER}
       zoom={14}
       zoomPortrait={12}

@@ -16,9 +16,10 @@ const BERNINAPASS_CENTER = {
   lng: 10.01972,
 };
 
-function BerninapassMap() {
+function BerninapassMap(path: string) {
   return (
     <Map
+      path={path}
       center={BERNINAPASS_CENTER}
       zoom={11}
       zoomPortrait={9}

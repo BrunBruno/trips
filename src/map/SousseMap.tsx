@@ -32,9 +32,10 @@ const SOUSSE_CENTER = {
   lng: 10.704,
 };
 
-function SousseMap() {
+function SousseMap(path: string) {
   return (
     <Map
+      path={path}
       center={SOUSSE_CENTER}
       zoom={12}
       zoomPortrait={10}
