@@ -51,7 +51,7 @@ import KualaLumpurMap from "./map/KualaLumpurMap";
 import MarsaAlamMap from "./map/MarsaAlamMap";
 import OsloMap from "./map/OsloMap";
 import SicilyMap from "./map/SicilyMap";
-import SplitMap from "./map/SplitMap";
+import SplitMap from "./map/2026SplitMap";
 import type { JSX } from "react/jsx-dev-runtime";
 
 export type CountryRecord = {

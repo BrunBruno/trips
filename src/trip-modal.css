@@ -129,8 +129,9 @@
 
 @media (orientation: portrait) {
   .photo-stack {
-    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: repeat(3, 1fr); */
     /* grid-template-rows: repeat(8, 1fr); */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -157,7 +158,8 @@
   justify-content: center;
   transform-origin: center center;
   transition: all 0.35s ease;
-  /* pointer-events: none; */
+
+  width: 30vw;
 }
 
 .stack-photo {
@@ -175,8 +177,6 @@
 
   user-select: none;
   -webkit-user-drag: none;
-
-  width: 30vw;
 }
 
 .stack-photo.portrait {
@@ -232,10 +232,6 @@
     width: 42px;
     height: 42px;
     font-size: 27px;
-  }
-
-  .stack-photo {
-    scale: 0.5;
   }
 }
 

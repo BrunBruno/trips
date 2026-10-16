@@ -1,7 +1,7 @@
 import {
   APIProvider,
   Map as GoogleMap,
-  Marker,
+  AdvancedMarker,
   InfoWindow,
   Polyline,
 } from "@vis.gl/react-google-maps";
@@ -102,7 +102,7 @@ function Map({ center, zoom, zoomPortrait, places, route, path }: MapProps) {
   const getImages = (place: MapPlace) => {
     if (place.images && place.images.length > 0) {
       return place.images.map(
-        (p) => `${path}${String(p).padStart(3, "0")}.jpg`,
+        (p) => `${path}/${String(p).padStart(3, "0")}.jpg`,
       );
     }
 
@@ -143,6 +143,7 @@ function Map({ center, zoom, zoomPortrait, places, route, path }: MapProps) {
         gestureHandling={isCtrlPressed ? "greedy" : "none"}
         disableDefaultUI={false}
         className="world-map"
+        mapId={import.meta.env.VITE_GOOGLE_MAPS_MAP_ID || "DEMO_MAP_ID"}
       >
         {routePlaces.length > 1 && (
           <Polyline
@@ -156,7 +157,7 @@ function Map({ center, zoom, zoomPortrait, places, route, path }: MapProps) {
         )}
 
         {places.map((place) => (
-          <Marker
+          <AdvancedMarker
             key={place.name}
             position={place.position}
             title={place.name}

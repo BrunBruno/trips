@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import "./trip-modal.css";
 import type { CountryRecord } from "./data";
 
@@ -10,6 +10,8 @@ type TripModalProps = {
 const defSize = 24;
 
 function TripModal({ trip, imgDataCount }: TripModalProps) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   const [scattered, setScattered] = useState(false);
   const [images, setImages] = useState<string[]>([]);
   const [selected, setSelected] = useState<number>(0);
@@ -66,31 +68,38 @@ function TripModal({ trip, imgDataCount }: TripModalProps) {
     return months[month - 1] ?? "";
   }
 
-  const getImgStyle = (index: number) => {
+  const getImgStyle = (index: number): CSSProperties => {
     const imageId = index + 1;
     const sel = selected === imageId;
 
-    const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+    const isScreenHorizontal = window.matchMedia(
+      "(orientation: landscape)",
+    ).matches;
 
-    const columns = isPortrait ? 3 : 6;
+    const img =
+      document.querySelectorAll<HTMLImageElement>(".photo-con img")[index];
 
-    const xInd = sel ? -100 * (index % columns) + (isPortrait ? 100 : 250) : 50;
+    const isImageHorizontal = img ? img.naturalWidth > img.naturalHeight : true;
 
-    const yInd = sel
-      ? -100 * Math.floor(index / columns) + (isPortrait ? 350 : 150)
-      : 50;
+    const sameOrientation = isScreenHorizontal === isImageHorizontal;
+    const scale = sel ? (sameOrientation ? 2.4 : 1.8) : 1;
 
-    const translate = sel ? "0,0" : "-50%,-50%";
+    const xInd = 50;
+    const yInd = 50;
+    const translate = "-50%,-50%";
+
     const rotate = sel ? 0 : randomStyles[index].rotate;
 
     const zIndex = sel
       ? 1000
       : (selectionOrder[imageId] ?? randomStyles[index].zIndex);
 
-    const scale = sel ? 2 : 1;
     const brightness = !selected ? 100 : sel ? 100 : 50;
 
+    const pos = sel ? "fixed" : "absolute";
+
     return {
+      position: pos,
       left: `${xInd}%`,
       top: `${yInd}%`,
       zIndex,
@@ -102,10 +111,20 @@ function TripModal({ trip, imgDataCount }: TripModalProps) {
   const coverImages = images.slice(0, imageCount);
 
   return (
-    <div className="trip-modal">
+    <div ref={scrollRef} className="trip-modal">
       <header className="trip-modal-header">
         <picture className="header-cover">
-          <img src={`/trips/${trip.folder}/cover.jpg`} alt="" />
+          <img
+            src={`/trips/${trip.folder}/cover.jpg`}
+            alt=""
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              scrollRef.current?.scrollBy({
+                top: window.innerHeight,
+                behavior: "smooth",
+              });
+            }}
+          />
         </picture>
 
         <trip.flag />
