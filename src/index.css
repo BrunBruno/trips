@@ -243,24 +243,6 @@ body {
   cursor: pointer;
 }
 
-/* .map-info {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.map-info img {
-  width: 180px;
-  height: 120px;
-  object-fit: cover;
-  display: block;
-}
-
-.map-info strong {
-  font-size: 16px;
-  color: #000;
-} */
-
 .map-info {
   width: 300px;
   overflow: hidden;

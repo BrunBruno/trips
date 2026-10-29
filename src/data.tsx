@@ -1,5 +1,3 @@
-import type { ComponentType } from "react";
-
 import {
   Tunisia,
   Turkey,
@@ -23,6 +21,7 @@ import {
   Madeira,
   Sicily,
   Cyprus,
+  Mauritius,
 } from "./svg";
 
 import SriLankaMap from "./map/SriLankaMap";
@@ -51,19 +50,9 @@ import KualaLumpurMap from "./map/KualaLumpurMap";
 import MarsaAlamMap from "./map/MarsaAlamMap";
 import OsloMap from "./map/OsloMap";
 import SicilyMap from "./map/SicilyMap";
-import SplitMap from "./map/2026SplitMap";
-import type { JSX } from "react/jsx-dev-runtime";
-
-export type CountryRecord = {
-  name: string;
-  country: string;
-  folder: string;
-  year: number;
-  month?: number;
-  flag: ComponentType;
-  map?: JSX.Element;
-  imgCount?: number;
-};
+import { SPLIT_HISTORY } from "./history/2026SplitHistory";
+import type { CountryRecord } from "./types";
+import { MAURITIUS_HISTORY } from "./history/2026MauritiusHistory";
 
 const countries: CountryRecord[] = [
   {
@@ -332,8 +321,7 @@ const countries: CountryRecord[] = [
     month: 7,
     flag: Croatia,
     folder: "croatia-split",
-    map: SplitMap("croatia-split"),
-    imgCount: 48,
+    history: SPLIT_HISTORY,
   },
 
   // {
@@ -344,6 +332,16 @@ const countries: CountryRecord[] = [
   //   folder: "czechia-cieszyn",
   //   map: CieszynMap("czechia-cieszyn"),
   // },
+
+  {
+    name: "Mauritius",
+    country: "Mauritius",
+    year: 2026,
+    month: 9,
+    flag: Mauritius,
+    folder: "mauritius",
+    history: MAURITIUS_HISTORY,
+  },
 ];
 
 export default countries;

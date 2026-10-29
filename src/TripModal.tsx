@@ -1,114 +1,49 @@
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useRef } from "react";
 import "./trip-modal.css";
-import type { CountryRecord } from "./data";
+import type { CountryRecord } from "./types";
 
 type TripModalProps = {
   trip: CountryRecord;
-  imgDataCount?: number;
 };
 
-const defSize = 24;
-
-function TripModal({ trip, imgDataCount }: TripModalProps) {
+function TripModal({ trip }: TripModalProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
-
-  const [scattered, setScattered] = useState(false);
-  const [images, setImages] = useState<string[]>([]);
-  const [selected, setSelected] = useState<number>(0);
-  const [nextZIndex, setNextZIndex] = useState(3);
-  const [selectionOrder, setSelectionOrder] = useState<Record<number, number>>(
-    {},
-  );
-
-  const imageCount = imgDataCount ? imgDataCount : defSize;
-  const windowCount = imageCount / defSize;
-
-  const [randomStyles] = useState(() =>
-    Array.from({ length: imageCount }, () => ({
-      rotate: Math.random() * 40 - 20,
-      zIndex: Math.floor(Math.random() * 2 + 1),
-    })),
-  );
-
-  useEffect(() => {
-    const photos = Array.from(
-      { length: imageCount },
-      (_, i) => `${trip.folder}/${String(i + 1).padStart(3, "0")}.jpg`,
-    );
-
-    setImages(photos);
-  }, [trip.folder]);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setScattered(true);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   function getMonth(month: number | undefined): string {
     if (!month) return "";
 
     const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
+      "Styczeń",
+      "Luty",
+      "Marzec",
+      "Kwiecień",
+      "Maj",
+      "Czerwiec",
+      "Lipiec",
+      "Sierpień",
+      "Wrzesień",
+      "Październik",
+      "Listopad",
+      "Grudzień",
     ];
 
     return months[month - 1] ?? "";
   }
 
-  const getImgStyle = (index: number): CSSProperties => {
-    const imageId = index + 1;
-    const sel = selected === imageId;
+  function getImagePath(folder: string, imgNumber: number): string {
+    const fileName = String(imgNumber).padStart(3, "0");
+    return `/trips/${folder}/${fileName}.jpg`;
+  }
 
-    const isScreenHorizontal = window.matchMedia(
-      "(orientation: landscape)",
-    ).matches;
-
-    const img =
-      document.querySelectorAll<HTMLImageElement>(".photo-con img")[index];
-
-    const isImageHorizontal = img ? img.naturalWidth > img.naturalHeight : true;
-
-    const sameOrientation = isScreenHorizontal === isImageHorizontal;
-    const scale = sel ? (sameOrientation ? 2.4 : 1.8) : 1;
-
-    const xInd = 50;
-    const yInd = 50;
-    const translate = "-50%,-50%";
-
-    const rotate = sel ? 0 : randomStyles[index].rotate;
-
-    const zIndex = sel
-      ? 1000
-      : (selectionOrder[imageId] ?? randomStyles[index].zIndex);
-
-    const brightness = !selected ? 100 : sel ? 100 : 50;
-
-    const pos = sel ? "fixed" : "absolute";
+  function getPileStyle() {
+    const rotate = Math.floor(Math.random() * 19) - 9;
+    // const zIndex = Math.floor(Math.random() * 3) + 1;
 
     return {
-      position: pos,
-      left: `${xInd}%`,
-      top: `${yInd}%`,
-      zIndex,
-      filter: `brightness(${brightness}%)`,
-      transform: `translate(${translate}) rotate(${rotate}deg) scale(${scale})`,
+      rotate: `${rotate}deg`,
+      // zIndex: zIndex,
     };
-  };
-
-  const coverImages = images.slice(0, imageCount);
+  }
 
   return (
     <div ref={scrollRef} className="trip-modal">
@@ -135,65 +70,117 @@ function TripModal({ trip, imgDataCount }: TripModalProps) {
         <span>
           {trip.year} {getMonth(trip.month)}
         </span>
+
+        <div className="header-decorator"></div>
       </header>
 
-      <section
-        className={`trip-cover ${scattered ? "scattered" : ""}`}
-        style={{ height: `${windowCount * 128}dvh` }}
-      >
-        <div className="photo-stack">
-          {coverImages.map((image, index) => (
-            <div key={image + index} className="stack-element">
-              <div className="photo-con" style={getImgStyle(index)}>
-                <img
-                  src={image}
-                  className={`stack-photo stack-photo-${index}`}
-                  onClick={() => {
-                    const imageId = index + 1;
+      {trip.history && trip.history.length > 0 && (
+        <div className="history-timeline">
+          {trip.history.map((day, index) => {
+            const isEven = (index + 1) % 2 === 0;
+            const parityClass = isEven ? "even" : "odd";
 
-                    setSelected((prev) => {
-                      if (prev === imageId) {
-                        setSelectionOrder((order) => ({
-                          ...order,
-                          [imageId]: nextZIndex,
-                        }));
+            const imagesCount = day.images?.length || 0;
 
-                        setNextZIndex((value) => value + 1);
+            const imagesSection = (
+              <section className={`history-day-images ${parityClass}-images`}>
+                {day.images && day.images.length > 0 && (
+                  <div
+                    className={`photo-pile pile-count-${Math.min(imagesCount, 12)}`}
+                  >
+                    {day.images.slice(0, 12).map((imgNum, imgIndex) => {
+                      const styleProps = getPileStyle();
+                      const imageSrc = getImagePath(trip.folder, imgNum);
+                      const caption = day.captions?.[imgNum];
 
-                        return 0;
-                      }
+                      return (
+                        <div
+                          key={`${imgNum}-${imgIndex}`}
+                          className={`photo-card${caption ? " has-caption" : ""}`}
+                          style={styleProps}
+                        >
+                          <img
+                            src={imageSrc}
+                            alt={
+                              caption || `${day.name} - zdjęcie ${imgIndex + 1}`
+                            }
+                            loading="lazy"
+                          />
 
-                      return imageId;
-                    });
-                  }}
-                  onLoad={(e) => {
-                    const img = e.currentTarget;
+                          {caption && (
+                            <div className="photo-caption">{caption}</div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </section>
+            );
 
-                    img.classList.toggle(
-                      "portrait",
-                      img.naturalHeight > img.naturalWidth,
-                    );
+            const markerSection = (
+              <section className={`history-day-marker ${parityClass}-marker`}>
+                <div className="history-marker">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+              </section>
+            );
 
-                    img.classList.toggle(
-                      "landscape",
-                      img.naturalWidth > img.naturalHeight,
-                    );
+            const mapSection = (
+              <section className={`history-day-map ${parityClass}-map`}>
+                <div className="history-day-data">
+                  <h2>{day.name}</h2>
+                  <h3>{day.date}</h3>
+                </div>
+                <div className="history-map-frame">
+                  <iframe
+                    title={`Google Maps — ${trip.name}, ${day.date}`}
+                    src={`https://maps.google.com/maps?q=${day.position.lat},${day.position.lng}&z=${day.position.zoom}&output=embed`}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+              </section>
+            );
 
-                    img.classList.toggle(
-                      "square",
-                      img.naturalWidth === img.naturalHeight,
-                    );
-                  }}
-                />
-              </div>
-            </div>
-          ))}
+            return (
+              <article
+                className={`history-day ${parityClass}-day`}
+                key={`${day.date}-${index}`}
+              >
+                {isEven ? (
+                  <>
+                    {mapSection}
+                    {markerSection}
+                    {imagesSection}
+                  </>
+                ) : (
+                  <>
+                    {imagesSection}
+                    {markerSection}
+                    {mapSection}
+                  </>
+                )}
+
+                <div
+                  className={`history-day-decorator ${parityClass}-decorator`}
+                >
+                  <div className="history-day-decorator-top"></div>
+                  <div className="history-day-decorator-bottom"></div>
+                </div>
+
+                {index === 0 && (
+                  <div
+                    className={`history-day-decorator ${parityClass}-decorator start-decorator`}
+                  >
+                    <div className="history-day-decorator-top"></div>
+                    <div className="history-day-decorator-bottom"></div>
+                  </div>
+                )}
+              </article>
+            );
+          })}
         </div>
-      </section>
-      {Map && (
-        <section className="trip-map">
-          <div className="map-container">{trip.map}</div>
-        </section>
       )}
     </div>
   );

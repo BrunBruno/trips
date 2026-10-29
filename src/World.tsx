@@ -3,7 +3,9 @@ import { useState } from "react";
 import countries from "./data";
 import TripModal from "./TripModal";
 
-const countriesYearOrder = [...countries].sort((a, b) => b.year - a.year);
+const countriesYearOrder = [...countries].sort(
+  (a, b) => b.year - a.year || (b.month ?? 0) - (a.month ?? 0),
+);
 
 function World() {
   const [selectedCountry, setSelectedCountry] = useState<
@@ -13,10 +15,7 @@ function World() {
   return (
     <main className="world">
       {selectedCountry ? (
-        <TripModal
-          trip={selectedCountry}
-          imgDataCount={selectedCountry.imgCount}
-        />
+        <TripModal trip={selectedCountry} />
       ) : (
         <section className="country-grid">
           {countriesYearOrder.map((country, index) => {
