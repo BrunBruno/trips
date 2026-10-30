@@ -64,9 +64,19 @@
 }
 
 .header-cover img {
+  position: absolute;
+  inset: 0;
+
   width: 100%;
   height: 100%;
   object-fit: cover;
+
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.header-cover img.active {
+  opacity: 1;
 }
 
 .trip-modal-header > :not(.header-cover) {
@@ -289,6 +299,28 @@
   font-size: 1.2rem;
   font-weight: 600;
   z-index: 2;
+}
+
+.history-marker:hover {
+  cursor: pointer;
+}
+
+.history-marker::before {
+  position: absolute;
+  content: "▼";
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+}
+
+.history-marker::after {
+  position: absolute;
+  content: "▼";
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
 }
 
 .history-day-label {
@@ -676,27 +708,66 @@
 /* --- Section 3: Google Map --- */
 
 .history-day-map {
+  position: relative;
   min-width: 0;
 }
 
-.history-day-data h2 {
-  margin: 0;
+.history-day-data {
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  background-color: #fff;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem;
+  text-align: center;
 }
+
 .history-day-data h3 {
-  margin: 0.5rem 0;
-  color: #ccc;
+  margin: 0;
+  color: #333;
+  white-space: pre-line;
+}
+.history-day-data h5 {
+  margin: 0;
+  color: #666;
+}
+
+.negative-radius {
+  position: absolute;
+  bottom: 98%;
+  width: 1rem;
+  height: 1rem;
+  background-image: url("/trips/icons/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: brightness(0) invert(1);
+}
+
+.l-neg {
+  left: 0;
+}
+.r-neg {
+  right: 0;
+  transform: rotateY(180deg);
 }
 
 .history-map-frame {
   position: relative;
   width: 100%;
   max-height: 100%;
-  aspect-ratio: 4/3;
+  aspect-ratio: 1/1;
 
   overflow: hidden;
   border-radius: 16px;
   background: #252823;
   margin-top: 2rem;
+
+  box-shadow: 0 0 0 0.6rem #fff;
 }
 
 .history-map-frame iframe {
@@ -707,6 +778,23 @@
   filter: grayscale(0.25);
 
   pointer-events: none;
+}
+
+.frame-icon {
+  position: absolute;
+  bottom: -1rem;
+  left: -1rem;
+  height: 5rem;
+  width: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 5px #000);
+  z-index: 101;
+}
+
+.frame-icon > img {
+  height: 10rem;
 }
 
 /* --- Empty State --- */
@@ -728,95 +816,4 @@
 .trip-history-empty p {
   font-size: 14px;
   line-height: 1.7;
-}
-
-/* ==========================================================================
-   6. RESPONSIVE BREAKPOINTS
-   ========================================================================== */
-
-@media (orientation: portrait) {
-  .photo-stack {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 1000px) {
-  .history-day {
-    grid-template-columns: 70px minmax(0, 1fr);
-    gap: 20px;
-  }
-
-  .history-day-marker {
-    grid-row: 1 / 3;
-  }
-
-  .history-day-images,
-  .history-day-map {
-    grid-column: 2;
-  }
-
-  .history-day-map {
-    margin-top: 12px;
-  }
-}
-
-@media (max-width: 700px) {
-  .trip-modal-close {
-    top: 15px;
-    right: 15px;
-    width: 42px;
-    height: 42px;
-    font-size: 27px;
-  }
-}
-
-@media (max-width: 600px) {
-  .history-day {
-    grid-template-columns: 42px minmax(0, 1fr);
-    gap: 12px;
-    padding: 32px 16px;
-  }
-
-  .history-day-marker {
-    gap: 12px;
-  }
-
-  .history-marker {
-    width: 36px;
-    height: 36px;
-    font-size: 10px;
-  }
-
-  .history-day-info h3 {
-    font-size: 13px;
-    overflow-wrap: anywhere;
-  }
-
-  .history-day-label {
-    font-size: 9px;
-  }
-
-  .history-carousel-arrow {
-    width: 34px;
-    height: 34px;
-    font-size: 17px;
-  }
-
-  .history-carousel-prev {
-    left: 8px;
-  }
-
-  .history-carousel-next {
-    right: 8px;
-  }
-
-  .history-map-heading h4 {
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 450px) {
-  .trip-modal-header h1 {
-    font-size: 40px;
-  }
 }

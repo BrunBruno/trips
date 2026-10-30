@@ -1,8 +1,8 @@
-import type { ComponentType, JSX } from "react";
+import type { ComponentType, CSSProperties, JSX } from "react";
 
 export type CountryRecord = {
   name: string;
-  country: string;
+  country?: string;
   folder: string;
   year: number;
   month?: number;
@@ -10,6 +10,7 @@ export type CountryRecord = {
   map?: JSX.Element;
   history?: MyHistory[];
   imgCount?: number;
+  coverCount?: number;
 };
 
 export type MyHistory = {
@@ -24,4 +25,6 @@ export type MyHistory = {
     lng: number;
     zoom: number;
   };
+  svg?: JSX.Element;
+  svgStyles?: CSSProperties;
 };

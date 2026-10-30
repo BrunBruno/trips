@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./trip-modal.css";
 import type { CountryRecord } from "./types";
 
@@ -8,6 +8,19 @@ type TripModalProps = {
 
 function TripModal({ trip }: TripModalProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  const coverCount = trip.coverCount || 1;
+  const [activeCover, setActiveCover] = useState(0);
+
+  useEffect(() => {
+    if (coverCount <= 1) return;
+
+    const interval = setInterval(() => {
+      setActiveCover((prev) => (prev + 1) % coverCount);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [coverCount]);
 
   function getMonth(month: number | undefined): string {
     if (!month) return "";
@@ -48,24 +61,29 @@ function TripModal({ trip }: TripModalProps) {
   return (
     <div ref={scrollRef} className="trip-modal">
       <header className="trip-modal-header">
-        <picture className="header-cover">
-          <img
-            src={`/trips/${trip.folder}/cover.jpg`}
-            alt=""
-            style={{ cursor: "pointer" }}
-            onClick={() => {
-              scrollRef.current?.scrollBy({
-                top: window.innerHeight,
-                behavior: "smooth",
-              });
-            }}
-          />
-        </picture>
+        <div
+          className="header-cover"
+          onClick={() => {
+            scrollRef.current?.scrollBy({
+              top: window.innerHeight,
+              behavior: "smooth",
+            });
+          }}
+        >
+          {Array.from({ length: coverCount }, (_, i) => (
+            <img
+              key={i}
+              src={`/trips/${trip.folder}/cover-${i + 1}.jpg`}
+              alt=""
+              className={activeCover === i ? "active" : ""}
+            />
+          ))}
+        </div>
 
         <trip.flag />
 
         <h1>{trip.name}</h1>
-        <h2>{trip.country}</h2>
+        {trip.country && <h2>{trip.country}</h2>}
 
         <span>
           {trip.year} {getMonth(trip.month)}
@@ -120,7 +138,15 @@ function TripModal({ trip }: TripModalProps) {
 
             const markerSection = (
               <section className={`history-day-marker ${parityClass}-marker`}>
-                <div className="history-marker">
+                <div
+                  className="history-marker"
+                  onClick={() => {
+                    scrollRef.current?.scrollBy({
+                      top: window.innerHeight,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
                   {String(index + 1).padStart(2, "0")}
                 </div>
               </section>
@@ -129,8 +155,10 @@ function TripModal({ trip }: TripModalProps) {
             const mapSection = (
               <section className={`history-day-map ${parityClass}-map`}>
                 <div className="history-day-data">
-                  <h2>{day.name}</h2>
-                  <h3>{day.date}</h3>
+                  <h3>{day.name}</h3>
+                  <h5>{day.date}</h5>
+                  <div className="negative-radius l-neg"></div>
+                  <div className="negative-radius r-neg"></div>
                 </div>
                 <div className="history-map-frame">
                   <iframe
@@ -140,6 +168,11 @@ function TripModal({ trip }: TripModalProps) {
                     referrerPolicy="no-referrer-when-downgrade"
                   />
                 </div>
+                {day.svg && (
+                  <div className="frame-icon" style={day.svgStyles}>
+                    {day.svg}
+                  </div>
+                )}
               </section>
             );
 
