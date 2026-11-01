@@ -8,9 +8,17 @@ type TripModalProps = {
 
 function TripModal({ trip }: TripModalProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const imageRotations = useRef<number[]>([]);
 
   const coverCount = trip.coverCount || 1;
   const [activeCover, setActiveCover] = useState(0);
+
+  if (imageRotations.current.length === 0) {
+    imageRotations.current = Array.from(
+      { length: 100 },
+      () => Math.floor(Math.random() * 19) - 9,
+    );
+  }
 
   useEffect(() => {
     if (coverCount <= 1) return;
@@ -46,16 +54,6 @@ function TripModal({ trip }: TripModalProps) {
   function getImagePath(folder: string, imgNumber: number): string {
     const fileName = String(imgNumber).padStart(3, "0");
     return `/trips/${folder}/${fileName}.jpg`;
-  }
-
-  function getPileStyle() {
-    const rotate = Math.floor(Math.random() * 19) - 9;
-    // const zIndex = Math.floor(Math.random() * 3) + 1;
-
-    return {
-      rotate: `${rotate}deg`,
-      // zIndex: zIndex,
-    };
   }
 
   return (
@@ -107,7 +105,9 @@ function TripModal({ trip }: TripModalProps) {
                     className={`photo-pile pile-count-${Math.min(imagesCount, 12)}`}
                   >
                     {day.images.slice(0, 12).map((imgNum, imgIndex) => {
-                      const styleProps = getPileStyle();
+                      const styleProps = {
+                        rotate: `${imageRotations.current[imgIndex]}deg`,
+                      };
                       const imageSrc = getImagePath(trip.folder, imgNum);
                       const caption = day.captions?.[imgNum];
 
@@ -201,6 +201,9 @@ function TripModal({ trip }: TripModalProps) {
                   <div className="history-day-decorator-top"></div>
                   <div className="history-day-decorator-bottom"></div>
                 </div>
+                {day.transit && (
+                  <div className="history-day-transit">{day.transit}</div>
+                )}
 
                 {index === 0 && (
                   <div

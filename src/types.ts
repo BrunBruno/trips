@@ -16,6 +16,7 @@ export type CountryRecord = {
 export type MyHistory = {
   date: string;
   name: string;
+  transit?: string;
   images: number[];
   captions?: {
     [key in number]: string;

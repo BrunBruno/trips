@@ -190,6 +190,19 @@
   grid-template-columns: minmax(0, 2fr) 10rem minmax(0, 1fr);
 }
 
+.history-day-transit {
+  position: absolute;
+  bottom: -1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 102;
+  background-color: #fff;
+  color: #000;
+  padding: 1rem;
+  border-radius: 1rem;
+  font-weight: bold;
+}
+
 .history-day-decorator {
   content: "";
   position: absolute;

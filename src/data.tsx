@@ -87,8 +87,9 @@ const countries: CountryRecord[] = [
     country: "Europa",
     year: 2022,
     flag: EuropeanUnion,
-    folder: "european-union-eurotrip",
+    folder: "euro-trip",
     history: EURO_TRIP_HISTORY,
+    coverCount: 9,
   },
 
   // {
