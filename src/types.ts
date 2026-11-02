@@ -7,10 +7,12 @@ export type CountryRecord = {
   year: number;
   month?: number;
   flag: ComponentType;
+  flags?: JSX.Element[];
   map?: JSX.Element;
   history?: MyHistory[];
   imgCount?: number;
   coverCount?: number;
+  transit?: string;
 };
 
 export type MyHistory = {
@@ -28,4 +30,6 @@ export type MyHistory = {
   };
   svg?: JSX.Element;
   svgStyles?: CSSProperties;
+  img?: JSX.Element;
+  imgStyles?: CSSProperties;
 };

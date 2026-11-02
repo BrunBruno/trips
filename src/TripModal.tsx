@@ -63,7 +63,7 @@ function TripModal({ trip }: TripModalProps) {
           className="header-cover"
           onClick={() => {
             scrollRef.current?.scrollBy({
-              top: window.innerHeight,
+              top: window.innerHeight + 100,
               behavior: "smooth",
             });
           }}
@@ -83,9 +83,11 @@ function TripModal({ trip }: TripModalProps) {
         <h1>{trip.name}</h1>
         {trip.country && <h2>{trip.country}</h2>}
 
-        <span>
+        <h3>
           {trip.year} {getMonth(trip.month)}
-        </span>
+        </h3>
+
+        <div className="flags">{trip.flags?.map((flag) => flag)}</div>
 
         <div className="header-decorator"></div>
       </header>
@@ -173,6 +175,11 @@ function TripModal({ trip }: TripModalProps) {
                     {day.svg}
                   </div>
                 )}
+                {day.img && (
+                  <div className="frame-icon" style={day.imgStyles}>
+                    {day.img}
+                  </div>
+                )}
               </section>
             );
 
@@ -206,12 +213,25 @@ function TripModal({ trip }: TripModalProps) {
                 )}
 
                 {index === 0 && (
-                  <div
-                    className={`history-day-decorator ${parityClass}-decorator start-decorator`}
-                  >
-                    <div className="history-day-decorator-top"></div>
-                    <div className="history-day-decorator-bottom"></div>
-                  </div>
+                  <>
+                    <div
+                      className={`history-day-decorator ${parityClass}-decorator start-decorator`}
+                    >
+                      <div className="history-day-decorator-top"></div>
+                      <div className="history-day-decorator-bottom"></div>
+                    </div>
+                    <div
+                      className={`history-day-decorator ${parityClass}-decorator start-decorator-2`}
+                    >
+                      <div className="history-day-decorator-top"></div>
+                      <div className="history-day-decorator-bottom"></div>
+                    </div>
+                    {trip.transit && (
+                      <div className="history-day-transit start-transit">
+                        {trip.transit}
+                      </div>
+                    )}
+                  </>
                 )}
               </article>
             );

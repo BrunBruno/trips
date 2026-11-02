@@ -1,35 +1,65 @@
+import { Austria, Indonesia, Malaysia, Qatar } from "../svg";
 import type { MyHistory } from "../types";
 
 export const BALI_HISTORY: MyHistory[] = [
   {
     date: "22 wrz. 2025",
-    name: "Vienna ➤ Doha",
-    images: [],
+    name: "Wiedeń",
+    transit: "Doha ⮜ Wiedeń",
+    images: [2, 1],
+    captions: {
+      "1": "Pałac Belweder",
+      "2": "Wien Hauptbahnhof",
+    },
+    position: {
+      lat: 48.2082,
+      lng: 16.3738,
+      zoom: 6,
+    },
+    svg: <Austria />,
+  },
+  //02
+  {
+    date: "22 wrz. 2025",
+    name: "Doha",
+    transit: "Doha ➤ Kuala Lumpur",
+    images: [4, 3],
+    captions: {
+      "3": "Doha International Airport",
+    },
     position: {
       lat: 25.2606,
       lng: 51.6138,
-      zoom: 10,
+      zoom: 6,
     },
+    svg: <Qatar />,
   },
+  //03
   {
     date: "23 wrz. 2025",
-    name: "Doha ➤ Kuala Lumpur",
-    images: [],
+    name: "Kuala Lumpur",
+    transit: "Bali ⮜ Kuala Lumpur",
+    images: [5, 6],
+    captions: {
+      "6": "Kuala Lumpur International Airport",
+    },
     position: {
       lat: 2.7456,
       lng: 101.7072,
       zoom: 10,
     },
+    svg: <Malaysia />,
   },
   {
     date: "24 wrz. 2025",
-    name: "Kuala Lumpur ➤ Bali",
+    name: "Bali",
     images: [],
     position: {
       lat: -8.7482,
       lng: 115.1672,
       zoom: 10,
     },
+    svg: <Indonesia />,
   },
   {
     date: "25 wrz. 2025",

@@ -4,7 +4,7 @@ import countries from "./data";
 import TripModal from "./TripModal";
 
 const countriesYearOrder = [...countries].sort(
-  (a, b) => b.year - a.year || (b.month ?? 0) - (a.month ?? 0),
+  (a, b) => b.year - a.year || (a.month ?? 0) - (b.month ?? 0),
 );
 
 function World() {

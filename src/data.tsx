@@ -1,4 +1,20 @@
-import { SriLanka, Indonesia, Madeira, Mauritius } from "./svg";
+import {
+  SriLanka,
+  Indonesia,
+  Madeira,
+  Mauritius,
+  Spain,
+  Austria,
+  Switzerland,
+  Italy,
+  France,
+  Germany,
+  Czechia,
+  Poland,
+  Cyprus,
+  Malaysia,
+  Qatar,
+} from "./svg";
 
 import MadeiraMap from "./map/MadeiraMap";
 import type { CountryRecord } from "./types";
@@ -7,6 +23,9 @@ import EuropeanUnion from "./svg/eeu";
 import { BALI_HISTORY } from "./history/2025BaliHistory";
 import { SRI_LANKA_HISTORY } from "./history/2024SriLankaHistory";
 import { EURO_TRIP_HISTORY } from "./history/2022EuroTrip";
+import SaudiArabia from "./svg/sau";
+import CyprusMap from "./map/CyprusMap";
+import UnitedArabEmirates from "./svg/uae";
 
 const countries: CountryRecord[] = [
   // {
@@ -87,91 +106,31 @@ const countries: CountryRecord[] = [
     country: "Europa",
     year: 2022,
     flag: EuropeanUnion,
+    flags: [
+      <Austria />,
+      <Switzerland />,
+      <Italy />,
+      <France />,
+      <Spain />,
+      <Germany />,
+      <Czechia />,
+      <Poland />,
+    ],
     folder: "euro-trip",
     history: EURO_TRIP_HISTORY,
-    coverCount: 9,
+    coverCount: 12,
+    transit: "Katowice ➤ Wiedeń",
   },
 
-  // {
-  //   name: "Wiedeń",
-  //   country: "Austria",
-  //   year: 2022,
-  //   flag: Austria,
-  //   folder: "austria-wieden",
-  //   map: WienMap("austria-wieden"),
-  // },
-
-  // {
-  //   name: "Przełęcz Bernina",
-  //   country: "Szwajcaria",
-  //   year: 2022,
-  //   flag: Switzerland,
-  //   folder: "switzerland-berninapass",
-  //   map: BerninapassMap("switzerland-berninapass"),
-  // },
-
-  // {
-  //   name: "Mediolan",
-  //   country: "Włochy",
-  //   year: 2022,
-  //   flag: Italy,
-  //   folder: "italy-milan",
-  //   map: MilanMap("italy-milan"),
-  // },
-
-  // {
-  //   name: "Cannes",
-  //   country: "Francja",
-  //   year: 2022,
-  //   flag: France,
-  //   folder: "france-cannes",
-  //   map: CannesMap("france-cannes"),
-  // },
-
-  // {
-  //   name: "Lloret de Mar",
-  //   country: "Hiszpania",
-  //   year: 2022,
-  //   flag: Spain,
-  //   folder: "spain-lloret-de-mar",
-  //   map: LloretDeMarMap("spain-lloret-de-mar"),
-  // },
-
-  // {
-  //   name: "Paryż",
-  //   country: "Francja",
-  //   year: 2022,
-  //   flag: France,
-  //   folder: "france-paris",
-  //   map: ParisMap("france-paris"),
-  // },
-
-  // {
-  //   name: "Berlin",
-  //   country: "Niemcy",
-  //   year: 2022,
-  //   flag: Germany,
-  //   folder: "germany-berlin",
-  //   map: BerlinMap("germany-berlin"),
-  // },
-
-  // {
-  //   name: "Praga",
-  //   country: "Czechy",
-  //   year: 2022,
-  //   flag: Czechia,
-  //   folder: "czechia-prague",
-  //   map: PragueMap("czechia-prague"),
-  // },
-
-  // {
-  //   name: "Cypr",
-  //   country: "Cypr",
-  //   year: 2023,
-  //   flag: Cyprus,
-  //   folder: "cyprus",
-  //   map: CyprusMap("cyprus"),
-  // },
+  {
+    name: "Cypr",
+    country: "Cypr",
+    year: 2023,
+    month: 3,
+    flag: Cyprus,
+    folder: "cyprus",
+    map: CyprusMap("cyprus"),
+  },
 
   {
     name: "Madera",
@@ -201,20 +160,12 @@ const countries: CountryRecord[] = [
   //   map: OsloMap("norway-oslo"),
   // },
 
-  // {
-  //   name: "Dubaj",
-  //   country: "Zjednoczone Emiraty Arabskie",
-  //   year: 2024,
-  //   flag: UAE,
-  //   folder: "uae-dubai",
-  //   map: DubajMap("uae-dubai"),
-  // },
-
   {
     name: "Sri Lanka",
     country: "Sri Lanka",
     year: 2024,
     flag: SriLanka,
+    flags: [<SriLanka />, <UnitedArabEmirates />],
     folder: "sri-lanka",
     history: SRI_LANKA_HISTORY,
   },
@@ -229,45 +180,17 @@ const countries: CountryRecord[] = [
   //   map: MarsaAlamMap("egypt-marsa-alam"),
   // },
 
-  // {
-  //   name: "Doha",
-  //   country: "Katar",
-  //   year: 2025,
-  //   month: 10,
-  //   flag: Qatar,
-  //   folder: "qatar-doha",
-  //   map: DohaMap("qatar-doha"),
-  // },
-
-  // {
-  //   name: "Kuala Lumpur",
-  //   country: "Malezja",
-  //   year: 2025,
-  //   month: 10,
-  //   flag: Malaysia,
-  //   folder: "malaysia-kuala-lumpur",
-  //   map: KualaLumpurMap("malaysia-kuala-lumpur"),
-  // },
-
   {
     name: "Bali",
     country: "Indonezja",
     year: 2025,
     month: 9,
     flag: Indonesia,
+    flags: [<Indonesia />, <Malaysia />, <Qatar />, <Austria />],
     folder: "indonesia-bali",
     history: BALI_HISTORY,
+    transit: "Katowice ➤ Wiedeń",
   },
-
-  // {
-  //   name: "Nusa Penida",
-  //   country: "Indonezja",
-  //   year: 2025,
-  //   month: 9,
-  //   flag: Indonesia,
-  //   folder: "indonesia-nusa-penida",
-  //   map: BaliMap("indonesia-nusa-penida"),
-  // },
 
   // {
   //   name: "Split",
@@ -279,23 +202,16 @@ const countries: CountryRecord[] = [
   //   history: SPLIT_HISTORY,
   // },
 
-  // {
-  //   name: "Cieszyn",
-  //   country: "Czechy",
-  //   year: 2026,
-  //   flag: Czechia,
-  //   folder: "czechia-cieszyn",
-  //   map: CieszynMap("czechia-cieszyn"),
-  // },
-
   {
     name: "Mauritius",
     year: 2026,
     month: 9,
     flag: Mauritius,
+    flags: [<Mauritius />, <Spain />, <SaudiArabia />, <Austria />],
     folder: "mauritius",
     history: MAURITIUS_HISTORY,
     coverCount: 9,
+    transit: "Kraków ➤ Madrid",
   },
 ];
 
