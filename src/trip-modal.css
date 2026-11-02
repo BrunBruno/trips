@@ -38,6 +38,7 @@
 
   text-align: center;
   animation: open-cover 0.5s forwards;
+  cursor: pointer;
 }
 
 @keyframes open-cover {
@@ -55,15 +56,6 @@
 
   opacity: 0;
   animation: open-cover-img 0.5s 0.5s forwards;
-}
-
-.header-cover::after {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 @keyframes open-cover-img {
@@ -91,6 +83,7 @@
 .trip-modal-header > :not(.header-cover) {
   position: relative;
   z-index: 1;
+  cursor: default;
 }
 
 .trip-modal-header svg {
@@ -178,6 +171,7 @@
   align-items: center;
   justify-content: center;
   font-size: 2rem;
+  cursor: pointer;
 }
 
 /* ==========================================================================
@@ -345,10 +339,14 @@
   border-radius: 50%;
   background: #171916;
 
-  font-family: Arial;
-  font-size: 1.2rem;
-  font-weight: 600;
   z-index: 2;
+  font-family: Arial;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* font-size: 2rem; */
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
 .history-marker:hover {
@@ -839,12 +837,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  filter: drop-shadow(0 0 5px #000);
+  filter: drop-shadow(6px 6px 2px #000);
   z-index: 101;
 }
 
 .frame-icon > img {
   height: 10rem;
+}
+
+.frame-img::after {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  /* left: 50%;
+  transform: translateX(-50%); */
+  left: -1rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: #333;
+}
+.frame-img::before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  /* left: 50%;
+  transform: translateX(-50%); */
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: #333;
 }
 
 /* --- Empty State --- */

@@ -37,12 +37,17 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     svg: <Austria />,
     svgStyles: { rotate: "7deg" },
+    img: <img src="/trips/img/belvedere.png" />,
+    imgStyles: { left: "unset", right: "0rem", bottom: "8rem" },
   },
   //02
   {
     date: "02 wrz. 2022",
     name: "Wiedeń",
-    transit: "Wiedeń ➤ Chur",
+    transit: {
+      from: "Wiedeń",
+      to: "Chur",
+    },
     images: [7, 8, 9, 10, 11],
     captions: {
       "7": "Hostel Be Free",
@@ -56,14 +61,17 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       lng: 16.3738,
       zoom: 6,
     },
-    svg: <img src="/trips/icons/schonbrunn.png" />,
-    svgStyles: { left: 0 },
+    img: <img src="/trips/img/schonbrunn.png" />,
+    imgStyles: { left: "-2rem", bottom: "2rem" },
   },
   //03
   {
     date: "03 wrz. 2022",
     name: "Przełęcz Bernina",
-    transit: "Mediolan ⮜ Chur",
+    transit: {
+      from: "Chur",
+      to: "Bellano",
+    },
     // prettier-ignore
     images: [
       15, 13, 95,
@@ -81,12 +89,17 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     svg: <Switzerland />,
     svgStyles: { rotate: "7deg", left: "unset", right: 0 },
+    img: <img src="/trips/img/berninapass.png" />,
+    imgStyles: { left: "unset", right: "0rem", bottom: "18rem" },
   },
   //04
   {
     date: "03 wrz. 2022",
     name: "Bellano & Mediolan",
-    transit: "Bellano ➤ Mediolan",
+    transit: {
+      from: "Bellano",
+      to: "Mediolan",
+    },
     // prettier-ignore
     images: [
       18, 17, 82,
@@ -102,13 +115,16 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       zoom: 6,
     },
     svg: <Italy />,
-    svgStyles: { rotate: "-7deg", left: "unset", right: 0 },
+    svgStyles: { rotate: "-7deg", left: "unset", right: "-1rem" },
   },
-  //04
+  //05
   {
     date: "04 wrz. 2022",
     name: "Mediolan",
-    transit: "Cannes ⮜ Mediolan",
+    transit: {
+      from: "Mediolan",
+      to: "Cannes",
+    },
     // prettier-ignore
     images: [
       84, 20, 21,
@@ -129,8 +145,10 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       lng: 9.19,
       zoom: 6,
     },
+    img: <img src="/trips/img/duomo.png" />,
+    imgStyles: { left: "unset", right: "0", bottom: "2rem" },
   },
-  //05
+  //06
   {
     date: "05 wrz. 2022",
     name: "Cannes",
@@ -145,9 +163,9 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       zoom: 6,
     },
     svg: <France />,
-    svgStyles: { rotate: "7deg" },
+    svgStyles: { rotate: "-7deg" },
   },
-  //06
+  //07
   {
     date: "06 wrz. 2022",
     name: "Cannes",
@@ -161,6 +179,31 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       "27": "Résidence Villa Francia",
       "29": "Grand Auditorium Louis Lumière",
       "30": "Plaża Roseraie", // Plage de la Roseraie
+    },
+    position: {
+      lat: 43.5528,
+      lng: 7.0174,
+      zoom: 6,
+    },
+    img: <img src="/trips/img/cannes.png" />,
+    imgStyles: { left: "1rem", bottom: "20rem" },
+  },
+  //08
+  {
+    date: "07 wrz. 2022",
+    name: "Cannes",
+    transit: {
+      from: "Cannes",
+      to: "Lloret de Mar",
+    },
+    //prettier-ignore
+    images: [
+      32, 31,
+      88, 33,
+    ],
+    captions: {
+      "33": "Park Croix des Gardes", // Parcours de santé de la Croix des Gardes
+      "88": "Résidence Villa Francia",
     },
     position: {
       lat: 43.5528,
@@ -237,27 +280,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       rotate: "-5deg",
     },
   },
-  //07
-  {
-    date: "07 wrz. 2022",
-    name: "Cannes",
-    transit: "Lloret de Mar ⮜ Cannes",
-    //prettier-ignore
-    images: [
-      32, 31,
-      88, 33,
-    ],
-    captions: {
-      "33": "Park Croix des Gardes", // Parcours de santé de la Croix des Gardes
-      "88": "Résidence Villa Francia",
-    },
-    position: {
-      lat: 43.5528,
-      lng: 7.0174,
-      zoom: 6,
-    },
-  },
-  //08
+  //09
   {
     date: "08 wrz. 2022",
     name: "Lloret de Mar",
@@ -280,7 +303,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     svg: <Spain />,
     svgStyles: { rotate: "-7deg" },
   },
-  //09
+  //10
   {
     date: "09 wrz. 2022",
     name: "Lloret de Mar",
@@ -522,12 +545,11 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       </svg>
     ),
     svgStyles: {
-      left: "unset",
-      right: 0,
+      left: "0rem",
       bottom: "-3rem",
     },
   },
-  //10
+  //11
   {
     date: "10 wrz. 2022",
     name: "Lloret de Mar",
@@ -597,11 +619,14 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       bottom: "1rem",
     },
   },
-  //11
+  //12
   {
     date: "11 wrz. 2022",
     name: "Lloret de Mar",
-    transit: "Barcelona ⮜ Lloret de Mar",
+    transit: {
+      from: "Lloret de Mar",
+      to: "Barcelona",
+    },
     //prettier-ignore
     images: [
       42, 43, 41,
@@ -616,12 +641,17 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       lng: 2.8386,
       zoom: 6,
     },
+    img: <img src="/trips/img/cami-de-ronda.png" />,
+    imgStyles: { left: "unset", bottom: "6rem", right: "0rem" },
   },
-  //12
+  //13
   {
     date: "12 wrz. 2022",
     name: "Barcelona",
-    transit: "Lloret de Mar ➤ Paryż",
+    transit: {
+      from: "Lloret de Mar",
+      to: "Paryż",
+    },
     //prettier-ignore
     images: [
       51, 53, 50, 48,
@@ -642,10 +672,10 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       lng: 2.1686,
       zoom: 6,
     },
-    svg: <img src="/trips/icons/sagrada-familia.png" />,
-    svgStyles: { bottom: 0, left: 0 },
+    img: <img src="/trips/img/sagrada-familia.png" />,
+    imgStyles: { bottom: 0, right: 0, left: "unset" },
   },
-  //13
+  //14
   {
     date: "13 wrz. 2022",
     name: "Paryż",
@@ -667,12 +697,17 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     svg: <France />,
     svgStyles: { rotate: "7deg", left: "unset", right: 0 },
+    img: <img src="/trips/img/eiffel-tower.png" />,
+    imgStyles: { left: "0rem", bottom: 0 },
   },
-  //14
+  //15
   {
     date: "14 wrz. 2022",
     name: "Paryż",
-    transit: "Paryż ➤ Berlin",
+    transit: {
+      from: "Paryż",
+      to: "Berlin",
+    },
     // prettier-ignore
     images: [
       63, 62, 59,
@@ -690,14 +725,17 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       lng: 2.3522,
       zoom: 6,
     },
-    svg: <img src="/trips/icons/eiffel-tower.png" />,
-    svgStyles: { left: "unset", right: 0, bottom: 0 },
+    img: <img src="/trips/img/louvre.png" />,
+    imgStyles: { left: "unset", bottom: 0, right: "0rem" },
   },
-  //15
+  //16
   {
     date: "15 wrz. 2022",
     name: "Berlin",
-    transit: "Praga ⮜ Berlin",
+    transit: {
+      from: "Berlin",
+      to: "Praga",
+    },
     // prettier-ignore
     images: [
       65, 66, 67, 68,
@@ -720,12 +758,17 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     svg: <Germany />,
     svgStyles: { rotate: "7deg" },
+    img: <img src="/trips/img/brandenburg-gate.png" />,
+    imgStyles: { bottom: "8rem", left: "unset", right: "0rem" },
   },
-  //16
+  //17
   {
     date: "16 wrz. 2022",
     name: "Praga",
-    transit: "Praga ➤ Katowice",
+    transit: {
+      from: "Praga",
+      to: "Katowice",
+    },
     // prettier-ignore
     images: [
       76, 77, 75,
@@ -743,8 +786,10 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     svg: <Czechia />,
     svgStyles: { rotate: "-7deg" },
+    img: <img src="/trips/img/prague-castle.png" />,
+    imgStyles: { bottom: "2rem", left: "unset", right: "-1rem" },
   },
-  //17
+  //18
   {
     date: "17 wrz. 2022",
     name: "Katowice",
@@ -756,5 +801,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     svg: <Poland />,
     svgStyles: { rotate: "-7deg", left: "unset", right: 0 },
+    img: <img src="/trips/img/spodek.png" />,
+    imgStyles: { bottom: "16rem" },
   },
 ];

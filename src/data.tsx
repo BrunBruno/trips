@@ -207,11 +207,11 @@ const countries: CountryRecord[] = [
     year: 2026,
     month: 9,
     flag: Mauritius,
-    flags: [<Mauritius />, <Spain />, <SaudiArabia />, <Austria />],
+    flags: [<Spain />, <Mauritius />, <SaudiArabia />, <Austria />],
     folder: "mauritius",
     history: MAURITIUS_HISTORY,
     coverCount: 9,
-    transit: "Kraków ➤ Madrid",
+    transit: "Kraków ➤ Madryt",
   },
 ];
 

@@ -63,7 +63,7 @@ function TripModal({ trip }: TripModalProps) {
           className="header-cover"
           onClick={() => {
             scrollRef.current?.scrollBy({
-              top: window.innerHeight + 100,
+              top: window.innerHeight + 80, //5rem
               behavior: "smooth",
             });
           }}
@@ -149,6 +149,7 @@ function TripModal({ trip }: TripModalProps) {
                     });
                   }}
                 >
+                  {/* ▼ */}
                   {String(index + 1).padStart(2, "0")}
                 </div>
               </section>
@@ -176,7 +177,7 @@ function TripModal({ trip }: TripModalProps) {
                   </div>
                 )}
                 {day.img && (
-                  <div className="frame-icon" style={day.imgStyles}>
+                  <div className="frame-icon frame-img" style={day.imgStyles}>
                     {day.img}
                   </div>
                 )}
@@ -208,8 +209,18 @@ function TripModal({ trip }: TripModalProps) {
                   <div className="history-day-decorator-top"></div>
                   <div className="history-day-decorator-bottom"></div>
                 </div>
-                {day.transit && (
-                  <div className="history-day-transit">{day.transit}</div>
+                {day.transit ? (
+                  isEven ? (
+                    <div className="history-day-transit">
+                      {day.transit.from} ➤ {day.transit.to}
+                    </div>
+                  ) : (
+                    <div className="history-day-transit">
+                      {day.transit.to} ⮜ {day.transit.from}
+                    </div>
+                  )
+                ) : (
+                  ""
                 )}
 
                 {index === 0 && (

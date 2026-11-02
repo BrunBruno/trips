@@ -13,12 +13,12 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       74, 76, 77,
     ],
     captions: {
-      "74": "Monument to Felipe IV",
-      "75": "Catedral de la Almudena",
+      "74": "Pomnik Filipa IV", // Monument to Felipe IV
+      "75": "Katedra Almudena", // Catedral de la Almudena
       "76": "Pałac Królewski w Madrycie",
-      "77": "Royal Palace's Ledge Viewpoint",
+      "77": "Punkt widokowy przy Pałacu Królewskim", // Royal Palace's Ledge Viewpoint
       "78": "Plaza Mayor",
-      "79": "Monument to Alfonso XII",
+      "79": "Pomnik Alfonsa XII", // Monument to Alfonso XII
     },
     position: {
       lat: 40.4168,
@@ -32,7 +32,10 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
   {
     date: "27 wrz. 2026",
     name: "Madrid",
-    transit: "Madrid ➤ Mauritius",
+    transit: {
+      from: "Madryt",
+      to: "Mauritius",
+    },
     // prettier-ignore
     images: [
       86, 85, 84,
@@ -40,19 +43,19 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       83,
     ],
     captions: {
-      "80": "Ejército del Aire y del Espacio",
-      "81": "Arco de Moncloa",
-      "82": "Moncloa's Lighthouse",
-      "84": "Parque del Oeste",
+      "80": "Muzeum Aeronautyki i Astronautyki",
+      "81": "Łuk Moncloa", // Arco de Moncloa
+      "82": "Latarnia Moncloa", // Moncloa's Lighthouse
+      "84": "Park del Oeste", // Parque del Oeste
       "85": "Puerta de Alcalá",
-      "86": "El Retiro's Great Pond",
+      "86": "Park Retiro",
     },
     position: {
       lat: 40.4168,
       lng: -3.7038,
-      zoom: 10,
+      zoom: 5,
     },
-    img: <img src="/trips/icons/park-retiro.png" />,
+    img: <img src="/trips/img/park-retiro.png" />,
     imgStyles: { left: "0rem", top: "2rem" },
   },
   //03
@@ -67,8 +70,8 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     ],
     captions: {
       "1": "Sir Seewoosagur Ramgoolam International Airport",
-      "3": "Flic en Flac Beach",
       "2": "The Paramount",
+      "3": "Plaża Flic en Flac",
     },
     position: {
       lat: -20.28107,
@@ -89,17 +92,17 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       7, 13, 9, 12,
     ],
     captions: {
-      "7": "Underwater Waterfall",
-      "9": "Summit of Le Morne Brabant",
+      "7": "Podwodny Wodospad",
+      "9": "Szczyt Le Morne Brabant",
       "12": "Lagoon Flight Spot",
-      "13": "Le Morne Public Beach",
+      "13": "Plaża pod Le Morne",
     },
     position: {
       lat: -20.4548,
       lng: 57.3301,
       zoom: 10,
     },
-    img: <img src="/trips/icons/le-morne.png" />,
+    img: <img src="/trips/img/le-morne.png" />,
     imgStyles: { left: "-2rem", bottom: "2rem" },
   },
   //05
@@ -113,15 +116,15 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       24, 20, 28,
     ],
     captions: {
-      "18": "Grand Bassin Temple",
-      "19": "Alexandra Falls",
-      "20": "Chamarel Waterfall",
+      "18": "Świątynia Grand Bassin",
+      "19": "Wodospad Alexandra",
+      "20": "Wodospad Chamarel",
       "21": "Seven Colored Earth Geopark",
-      "22": "Aldabra Giant Tortoise",
-      "23": "Maconde Viewpoint",
-      "24": "Gris Gris Beach",
+      "22": "Żółw Olbrzymi z Aldabry",
+      "23": "Punkt widokowy Maconde",
+      "24": "Plaża Gris Gris",
       "25": "Roche Qui Pleure",
-      "26": "Rochester Falls",
+      "26": "Wodospad Rochester",
       "27": "Trois Mamelles",
       "28": "The Paramount",
     },
@@ -130,7 +133,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       lng: 57.4381,
       zoom: 10,
     },
-    svg: <img src="/trips/icons/chamarel-waterfall.png" />,
+    svg: <img src="/trips/img/chamarel-waterfall.png" />,
     svgStyles: { top: "0", bottom: "unset", left: "2rem" },
   },
   //06
@@ -146,29 +149,33 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     captions: {
       "29": "Gorges Viewpoint",
       "30": "Piton Saint Denis",
-      "31": "Summit of Black River Peak",
-      "35": "Morne View Spot Beach",
+      "31": "Szczyt Black River Peak",
+      "35": "Plaża z widokiem na Le Morne",
     },
     position: {
       lat: -20.40473,
       lng: 57.40932,
       zoom: 10,
     },
-    svg: <img src="/trips/icons/black-river-peak.png" />,
+    svg: <img src="/trips/img/black-river-peak.png" />,
     svgStyles: { bottom: "10rem", left: "-1rem" },
   },
   //07
   {
     date: "02 paź. 2026",
     name: "Île aux Cerfs",
+    transit: {
+      from: "Flic en Flac",
+      to: "Grand Baie",
+    },
     // prettier-ignore
     images: [
       39, 38, 36,
       41, 37, 40,
     ],
     captions: {
-      "37": "Île aux Cerfs Beach",
-      "40": "La Prairie Beach",
+      "37": "Plaża na Île aux Cerfs",
+      "40": "Plaża La Prairie",
       "41": "Pointe Maurice",
     },
     position: {
@@ -176,14 +183,13 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       lng: 57.8031,
       zoom: 10,
     },
-    img: <img src="/trips/icons/ile-aux-cerfs.png" />,
+    img: <img src="/trips/img/ile-aux-cerfs.png" />,
     imgStyles: { left: "unset", right: "0rem", bottom: "6rem" },
   },
   //08
   {
     date: "03 paź. 2026",
     name: "Le Pouce & Port Louis",
-    transit: "Flic en Flac ➤ Grand Baie",
     // prettier-ignore
     images: [
       43, 46,
@@ -191,18 +197,18 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       42,
     ],
     captions: {
-      "42": "Pieter Both",
-      "43": "Le Pouce",
+      "42": "Szczyt Pieter Both",
+      "43": "Szczyt Le Pouce",
       "44": "Moka",
-      "45": "China Town",
-      "46": "Caudan Waterfront",
+      "45": "China Town w Port Louis",
+      "46": "Promenada Caudan Waterfront",
     },
     position: {
       lat: -20.1775,
       lng: 57.5258,
       zoom: 10,
     },
-    img: <img src="/trips/icons/pieter-both.png" />,
+    img: <img src="/trips/img/pieter-both.png" />,
     imgStyles: { left: "2rem", bottom: "18rem" },
   },
   //09
@@ -217,9 +223,9 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     ],
     captions: {
       "48": "Grand Baie View Appart",
-      "49": "La Cuvette Public Beach",
-      "51": "Pereybere Public Beach",
-      "53": "Grand Baie Public Beach",
+      "49": "Plaża La Cuvette",
+      "51": "Plaża Pereybere",
+      "53": "Plaża Grand Baie",
     },
     position: {
       lat: -20.0081,
@@ -298,18 +304,18 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       54,
     ],
     captions: {
-      "54": "Notre-Dame Auxiliatrice de Cap Malheureux",
-      "55": "Gunner's Quoin",
-      "56": "Temple Tamoul",
-      "57": "Northernmost point of Mauritius",
-      "58": "Bain Boeuf Public Beach",
+      "54": "Kościół Notre-Dame Auxiliatrice",
+      "55": "Wyspa Coin de Mire",
+      "56": "Świątynia Tamilska",
+      "57": "Najdalej na północ wysunięty punkt Mauritiusa",
+      "58": "Plaża Bain Boeuf",
     },
     position: {
       lat: -19.9842,
       lng: 57.6147,
       zoom: 10,
     },
-    img: <img src="/trips/icons/gunners-quoin.png" />,
+    img: <img src="/trips/img/gunners-quoin.png" />,
     imgStyles: { left: "6rem", bottom: "22rem" },
   },
   //11
@@ -322,10 +328,10 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       60, 66, 65, 64,
     ],
     captions: {
-      "60": "Le Château de Mon Plaisir",
-      "64": "Madagascar Day Gecko",
-      "65": "Giant Lilies Pond",
-      "66": "Aldabra Giant Tortoise",
+      "60": "Pałac Mon Plaisir", // Le Château de Mon Plaisir
+      "64": "Felsuma Madagaskarska", // Madagascar Day Gecko
+      "65": "Wiktoria Królewska",
+      "66": "Żółw Olbrzymi z Aldabry",
     },
     position: {
       lat: -20.1056,
@@ -339,25 +345,76 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
   {
     date: "07 paź. 2026",
     name: "Trou-aux-Biches",
-    transit: "Grand Baie ➤ Mahébourg",
+    transit: {
+      from: "Grand Baie",
+      to: "Mahébourg",
+    },
     images: [70, 67, 69, 68],
     captions: {
-      "68": "Trou-aux-Biches",
-      "69": "Grand Baie Public Pier",
+      "68": "Plaża Trou-aux-Biches",
+      "69": "Molo w Grand Baie",
     },
     position: {
       lat: -20.0369,
       lng: 57.5452,
       zoom: 10,
     },
-    svg: <img src="/trips/icons/mauritius-map.png" />,
+    svg: (
+      <svg
+        viewBox="0 0 128 128"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        preserveAspectRatio="xMidYMid meet"
+      >
+        <path
+          d="M17.71 113.37c-3.88-2.29-9.05-6.55-8.9-13.71c.13-6.08 8.73-15.75 30.78-19.45c22.05-3.7 34.22-1.94 44.1-.88c9.88 1.06 16.05 4.23 16.05 4.23l-9 18.17l-73.03 11.64z"
+          fill="#04c1ea"
+        ></path>
+        <path
+          d="M56.82 96.76l-20.27 5.38l-16.24 7.17s-2.02 4.26-1.01 5.38s15.91 9.64 42.33 9.74c29.24.11 44.79-7.5 50.17-11.42s-10.64-26.43-10.64-26.43l-13.37-5.5l-15.19 1.47l-8.96 4.48l-6.82 9.73z"
+          fill="#f5c876"
+        ></path>
+        <path
+          d="M70.01 94.93l22.65-1.2s-2.96-5.68-4.05-8.23c-1.24-2.9-1.47-4.57-1.47-4.57s2.66-.74 7.2.41s20.68 6.33 24.63 16.31c3.44 8.7-7.24 15.43-7.24 15.43s-7.2-4.91-9.89-7.48c-4.21-4.02-6.49-7.39-6.49-7.39l-25.58.9l-1.52-1.01l1.76-3.17z"
+          fill="#f2a159"
+        ></path>
+        <path
+          d="M21.33 98.55c-2.86 2.86.45 6.38.45 6.38s-6.49 1.46-6.27 5.26c.11 1.9 2.69 4.14 3.81 4.48c1.12.34.9-1.84 2.46-3.36c4.03-3.92 16.46-4.82 25.08-5.71s12.16-3.87 13.77-4.93c4.26-2.8 2.69-10.73 7.33-14.26c7.46-5.68 24.52-4.9 24.4-5.53c-.12-.63-14.14-3.78-26.99 1.42c-8.59 3.48-8.43 10.75-14.47 12.77s-24.98-1.11-29.57 3.48z"
+          fill="#dcecf6"
+        ></path>
+        <path
+          d="M33.39 101.25c-1.81.66-.1 2.57.74 3.05c1.68.96 3.95 1.97 3.95 1.97s-4.77 3.62-3.45 5.51c.97 1.39 9.95-2.06 9.95-2.06c.09 0 5.54 4.45 7.86 4.46c1.73.01.56-6.45.56-6.45s7.29-1.55 7.29-3.77c0-1.73-3.62-1.23-3.62-1.23s-21.47-2.14-23.28-1.48z"
+          fill="#ee594a"
+        ></path>
+        <path
+          d="M48.84 96.81c-1.89-.17-5.37 3.74-5.37 3.74s-10.25-.7-10.42 1.03s5.43 2.47 5.43 3.45s-4.52 4.6-4.11 5.75c.41 1.15 9.36-4.03 10.03-3.78s7.45 6.8 8.66 5.68c1.04-.96-.03-6.59-.03-6.59s6.91-1.64 6.82-2.88c-.08-1.23-8.71-2.14-8.71-2.14s-.49-4.1-2.3-4.26z"
+          fill="#f79228"
+        ></path>
+        <path
+          d="M61.61 17.83l-4.73-.34l4.82 35.26s4.83 39.73 5.16 42.11c.42 3.04 1.17 4.66 3.85 4.25c2.68-.41 2.41-3.04 2.24-5.09c-.17-2.05-4.46-39.33-4.46-39.33l-6.88-36.86z"
+          fill="#4ea4b0"
+        ></path>
+        <path
+          d="M57.74 11.84s-22.83 2.5-37.53 18.82C8.35 43.83 6.42 55.66 7.26 55.79c1.41.22 5-.98 8.92.65s6.2 5 7.51 5c1.31 0 6.09-3.26 12.84-2.28c6.74.98 11.31 5 12.73 5s7.07-4.24 15.77-4.68c7.94-.4 13.27 1.52 14.36 1.41c1.09-.11 3.21-6.84 11.59-9.34c8.38-2.5 11.15-.45 12.35-.45c1.2 0 1.85-5.87 7.83-8.16c5.98-2.28 8.27-1.31 9.57-1.52s-4.79-14.78-26.38-24.65c-17.85-8.15-36.61-4.93-36.61-4.93z"
+          fill="#ee5948"
+        ></path>
+        <path
+          d="M58.79 13.49s-14.86 4.45-25.2 20.66c-8.46 13.26-8.59 23.06-8.05 23.6c.54.54 5.55-1.96 11.64-1.41c6.09.54 11.23 5.07 11.53 4.03c.38-1.32.26-13.02 1.64-22.87c2.57-18.43 8.57-22.44 8.57-22.44s8 5.36 14.07 20.49c3.81 9.49 5.7 19.24 6.49 20.48c.35.55 3.64-4.49 10.48-6.71c6.33-2.06 11.86-.47 12.62-.9c.76-.44-6.34-15.84-18.19-24.7c-13.38-10.03-25.6-10.23-25.6-10.23z"
+          fill="#fefefe"
+        ></path>
+        <path
+          d="M57.44 3.91c-2.92.4-1.99 4.67-1.77 7.18c.1 1.11.34 5.37 3.27 5.14c2.44-.19 2.1-3.44 1.88-5.83c-.21-2.4-.31-6.91-3.38-6.49z"
+          fill="#4ea4b0"
+        ></path>
+      </svg>
+    ),
+    svgStyles: { scale: 1.2 },
   },
   //13
   {
     date: "08 paź. 2026",
     name: "Mahébourg",
-    transit: "Jeddah ⮜ Mauritius",
-    images: [73, 72, 71],
+    images: [72, 73, 71],
     captions: {
       "71": "Lion Mountain",
       "72": "Pointe Canon",
@@ -368,22 +425,44 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       lng: 57.7,
       zoom: 10,
     },
+    svg: <img src="/trips/img/lion-mountain.png" />,
+    svgStyles: { left: "unset", right: 0, bottom: "4rem" },
   },
   //14
   {
     date: "09 paź. 2026",
-    name: "Jeddah",
-    transit: "Jeddah ➤ Vienna",
-    // prettier-ignore
+    name: "Mahébourg",
+    transit: {
+      from: "Mauritius",
+      to: "Dżudda",
+    },
+    images: [88, 89, 87],
+    captions: {
+      "87": "Promenada w Mahébourg",
+    },
+    position: {
+      lat: -20.4081,
+      lng: 57.7,
+      zoom: 10,
+    },
+    svg: <img src="/trips/icons/mauritius-map.png" />,
+  },
+  //15
+  {
+    date: "09 paź. 2026",
+    name: "Dżudda",
+    transit: {
+      from: "Dżudda",
+      to: "Wiedeń",
+    },
+    //prettier-ignore
     images: [
-      90, 89,
-      88, 91,
-      87,
+      90, 91, 
+      93, 97,
+      92,
     ],
     captions: {
-      "87": "Mahébourg Waterfront",
-      "88": "Bo'Valon Mall",
-      "91": "King Abdulaziz International Airport",
+      "92": "King Abdulaziz International Airport",
     },
     position: {
       lat: 21.4858,
@@ -391,23 +470,19 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       zoom: 6,
     },
     svg: <SaudiArabia />,
-    svgStyles: { rotate: "-7deg", left: "unset", right: 0 },
+    svgStyles: { rotate: "7deg" },
   },
-  //15
+  //16
   {
     date: "10 paź. 2026",
     name: "Vienna",
-    transit: "Katowice ⮜ Vienna",
-    // prettier-ignore
-    images: [
-      94, 93,
-      96, 95,
-      92,
-    ],
+    transit: {
+      from: "Wiedeń",
+      to: "Katowice",
+    },
+    images: [94, 96, 95],
     captions: {
-      "92": "King Abdulaziz International Airport",
       "95": "Schloss Belvedere",
-      "96": "Wien Hauptbahnhof",
     },
     position: {
       lat: 48.2082,
@@ -415,6 +490,6 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       zoom: 6,
     },
     svg: <Austria />,
-    svgStyles: { rotate: "7deg" },
+    svgStyles: { rotate: "-7deg", left: "unset", right: 0 },
   },
 ];
