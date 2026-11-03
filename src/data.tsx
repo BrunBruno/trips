@@ -168,6 +168,8 @@ const countries: CountryRecord[] = [
     flags: [<SriLanka />, <UnitedArabEmirates />],
     folder: "sri-lanka",
     history: SRI_LANKA_HISTORY,
+    transit: "Katowice ➤ Dubai",
+    coverCount: 9,
   },
 
   // {
@@ -189,6 +191,7 @@ const countries: CountryRecord[] = [
     flags: [<Indonesia />, <Malaysia />, <Qatar />, <Austria />],
     folder: "indonesia-bali",
     history: BALI_HISTORY,
+    coverCount: 10,
     transit: "Katowice ➤ Wiedeń",
   },
 

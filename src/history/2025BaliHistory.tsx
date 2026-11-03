@@ -17,7 +17,7 @@ export const BALI_HISTORY: MyHistory[] = [
     position: {
       lat: 48.2082,
       lng: 16.3738,
-      zoom: 6,
+      zoom: 12,
     },
     svg: <Austria />,
     svgStyles: { rotate: "7deg" },
@@ -220,9 +220,10 @@ export const BALI_HISTORY: MyHistory[] = [
       zoom: 10,
     },
   },
+  //
   {
     date: "02 paź. 2025",
-    name: "Ulun Danu Beratan Temple",
+    name: "Północ Bali",
     transit: {
       from: "Ubud",
       to: "Kuta",
@@ -245,32 +246,80 @@ export const BALI_HISTORY: MyHistory[] = [
       zoom: 10,
     },
   },
+  //
   {
     date: "03 paź. 2025",
     name: "Kuta",
     transit: {
+      from: "Kuta",
+      to: "Denpasar",
+    },
+    images: [78, 77, 79],
+    captions: {
+      "79": "Plaża Legian",
+    },
+    position: {
+      lat: -8.7482,
+      lng: 115.1672,
+      zoom: 10,
+    },
+  },
+  //
+  {
+    date: "04 paź. 2025",
+    name: "Denpasar",
+    transit: {
       from: "Bali",
       to: "Kuala Lumpur",
     },
-    images: [78, 77, 79],
-    captions: { "79": "Plaża Legian" },
+    images: [81, 80],
+    captions: {
+      "80": "Port lotniczy Denpasar",
+    },
     position: {
       lat: -8.723,
       lng: 115.175,
       zoom: 10,
     },
   },
+  //
   {
     date: "04 paź. 2025",
     name: "Kuala Lumpur",
-    images: [],
+    images: [82, 84, 83],
+    captions: {
+      "82": "Quill City Mall Kuala Lumpur",
+      "83": "The Luxe By Infinitum KLCC",
+      "84": "Menara Kuala Lumpur",
+    },
     position: {
       lat: 3.139,
       lng: 101.6869,
       zoom: 10,
     },
     svg: <Malaysia />,
+    svgStyles: { rotate: "7deg" },
   },
+  //
+  {
+    date: "05 paź. 2025",
+    name: "Jaskinie Bantu",
+    //prettier-ignore
+    images: [
+      85, 89, 91,
+      88, 86, 90,
+      87,
+    ],
+    captions: {
+      "87": "Posąg Lorda Murugana",
+    },
+    position: {
+      lat: 3.139,
+      lng: 101.6869,
+      zoom: 10,
+    },
+  },
+  //
   {
     date: "05 paź. 2025",
     name: "Kuala Lumpur",
@@ -278,13 +327,28 @@ export const BALI_HISTORY: MyHistory[] = [
       from: "Kuala Lumpur",
       to: "Doha",
     },
-    images: [],
+    //prettier-ignore
+    images: [
+      95, 98, 97, 99,
+      100, 102, 96, 92,
+      101, 93, 94,
+    ],
+    captions: {
+      "92": "Bosco Verticale",
+      "93": "Petronas Towers",
+      "94": "KLCC Park",
+      "96": "Merdeka Maybank Tower",
+      "100": "Metro Kuala Lumpur",
+      "101": "Świątynia Thean Hou",
+      "102": "Chinatown Kuala Lumpur",
+    },
     position: {
       lat: 3.139,
       lng: 101.6869,
       zoom: 10,
     },
   },
+  //
   {
     date: "06 paź. 2025",
     name: "Doha",
@@ -292,14 +356,32 @@ export const BALI_HISTORY: MyHistory[] = [
       from: "Doha",
       to: "Wiedeń",
     },
-    images: [],
+    //prettier-ignore
+    images: [
+      110, 104, 111, 106,
+      107, 103, 109, 108,
+      105, 
+    ],
+    captions: {
+      "103": "Bazar Souq Waqif",
+      "104": "Meczet Al Fanar",
+      "105": "Katara Towers",
+      "106": "OliOli Doha",
+      "107": "Katara Cultural Village",
+      "108": "Katara Multi-Purpose Hall",
+      "109": "Medina Centrale",
+      "110": "Floresta Gardens",
+      "111": "The Pearl-Qatar",
+    },
     position: {
       lat: 25.2854,
       lng: 51.531,
       zoom: 10,
     },
     svg: <Qatar />,
+    svgStyles: { rotate: "7deg", left: "unset", right: "-1rem" },
   },
+  //
   {
     date: "07 paź. 2025",
     name: "Wiedeń",
@@ -307,12 +389,13 @@ export const BALI_HISTORY: MyHistory[] = [
       from: "Wiedeń",
       to: "Katowice",
     },
-    images: [],
+    images: [112, 113, 114],
     position: {
       lat: 48.1103,
       lng: 16.5697,
       zoom: 10,
     },
     svg: <Austria />,
+    svgStyles: { rotate: "-7deg" },
   },
 ];

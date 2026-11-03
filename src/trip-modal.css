@@ -577,11 +577,11 @@
 }
 
 .pile-count-7 .photo-card:nth-child(2) {
-  transform: translateY(-20%);
+  transform: translateY(-30%);
 }
 
 .pile-count-7 .photo-card:nth-child(5) {
-  transform: translateY(20%);
+  transform: translateY(30%);
 }
 
 /* 8 zdjęć — grid 4x2 */
@@ -620,14 +620,31 @@
   margin: -38px -38px;
 }
 
+.pile-count-9 .photo-card:nth-child(1),
+.pile-count-9 .photo-card:nth-child(4) {
+  transform: translateY(-20%);
+}
 .pile-count-9 .photo-card:nth-child(2),
 .pile-count-9 .photo-card:nth-child(3) {
-  transform: translateY(-10%);
+  transform: translateY(-40%);
 }
 
 .pile-count-9 .photo-card:nth-child(6),
 .pile-count-9 .photo-card:nth-child(7) {
-  transform: translateY(10%);
+  transform: translateY(40%);
+}
+.pile-count-9 .photo-card:nth-child(5),
+.pile-count-9.photo-card:nth-child(8) {
+  transform: translateY(20%);
+}
+
+.pile-count-9 .photo-card:nth-child(1),
+.pile-count-9 .photo-card:nth-child(5) {
+  transform: translateX(10%);
+}
+.pile-count-9 .photo-card:nth-child(4),
+.pile-count-9 .photo-card:nth-child(8) {
+  transform: translateX(-10%);
 }
 
 .pile-count-9 .photo-card:nth-child(9) {
@@ -745,12 +762,12 @@
 
 .pile-count-12 .photo-card:nth-child(2),
 .pile-count-12 .photo-card:nth-child(3) {
-  transform: translateY(-25%);
+  transform: translateY(-20%);
 }
 
 .pile-count-12 .photo-card:nth-child(10),
 .pile-count-12 .photo-card:nth-child(11) {
-  transform: translateY(25%);
+  transform: translateY(20%);
 }
 
 /* --- Section 3: Google Map --- */
