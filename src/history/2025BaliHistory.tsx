@@ -2,6 +2,7 @@ import { Austria, Indonesia, Malaysia, Qatar } from "../svg";
 import type { MyHistory } from "../types";
 
 export const BALI_HISTORY: MyHistory[] = [
+  //01
   {
     date: "22 wrz. 2025",
     name: "Wiedeń",
@@ -62,7 +63,7 @@ export const BALI_HISTORY: MyHistory[] = [
     svg: <Malaysia />,
     svgStyles: { rotate: "7deg" },
   },
-  //
+  //04
   {
     date: "24 wrz. 2025",
     name: "Bali",
@@ -82,7 +83,7 @@ export const BALI_HISTORY: MyHistory[] = [
     svg: <Indonesia />,
     svgStyles: { rotate: "-7deg" },
   },
-  //
+  //05
   {
     date: "24 wrz. 2025",
     name: "Nusa Penida",
@@ -102,6 +103,7 @@ export const BALI_HISTORY: MyHistory[] = [
       zoom: 10,
     },
   },
+  //06
   {
     date: "25 wrz. 2025",
     name: "Nusa Penida",
@@ -127,6 +129,7 @@ export const BALI_HISTORY: MyHistory[] = [
       zoom: 10,
     },
   },
+  //07
   {
     date: "26 wrz. 2025",
     name: "Gili Air",
@@ -137,6 +140,7 @@ export const BALI_HISTORY: MyHistory[] = [
       zoom: 10,
     },
   },
+  //08
   {
     date: "27 wrz. 2025",
     name: "Gili Air",
@@ -147,6 +151,7 @@ export const BALI_HISTORY: MyHistory[] = [
       zoom: 10,
     },
   },
+  //09
   {
     date: "28 wrz. 2025",
     name: "Gili Air",
@@ -161,6 +166,7 @@ export const BALI_HISTORY: MyHistory[] = [
       zoom: 10,
     },
   },
+  //10
   {
     date: "29 wrz. 2025",
     name: "Bali",
@@ -177,6 +183,7 @@ export const BALI_HISTORY: MyHistory[] = [
       zoom: 10,
     },
   },
+  //11
   {
     date: "30 wrz. 2025",
     name: "Ubud",
@@ -198,6 +205,7 @@ export const BALI_HISTORY: MyHistory[] = [
       zoom: 10,
     },
   },
+  //12
   {
     date: "01 paź. 2025",
     name: "Wulkan Batur",
@@ -220,7 +228,7 @@ export const BALI_HISTORY: MyHistory[] = [
       zoom: 10,
     },
   },
-  //
+  //13
   {
     date: "02 paź. 2025",
     name: "Północ Bali",
@@ -246,7 +254,7 @@ export const BALI_HISTORY: MyHistory[] = [
       zoom: 10,
     },
   },
-  //
+  //14
   {
     date: "03 paź. 2025",
     name: "Kuta",
@@ -264,7 +272,7 @@ export const BALI_HISTORY: MyHistory[] = [
       zoom: 10,
     },
   },
-  //
+  //15
   {
     date: "04 paź. 2025",
     name: "Denpasar",
@@ -282,7 +290,7 @@ export const BALI_HISTORY: MyHistory[] = [
       zoom: 10,
     },
   },
-  //
+  //16
   {
     date: "04 paź. 2025",
     name: "Kuala Lumpur",
@@ -300,10 +308,10 @@ export const BALI_HISTORY: MyHistory[] = [
     svg: <Malaysia />,
     svgStyles: { rotate: "7deg" },
   },
-  //
+  //17
   {
     date: "05 paź. 2025",
-    name: "Jaskinie Bantu",
+    name: "Jaskinie Batu",
     //prettier-ignore
     images: [
       85, 89, 91,
@@ -319,7 +327,7 @@ export const BALI_HISTORY: MyHistory[] = [
       zoom: 10,
     },
   },
-  //
+  //18
   {
     date: "05 paź. 2025",
     name: "Kuala Lumpur",
@@ -348,7 +356,7 @@ export const BALI_HISTORY: MyHistory[] = [
       zoom: 10,
     },
   },
-  //
+  //19
   {
     date: "06 paź. 2025",
     name: "Doha",
@@ -381,7 +389,7 @@ export const BALI_HISTORY: MyHistory[] = [
     svg: <Qatar />,
     svgStyles: { rotate: "7deg", left: "unset", right: "-1rem" },
   },
-  //
+  //20
   {
     date: "07 paź. 2025",
     name: "Wiedeń",

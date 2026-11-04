@@ -11,7 +11,6 @@ import {
   Germany,
   Czechia,
   Poland,
-  Cyprus,
   Malaysia,
   Qatar,
 } from "./svg";
@@ -24,8 +23,9 @@ import { BALI_HISTORY } from "./history/2025BaliHistory";
 import { SRI_LANKA_HISTORY } from "./history/2024SriLankaHistory";
 import { EURO_TRIP_HISTORY } from "./history/2022EuroTrip";
 import SaudiArabia from "./svg/sau";
-import CyprusMap from "./map/CyprusMap";
 import UnitedArabEmirates from "./svg/uae";
+import Portugal from "./svg/ptg";
+import { MADEIRA_HISTORY } from "./history/2023MaderaHistory";
 
 const countries: CountryRecord[] = [
   // {
@@ -122,23 +122,28 @@ const countries: CountryRecord[] = [
     transit: "Katowice ➤ Wiedeń",
   },
 
-  {
-    name: "Cypr",
-    country: "Cypr",
-    year: 2023,
-    month: 3,
-    flag: Cyprus,
-    folder: "cyprus",
-    map: CyprusMap("cyprus"),
-  },
+  // {
+  //   name: "Cypr",
+  //   country: "Cypr",
+  //   year: 2023,
+  //   month: 3,
+  //   flag: Cyprus,
+  //   folder: "cyprus",
+  //   map: CyprusMap("cyprus"),
+  // },
 
   {
     name: "Madera",
     country: "Portugalia",
     year: 2023,
+    month: 8,
     flag: Madeira,
+    flags: [<Madeira />, <Portugal />],
     folder: "madeira",
     map: MadeiraMap("madeira"),
+    history: MADEIRA_HISTORY,
+    coverCount: 9,
+    transit: "Katowice ➤ Madera",
   },
 
   // {

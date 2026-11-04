@@ -192,7 +192,8 @@
 
   width: 85rem;
   max-width: 100%;
-  height: 100vh;
+  /* height: 110vh; */
+  height: 680px;
   margin: auto;
   box-sizing: border-box;
 }
@@ -626,12 +627,12 @@
 }
 .pile-count-9 .photo-card:nth-child(2),
 .pile-count-9 .photo-card:nth-child(3) {
-  transform: translateY(-40%);
+  transform: translateY(-30%);
 }
 
 .pile-count-9 .photo-card:nth-child(6),
 .pile-count-9 .photo-card:nth-child(7) {
-  transform: translateY(40%);
+  transform: translateY(30%);
 }
 .pile-count-9 .photo-card:nth-child(5),
 .pile-count-9.photo-card:nth-child(8) {
@@ -775,6 +776,7 @@
 .history-day-map {
   position: relative;
   min-width: 0;
+  /* transform: translateY(-5rem); */
 }
 
 .history-day-data {
@@ -862,7 +864,18 @@
   height: 10rem;
 }
 
-.frame-img::after {
+.frame-img.o::after {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: #333;
+}
+.frame-img.t::after {
   content: "";
   position: absolute;
   top: -1rem;
@@ -874,17 +887,58 @@
   border-radius: 50%;
   background-color: #333;
 }
-.frame-img::before {
+.frame-img.t::before {
   content: "";
   position: absolute;
   top: -1rem;
   right: -1rem;
-  /* left: 50%;
-  transform: translateX(-50%); */
   width: 1rem;
   height: 1rem;
   border-radius: 50%;
   background-color: #333;
+}
+
+.day-sleep {
+  position: absolute;
+  top: 98%;
+  left: 0rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #fff;
+  color: #000;
+
+  border: solid 2px #333;
+  filter: drop-shadow(6px 6px 2px #000);
+  z-index: 102;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.day-sleep-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.day-sleep-data::after {
+  content: "";
+  position: absolute;
+  top: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background-color: #333;
+}
+
+.day-sleep-data svg {
+  height: 1.6rem;
 }
 
 /* --- Empty State --- */

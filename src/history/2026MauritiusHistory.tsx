@@ -1,24 +1,37 @@
 import { Austria, Mauritius, Spain } from "../svg";
+import Crab from "../svg/icons/crab";
+import Plane from "../svg/icons/plane";
+import Sailboat from "../svg/icons/sailboat";
+import SeaTurtle from "../svg/icons/sea-turtle";
+import TropicalFish from "../svg/icons/tropical-fish";
 import SaudiArabia from "../svg/sau";
 import type { MyHistory } from "../types";
 
 export const MAURITIUS_HISTORY: MyHistory[] = [
-  //01
+  //01 2609
   {
     date: "26 wrz. 2026",
     name: "Madrid",
+    sleep: {
+      name: "Min Hostel Capsules",
+      styles: {},
+    },
     // prettier-ignore
     images: [
-      79, 75, 78,
-      74, 76, 77,
+      79, 98, 78, 100,
+      74, 76, 99, 77,
+      75
     ],
     captions: {
-      "74": "Pomnik Filipa IV", // Monument to Felipe IV
-      "75": "Katedra Almudena", // Catedral de la Almudena
+      "74": "Pomnik Filipa IV",
+      "75": "Katedra Almudena",
       "76": "Pałac Królewski w Madrycie",
-      "77": "Punkt widokowy przy Pałacu Królewskim", // Royal Palace's Ledge Viewpoint
-      "78": "Plaza Mayor",
-      "79": "Pomnik Alfonsa XII", // Monument to Alfonso XII
+      "77": "Punkt widokowy przy Pałacu Królewskim",
+      "78": "Plaza de la Villa",
+      "79": "Pomnik Alfonsa XII",
+      "98": "Port lotniczy Adolfo Suárez Madryt-Barajas",
+      "99": "Metro de Madrid",
+      "100": "Plaza Mayor",
     },
     position: {
       lat: 40.4168,
@@ -27,8 +40,10 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     },
     svg: <Spain />,
     svgStyles: { rotate: "7deg", left: "unset", right: 0 },
+    //img: <img src="/trips/mauritius/icons/palacio-real.png" />,
+    //imgStyles: { left: "22rem", top: "6rem" },
   },
-  //02
+  //02 2709
   {
     date: "27 wrz. 2026",
     name: "Madrid",
@@ -38,39 +53,72 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     },
     // prettier-ignore
     images: [
-      86, 85, 84,
-      80, 82, 81,
-      83,
+      86, 85, 84, 80,
+      82, 81, 102, 101,
+      83
     ],
     captions: {
       "80": "Muzeum Aeronautyki i Astronautyki",
-      "81": "Łuk Moncloa", // Arco de Moncloa
-      "82": "Latarnia Moncloa", // Moncloa's Lighthouse
-      "84": "Park del Oeste", // Parque del Oeste
+      "81": "Arco de Moncloa",
+      "82": "Panorama Madrytu",
+      "83": "",
+      "84": "Park del Oeste",
       "85": "Puerta de Alcalá",
       "86": "Park Retiro",
+      "101": "Pałac Cybele",
+      "102": "Latarnia Moncloa",
     },
     position: {
       lat: 40.4168,
       lng: -3.7038,
-      zoom: 5,
+      zoom: 11,
     },
-    img: <img src="/trips/img/park-retiro.png" />,
-    imgStyles: { left: "0rem", top: "2rem" },
+    //img: <img src="/trips/mauritius/icons/park-retiro.png" />,
+    //imgStyles: { left: "0rem", top: "2rem" },
   },
-  //03
+  //03 2809
+  {
+    date: "28 wrz. 2026",
+    name: "Plaine Magnien",
+    transit: {
+      from: "Plaine Magnien",
+      to: "Flic en Flac",
+    },
+    images: [103, 104, 1],
+    captions: {
+      "1": "Sir Seewoosagur Ramgoolam International Airport",
+    },
+    position: {
+      lat: -20.43,
+      lng: 57.6836,
+      zoom: 10,
+    },
+    svg: <Mauritius />,
+    svgStyles: { rotate: "7deg" },
+    img: <Plane />,
+    imgStyles: {
+      rotate: "-135deg",
+      left: "unset",
+      right: "2rem",
+      bottom: "6rem",
+      filter: "drop-shadow(-6px -6px 2px #000)",
+    },
+  },
+  //04 2809
   {
     date: "28 wrz. 2026",
     name: "Flic en Flac",
+    sleep: {
+      name: "The Paramount",
+      styles: {},
+    },
     // prettier-ignore
     images: [
-      5, 4,
-      1, 2,
+      105, 4,
+      5, 2, 
       3,
     ],
     captions: {
-      "1": "Sir Seewoosagur Ramgoolam International Airport",
-      "2": "The Paramount",
       "3": "Plaża Flic en Flac",
     },
     position: {
@@ -78,154 +126,299 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       lng: 57.36464,
       zoom: 10,
     },
-    svg: <Mauritius />,
-    svgStyles: { rotate: "7deg" },
+    svg: <Crab />,
+    svgStyles: { rotate: "-45deg", left: "unset", right: "0" },
+    //img: <img src="/trips/mauritius/icons/flic-en-flac-beach.png" />,
+    //imgStyles: { left: "2rem", top: "6rem" },
   },
-  //04
+  //05 2909
   {
     date: "29 wrz. 2026",
     name: "Le Morne Brabant",
     // prettier-ignore
     images: [
-      11, 16, 10, 8,
-      14, 6, 15, 17,
-      7, 13, 9, 12,
+      110, 107, 109, 7,
+      6, 106, 111, 108,
+      10, 9, 8,
     ],
-    captions: {
-      "7": "Podwodny Wodospad",
-      "9": "Szczyt Le Morne Brabant",
-      "12": "Lagoon Flight Spot",
-      "13": "Plaża pod Le Morne",
-    },
     position: {
-      lat: -20.4548,
-      lng: 57.3301,
+      lat: -20.4492,
+      lng: 57.3168,
       zoom: 10,
     },
-    img: <img src="/trips/img/le-morne.png" />,
-    imgStyles: { left: "-2rem", bottom: "2rem" },
+    //img: <img src="/trips/mauritius/icons/underwater-waterfall.png" />,
+    //imgStyles: { left: "0rem", top: "2rem", bottom: "unset" },
   },
-  //05
+  //06 2909
+  {
+    date: "29 wrz. 2026",
+    name: "La Prairie Beach",
+    // prettier-ignore
+    images: [
+      11, 114, 15,
+      16, 112, 113,
+      12,
+    ],
+    position: {
+      lat: -20.483,
+      lng: 57.3538,
+      zoom: 11,
+    },
+    svg: <SeaTurtle />,
+    svgStyles: { rotate: "45deg", left: "2rem", bottom: "18rem" },
+    //img: <img src="/trips/mauritius/icons/le-morne.png" />,
+    //imgStyles: { left: "-2rem", bottom: "2rem" },
+  },
+  //07 2909
+  {
+    date: "29 wrz. 2026",
+    name: "Le Morne Beach",
+    // prettier-ignore
+    images: [
+      14, 115,
+      17, 116,
+      13,
+    ],
+    position: {
+      lat: -20.4515,
+      lng: 57.3125,
+      zoom: 11,
+    },
+    //img: <img src="/trips/mauritius/icons/le-morne-beach.png" />,
+    //imgStyles: { left: "2rem", bottom: "16rem" },
+  },
+  //08 3009
   {
     date: "30 wrz. 2026",
     name: "Black River Gorges\n National Park",
     // prettier-ignore
     images: [
-      18, 19, 23, 26,
-      21, 22, 27, 25,
-      24, 20, 28,
+      121, 118, 119, 120,
+      18, 122, 117, 123,
+      19
     ],
     captions: {
-      "18": "Świątynia Grand Bassin",
-      "19": "Wodospad Alexandra",
-      "20": "Wodospad Chamarel",
-      "21": "Seven Colored Earth Geopark",
-      "22": "Żółw Olbrzymi z Aldabry",
-      "23": "Punkt widokowy Maconde",
-      "24": "Plaża Gris Gris",
-      "25": "Roche Qui Pleure",
-      "26": "Wodospad Rochester",
-      "27": "Trois Mamelles",
-      "28": "The Paramount",
+      "18": "Grand Bassin Temple",
+      "19": "Alexandra Falls Viewpoint",
+      "117": "Posąg Śiwy",
+      "122": "Makaki Krabożerne",
+      "123": "Gorges Viewpoint",
     },
     position: {
       lat: -20.4085,
       lng: 57.4381,
       zoom: 10,
     },
-    svg: <img src="/trips/img/chamarel-waterfall.png" />,
-    svgStyles: { top: "0", bottom: "unset", left: "2rem" },
+    //img: <img src="/trips/mauritius/icons/grand-bassin-temple.png" />,
+    //imgStyles: { top: "6rem", bottom: "unset", left: "0rem" },
   },
-  //06
+  //09 3009
+  {
+    date: "30 wrz. 2026",
+    name: "Chamarel Geopark",
+    // prettier-ignore
+    images: [
+      127, 126, 124,
+      21, 125, 22,
+      20,
+    ],
+    captions: {
+      "20": "Chamarel Waterfall",
+      "21": "Seven Colored Earth Ground Zero",
+      "22": "Żółw Olbrzymi z Aldabry",
+      "125": "Chamarel Waterfall Viewpoint",
+    },
+    position: {
+      lat: -20.4399,
+      lng: 57.3731,
+      zoom: 10,
+    },
+    //img: <img src="/trips/mauritius/icons/chamarel-waterfall.png" />,
+    //imgStyles: { top: "6rem", bottom: "unset", left: "0rem" },
+  },
+  //10 3009
+  {
+    date: "30 wrz. 2026",
+    name: "Południe Mauritiusa",
+    // prettier-ignore
+    images: [
+      26, 130, 25,
+      24, 129, 23,
+      128,
+    ],
+    captions: {
+      "23": "Punkt widokowy Maconde",
+      "24": "Plaża Gris Gris",
+      "25": "Roche Qui Pleure",
+      "26": "Wodospad Rochester",
+      "129": "St Felix Beach",
+      "130": "Bel Ombre",
+    },
+    position: {
+      lat: -20.5246,
+      lng: 57.5306,
+      zoom: 10,
+    },
+    //img: <img src="/trips/mauritius/icons/maconde.png" />,
+    //imgStyles: { bottom: "8rem", left: "-2rem" },
+  },
+  //11 3009
+  {
+    date: "30 wrz. 2026",
+    name: "Flic en Flac",
+    images: [28, 131, 27],
+    captions: {
+      "27": "Trois Mamelles",
+    },
+    position: {
+      lat: -20.2784,
+      lng: 57.3737,
+      zoom: 10,
+    },
+  },
+  //12 0110
   {
     date: "01 paź. 2026",
     name: "Black River Peak",
     // prettier-ignore
     images: [
-      32, 33, 34,
-      35, 29, 31,
+      132, 33, 133,
+      32, 29, 31,
       30,
     ],
     captions: {
-      "29": "Gorges Viewpoint",
       "30": "Piton Saint Denis",
-      "31": "Szczyt Black River Peak",
-      "35": "Plaża z widokiem na Le Morne",
     },
     position: {
       lat: -20.40473,
       lng: 57.40932,
       zoom: 10,
     },
-    svg: <img src="/trips/img/black-river-peak.png" />,
-    svgStyles: { bottom: "10rem", left: "-1rem" },
+    //img: <img src="/trips/mauritius/icons/black-river-peak.png" />,
+    //imgStyles: { bottom: "10rem", left: "-1rem" },
   },
-  //07
+  //13 0110
+  {
+    date: "01 paź. 2026",
+    name: "Tamarin",
+    // prettier-ignore
+    images: [
+      135, 34,
+      134, 35,
+    ],
+    captions: {
+      "35": "Plaża z widokiem na Le Morne",
+      "134": "Cascavelle Shopping Mall",
+    },
+    position: {
+      lat: -20.3375,
+      lng: 57.3747,
+      zoom: 10,
+    },
+  },
+  //14 0210
   {
     date: "02 paź. 2026",
     name: "Île aux Cerfs",
-    transit: {
-      from: "Flic en Flac",
-      to: "Grand Baie",
-    },
     // prettier-ignore
     images: [
-      39, 38, 36,
-      41, 37, 40,
+      41, 37, 36,
+      39, 38, 136
     ],
-    captions: {
-      "37": "Plaża na Île aux Cerfs",
-      "40": "Plaża La Prairie",
-      "41": "Pointe Maurice",
-    },
     position: {
       lat: -20.2697,
       lng: 57.8031,
       zoom: 10,
     },
-    img: <img src="/trips/img/ile-aux-cerfs.png" />,
-    imgStyles: { left: "unset", right: "0rem", bottom: "6rem" },
+    svg: <TropicalFish />,
+    svgStyles: { left: "unset", right: "4rem", bottom: "22rem" },
+    //img: <img src="/trips/mauritius/icons/ile-aux-cerfs.png" />,
+    //imgStyles: { left: "unset", right: "0rem", bottom: "6rem" },
   },
-  //08
+  //15 0210
+  {
+    date: "02 paź. 2026",
+    name: "Plaża La Prairie",
+    transit: {
+      from: "Flic en Flac",
+      to: "Grand Baie",
+    },
+    images: [137, 40],
+    position: {
+      lat: -20.483,
+      lng: 57.3538,
+      zoom: 10,
+    },
+  },
+  //16 0310
   {
     date: "03 paź. 2026",
-    name: "Le Pouce & Port Louis",
+    name: "Le Pouce",
     // prettier-ignore
     images: [
-      43, 46,
-      44, 45,
+      138, 139,
+      44, 43,
       42,
     ],
     captions: {
       "42": "Szczyt Pieter Both",
       "43": "Szczyt Le Pouce",
       "44": "Moka",
+    },
+    position: {
+      lat: -20.1935,
+      lng: 57.5224,
+      zoom: 10,
+    },
+    //img: <img src="/trips/mauritius/icons/pieter-both.png" />,
+    //imgStyles: { left: "2rem", bottom: "18rem" },
+  },
+  //17 0310
+  {
+    date: "03 paź. 2026",
+    name: "Port Louis",
+    images: [142, 143, 46, 45],
+    captions: {
       "45": "China Town w Port Louis",
       "46": "Promenada Caudan Waterfront",
     },
     position: {
-      lat: -20.1775,
-      lng: 57.5258,
+      lat: -20.1613,
+      lng: 57.5002,
       zoom: 10,
     },
-    img: <img src="/trips/img/pieter-both.png" />,
-    imgStyles: { left: "2rem", bottom: "18rem" },
   },
-  //09
+  //18 0310
+  {
+    date: "03 paź. 2026",
+    name: "Grand Baie",
+    sleep: {
+      name: "Grand Baie View Appart",
+      styles: {},
+    },
+    images: [141, 140],
+    position: {
+      lat: -20.0081,
+      lng: 57.5802,
+      zoom: 10,
+    },
+    svg: <Sailboat />,
+    svgStyles: { left: "2rem", bottom: "unset", top: "6rem", rotate: "-15deg" },
+  },
+  //19
   {
     date: "04 paź. 2026",
     name: "Grand Baie",
     // prettier-ignore
     images: [
-      47, 50, 52,
-      49, 51, 48,
-      53,
+      47, 50, 52, 144,
+      145, 51, 49, 53,
     ],
     captions: {
-      "48": "Grand Baie View Appart",
       "49": "Plaża La Cuvette",
       "51": "Plaża Pereybere",
       "53": "Plaża Grand Baie",
+      "145": "Super U Grand Bay",
     },
     position: {
       lat: -20.0081,
@@ -315,8 +508,8 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       lng: 57.6147,
       zoom: 10,
     },
-    img: <img src="/trips/img/gunners-quoin.png" />,
-    imgStyles: { left: "6rem", bottom: "22rem" },
+    //img: <img src="/trips/mauritius/icons/gunners-quoin.png" />,
+    //imgStyles: { left: "6rem", bottom: "22rem" },
   },
   //11
   {
@@ -425,8 +618,8 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       lng: 57.7,
       zoom: 10,
     },
-    svg: <img src="/trips/img/lion-mountain.png" />,
-    svgStyles: { left: "unset", right: 0, bottom: "4rem" },
+    //img: <img src="/trips/mauritius/icons/lion-mountain.png" />,
+    //imgStyles: { left: "unset", right: 0, bottom: "4rem" },
   },
   //14
   {

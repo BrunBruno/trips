@@ -331,7 +331,7 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
       zoom: 10,
     },
   },
-  // 18
+  //18
   {
     date: "03 paź. 2024",
     name: "Colombo",

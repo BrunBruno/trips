@@ -26,7 +26,7 @@ if len(sys.argv) != 2:
     sys.exit(1)
 
 folder_name = sys.argv[1]
-TARGET_FOLDER = BASE_DIR / "public" / folder_name
+TARGET_FOLDER = BASE_DIR / "public" / folder_name / "img"
 
 TARGET_FOLDER.mkdir(parents=True, exist_ok=True)
 

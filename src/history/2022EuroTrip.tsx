@@ -37,7 +37,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     svg: <Austria />,
     svgStyles: { rotate: "7deg" },
-    img: <img src="/trips/img/belvedere.png" />,
+    img: <img src="/trips/img/euro-trip/belvedere.png" />,
     imgStyles: { left: "unset", right: "0rem", bottom: "8rem" },
   },
   //02
@@ -61,7 +61,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       lng: 16.3738,
       zoom: 6,
     },
-    img: <img src="/trips/img/schonbrunn.png" />,
+    img: <img src="/trips/img/euro-trip/schonbrunn.png" />,
     imgStyles: { left: "-2rem", bottom: "2rem" },
   },
   //03
@@ -89,7 +89,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     svg: <Switzerland />,
     svgStyles: { rotate: "7deg", left: "unset", right: 0 },
-    img: <img src="/trips/img/berninapass.png" />,
+    img: <img src="/trips/img/euro-trip/berninapass.png" />,
     imgStyles: { left: "unset", right: "0rem", bottom: "18rem" },
   },
   //04
@@ -145,7 +145,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       lng: 9.19,
       zoom: 6,
     },
-    img: <img src="/trips/img/duomo.png" />,
+    img: <img src="/trips/img/euro-trip/duomo.png" />,
     imgStyles: { left: "unset", right: "0", bottom: "2rem" },
   },
   //06
@@ -185,7 +185,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       lng: 7.0174,
       zoom: 6,
     },
-    img: <img src="/trips/img/cannes.png" />,
+    img: <img src="/trips/img/euro-trip/cannes.png" />,
     imgStyles: { left: "1rem", bottom: "20rem" },
   },
   //08
@@ -641,7 +641,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       lng: 2.8386,
       zoom: 6,
     },
-    img: <img src="/trips/img/cami-de-ronda.png" />,
+    img: <img src="/trips/img/euro-trip/cami-de-ronda.png" />,
     imgStyles: { left: "unset", bottom: "6rem", right: "0rem" },
   },
   //13
@@ -672,7 +672,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       lng: 2.1686,
       zoom: 6,
     },
-    img: <img src="/trips/img/sagrada-familia.png" />,
+    img: <img src="/trips/img/euro-trip/sagrada-familia.png" />,
     imgStyles: { bottom: 0, right: 0, left: "unset" },
   },
   //14
@@ -697,7 +697,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     svg: <France />,
     svgStyles: { rotate: "7deg", left: "unset", right: 0 },
-    img: <img src="/trips/img/eiffel-tower.png" />,
+    img: <img src="/trips/img/euro-trip/eiffel-tower.png" />,
     imgStyles: { left: "0rem", bottom: 0 },
   },
   //15
@@ -725,7 +725,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       lng: 2.3522,
       zoom: 6,
     },
-    img: <img src="/trips/img/louvre.png" />,
+    img: <img src="/trips/img/euro-trip/louvre.png" />,
     imgStyles: { left: "unset", bottom: 0, right: "0rem" },
   },
   //16
@@ -758,7 +758,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     svg: <Germany />,
     svgStyles: { rotate: "7deg" },
-    img: <img src="/trips/img/brandenburg-gate.png" />,
+    img: <img src="/trips/img/euro-trip/brandenburg-gate.png" />,
     imgStyles: { bottom: "8rem", left: "unset", right: "0rem" },
   },
   //17
@@ -786,7 +786,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     svg: <Czechia />,
     svgStyles: { rotate: "-7deg" },
-    img: <img src="/trips/img/prague-castle.png" />,
+    img: <img src="/trips/img/euro-trip/prague-castle.png" />,
     imgStyles: { bottom: "2rem", left: "unset", right: "-1rem" },
   },
   //18
@@ -801,7 +801,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     svg: <Poland />,
     svgStyles: { rotate: "-7deg", left: "unset", right: 0 },
-    img: <img src="/trips/img/spodek.png" />,
+    img: <img src="/trips/img/euro-trip/spodek.png" />,
     imgStyles: { bottom: "16rem" },
   },
 ];

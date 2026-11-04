@@ -27,6 +27,10 @@ export type MyHistory = {
     from: string;
     to: string;
   };
+  sleep?: {
+    name: string;
+    styles: CSSProperties;
+  };
   images: number[];
   captions?: {
     [key in number]: string;
@@ -39,4 +43,6 @@ export type MyHistory = {
   svgStyles?: CSSProperties;
   img?: JSX.Element;
   imgStyles?: CSSProperties;
+
+  hid?: 1;
 };
