@@ -1,117 +1,114 @@
-import { Austria, Indonesia, Malaysia, Qatar } from "../svg";
+import Austria from "../svg/flags/aut";
+import Indonesia from "../svg/flags/idn";
+import Malaysia from "../svg/flags/mys";
+import Qatar from "../svg/flags/qat";
 import type { MyHistory } from "../types";
 
 export const BALI_HISTORY: MyHistory[] = [
-  //01
+  //01 2209
   {
+    hid: 1,
     date: "22 wrz. 2025",
-    name: "Wiedeń",
-    transit: {
-      from: "Wiedeń",
-      to: "Doha",
-    },
-    images: [2, 1],
-    captions: {
-      "1": "Pałac Belweder",
-      "2": "Wien Hauptbahnhof",
-    },
-    position: {
-      lat: 48.2082,
-      lng: 16.3738,
-      zoom: 12,
-    },
-    svg: <Austria />,
-    svgStyles: { rotate: "7deg" },
-  },
-  //02
-  {
-    date: "22 wrz. 2025",
-    name: "Doha",
+    name: "Wiedeń ➤ Doha",
     transit: {
       from: "Doha",
       to: "Kuala Lumpur",
     },
-    images: [4, 3],
+    images: [2, 4, 1],
     captions: {
-      "3": "Doha International Airport",
+      "1": "Pałac Belweder",
+      "2": "Wien Hauptbahnhof",
+      "4": "Doha International Airport",
     },
     position: {
-      lat: 25.2606,
-      lng: 51.6138,
-      zoom: 6,
+      points: [
+        { lat: 48.2082, lng: 16.3738, cap: "VIE", typ: "l" },
+        { lat: 25.2606, lng: 51.6138, cap: "DOH", typ: "l" },
+      ],
+      zoom: 3,
     },
-    svg: <Qatar />,
-    svgStyles: { rotate: "-7deg", left: "unset", right: "-1rem" },
+    svg: {
+      item: <Austria />,
+      styles: { rotate: "7deg" },
+    },
+    svg2: {
+      item: <Qatar />,
+      styles: { rotate: "-7deg", left: "1rem", bottom: "0" },
+    },
   },
-  //03
+
+  //02 2309
   {
+    hid: 1,
     date: "23 wrz. 2025",
-    name: "Kuala Lumpur",
+    name: "Kuala Lumpur ➤ Bali",
     transit: {
-      from: "Kuala Lumpur",
-      to: "Bali",
+      from: "Bali",
+      to: "Nusa Penida",
     },
     images: [5, 7, 6],
     captions: {
       "6": "Kuala Lumpur International Airport",
     },
     position: {
-      lat: 2.7456,
-      lng: 101.7072,
-      zoom: 10,
+      points: [
+        { lat: 2.7456, lng: 101.7072, cap: "KUL", typ: "l" },
+        { lat: -8.7482, lng: 115.1672, cap: "DPS", typ: "l" },
+      ],
+      zoom: 3,
     },
-    svg: <Malaysia />,
-    svgStyles: { rotate: "7deg" },
+    svg: {
+      item: <Malaysia />,
+      styles: { rotate: "7deg" },
+    },
   },
-  //04
+
+  //03 2409
   {
-    date: "24 wrz. 2025",
-    name: "Bali",
-    transit: {
-      from: "Bali",
-      to: "Nusa Penida",
-    },
-    images: [8, 9],
-    captions: {
-      "9": "Port Tanjung Emas",
-    },
-    position: {
-      lat: -8.7482,
-      lng: 115.1672,
-      zoom: 10,
-    },
-    svg: <Indonesia />,
-    svgStyles: { rotate: "-7deg" },
-  },
-  //05
-  {
+    // hid: 1,
     date: "24 wrz. 2025",
     name: "Nusa Penida",
-    //prettier-ignore
+    sleep: {
+      name: "Pooja Ocean View Cottage",
+      styles: { left: "unset", right: "0" },
+    },
+    // prettier-ignore
     images: [
-      13, 12, 14,
-      10, 15, 11,
+      14, 13, 12,
+      9, 10, 15,
+      11,
     ],
     captions: {
+      "9": "Port Benoa",
       "10": "Banjar Nyuh Harbor",
       "11": "Diamond Beach",
       "15": "Teletubbies Hills",
     },
     position: {
-      lat: -8.727,
-      lng: 115.5444,
-      zoom: 10,
+      points: [
+        { lat: -8.774912, lng: 115.62026, cap: "Diamond Beach" },
+        { lat: -8.785152, lng: 115.574763, cap: "Teletubbies Hill" },
+        { lat: -8.680453, lng: 115.572884, cap: "", typ: "n" },
+        { lat: -8.740912, lng: 115.209681, cap: "Port Benoa" },
+      ],
+      zoom: 9.5,
+    },
+    svg: {
+      item: <Indonesia />,
+      styles: { rotate: "-7deg" },
     },
   },
-  //06
+
+  //04 2509
   {
+    hid: 1,
     date: "25 wrz. 2025",
     name: "Nusa Penida",
     transit: {
       from: "Nusa Penida",
       to: "Gili Air",
     },
-    //prettier-ignore
+    // prettier-ignore
     images: [
       16, 25, 18, 19,
       20, 21, 22, 27,
@@ -124,35 +121,38 @@ export const BALI_HISTORY: MyHistory[] = [
       "26": "Pooja Ocean View Cottage",
     },
     position: {
-      lat: -8.727,
-      lng: 115.5444,
+      points: [{ lat: -8.727, lng: 115.5444, cap: "Nusa Penida" }],
       zoom: 10,
     },
   },
-  //07
+
+  //05 2609
   {
+    hid: 1,
     date: "26 wrz. 2025",
     name: "Gili Air",
     images: [28, 29, 30, 32, 31],
     position: {
-      lat: -8.357,
-      lng: 116.082,
+      points: [{ lat: -8.357, lng: 116.082, cap: "Gili Air" }],
       zoom: 10,
     },
   },
-  //08
+
+  //06 2709
   {
+    hid: 1,
     date: "27 wrz. 2025",
     name: "Gili Air",
     images: [36, 34, 35, 33],
     position: {
-      lat: -8.357,
-      lng: 116.082,
+      points: [{ lat: -8.357, lng: 116.082, cap: "Gili Air" }],
       zoom: 10,
     },
   },
-  //09
+
+  //07 2809
   {
+    hid: 1,
     date: "28 wrz. 2025",
     name: "Gili Air",
     transit: {
@@ -161,13 +161,14 @@ export const BALI_HISTORY: MyHistory[] = [
     },
     images: [38, 39, 37],
     position: {
-      lat: -8.357,
-      lng: 116.082,
+      points: [{ lat: -8.357, lng: 116.082, cap: "Gili Air" }],
       zoom: 10,
     },
   },
-  //10
+
+  //08 2909
   {
+    hid: 1,
     date: "29 wrz. 2025",
     name: "Bali",
     images: [40, 41, 42, 43],
@@ -178,16 +179,17 @@ export const BALI_HISTORY: MyHistory[] = [
       "43": "Żaba Rzekotkowata",
     },
     position: {
-      lat: -8.5069,
-      lng: 115.2625,
+      points: [{ lat: -8.5069, lng: 115.2625, cap: "Bali" }],
       zoom: 10,
     },
   },
-  //11
+
+  //09 3009
   {
+    hid: 1,
     date: "30 wrz. 2025",
     name: "Ubud",
-    //prettier-ignore
+    // prettier-ignore
     images: [
       44, 52, 47, 54,
       51, 49, 55, 48,
@@ -200,16 +202,17 @@ export const BALI_HISTORY: MyHistory[] = [
       "53": "Wodospad Kanto Lampo",
     },
     position: {
-      lat: -8.431,
-      lng: 115.279,
+      points: [{ lat: -8.431, lng: 115.279, cap: "Ubud" }],
       zoom: 10,
     },
   },
-  //12
+
+  //10 0110
   {
+    hid: 1,
     date: "01 paź. 2025",
     name: "Wulkan Batur",
-    //prettier-ignore
+    // prettier-ignore
     images: [
       64, 57, 60, 62,
       58, 61, 63, 59,
@@ -223,20 +226,21 @@ export const BALI_HISTORY: MyHistory[] = [
       "63": "Luwak",
     },
     position: {
-      lat: -8.239,
-      lng: 115.375,
+      points: [{ lat: -8.239, lng: 115.375, cap: "Wulkan Batur" }],
       zoom: 10,
     },
   },
-  //13
+
+  //11 0210
   {
+    hid: 1,
     date: "02 paź. 2025",
     name: "Północ Bali",
     transit: {
       from: "Ubud",
       to: "Kuta",
     },
-    //prettier-ignore
+    // prettier-ignore
     images: [
       73, 65, 68, 67,
       76, 75, 71, 72,
@@ -249,13 +253,14 @@ export const BALI_HISTORY: MyHistory[] = [
       "74": "Wodospady Sekumpul",
     },
     position: {
-      lat: -8.275,
-      lng: 115.166,
+      points: [{ lat: -8.275, lng: 115.166, cap: "Północ Bali" }],
       zoom: 10,
     },
   },
-  //14
+
+  //12 0310
   {
+    hid: 1,
     date: "03 paź. 2025",
     name: "Kuta",
     transit: {
@@ -267,13 +272,14 @@ export const BALI_HISTORY: MyHistory[] = [
       "79": "Plaża Legian",
     },
     position: {
-      lat: -8.7482,
-      lng: 115.1672,
+      points: [{ lat: -8.7482, lng: 115.1672, cap: "Kuta" }],
       zoom: 10,
     },
   },
-  //15
+
+  //13 0410
   {
+    hid: 1,
     date: "04 paź. 2025",
     name: "Denpasar",
     transit: {
@@ -285,13 +291,12 @@ export const BALI_HISTORY: MyHistory[] = [
       "80": "Port lotniczy Denpasar",
     },
     position: {
-      lat: -8.723,
-      lng: 115.175,
+      points: [{ lat: -8.723, lng: 115.175, cap: "l" }],
       zoom: 10,
     },
   },
-  //16
   {
+    hid: 1,
     date: "04 paź. 2025",
     name: "Kuala Lumpur",
     images: [82, 84, 83],
@@ -301,18 +306,21 @@ export const BALI_HISTORY: MyHistory[] = [
       "84": "Menara Kuala Lumpur",
     },
     position: {
-      lat: 3.139,
-      lng: 101.6869,
+      points: [{ lat: 3.139, lng: 101.6869, cap: "Kuala Lumpur" }],
       zoom: 10,
     },
-    svg: <Malaysia />,
-    svgStyles: { rotate: "7deg" },
+    svg: {
+      item: <Malaysia />,
+      styles: { rotate: "7deg" },
+    },
   },
-  //17
+
+  //14 0510
   {
+    hid: 1,
     date: "05 paź. 2025",
     name: "Jaskinie Batu",
-    //prettier-ignore
+    // prettier-ignore
     images: [
       85, 89, 91,
       88, 86, 90,
@@ -322,20 +330,19 @@ export const BALI_HISTORY: MyHistory[] = [
       "87": "Posąg Lorda Murugana",
     },
     position: {
-      lat: 3.139,
-      lng: 101.6869,
+      points: [{ lat: 3.139, lng: 101.6869, cap: "Jaskinie Batu" }],
       zoom: 10,
     },
   },
-  //18
   {
+    hid: 1,
     date: "05 paź. 2025",
     name: "Kuala Lumpur",
     transit: {
       from: "Kuala Lumpur",
       to: "Doha",
     },
-    //prettier-ignore
+    // prettier-ignore
     images: [
       95, 98, 97, 99,
       100, 102, 96, 92,
@@ -351,24 +358,25 @@ export const BALI_HISTORY: MyHistory[] = [
       "102": "Chinatown Kuala Lumpur",
     },
     position: {
-      lat: 3.139,
-      lng: 101.6869,
+      points: [{ lat: 3.139, lng: 101.6869, cap: "Kuala Lumpur" }],
       zoom: 10,
     },
   },
-  //19
+
+  //15 0610
   {
+    hid: 1,
     date: "06 paź. 2025",
     name: "Doha",
     transit: {
       from: "Doha",
       to: "Wiedeń",
     },
-    //prettier-ignore
+    // prettier-ignore
     images: [
       110, 104, 111, 106,
       107, 103, 109, 108,
-      105, 
+      105,
     ],
     captions: {
       "103": "Bazar Souq Waqif",
@@ -382,15 +390,18 @@ export const BALI_HISTORY: MyHistory[] = [
       "111": "The Pearl-Qatar",
     },
     position: {
-      lat: 25.2854,
-      lng: 51.531,
+      points: [{ lat: 25.2854, lng: 51.531, cap: "Doha" }],
       zoom: 10,
     },
-    svg: <Qatar />,
-    svgStyles: { rotate: "7deg", left: "unset", right: "-1rem" },
+    svg: {
+      item: <Qatar />,
+      styles: { rotate: "7deg", left: "unset", right: "-1rem" },
+    },
   },
-  //20
+
+  //16 0710
   {
+    hid: 1,
     date: "07 paź. 2025",
     name: "Wiedeń",
     transit: {
@@ -399,11 +410,12 @@ export const BALI_HISTORY: MyHistory[] = [
     },
     images: [112, 113, 114],
     position: {
-      lat: 48.1103,
-      lng: 16.5697,
+      points: [{ lat: 48.1103, lng: 16.5697, cap: "l" }],
       zoom: 10,
     },
-    svg: <Austria />,
-    svgStyles: { rotate: "-7deg" },
+    svg: {
+      item: <Austria />,
+      styles: { rotate: "-7deg" },
+    },
   },
 ];

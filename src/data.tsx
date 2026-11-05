@@ -1,31 +1,28 @@
-import {
-  SriLanka,
-  Indonesia,
-  Madeira,
-  Mauritius,
-  Spain,
-  Austria,
-  Switzerland,
-  Italy,
-  France,
-  Germany,
-  Czechia,
-  Poland,
-  Malaysia,
-  Qatar,
-} from "./svg";
-
 import MadeiraMap from "./map/MadeiraMap";
 import type { CountryRecord } from "./types";
 import { MAURITIUS_HISTORY } from "./history/2026MauritiusHistory";
-import EuropeanUnion from "./svg/eeu";
+import EuropeanUnion from "./svg/flags/eeu";
 import { BALI_HISTORY } from "./history/2025BaliHistory";
 import { SRI_LANKA_HISTORY } from "./history/2024SriLankaHistory";
 import { EURO_TRIP_HISTORY } from "./history/2022EuroTrip";
-import SaudiArabia from "./svg/sau";
-import UnitedArabEmirates from "./svg/uae";
-import Portugal from "./svg/ptg";
+import SaudiArabia from "./svg/flags/sau";
+import UnitedArabEmirates from "./svg/flags/uae";
+import Portugal from "./svg/flags/ptg";
 import { MADEIRA_HISTORY } from "./history/2023MaderaHistory";
+import Austria from "./svg/flags/aut";
+import Czechia from "./svg/flags/cze";
+import France from "./svg/flags/fra";
+import Germany from "./svg/flags/ger";
+import Indonesia from "./svg/flags/idn";
+import Italy from "./svg/flags/ita";
+import Madeira from "./svg/flags/mdr";
+import Mauritius from "./svg/flags/mus";
+import Malaysia from "./svg/flags/mys";
+import Poland from "./svg/flags/pol";
+import Qatar from "./svg/flags/qat";
+import Spain from "./svg/flags/spa";
+import Switzerland from "./svg/flags/swi";
+import SriLanka from "./svg/flags/slk";
 
 const countries: CountryRecord[] = [
   // {
@@ -124,7 +121,6 @@ const countries: CountryRecord[] = [
 
   // {
   //   name: "Cypr",
-  //   country: "Cypr",
   //   year: 2023,
   //   month: 3,
   //   flag: Cyprus,
@@ -167,7 +163,6 @@ const countries: CountryRecord[] = [
 
   {
     name: "Sri Lanka",
-    country: "Sri Lanka",
     year: 2024,
     flag: SriLanka,
     flags: [<SriLanka />, <UnitedArabEmirates />],

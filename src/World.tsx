@@ -7,6 +7,8 @@ const countriesYearOrder = [...countries].sort(
   (a, b) => b.year - a.year || (a.month ?? 0) - (b.month ?? 0),
 );
 
+const Idx = 1;
+
 function World() {
   const [selectedCountry, setSelectedCountry] = useState<
     (typeof countries)[number] | null
@@ -20,6 +22,8 @@ function World() {
         <section className="country-grid">
           {countriesYearOrder.map((country, index) => {
             const Flag = country.flag;
+
+            if (Idx !== index) return <></>;
 
             return (
               <article

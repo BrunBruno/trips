@@ -15,9 +15,14 @@ export type CountryRecord = {
   transit?: string;
 };
 
-export type Position = {
+export type Point = {
   lat: number;
   lng: number;
+  cap: string;
+  typ?: "l" | "n" | "t";
+};
+export type Position = {
+  points: Point[];
   zoom: number;
 };
 export type MyHistory = {
@@ -29,7 +34,7 @@ export type MyHistory = {
   };
   sleep?: {
     name: string;
-    styles: CSSProperties;
+    styles?: CSSProperties;
   };
   images: number[];
   captions?: {
@@ -39,10 +44,15 @@ export type MyHistory = {
   imagePositions?: {
     [key in number]: Position;
   };
-  svg?: JSX.Element;
-  svgStyles?: CSSProperties;
+  svg?: {
+    item: JSX.Element;
+    styles: CSSProperties;
+  };
+  svg2?: {
+    item: JSX.Element;
+    styles: CSSProperties;
+  };
   img?: JSX.Element;
   imgStyles?: CSSProperties;
-
   hid?: 1;
 };

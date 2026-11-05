@@ -763,12 +763,20 @@
 
 .pile-count-12 .photo-card:nth-child(2),
 .pile-count-12 .photo-card:nth-child(3) {
-  transform: translateY(-20%);
+  transform: translateY(-10%);
+}
+.pile-count-12 .photo-card:nth-child(1),
+.pile-count-12 .photo-card:nth-child(4) {
+  transform: translateY(10%);
 }
 
 .pile-count-12 .photo-card:nth-child(10),
 .pile-count-12 .photo-card:nth-child(11) {
-  transform: translateY(20%);
+  transform: translateY(10%);
+}
+.pile-count-12 .photo-card:nth-child(9),
+.pile-count-12 .photo-card:nth-child(12) {
+  transform: translateY(-10%);
 }
 
 /* --- Section 3: Google Map --- */
@@ -843,8 +851,6 @@
   height: 100%;
   border: 0;
   filter: grayscale(0.25);
-
-  pointer-events: none;
 }
 
 .frame-icon {
@@ -960,4 +966,52 @@
 .trip-history-empty p {
   font-size: 14px;
   line-height: 1.7;
+}
+
+/* 
+ */
+
+.history-map-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+}
+
+.history-map {
+  width: 100%;
+  height: 100%;
+}
+
+.map-marker-label {
+  position: relative;
+
+  width: 1.6rem;
+  aspect-ratio: 1/1;
+  font-weight: 600;
+}
+
+.map-marker-label svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+}
+
+.map-marker-label span {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.3rem;
+
+  background-color: #333;
+  color: #fff;
+  display: none;
+  white-space: nowrap;
+}
+
+.map-marker-label:hover span {
+  display: block;
 }

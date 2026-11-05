@@ -1,8 +1,9 @@
-import { SriLanka, UAE } from "../svg";
+import SriLanka from "../svg/flags/slk";
+import UnitedArabEmirates from "../svg/flags/uae";
 import type { MyHistory } from "../types";
 
 export const SRI_LANKA_HISTORY: MyHistory[] = [
-  //01
+  //01 2209
   {
     date: "22 wrz. 2024",
     name: "Dubai",
@@ -15,95 +16,63 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
       "3": "Dubai International Airport",
     },
     position: {
-      lat: 25.2532,
-      lng: 55.3657,
+      points: [{ lat: 25.2532, lng: 55.3657, cap: "DXB", typ: "l" }],
       zoom: 10,
     },
-    svg: <UAE />,
-    svgStyles: { rotate: "7deg" },
+    svg: {
+      item: <UnitedArabEmirates />,
+      styles: { rotate: "7deg" },
+    },
   },
-  //02
+
+  //02 2309
   {
     date: "23 wrz. 2024",
-    name: "Colombo",
-    transit: {
-      from: "Colombo",
-      to: "Dambulla",
-    },
-    images: [5, 4],
+    name: "Colombo Dambulla",
+
+    images: [5, 4, 8, 7, 6],
     captions: {
       "4": "Colombo Bandaranaike International Airport",
-    },
-    position: {
-      lat: 7.957,
-      lng: 80.7603,
-      zoom: 10,
-    },
-    svg: <SriLanka />,
-    svgStyles: { rotate: "-7deg" },
-  },
-  //03
-  {
-    date: "23 wrz. 2024",
-    name: "Dambulla",
-    images: [8, 7, 6],
-    captions: {
       "6": "Złota Świątynia Dambulla",
     },
     position: {
-      lat: 7.1802,
-      lng: 79.8837,
-      zoom: 12,
+      points: [
+        { lat: 7.957, lng: 80.7603, cap: "CMB", typ: "l" },
+        { lat: 7.1802, lng: 79.8837, cap: "Dambulla" },
+      ],
+      zoom: 10,
+    },
+    svg: {
+      item: <SriLanka />,
+      styles: { rotate: "-7deg" },
     },
   },
-  //04
+
+  //03 2409
   {
     date: "24 wrz. 2024",
-    name: "Sigirija",
-    transit: {
-      from: "Dambulla",
-      to: "Kandy",
-    },
-    images: [9, 10, 11],
+    name: "Dambulla Kandy",
+    images: [9, 10, 11, 12, 15, 14, 13, 16],
     captions: {
       "11": "Pidurangala Rock",
-    },
-    position: {
-      lat: 7.957,
-      lng: 80.7602,
-      zoom: 15,
-    },
-  },
-  //05
-  {
-    date: "24 wrz. 2024",
-    name: "Kandy",
-    //prettier-ignore
-    images: [
-      12, 15,
-      14, 13,
-      16,
-    ],
-    captions: {
       "13": " Sri Dalada Maligawa",
       "14": "Diyathilaka Mandapaya",
       "16": "OneView Chalet",
     },
     position: {
-      lat: 7.2906,
-      lng: 80.6337,
-      zoom: 10,
+      points: [
+        { lat: 7.957, lng: 80.7602, cap: "Sigirija" },
+        { lat: 7.2906, lng: 80.6337, cap: "Kandy" },
+      ],
+      zoom: 15,
     },
   },
-  //06
+
+  //04 2509
   {
     date: "25 wrz. 2024",
-    name: "Kandy",
-    transit: {
-      from: "Kandy",
-      to: "Ella",
-    },
-    //prettier-ignore
+    name: "Kandy Ella",
+    // prettier-ignore
     images: [
       20, 21, 18,
       17, 19, 22,
@@ -116,16 +85,16 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
       "23": "Trasa Pociągowa Kandy-Ella",
     },
     position: {
-      lat: 6.8667,
-      lng: 81.0466,
+      points: [{ lat: 6.8667, lng: 81.0466, cap: "Ella" }],
       zoom: 10,
     },
   },
-  //07
+
+  //05 2609
   {
     date: "26 wrz. 2024",
     name: "Ella",
-    //prettier-ignore
+    // prettier-ignore
     images: [
       31, 28, 29, 27,
       26, 33, 34, 25,
@@ -141,107 +110,75 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
       "34": "Centrum Ella",
     },
     position: {
-      lat: 6.8667,
-      lng: 81.0466,
+      points: [{ lat: 6.8667, lng: 81.0466, cap: "Ella" }],
       zoom: 10,
     },
   },
-  //08
+
+  //06 2709
   {
     date: "27 wrz. 2024",
-    name: "Ella",
-    transit: {
-      from: "Ella",
-      to: "Udawalawe",
-    },
-    images: [36, 35],
+    name: "Ella Udawalawe",
+    images: [36, 35, 39, 38, 37],
     captions: {
       "35": "On Rock Home",
     },
     position: {
-      lat: 6.424,
-      lng: 80.888,
+      points: [{ lat: 6.424, lng: 80.888, cap: "Udawalawe" }],
       zoom: 10,
     },
   },
-  //09
-  {
-    date: "27 wrz. 2024",
-    name: "Udawalawe",
-    images: [39, 38, 37],
-    position: {
-      lat: 6.024,
-      lng: 80.794,
-      zoom: 10,
-    },
-  },
-  //10
+
+  //07 2809
   {
     date: "28 wrz. 2024",
-    name: "Udawalawe",
-    transit: {
-      from: "Udawalawe",
-      to: "Tangalle",
-    },
-    //prettier-ignore
+    name: "Udawalawe Tangalle",
+    // prettier-ignore
     images: [
       40, 41, 47, 43,
       44, 45, 42, 46,
-      48,
-    ],
-    captions: {
-      "48": "Udawalawe National Park Safari",
-    },
-    position: {
-      lat: 6.024,
-      lng: 80.794,
-      zoom: 10,
-    },
-  },
-  //11
-  {
-    date: "28 wrz. 2024",
-    name: "Tangalle",
-    //prettier-ignore
-    images: [
-      51, 50, 49,
+      48, 51, 50, 49,
       52, 53, 54,
     ],
     captions: {
+      "48": "Udawalawe National Park Safari",
       "52": "Tangalle Navy Monument",
       "53": "Centrum Tangalle",
       "54": "Rocky Point Beach",
     },
     position: {
-      lat: 6.024,
-      lng: 80.794,
+      points: [
+        { lat: 6.024, lng: 80.794, cap: "Udawalawe" },
+        { lat: 6.024, lng: 80.794, cap: "Tangalle" },
+      ],
       zoom: 10,
     },
   },
-  //12
+
+  //08 2909
   {
     date: "29 wrz. 2024",
     name: "Tangalle",
-    //prettier-ignore
+    // prettier-ignore
     images: [
       55, 61, 56,
-      60, 58, 57, 
-      59
+      60, 58, 57,
+      59,
     ],
     captions: {
       "59": "Tangalle",
     },
     position: {
-      lat: 6.024,
-      lng: 80.794,
+      points: [{ lat: 6.024, lng: 80.794, cap: "Tangalle" }],
       zoom: 10,
     },
   },
-  //13
+
+  //09 3009
   {
     date: "30 wrz. 2024",
     name: "Mirissa",
-    //prettier-ignore
+    // prettier-ignore
     images: [
       63, 62,
       64, 66,
@@ -251,49 +188,35 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
       "65": "Coconut Tree Hill",
     },
     position: {
-      lat: 5.9483,
-      lng: 80.4716,
+      points: [{ lat: 5.9483, lng: 80.4716, cap: "Mirissa" }],
       zoom: 10,
     },
   },
-  //14
+
+  //10 0110
   {
     date: "01 paź. 2024",
-    name: "Tangalle",
-    transit: {
-      from: "Tangalle",
-      to: "Unawatuna",
-    },
-    //prettier-ignore
+    name: "Tangalle Unawatuna",
+    // prettier-ignore
     images: [
       68, 67,
       69, 70,
+      72, 71, 73
     ],
-    position: {
-      lat: 6.0094,
-      lng: 80.2494,
-      zoom: 10,
-    },
-  },
-  //15
-  {
-    date: "01 paź. 2024",
-    name: "Unawatuna",
-    images: [72, 71, 73],
     captions: {
       "73": "Fantasea Villa",
     },
     position: {
-      lat: 6.0094,
-      lng: 80.2494,
+      points: [{ lat: 6.0094, lng: 80.2494, cap: "Unawatuna" }],
       zoom: 10,
     },
   },
-  //16
+
+  //11 0210
   {
     date: "02 paź. 2024",
     name: "Unawatuna",
-    //prettier-ignore
+    // prettier-ignore
     images: [
       74, 80, 76, 79,
       78, 77, 81, 82,
@@ -307,36 +230,19 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
       "82": "Japanese Peace Pagoda",
     },
     position: {
-      lat: 6.0094,
-      lng: 80.2494,
+      points: [{ lat: 6.0094, lng: 80.2494, cap: "Unawatuna" }],
       zoom: 10,
     },
   },
-  //17
+
+  //12 0310
   {
     date: "03 paź. 2024",
-    name: "Unawatuna",
-    transit: {
-      from: "Unawatuna",
-      to: "Colombo",
-    },
-    //prettier-ignore
+    name: "Unawatuna Colombo",
+    // prettier-ignore
     images: [
       88, 86, 87,
       84, 85, 83,
-    ],
-    position: {
-      lat: 6.9271,
-      lng: 79.8612,
-      zoom: 10,
-    },
-  },
-  //18
-  {
-    date: "03 paź. 2024",
-    name: "Colombo",
-    //prettier-ignore
-    images: [
       89, 99, 91, 98,
       97, 94, 95, 90,
       96, 92, 93,
@@ -351,12 +257,15 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
       "97": "Jezioro Beira",
     },
     position: {
-      lat: 6.9271,
-      lng: 79.8612,
+      points: [
+        { lat: 6.9271, lng: 79.8612, cap: "Colombo" },
+        { lat: 6.9271, lng: 79.8612, cap: "Colombo" },
+      ],
       zoom: 10,
     },
   },
-  //19
+
+  //13 0410
   {
     date: "04 paź. 2024",
     name: "Colombo",
@@ -364,34 +273,26 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
       from: "Colombo",
       to: "Dubaj",
     },
-    images: [100, 102, 101, 103],
+    images: [100, 102, 101, 103, 105, 106],
     captions: {
       "101": "Pettah",
       "103": "Galle Face Green",
-    },
-    position: {
-      lat: 7.1808,
-      lng: 79.8841,
-      zoom: 10,
-    },
-  },
-  //20
-  {
-    date: "04 paź. 2024",
-    name: "Dubaj",
-    images: [105, 106],
-    captions: {
       "106": "Dubai International Airport",
     },
     position: {
-      lat: 7.1808,
-      lng: 79.8841,
+      points: [
+        { lat: 7.1808, lng: 79.8841, cap: "CMB", typ: "l" },
+        { lat: 7.1808, lng: 79.8841, cap: "DXB", typ: "l" },
+      ],
       zoom: 10,
     },
-    svg: <UAE />,
-    svgStyles: { rotate: "-7deg", left: "unset", right: "-1rem" },
+    svg: {
+      item: <UnitedArabEmirates />,
+      styles: { rotate: "-7deg", left: "unset", right: "-1rem" },
+    },
   },
-  //21
+
+  //14 0510
   {
     date: "05 paź. 2024",
     name: "Dubaj",
@@ -399,7 +300,7 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
       from: "Dubaj",
       to: "Kraków",
     },
-    //prettier-ignore
+    // prettier-ignore
     images: [
       113, 108, 116, 117,
       111, 112, 107, 114,
@@ -416,8 +317,7 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
       "118": "Dubai Frame",
     },
     position: {
-      lat: 25.2532,
-      lng: 55.3657,
+      points: [{ lat: 25.2532, lng: 55.3657, cap: "Dubaj" }],
       zoom: 10,
     },
   },

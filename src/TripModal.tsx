@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import "./trip-modal.css";
 import type { CountryRecord } from "./types";
+import HistoryMap from "./history/map/HistoryMap";
 
 type TripModalProps = {
   trip: CountryRecord;
 };
+
+const show = true;
 
 function TripModal({ trip }: TripModalProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -71,7 +74,7 @@ function TripModal({ trip }: TripModalProps) {
         >
           {Array.from({ length: coverCount }, (_, i) => (
             <img
-              key={i}
+              key={`cover-${i}`}
               src={`/trips/${trip.folder}/cover/cover-${i + 1}.jpg`}
               alt=""
               className={activeCover === i ? "active" : ""}
@@ -162,22 +165,36 @@ function TripModal({ trip }: TripModalProps) {
                 <div className="history-day-data">
                   <h3>{day.name}</h3>
                   <h5>{day.date}</h5>
-                  <div className="negative-radius l-neg"></div>
-                  <div className="negative-radius r-neg"></div>
+                  <div className="negative-radius l-neg" />
+                  <div className="negative-radius r-neg" />
                 </div>
-                <div className="history-map-frame">
-                  <iframe
-                    title={`Google Maps — ${trip.name}, ${day.date}`}
-                    src={`https://maps.google.com/maps?q=${day.position.lat},${day.position.lng}&z=${day.position.zoom}&output=embed`}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                </div>
-                {day.svg && (
-                  <div className={`frame-icon`} style={day.svgStyles}>
-                    {day.svg}
+
+                {show ? (
+                  <div className="history-map-frame">
+                    {!day.hid && <HistoryMap position={day.position} />}
+                  </div>
+                ) : (
+                  <div className="history-map-frame">
+                    <iframe
+                      title={`Google Maps — ${trip.name}, ${day.date}`}
+                      src={`https://maps.google.com/maps?q=${day.position.points[0].lat},${day.position.points[0].lng}&z=${Math.round(day.position.zoom)}&output=embed`}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
                   </div>
                 )}
+
+                {day.svg && (
+                  <div className={`frame-icon`} style={day.svg.styles}>
+                    {day.svg.item}
+                  </div>
+                )}
+                {day.svg2 && (
+                  <div className={`frame-icon`} style={day.svg2.styles}>
+                    {day.svg2.item}
+                  </div>
+                )}
+
                 {day.img && (
                   <div
                     className={`frame-icon ${day.img.props.src ? `frame-img ${day.img.props.src.length % 2 === 0 ? "o" : "t"}` : ""}`}
@@ -186,6 +203,7 @@ function TripModal({ trip }: TripModalProps) {
                     {day.img}
                   </div>
                 )}
+
                 {day.sleep && (
                   <div className="day-sleep" style={day.sleep.styles}>
                     <div className="day-sleep-data">
@@ -209,7 +227,7 @@ function TripModal({ trip }: TripModalProps) {
               <article
                 className={`history-day ${parityClass}-day`}
                 key={`${day.date}-${index}`}
-                style={day.hid ? { height: "0", overflow: "hidden" } : {}}
+                //style={day.hid ? { height: "0", overflow: "hidden" } : {}}
               >
                 {isEven ? (
                   <>
