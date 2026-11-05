@@ -41,10 +41,13 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     },
     position: {
       points: [
-        { lat: 40.43732, lng: -3.642415, cap: "", typ: "n" },
+        { lat: 40.43732, lng: -3.642415, cap: "Min Hostel Capsules", typ: "n" },
         { lat: 40.492736, lng: -3.563839, cap: "MAD", typ: "l" },
+        { lat: 40.434477, lng: -3.71902, cap: "Moncloa" },
+        { lat: 40.415389, lng: -3.68353, cap: "Retiro" },
+        { lat: 40.418815, lng: -3.703784, cap: "Centro" },
       ],
-      zoom: 10.5,
+      zoom: 11,
     },
     svg: {
       item: <Spain />,
@@ -78,11 +81,12 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     },
     position: {
       points: [
-        { lat: 40.434477, lng: -3.71902, cap: "Moncloa" },
-        { lat: 40.415389, lng: -3.68353, cap: "Retiro" },
-        { lat: 40.418815, lng: -3.703784, cap: "Centro" },
+        { lat: 50.08043, lng: 19.788938, cap: "KRK", typ: "l" },
+        { lat: 40.492736, lng: -3.563839, cap: "MAD", typ: "l" },
+        { lat: -20.43071, lng: 57.679108, cap: "MRU", typ: "l" },
+        { lat: -20.43071, lng: 57.679108, cap: "", typ: "x" },
       ],
-      zoom: 13,
+      zoom: 2,
     },
   },
 
@@ -110,10 +114,10 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     },
     position: {
       points: [
-        { lat: -20.27741, lng: 57.3751, cap: "", typ: "n" },
+        { lat: -20.27741, lng: 57.3751, cap: "The Paramount", typ: "n" },
         { lat: -20.43071, lng: 57.679108, cap: "MRU", typ: "l" },
       ],
-      zoom: 9.5,
+      zoom: 9,
     },
     svg: {
       item: <Mauritius />,
@@ -251,7 +255,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
         { lat: -20.27234, lng: 57.803991, cap: "Île aux Cerfs" },
         { lat: -20.483012, lng: 57.353716, cap: "La Prairie Beach" },
       ],
-      zoom: 9.5,
+      zoom: 9,
     },
     svg: {
       item: <TropicalFish />,
@@ -284,7 +288,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
         { lat: -20.161204, lng: 57.50141, cap: "Port Louis" },
         { lat: -20.009158, lng: 57.581453, cap: "Grand Baie" },
       ],
-      zoom: 10.5,
+      zoom: 10,
     },
     svg2: {
       item: <Bat />,
@@ -316,7 +320,12 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       points: [
         { lat: -20.007292, lng: 57.578545, cap: "La Cuvette" },
         { lat: -19.995804, lng: 57.587714, cap: "Pereybere" },
-        { lat: -20.01511, lng: 57.583435, cap: "", typ: "n" },
+        {
+          lat: -20.01511,
+          lng: 57.583435,
+          cap: "Grand Baie View Appart",
+          typ: "n",
+        },
       ],
       zoom: 13,
     },
@@ -444,7 +453,12 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     },
     position: {
       points: [
-        { lat: -20.411451, lng: 57.710688, cap: "", typ: "n" },
+        {
+          lat: -20.411451,
+          lng: 57.710688,
+          cap: "Hotel Orient Guesthouse Auberge",
+          typ: "n",
+        },
         { lat: -20.43071, lng: 57.679108, cap: "MRU", typ: "l" },
       ],
       zoom: 11,
@@ -466,8 +480,12 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       "92": "King Abdulaziz International Airport",
     },
     position: {
-      points: [{ lat: 21.68543, lng: 39.166107, cap: "JED", typ: "l" }],
-      zoom: 10,
+      points: [
+        { lat: -20.43071, lng: 57.679108, cap: "MRU", typ: "l" },
+        { lat: 21.68543, lng: 39.166107, cap: "JED", typ: "l" },
+        { lat: 48.118233, lng: 16.566228, cap: "VIE", typ: "l" },
+      ],
+      zoom: 2,
     },
     svg: {
       item: <SaudiArabia />,
@@ -491,7 +509,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     position: {
       points: [
         { lat: 48.118233, lng: 16.566228, cap: "VIE", typ: "l" },
-        { lat: 48.192235, lng: 16.376597, cap: "Wiedeń", typ: "t" },
+        { lat: 48.192235, lng: 16.376597, cap: "Wien Hauptbahnhof", typ: "l" },
       ],
       zoom: 10,
     },

@@ -19,7 +19,7 @@ export type Point = {
   lat: number;
   lng: number;
   cap: string;
-  typ?: "l" | "n" | "t";
+  typ?: "l" | "n" | "x";
 };
 export type Position = {
   points: Point[];

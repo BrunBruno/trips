@@ -6,8 +6,7 @@ export const SPLIT_HISTORY: MyHistory[] = [
     name: "Kaštel Lukšić",
     images: [1, 2, 3, 4, 5],
     position: {
-      lat: 43.5552,
-      lng: 16.3689,
+      points: [{ lat: 43.5081, lng: 16.4402, cap: "" }],
       zoom: 13,
     },
   },
@@ -16,8 +15,7 @@ export const SPLIT_HISTORY: MyHistory[] = [
     name: "Kaštel Lukšić",
     images: [11, 46],
     position: {
-      lat: 43.5552,
-      lng: 16.3689,
+      points: [{ lat: 43.5081, lng: 16.4402, cap: "" }],
       zoom: 13,
     },
   },
@@ -26,8 +24,7 @@ export const SPLIT_HISTORY: MyHistory[] = [
     name: "Trogir",
     images: [2, 35, 19, 44, 7, 26],
     position: {
-      lat: 43.5164,
-      lng: 16.2502,
+      points: [{ lat: 43.5081, lng: 16.4402, cap: "" }],
       zoom: 13,
     },
   },
@@ -36,8 +33,7 @@ export const SPLIT_HISTORY: MyHistory[] = [
     name: "Kaštel Lukšić",
     images: [40],
     position: {
-      lat: 43.5552,
-      lng: 16.3689,
+      points: [{ lat: 43.5081, lng: 16.4402, cap: "" }],
       zoom: 13,
     },
   },
@@ -46,8 +42,7 @@ export const SPLIT_HISTORY: MyHistory[] = [
     name: "Drvenik Veliki & Drvenik Mali",
     images: [9, 6, 34],
     position: {
-      lat: 43.4439,
-      lng: 16.1438,
+      points: [{ lat: 43.5081, lng: 16.4402, cap: "" }],
       zoom: 13,
     },
   },
@@ -56,8 +51,7 @@ export const SPLIT_HISTORY: MyHistory[] = [
     name: "Split",
     images: [25, 4, 38, 12, 47, 20],
     position: {
-      lat: 43.5081,
-      lng: 16.4402,
+      points: [{ lat: 43.5081, lng: 16.4402, cap: "" }],
       zoom: 13,
     },
   },
@@ -66,8 +60,7 @@ export const SPLIT_HISTORY: MyHistory[] = [
     name: "Memorijalni Park",
     images: [33, 15, 43, 10, 27, 39, 36, 30, 23, 21, 45, 18],
     position: {
-      lat: 43.5186,
-      lng: 16.4258,
+      points: [{ lat: 43.5081, lng: 16.4402, cap: "" }],
       zoom: 13,
     },
   },
@@ -76,8 +69,7 @@ export const SPLIT_HISTORY: MyHistory[] = [
     name: "Split",
     images: [21, 45, 18],
     position: {
-      lat: 43.5081,
-      lng: 16.4402,
+      points: [{ lat: 43.5081, lng: 16.4402, cap: "" }],
       zoom: 13,
     },
   },

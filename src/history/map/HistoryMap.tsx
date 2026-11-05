@@ -35,13 +35,6 @@ function HistoryMap({ position }: HistoryMapProps) {
         className="history-map"
         mapId={MAP_ID}
         style={{ width: "100%", height: "100%" }}
-        styles={[
-          {
-            featureType: "all",
-            elementType: "labels",
-            stylers: [{ visibility: "off" }],
-          },
-        ]}
       >
         {position.points.map((point, index) => (
           <AdvancedMarker
@@ -49,7 +42,10 @@ function HistoryMap({ position }: HistoryMapProps) {
             position={{ lat: point.lat, lng: point.lng }}
             title={point.cap}
           >
-            <div className="map-marker-label">
+            <div
+              className="map-marker-label"
+              style={point.typ === "x" ? { display: "none" } : {}}
+            >
               <svg
                 viewBox="-4 0 36 36"
                 version="1.1"
@@ -69,12 +65,20 @@ function HistoryMap({ position }: HistoryMapProps) {
                           <path
                             d="M14,0 C21.732,0 28,5.641 28,12.6 C28,23.963 14,36 14,36 C14,36 0,24.064 0,12.6 C0,5.641 6.268,0 14,0 Z"
                             fill={
-                              point.typ === undefined ? "#fa5252" : "#4c6ef5"
+                              point.typ === "n"
+                                ? "#ff922b"
+                                : point.typ === "l"
+                                  ? "#4c6ef5"
+                                  : "#fa5252"
                             }
                           ></path>
                           <circle
                             fill={
-                              point.typ === undefined ? "#c92a2a" : "#364fc7"
+                              point.typ === "n"
+                                ? "#e8590c"
+                                : point.typ === "l"
+                                  ? "#364fc7"
+                                  : "#c92a2a"
                             }
                             fill-rule="nonzero"
                             cx="14"

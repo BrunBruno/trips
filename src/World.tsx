@@ -7,7 +7,7 @@ const countriesYearOrder = [...countries].sort(
   (a, b) => b.year - a.year || (a.month ?? 0) - (b.month ?? 0),
 );
 
-const Idx = 1;
+const Idx = null;
 
 function World() {
   const [selectedCountry, setSelectedCountry] = useState<
@@ -23,7 +23,7 @@ function World() {
           {countriesYearOrder.map((country, index) => {
             const Flag = country.flag;
 
-            if (Idx !== index) return <></>;
+            if (Idx !== null && Idx !== index) return <></>;
 
             return (
               <article

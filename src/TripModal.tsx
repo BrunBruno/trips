@@ -227,7 +227,7 @@ function TripModal({ trip }: TripModalProps) {
               <article
                 className={`history-day ${parityClass}-day`}
                 key={`${day.date}-${index}`}
-                //style={day.hid ? { height: "0", overflow: "hidden" } : {}}
+                style={day.hid ? { height: "0", overflow: "hidden" } : {}}
               >
                 {isEven ? (
                   <>
