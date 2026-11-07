@@ -1,6 +1,11 @@
 import MadeiraMap from "./map/MadeiraMap";
 import type { CountryRecord } from "./types";
-import { MAURITIUS_HISTORY } from "./history/2026MauritiusHistory";
+import {
+  MAURITIUS_FOOD,
+  MAURITIUS_HISTORY,
+  MAURITIUS_SLEEP,
+  MAURITIUS_TRANSPORT,
+} from "./history/2026MauritiusHistory";
 import EuropeanUnion from "./svg/flags/eeu";
 import { BALI_HISTORY } from "./history/2025BaliHistory";
 import { SRI_LANKA_HISTORY } from "./history/2024SriLankaHistory";
@@ -213,6 +218,8 @@ const countries: CountryRecord[] = [
     flags: [<Spain />, <Mauritius />, <SaudiArabia />, <Austria />],
     folder: "mauritius",
     history: MAURITIUS_HISTORY,
+    maps: [MAURITIUS_TRANSPORT, MAURITIUS_SLEEP],
+    food: MAURITIUS_FOOD,
     coverCount: 9,
     transit: "Kraków ➤ Madryt",
   },

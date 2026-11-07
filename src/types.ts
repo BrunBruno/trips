@@ -9,10 +9,14 @@ export type CountryRecord = {
   flag: ComponentType;
   flags?: JSX.Element[];
   map?: JSX.Element;
+  maps?: Position[];
   history?: MyHistory[];
   imgCount?: number;
   coverCount?: number;
   transit?: string;
+  food?: {
+    [key in number]: string;
+  };
 };
 
 export type Point = {
@@ -20,6 +24,7 @@ export type Point = {
   lng: number;
   cap: string;
   typ?: "l" | "n" | "x";
+  imgs?: number[];
 };
 export type Position = {
   points: Point[];
@@ -41,16 +46,21 @@ export type MyHistory = {
     [key in number]: string;
   };
   position: Position;
+
   imagePositions?: {
     [key in number]: Position;
   };
   svg?: {
     item: JSX.Element;
-    styles: CSSProperties;
+    styles?: CSSProperties;
   };
   svg2?: {
     item: JSX.Element;
-    styles: CSSProperties;
+    styles?: CSSProperties;
+  };
+  imgs?: {
+    items: string[];
+    styles?: CSSProperties;
   };
   img?: JSX.Element;
   imgStyles?: CSSProperties;
