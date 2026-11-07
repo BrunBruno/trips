@@ -7,7 +7,12 @@ import {
   MAURITIUS_TRANSPORT,
 } from "./history/2026MauritiusHistory";
 import EuropeanUnion from "./svg/flags/eeu";
-import { BALI_HISTORY } from "./history/2025BaliHistory";
+import {
+  BALI_FOOD,
+  BALI_HISTORY,
+  BALI_SLEEP,
+  BALI_TRANSPORT,
+} from "./history/2025BaliHistory";
 import { SRI_LANKA_HISTORY } from "./history/2024SriLankaHistory";
 import { EURO_TRIP_HISTORY } from "./history/2022EuroTrip";
 import SaudiArabia from "./svg/flags/sau";
@@ -197,7 +202,9 @@ const countries: CountryRecord[] = [
     folder: "indonesia-bali",
     history: BALI_HISTORY,
     coverCount: 10,
-    transit: "Katowice ➤ Wiedeń",
+    transit: "Katowice ➤ Wiedeń ➤ Doha",
+    maps: [BALI_TRANSPORT, BALI_SLEEP],
+    food: BALI_FOOD,
   },
 
   // {

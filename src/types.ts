@@ -1,5 +1,7 @@
 import type { ComponentType, CSSProperties, JSX } from "react";
 
+export type Transit =  "plane" | "car" | "ferry" | "taxi" | "tuktuk" | "bus" | "train"
+
 export type CountryRecord = {
   name: string;
   country?: string;
@@ -36,6 +38,7 @@ export type MyHistory = {
   transit?: {
     from: string;
     to: string;
+    type?: Transit;
   };
   sleep?: {
     name: string;

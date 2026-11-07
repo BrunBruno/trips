@@ -3,6 +3,7 @@ import "./trip-modal.css";
 import type { CountryRecord } from "./types";
 import HistoryMap from "./history/map/HistoryMap";
 import React from "react";
+import GetSvg from "./svg/svg/GetSvg";
 
 type TripModalProps = {
   trip: CountryRecord;
@@ -13,7 +14,7 @@ type HoveredMarkerState = {
   markerIndex: number;
 } | null;
 
-const show = false;
+const show = true;
 
 function TripModal({ trip }: TripModalProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -336,11 +337,13 @@ function TripModal({ trip }: TripModalProps) {
                 {day.transit ? (
                   isEven ? (
                     <div className="history-day-transit">
+                      <GetSvg t={day.transit.type} />
                       {day.transit.from} ➤ {day.transit.to}
                     </div>
                   ) : (
                     <div className="history-day-transit">
                       {day.transit.to} ⮜ {day.transit.from}
+                      <GetSvg t={day.transit.type} />
                     </div>
                   )
                 ) : (
@@ -437,7 +440,15 @@ function TripModal({ trip }: TripModalProps) {
             </div>
 
             {trip.food && (
-              <div className="food-pile">
+              <div
+                className="food-pile"
+                style={{
+                  gridTemplateColumns:
+                    Object.entries(trip.food).length > 15
+                      ? "repeat(4, 1fr)"
+                      : "repeat(3, 1fr)",
+                }}
+              >
                 {Object.entries(trip.food).map(([imgNum, caption]) => {
                   if (foodRotations.current[imgNum] === undefined) {
                     foodRotations.current[imgNum] =

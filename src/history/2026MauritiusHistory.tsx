@@ -33,7 +33,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       "77": "Royal Palace's Ledge Viewpoint",
       "78": "Plaza de la Villa",
       "79": "Monumento a Alfonso XII",
-      "98": "Aeropuerto Adolfo Suárez Madrid-Barajas",
+      "98": "[MAD] Aeropuerto Adolfo Suárez Madrid-Barajas",
       "99": "Metro de Madrid",
       "100": "Plaza Mayor",
     },
@@ -42,7 +42,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       points: [
         { lat: 40.418815, lng: -3.703784, cap: "Centro", imgs: [74, 75, 76, 77, 78, 100] },
         { lat: 40.415389, lng: -3.68353, cap: "Retiro", imgs: [79] },
-        { lat: 40.43732, lng: -3.642415, cap: "Nocleg", typ: "n", imgs: [99] },
+        { lat: 40.43732, lng: -3.642415, cap: "Capsules", typ: "n", imgs: [99] },
         { lat: 40.492736, lng: -3.563839, cap: "MAD", typ: "l", imgs: [98] },
       ],
       zoom: 11,
@@ -51,9 +51,9 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       item: <Spain />,
       styles: { rotate: "7deg", left: "unset", right: 0 },
     },
-    imgs: {
-      items: ["palacio-real", "park-retiro"],
-    },
+    // imgs: {
+    //   items: ["palacio-real", "park-retiro"],
+    // },
   },
 
   //02 2709
@@ -63,6 +63,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     transit: {
       from: "Madryt",
       to: "Mauritius",
+      type: "plane",
     },
     // prettier-ignore
     images: [
@@ -86,7 +87,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
         { lat: 40.418815, lng: -3.703784, cap: "Centro", imgs: [85,101] },
         { lat: 40.415389, lng: -3.68353, cap: "Retiro", imgs: [86] },
         { lat: 40.434477, lng: -3.71902, cap: "Moncloa", imgs: [84, 80, 82, 81, 102, 83] },
-        { lat: 40.43732, lng: -3.642415, cap: "Nocleg", typ: "n", imgs: [] },
+        { lat: 40.43732, lng: -3.642415, cap: "Capsules", typ: "n", imgs: [] },
       ],
       zoom: 12,
     },
@@ -107,7 +108,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       3,
     ],
     captions: {
-      "1": "Sir Seewoosagur Ramgoolam International Airport",
+      "1": "[MRU] Sir Seewoosagur Ramgoolam International Airport",
       "3": "Plaża Flic en Flac",
       "27": "Trois Mamelles",
       "28": "The Paramount",
@@ -116,7 +117,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     // prettier-ignore
     position: {
       points: [
-        { lat: -20.27741, lng: 57.3751, cap: "The Paramount", typ: "n", imgs: [2, 28, 105] },
+        { lat: -20.27741, lng: 57.3751, cap: "Paramount", typ: "n", imgs: [2, 28, 105] },
         { lat: -20.43071, lng: 57.679108, cap: "MRU", typ: "l", imgs: [1, 104] },
         { lat: -20.288799, lng: 57.363213, cap: "Flic en Flac", imgs: [3, 4, 5] },
         { lat: -20.304980, lng: 57.440604, cap: "Trois Mamelles", imgs: [27] },
@@ -250,6 +251,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     transit: {
       from: "Flic en Flac",
       to: "Grand Baie",
+      type: "car",
     },
     // prettier-ignore
     images: [
@@ -306,7 +308,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       points: [
         { lat: -20.194234, lng: 57.522179, cap: "Le Pouce", imgs: [42, 43, 44] },
         { lat: -20.161204, lng: 57.50141, cap: "Port Louis", imgs: [45, 46, 143] },
-        { lat: -20.01511, lng: 57.583435, cap: "Grand Baie View Appart", typ: "n", imgs: [140] },
+        { lat: -20.01511, lng: 57.583435, cap: "Grand Baie", typ: "n", imgs: [140] },
       ],
       zoom: 10,
     },
@@ -421,6 +423,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     transit: {
       from: "Grand Baie",
       to: "Mahébourg",
+      type: "bus",
     },
     //prettier-ignore
     images: [
@@ -453,6 +456,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     transit: {
       from: "Mauritius",
       to: "Dżudda",
+      type: "plane",
     },
     //prettier-ignore
     images: [
@@ -466,13 +470,13 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       "73": "Île aux Aigrettes",
       "87": "Mahébourg Waterfront",
       "88": "Bo'Valon Mall",
-      "89": "Sir Seewoosagur Ramgoolam International Airport",
+      "89": "[MRU] Sir Seewoosagur Ramgoolam International Airport",
       "155": "Hotel Orient Guesthouse Auberge",
     },
     // prettier-ignore
     position: {
       points: [
-        { lat: -20.411451, lng: 57.710688, cap: "Hotel Orient Guesthouse Auberge", typ: "n", imgs: [] },
+        { lat: -20.411451, lng: 57.710688, cap: "Hotel Orient", typ: "n", imgs: [] },
         { lat: -20.404857, lng: 57.709703, cap: "Mahébourg Waterfront", imgs: [71, 72, 73, 87] },
         { lat: -20.423801, lng: 57.697728, cap: "Bo'Valon Mall", imgs: [88] },
         { lat: -20.43071, lng: 57.679108, cap: "MRU", typ: "l", imgs: [89] },
@@ -488,10 +492,11 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     transit: {
       from: "Dżudda",
       to: "Wiedeń",
+      type: "plane",
     },
     images: [91, 93, 138, 92],
     captions: {
-      "92": "King Abdulaziz International Airport",
+      "92": "[JED] King Abdulaziz International Airport",
       "138": "Jeddah Tower",
     },
     // prettier-ignore
@@ -515,12 +520,13 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     transit: {
       from: "Wiedeń",
       to: "Katowice",
+      type: "train",
     },
     images: [137, 96, 95],
     captions: {
       "95": "Schloss Belvedere",
       "96": "Wien Hauptbahnhof",
-      "137": "Flughafen Wien Schwechat",
+      "137": "[VIE] Flughafen Wien Schwechat",
     },
     // prettier-ignore
     position: {
@@ -550,15 +556,11 @@ export const MAURITIUS_TRANSPORT: Position = {
 };
 
 export const MAURITIUS_SLEEP: Position = {
+  //prettier-ignore
   points: [
     { lat: -20.27741, lng: 57.3751, cap: "The Paramount", typ: "n" },
     { lat: -20.01511, lng: 57.583435, cap: "Grand Baie View Appart", typ: "n" },
-    {
-      lat: -20.411451,
-      lng: 57.710688,
-      cap: "Hotel Orient Guesthouse Auberge",
-      typ: "n",
-    },
+    { lat: -20.411451, lng: 57.710688, cap: "Hotel Orient Guesthouse Auberge", typ: "n" },
   ],
   zoom: 9,
 };

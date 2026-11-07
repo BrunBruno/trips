@@ -11,31 +11,36 @@ import Surfboard from "../svg/icons/surfboard";
 import TwinTower from "../svg/icons/twin-tower";
 import Volcano from "../svg/icons/volcano";
 import Yacht from "../svg/icons/yacht";
-import type { MyHistory } from "../types";
+import type { MyHistory, Position } from "../types";
 
 export const BALI_HISTORY: MyHistory[] = [
   //01 2209
   {
     date: "22 wrz. 2025",
-    name: "Wiedeń ➤ Doha",
+    name: "Wiedeń & Doha",
     transit: {
       from: "Doha",
-      to: "Kuala Lumpur",
+      to: "Bali ⮜ Kuala Lumpur",
+      type: "plane",
     },
-    images: [2, 4, 1],
+    //prettier-ignore
+    images: [
+      120, 2, 1,
+      119, 4, 118,
+    ],
     captions: {
-      "1": "Pałac Belweder",
-      "2": "Wien Hauptbahnhof",
-      "4": "Doha International Airport",
+      "118": "Schloss Belvedere",
+      "119": "[VIE] Vienna International Airport",
+      "4": "[DOH] Doha International Airport",
     },
+    //prettier-ignore
     position: {
       points: [
-        { lat: 48.2082, lng: 16.3738, cap: "VIE", typ: "l" },
-        { lat: 25.2606, lng: 51.6138, cap: "DOH", typ: "l" },
-        { lat: 2.7456, lng: 101.7072, cap: "KUL", typ: "l" },
-        { lat: -8.7482, lng: 115.1672, cap: "DPS", typ: "l" },
+        { lat: 25.271518, lng: 51.600731, cap: "DOH", typ: "l", imgs:[4,120] },
+        { lat: 48.118233, lng: 16.566228, cap: "VIE", typ: "l", imgs:[1,2,118,119] },
+        { lat: 50.259712, lng: 19.017540, cap: "Katowice Dworzec PKP", typ: "l", imgs: [] },
       ],
-      zoom: 2,
+      zoom: 3,
     },
     svg: {
       item: <Austria />,
@@ -50,30 +55,28 @@ export const BALI_HISTORY: MyHistory[] = [
   //02 2309
   {
     date: "23 wrz. 2025",
-    name: "Kuala Lumpur ➤ Bali",
+    name: "Kuala Lumpur & Bali",
     transit: {
       from: "Bali",
       to: "Nusa Penida",
+      type: "ferry",
     },
     sleep: {
-      name: "Jepun Segara Guest House",
+      name: "D nux House",
       styles: { left: "unset", right: "0" },
     },
-    images: [5, 7, 6],
+    images: [5, 7, 6, 121],
     captions: {
-      "6": "Kuala Lumpur International Airport",
+      "6": "[KUL] Kuala Lumpur International Airport",
+      "121": "[DPS] I Gusti Ngurah Rai International Airport",
     },
+    // prettier-ignore
     position: {
       points: [
-        { lat: -8.7482, lng: 115.1672, cap: "DPS", typ: "l" },
-        {
-          lat: -8.738007,
-          lng: 115.165627,
-          cap: "Jepun Segara Guest House",
-          typ: "n",
-        },
+        { lat: 2.743373, lng: 101.701633, cap: "KUL", typ: "l", imgs:[5,6,7] },
+        { lat: -8.745633, lng: 115.168307, cap: "DPS", typ: "l", imgs:[121] },
       ],
-      zoom: 12,
+      zoom: 4,
     },
     svg: {
       item: <Malaysia />,
@@ -105,23 +108,15 @@ export const BALI_HISTORY: MyHistory[] = [
       "11": "Diamond Beach",
       "15": "Teletubbies Hills",
     },
+    // prettier-ignore
     position: {
       points: [
-        { lat: -8.774912, lng: 115.62026, cap: "Diamond Beach" },
-        { lat: -8.785152, lng: 115.574763, cap: "Teletubbies Hill" },
-        {
-          lat: -8.680453,
-          lng: 115.572884,
-          cap: "Pooja Ocean View Cottage",
-          typ: "n",
-        },
-        { lat: -8.740912, lng: 115.209681, cap: "Port Benoa", typ: "l" },
-        {
-          lat: -8.677029,
-          lng: 115.488672,
-          cap: "Banjar Nyuh Harbor",
-          typ: "l",
-        },
+        { lat: -8.774912, lng: 115.62026, cap: "Diamond Beach", imgs:[11,12,13] },
+        { lat: -8.785152, lng: 115.574763, cap: "Teletubbies Hill", imgs:[14,15] },
+        { lat: -8.680453, lng: 115.572884, cap: "Pooja", typ: "n", imgs:[] },
+        { lat: -8.740912, lng: 115.209681, cap: "Port Benoa", typ: "l", imgs:[9] },
+        { lat: -8.677029, lng: 115.488672, cap: "Banjar Nyuh Harbor", typ: "l", imgs:[10] },
+        { lat: -8.736988, lng: 115.165126, cap: "D Nux", typ: "n", imgs:[] },
       ],
       zoom: 9,
     },
@@ -138,6 +133,7 @@ export const BALI_HISTORY: MyHistory[] = [
     transit: {
       from: "Nusa Penida",
       to: "Gili Air",
+      type: "ferry",
     },
     // prettier-ignore
     images: [
@@ -151,17 +147,13 @@ export const BALI_HISTORY: MyHistory[] = [
       "24": "Crystal Bay",
       "26": "Pooja Ocean View Cottage",
     },
+    //prettier-ignore
     position: {
       points: [
-        { lat: -8.715318, lng: 115.459079, cap: "Crystal Bay" },
-        { lat: -8.732582, lng: 115.450811, cap: "Broken Beach" },
-        { lat: -8.750409, lng: 115.473033, cap: "Kelingking Beach" },
-        {
-          lat: -8.680453,
-          lng: 115.572884,
-          cap: "Pooja Ocean View Cottage",
-          typ: "n",
-        },
+        { lat: -8.715318, lng: 115.459079, cap: "Crystal Bay", imgs:[22,24,27] },
+        { lat: -8.732582, lng: 115.450811, cap: "Broken Beach", imgs:[20,21,23] },
+        { lat: -8.750409, lng: 115.473033, cap: "Kelingking Beach", imgs:[18,19,17] },
+        { lat: -8.680453, lng: 115.572884, cap: "Pooja", typ: "n", imgs:[16,25,26]},
       ],
       zoom: 11,
     },
@@ -178,22 +170,29 @@ export const BALI_HISTORY: MyHistory[] = [
     sleep: {
       name: "Oceans 5 Gili Air",
     },
-    images: [28, 29, 30, 32, 31],
+    //prettier-ignore
+    images: [
+      28, 29, 30, 123,
+      122, 124, 32, 31,
+    ],
+    captions: {
+      "31": "Gili Air",
+      "32": "Pulau Lombok",
+      "122": "Banjar Nyuh Harbor",
+      "124": "Gili Air Port",
+    },
+    //prettier-ignore
     position: {
       points: [
-        { lat: -8.363622, lng: 116.083124, cap: "Gili Air Port", typ: "l" },
-        {
-          lat: -8.677029,
-          lng: 115.488672,
-          cap: "Banjar Nyuh Harbor",
-          typ: "l",
-        },
+        { lat: -8.363622, lng: 116.083124, cap: "Gili Air Port", typ: "l", imgs:[28,29,30,31,124] },
+        { lat: -8.677029, lng: 115.488672, cap: "Banjar Nyuh Harbor", typ: "l", imgs:[122,123] },
+        { lat: -8.471610, lng: 116.121856, cap: "Lombok", imgs:[32] },
       ],
       zoom: 9,
     },
     svg: {
       item: <Yacht />,
-      styles: { rotate: "-7deg", left: "14rem", bottom: "18rem" },
+      styles: { rotate: "-7deg", left: "10rem", bottom: "20rem" },
     },
   },
 
@@ -210,12 +209,15 @@ export const BALI_HISTORY: MyHistory[] = [
     captions: {
       "36": "Gili Trawangan & Gili Meno",
     },
+    //prettier-ignore
     position: {
       points: [
-        { lat: -8.358227, lng: 116.081349, cap: "Gili Air" },
-        { lat: -8.363442, lng: 116.082763, cap: "Oceans 5 Gili Air", typ: "n" },
+        { lat: -8.358227, lng: 116.081349, cap: "Gili Air", imgs:[115,116,117,34,35,33] },
+        { lat: -8.350381, lng: 116.056891, cap: "Gili Meno", imgs:[36] },
+        { lat: -8.349551, lng: 116.036299, cap: "Gili Trawangan", imgs:[36] },
+        { lat: -8.363442, lng: 116.082763, cap: "Oceans 5", typ: "n", imgs:[] },
       ],
-      zoom: 14,
+      zoom: 13,
     },
   },
 
@@ -226,15 +228,15 @@ export const BALI_HISTORY: MyHistory[] = [
     transit: {
       from: "Gili Air",
       to: "Bali",
+      type: "ferry",
     },
     images: [38, 39, 37],
+    //prettier-ignore
     position: {
       points: [
-        { lat: -8.358227, lng: 116.081349, cap: "Gili Air" },
-        { lat: -8.350381, lng: 116.056891, cap: "Gili Meno" },
-        { lat: -8.349551, lng: 116.036299, cap: "Gili Trawangan" },
+        { lat: -8.358227, lng: 116.081349, cap: "Gili Air", imgs:[37,38,39] },
       ],
-      zoom: 13,
+      zoom: 14,
     },
     svg: {
       item: <Island />,
@@ -254,16 +256,12 @@ export const BALI_HISTORY: MyHistory[] = [
       "42": "Ubud",
       "43": "Żaba Rzekotkowata",
     },
+    //prettier-ignore
     position: {
       points: [
-        { lat: -8.363622, lng: 116.083124, cap: "Gili Air Port", typ: "l" },
-        { lat: -8.533279, lng: 115.509159, cap: "Port Padangbai", typ: "l" },
-        {
-          lat: -8.521912,
-          lng: 115.263096,
-          cap: "Eka Bali Guest House",
-          typ: "n",
-        },
+        { lat: -8.363622, lng: 116.083124, cap: "Gili Air Port", typ: "l", imgs:[] },
+        { lat: -8.533279, lng: 115.509159, cap: "Port Padangbai", typ: "l", imgs:[40] },
+        { lat: -8.521912, lng: 115.263096, cap: "Eka Bali", typ: "n", imgs:[41,42,43] },
       ],
       zoom: 9,
     },
@@ -289,17 +287,13 @@ export const BALI_HISTORY: MyHistory[] = [
       "50": "Tegallalang Rice Terrace",
       "53": "Kanto Lampo Waterfall",
     },
+    //prettier-ignore
     position: {
       points: [
-        { lat: -8.431563, lng: 115.279346, cap: "Tegallalang Rice Terrace" },
-        { lat: -8.493976, lng: 115.2556245, cap: "Campuhan Ridge Walk" },
-        { lat: -8.532338, lng: 115.332851, cap: "Kanto Lampo Waterfall" },
-        {
-          lat: -8.521912,
-          lng: 115.263096,
-          cap: "Eka Bali Guest House",
-          typ: "n",
-        },
+        { lat: -8.431563, lng: 115.279346, cap: "Tegallalang Rice Terrace", imgs:[51,49,55,48,50] },
+        { lat: -8.493976, lng: 115.2556245, cap: "Campuhan Ridge Walk", imgs:[47,46]  },
+        { lat: -8.532338, lng: 115.332851, cap: "Kanto Lampo Waterfall", imgs:[52,54,53]  },
+        { lat: -8.519192, lng: 115.260694, cap: "Mandala Suci Wenara Wana", imgs:[45,44]  },
       ],
       zoom: 11,
     },
@@ -322,10 +316,12 @@ export const BALI_HISTORY: MyHistory[] = [
       "61": "Bali Cat Poo Chino",
       "63": "Luwak",
     },
+    //prettier-ignore
     position: {
       points: [
-        { lat: -8.239323, lng: 115.377451, cap: "Batur" },
-        { lat: -8.404518, lng: 115.321695, cap: "Bali Cat Poo Chino" },
+        { lat: -8.239323, lng: 115.377451, cap: "Batur", imgs:[64,57,56] },
+        { lat: -8.404518, lng: 115.321695, cap: "Cat Poo Chino", imgs:[62,61,63]},
+        { lat: -8.251129, lng: 115.400206, cap: "Hot Spring", imgs:[60,58,59] },
       ],
       zoom: 10,
     },
@@ -342,6 +338,7 @@ export const BALI_HISTORY: MyHistory[] = [
     transit: {
       from: "Ubud",
       to: "Kuta",
+      type: "taxi",
     },
     // prettier-ignore
     images: [
@@ -359,12 +356,14 @@ export const BALI_HISTORY: MyHistory[] = [
       "74": "Wodospady Sekumpul",
       "75": "Grombong Waterfall",
     },
+    //prettier-ignore
     position: {
       points: [
-        { lat: -8.274958, lng: 115.166823, cap: "Ulun Danu Beratan Temple" },
-        { lat: -8.177351, lng: 115.182625, cap: "Sekumpul Waterfall" },
-        { lat: -8.367122, lng: 115.131399, cap: "Jatiluwih Rice Terraces" },
-        { lat: -8.236898, lng: 115.136446, cap: "Buyan Viewpoint" },
+        { lat: -8.274958, lng: 115.166823, cap: "Ulun Danu Beratan", imgs:[68,67,69] },
+        { lat: -8.177351, lng: 115.182625, cap: "Sekumpul", imgs:[76,75,74,73] },
+        { lat: -8.367122, lng: 115.131399, cap: "Jatiluwih", imgs:[65,66] },
+        { lat: -8.236898, lng: 115.136446, cap: "Buyan Viewpoint", imgs:[71,72] },
+        { lat: -8.252824, lng: 115.158275, cap: "Handara Gate", imgs:[70] },
       ],
       zoom: 10,
     },
@@ -382,26 +381,27 @@ export const BALI_HISTORY: MyHistory[] = [
     transit: {
       from: "Bali",
       to: "Kuala Lumpur",
+      type: "plane",
     },
-    images: [78, 77, 79],
+    images: [78, 77, 80, 125, 79],
     captions: {
       "79": "Legian Beach",
+      "80": "[DPS] Port lotniczy Denpasar",
+      "125": "Garuda Wisnu Kencana",
     },
+    //prettier-ignore
     position: {
       points: [
-        { lat: -8.709098, lng: 115.166499, cap: "Pantai Legian Bali" },
-        {
-          lat: -8.708677,
-          lng: 115.170961,
-          cap: "Kost Melasti Legian",
-          typ: "n",
-        },
+        { lat: -8.709098, lng: 115.166499, cap: "Pantai Legian Bali", imgs:[77,79,78] },
+        { lat: -8.708677, lng: 115.170961, cap: "Kost Melasti Legian", typ: "n", imgs:[] },
+        { lat: -8.809953, lng: 115.167983, cap: "Garuda Wisnu Kencana", imgs:[125] },
+        { lat: -8.745633, lng: 115.168307, cap: "DPS", typ: "l", imgs:[80] },
       ],
-      zoom: 13,
+      zoom: 11,
     },
     svg: {
       item: <Surfboard />,
-      styles: { left: "18rem", bottom: "3rem", rotate: "-15deg" },
+      styles: { left: "18rem", bottom: "2rem", rotate: "-15deg", scale: 1.2 },
     },
   },
 
@@ -413,19 +413,27 @@ export const BALI_HISTORY: MyHistory[] = [
       name: "The Luxe By Infinitum KLCC",
       styles: { left: "unset", right: 0 },
     },
-    images: [80, 82, 84, 83],
+    //prettier-ignore
+    images: [
+      126, 127, 128,
+      82, 84, 83,
+    ],
     captions: {
-      "80": "Port lotniczy Denpasar",
       "82": "Quill City Mall Kuala Lumpur",
       "83": "The Luxe By Infinitum KLCC",
       "84": "Menara Kuala Lumpur",
+      "126": "KLCC",
+      "127": "[KUL] Kuala Lumpur International Airport",
+      "128": "Boeing 777",
     },
+    //prettier-ignore
     position: {
       points: [
-        { lat: 2.7456, lng: 101.7072, cap: "KUL", typ: "l" },
-        { lat: -8.7482, lng: 115.1672, cap: "DPS", typ: "l" },
+        { lat: 2.743201, lng: 101.701032, cap: "KUL", typ: "l", imgs:[127,128] },
+        { lat: 3.161124, lng: 101.700345, cap: "The Luxe", typ: "n", imgs:[82,83,84] },
+        { lat: 3.159362, lng: 101.713391, cap: "KLCC", typ: "l", imgs:[126] },
       ],
-      zoom: 4,
+      zoom: 9,
     },
     svg: {
       item: <Malaysia />,
@@ -440,6 +448,7 @@ export const BALI_HISTORY: MyHistory[] = [
     transit: {
       from: "Kuala Lumpur",
       to: "Doha",
+      type: "plane",
     },
     // prettier-ignore
     images: [
@@ -460,24 +469,20 @@ export const BALI_HISTORY: MyHistory[] = [
       "101": "Tokong Thean Hou",
       "102": "Chinatown Kuala Lumpur",
     },
+    //prettier-ignore
     position: {
       points: [
-        {
-          lat: 3.161124,
-          lng: 101.700345,
-          cap: "The Luxe By Infinitum KLCC",
-          typ: "n",
-        },
-        { lat: 3.122135, lng: 101.687668, cap: "Tokong Thean Hou" },
-        { lat: 3.238129, lng: 101.684074, cap: "Batu Caves" },
-        { lat: 3.157966, lng: 101.712081, cap: "Petronas Twin Towers" },
-        { lat: 3.145856, lng: 101.695408, cap: "Chinatown" },
+        { lat: 3.161124, lng: 101.700345, cap: "The Luxe By Infinitum KLCC", typ: "n", imgs:[] },
+        { lat: 3.122135, lng: 101.687668, cap: "Tokong Thean Hou", imgs:[101,100] },
+        { lat: 3.238129, lng: 101.684074, cap: "Batu Caves", imgs:[87,89,90] },
+        { lat: 3.157966, lng: 101.712081, cap: "Petronas Twin Towers", imgs:[95,92,93,94] },
+        { lat: 3.145856, lng: 101.695408, cap: "Chinatown", imgs:[102,96] },
       ],
       zoom: 11,
     },
     svg: {
       item: <TwinTower />,
-      styles: { left: "0rem", bottom: "1rem", scale:1.2 },
+      styles: { left: "0rem", bottom: "1rem", scale: 1.2 },
     },
   },
 
@@ -491,6 +496,7 @@ export const BALI_HISTORY: MyHistory[] = [
     transit: {
       from: "Doha",
       to: "Wiedeń",
+      type: "plane",
     },
     // prettier-ignore
     images: [
@@ -509,15 +515,15 @@ export const BALI_HISTORY: MyHistory[] = [
       "110": "Floresta Gardens",
       "111": "The Pearl-Qatar",
     },
-
+    //prettier-ignore
     position: {
       points: [
-        { lat: 25.281828, lng: 51.550442, cap: "Premier Inn Doha", typ: "n" },
-        { lat: 25.2606, lng: 51.6138, cap: "DOH", typ: "l" },
-        { lat: 25.288206, lng: 51.532883, cap: "Souq Waqif" },
-        { lat: 25.389679, lng: 51.531605, cap: "Katara Towers" },
-        { lat: 25.360074, lng: 51.525174, cap: "Katara Cultural Village" },
-        { lat: 25.369269, lng: 51.551325, cap: "Pearl Qatar" },
+        { lat: 25.281828, lng: 51.550442, cap: "Premier Inn", typ: "n", imgs:[] },
+        { lat: 25.271518, lng: 51.600731, cap: "DOH", typ: "l", imgs:[] },
+        { lat: 25.288206, lng: 51.532883, cap: "Souq Waqif", imgs:[103,104] },
+        { lat: 25.389679, lng: 51.531605, cap: "Katara Towers", imgs:[105] },
+        { lat: 25.360074, lng: 51.525174, cap: "Katara Cultural Village", imgs:[106,108,107] },
+        { lat: 25.369269, lng: 51.551325, cap: "Pearl Qatar", imgs:[110,111,109,] },
       ],
       zoom: 11,
     },
@@ -534,12 +540,14 @@ export const BALI_HISTORY: MyHistory[] = [
     transit: {
       from: "Wiedeń",
       to: "Katowice",
+      type: "train",
     },
     images: [112, 113, 114],
+    //prettier-ignore
     position: {
       points: [
-        { lat: 48.2082, lng: 16.3738, cap: "VIE", typ: "l" },
-        { lat: 48.184741, lng: 16.378619, cap: "Wien Hauptbahnhof", typ: "l" },
+        { lat: 48.118233, lng: 16.566228, cap: "VIE", typ: "l", imgs:[112,113]  },
+        { lat: 48.184741, lng: 16.378619, cap: "Wien Hauptbahnhof", typ: "l", imgs:[114]  },
       ],
       zoom: 11,
     },
@@ -549,3 +557,45 @@ export const BALI_HISTORY: MyHistory[] = [
     },
   },
 ];
+
+export const BALI_TRANSPORT: Position = {
+  points: [
+    { lat: 48.118233, lng: 16.566228, cap: "VIE", typ: "l" },
+    { lat: 25.271518, lng: 51.600731, cap: "DOH", typ: "l" },
+    { lat: 2.743373, lng: 101.701633, cap: "KUL", typ: "l" },
+    { lat: -8.745633, lng: 115.168307, cap: "DPS", typ: "l" },
+    { lat: -8.745633, lng: 115.168307, cap: "", typ: "x" },
+  ],
+  zoom: 1,
+};
+
+export const BALI_SLEEP: Position = {
+  //prettier-ignore
+  points: [
+    { lat: -8.736988, lng: 115.165126, cap: "D nux House", typ: "n" },
+    { lat: -8.680453, lng: 115.572884, cap: "Pooja Ocean View Cottage", typ: "n" },
+    { lat: -8.363442, lng: 116.082763, cap: "Oceans 5 Gili Air", typ: "n" },
+    { lat: -8.521912, lng: 115.263096, cap: "Eka Bali Guest House", typ: "n" },
+    { lat: -8.708677, lng: 115.170961, cap: "Kost Melasti Legian", typ: "n" },
+  ],
+  zoom: 8,
+};
+
+export const BALI_FOOD = {
+  "129": "Degustacja Herbaty",
+  "133": "Chicken Soup",
+  "134": "Naleśniki z Banana",
+  "135": "Pizza",
+  "136": "Pancakes",
+  "137": "Kurczak Curry",
+  "138": "Sato Ayam",
+  "140": "Kebaba",
+  "141": "Kawa",
+  "142": "Pizza",
+  "144": "Sajgonki",
+  "145": "Kurczak BBQ",
+  "146": "Kotlety z Kurczaka",
+  "147": "Mie Goreng",
+  "148": "Satay z Kurczaka",
+  "149": "Nasi Goreng",
+};

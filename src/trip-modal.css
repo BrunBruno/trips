@@ -217,6 +217,14 @@
   padding: 1rem;
   border-radius: 1rem;
   font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.history-day-transit svg {
+  height: 1.2rem;
 }
 
 .history-day-decorator {
@@ -1104,6 +1112,17 @@
   box-shadow: 0.1rem 0.3rem 1rem rgba(0, 0, 0, 1);
 }
 
+.country-map {
+  position: absolute;
+  right: -1rem;
+  top: -1rem;
+  z-index: 100;
+}
+
+.country-map img {
+  height: 5rem;
+}
+
 .summary-data-container {
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -1212,13 +1231,10 @@
 .summary-decorator::before {
   position: absolute;
   content: "";
-  /* width: 60rem;
-  height: 60rem; */
   width: 6rem;
   height: 6rem;
   bottom: -3rem;
   left: 50%;
-  /* transform: translateX(-50%) rotateX(80deg); */
   transform: translateX(-50%);
 
   background-image: url("/trips/icons/globe.png");
@@ -1235,12 +1251,10 @@
 .food-pile {
   position: relative;
   width: 100%;
-  height: 70%;
+  height: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   align-items: center;
-
-  background-color: orange;
+  padding-bottom: 4rem;
 }
 
 .food-pile::before {
@@ -1265,13 +1279,16 @@
   position: relative;
   height: 100%;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .food-card {
   position: absolute;
-  width: 160px !important;
-  overflow: hidden;
-  margin: -15px -20px;
+  width: 120% !important;
+  transform-origin: 0 0;
+  padding: 0.3rem !important;
 }
 
 .food-card img {
@@ -1281,4 +1298,21 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 6px;
+}
+
+.food-card .photo-caption {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 90%;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 0;
+  white-space: nowrap;
+  padding: 0.2rem 0.4rem;
+}
+
+.food-card:hover .photo-caption {
+  display: block;
 }
