@@ -471,6 +471,9 @@ function TripModal({ trip }: TripModalProps) {
             <div className="video-label">
               {trip.name} {trip.year}
             </div>
+            <div className="country-map">
+              <img src={`/trips/${trip.folder}/cover/map.png`} />
+            </div>
           </div>
         );
 
