@@ -14,7 +14,7 @@ type HoveredMarkerState = {
   markerIndex: number;
 } | null;
 
-const show = true;
+const show = false;
 
 function TripModal({ trip }: TripModalProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
