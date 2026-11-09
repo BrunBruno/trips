@@ -13,7 +13,11 @@ import {
   BALI_SLEEP,
   BALI_TRANSPORT,
 } from "./history/2025BaliHistory";
-import { SRI_LANKA_HISTORY } from "./history/2024SriLankaHistory";
+import {
+  SRI_LANKA_HISTORY,
+  SRI_LANKA_SLEEP,
+  SRI_LANKA_TRANSPORT,
+} from "./history/2024SriLankaHistory";
 import { EURO_TRIP_HISTORY } from "./history/2022EuroTrip";
 import SaudiArabia from "./svg/flags/sau";
 import UnitedArabEmirates from "./svg/flags/uae";
@@ -126,7 +130,11 @@ const countries: CountryRecord[] = [
     folder: "euro-trip",
     history: EURO_TRIP_HISTORY,
     coverCount: 12,
-    transit: "Katowice ➤ Wiedeń",
+    transit: {
+      from: "Katowice",
+      to: "Wiedeń",
+      type: "train",
+    },
   },
 
   // {
@@ -149,7 +157,11 @@ const countries: CountryRecord[] = [
     map: MadeiraMap("madeira"),
     history: MADEIRA_HISTORY,
     coverCount: 9,
-    transit: "Katowice ➤ Madera",
+    transit: {
+      from: "Katowice",
+      to: "Madera",
+      type: "plane",
+    },
   },
 
   // {
@@ -178,8 +190,13 @@ const countries: CountryRecord[] = [
     flags: [<SriLanka />, <UnitedArabEmirates />],
     folder: "sri-lanka",
     history: SRI_LANKA_HISTORY,
-    transit: "Katowice ➤ Dubai",
+    transit: {
+      from: "Katowice",
+      to: "Dubai",
+      type: "plane",
+    },
     coverCount: 9,
+    maps: [SRI_LANKA_TRANSPORT, SRI_LANKA_SLEEP],
   },
 
   // {
@@ -202,7 +219,12 @@ const countries: CountryRecord[] = [
     folder: "indonesia-bali",
     history: BALI_HISTORY,
     coverCount: 10,
-    transit: "Katowice ➤ Wiedeń ➤ Doha",
+    transit: {
+      from: "Katowice",
+      to: "Doha",
+      through: "Wiedeń",
+      type: "plane",
+    },
     maps: [BALI_TRANSPORT, BALI_SLEEP],
     food: BALI_FOOD,
   },
@@ -228,7 +250,11 @@ const countries: CountryRecord[] = [
     maps: [MAURITIUS_TRANSPORT, MAURITIUS_SLEEP],
     food: MAURITIUS_FOOD,
     coverCount: 9,
-    transit: "Kraków ➤ Madryt",
+    transit: {
+      from: "Kraków",
+      to: "Madryt",
+      type: "plane",
+    },
   },
 ];
 

@@ -13,9 +13,9 @@ const MAP_ID = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID || "DEMO_MAP_ID";
 
 type HistoryMapProps = {
   position: Position;
-  hoveredMarker: number | null;
+  hoveredMarker?: number | null;
   isFromPhoto?: boolean;
-  setHoveredMarker: (markerIndex: number | null) => void;
+  setHoveredMarker?: (markerIndex: number | null) => void;
 };
 
 function MapController({
@@ -29,7 +29,6 @@ function MapController({
 }) {
   const map = useMap();
   const wasFromPhotoRef = useRef<boolean>(false);
-
 
   useEffect(() => {
     if (!map) return;
@@ -98,7 +97,7 @@ function HistoryMap({
       >
         <MapController
           position={position}
-          hoveredMarker={hoveredMarker}
+          hoveredMarker={hoveredMarker === undefined ? null : hoveredMarker}
           isFromPhoto={isFromPhoto}
         />
 
@@ -110,8 +109,12 @@ function HistoryMap({
               key={`${point.cap}-${index}`}
               position={{ lat: point.lat, lng: point.lng }}
               zIndex={isCurrentHovered ? 1000 : index}
-              onMouseEnter={() => setHoveredMarker(index)}
-              onMouseLeave={() => setHoveredMarker(null)}
+              onMouseEnter={() => {
+                if (setHoveredMarker !== undefined) setHoveredMarker(index);
+              }}
+              onMouseLeave={() => {
+                if (setHoveredMarker !== undefined) setHoveredMarker(null);
+              }}
             >
               <div
                 className={`map-marker-label${isCurrentHovered ? " active" : ""}`}

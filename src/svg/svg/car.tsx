@@ -2,7 +2,7 @@ export default function CarSvg() {
   return (
     <svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <title>car_fill</title>
-      <g stroke="none" fill="none" fill-rule="evenodd">
+      <g stroke="none" fill="none" fillRule="evenodd">
         <g id="Transport" transform="translate(-288.000000, -48.000000)">
           <g id="car_fill" transform="translate(288.000000, 48.000000)">
             <path

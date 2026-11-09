@@ -1,6 +1,13 @@
 import type { ComponentType, CSSProperties, JSX } from "react";
 
-export type Transit =  "plane" | "car" | "ferry" | "taxi" | "tuktuk" | "bus" | "train"
+export type Transit =
+  | "plane"
+  | "car"
+  | "ferry"
+  | "taxi"
+  | "tuktuk"
+  | "bus"
+  | "train";
 
 export type CountryRecord = {
   name: string;
@@ -15,7 +22,12 @@ export type CountryRecord = {
   history?: MyHistory[];
   imgCount?: number;
   coverCount?: number;
-  transit?: string;
+  transit?: {
+    from: string;
+    to: string;
+    through?: string;
+    type?: Transit;
+  };
   food?: {
     [key in number]: string;
   };
@@ -44,15 +56,18 @@ export type MyHistory = {
     name: string;
     styles?: CSSProperties;
   };
+  trip?: {
+    to: string;
+    styles?: CSSProperties;
+    type: Transit;
+  };
   images: number[];
   captions?: {
     [key in number]: string;
   };
   position: Position;
+  position2?: Position;
 
-  imagePositions?: {
-    [key in number]: Position;
-  };
   svg?: {
     item: JSX.Element;
     styles?: CSSProperties;
