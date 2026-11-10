@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import "./trip-modal.css";
 import type { CountryRecord } from "./types";
 import HistoryMap from "./history/map/HistoryMap";
@@ -19,7 +19,7 @@ const show = true;
 function TripModal({ trip }: TripModalProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const imageRotations = useRef<number[]>([]);
-  const foodRotations = useRef<Record<string, number>>({});
+  // const foodRotations = useRef<Record<string, number>>({});
 
   const coverCount = trip.coverCount || 1;
   const [activeCover, setActiveCover] = useState(0);
@@ -31,6 +31,12 @@ function TripModal({ trip }: TripModalProps) {
     useState<HoveredMarkerState>(null);
   const [hoveredPhotoMarker2, setHoveredPhotoMarker2] =
     useState<HoveredMarkerState>(null);
+  const [selectedPhoto, setSelectedPhoto] = useState<{
+    dayIndex: number;
+    imgNum: number;
+    imageSrc: string;
+  } | null>(null);
+  const [showImg, setShowImg] = useState<boolean>(false);
 
   if (imageRotations.current.length === 0) {
     imageRotations.current = Array.from(
@@ -129,12 +135,17 @@ function TripModal({ trip }: TripModalProps) {
               <section className={`history-day-images ${parityClass}-images`}>
                 {day.images && day.images.length > 0 && (
                   <div
-                    className={`photo-pile pile-count-${Math.min(imagesCount, 12)}`}
+                    className={`photo-pile pile-count-${Math.min(imagesCount, 25)}`}
                   >
-                    {day.images.slice(0, 12).map((imgNum, imgIndex) => {
+                    {day.images.slice(0, 25).map((imgNum, imgIndex) => {
+                      const isSelectedPhoto =
+                        selectedPhoto?.dayIndex === index &&
+                        selectedPhoto?.imgNum === imgNum;
+
                       const matchedMarkerIndex = day.position.points.findIndex(
                         (point) => point.imgs && point.imgs.includes(imgNum),
                       );
+
                       const matchedMarkerIndex2 =
                         day.position2 === undefined
                           ? -1
@@ -164,13 +175,17 @@ function TripModal({ trip }: TripModalProps) {
                         activeMarkerPoint2?.imgs !== undefined &&
                         !activeMarkerPoint2.imgs.includes(imgNum);
 
-                      const styleProps = {
+                      const styleProps: CSSProperties = {
                         rotate: `${imageRotations.current[imgIndex]}deg`,
                         filter:
-                          isHovering || isHovering2
+                          isHovering ||
+                          isHovering2 ||
+                          selectedPhoto?.dayIndex === index
                             ? "brightness(50%)"
                             : "brightness(100%)",
                         zIndex: isHovering || isHovering2 ? "-1" : "0",
+                        pointerEvents:
+                          selectedPhoto?.dayIndex === index ? "none" : "all",
                       };
                       const imageSrc = getImagePath(trip.folder, imgNum);
                       const caption = day.captions?.[imgNum];
@@ -180,6 +195,18 @@ function TripModal({ trip }: TripModalProps) {
                           key={`${imgNum}-${imgIndex}`}
                           className={`photo-card${caption ? " has-caption" : ""}`}
                           style={styleProps}
+                          onClick={() => {
+                            setSelectedPhoto(
+                              isSelectedPhoto
+                                ? null
+                                : {
+                                    dayIndex: index,
+                                    imgNum: imgNum,
+                                    imageSrc: imageSrc,
+                                  },
+                            );
+                            setShowImg(true);
+                          }}
                           onMouseEnter={() => {
                             if (matchedMarkerIndex !== -1) {
                               setHoveredPhotoMarker({
@@ -213,6 +240,25 @@ function TripModal({ trip }: TripModalProps) {
                         </div>
                       );
                     })}
+
+                    <div
+                      className="selected-image"
+                      style={
+                        showImg && index === selectedPhoto?.dayIndex
+                          ? { scale: 1, opacity: 1 }
+                          : { scale: 0, opacity: 0 }
+                      }
+                      onClick={() => {
+                        setShowImg(false);
+                        setTimeout(() => {
+                          setSelectedPhoto(null);
+                        }, 300);
+                      }}
+                    >
+                      {selectedPhoto && (
+                        <img src={selectedPhoto.imageSrc} loading="lazy" />
+                      )}
+                    </div>
                   </div>
                 )}
               </section>
@@ -234,18 +280,37 @@ function TripModal({ trip }: TripModalProps) {
               </section>
             );
 
+            const selectedPhotoMarkerIndex =
+              selectedPhoto?.dayIndex === index
+                ? day.position.points.findIndex((point) =>
+                    point.imgs?.includes(selectedPhoto.imgNum),
+                  )
+                : -1;
+
             const activeMapMarker =
-              hoveredMarker?.dayIndex === index
-                ? hoveredMarker.markerIndex
-                : hoveredPhotoMarker?.dayIndex === index
-                  ? hoveredPhotoMarker.markerIndex
-                  : null;
+              selectedPhotoMarkerIndex !== -1
+                ? selectedPhotoMarkerIndex
+                : hoveredMarker?.dayIndex === index
+                  ? hoveredMarker.markerIndex
+                  : hoveredPhotoMarker?.dayIndex === index
+                    ? hoveredPhotoMarker.markerIndex
+                    : null;
+
+            const selectedPhotoMarkerIndex2 =
+              selectedPhoto?.dayIndex === index && day.position2
+                ? day.position2.points.findIndex((point) =>
+                    point.imgs?.includes(selectedPhoto.imgNum),
+                  )
+                : -1;
+
             const activeMapMarker2 =
-              hoveredMarker2?.dayIndex === index
-                ? hoveredMarker2.markerIndex
-                : hoveredPhotoMarker2?.dayIndex === index
-                  ? hoveredPhotoMarker2.markerIndex
-                  : null;
+              selectedPhotoMarkerIndex2 !== -1
+                ? selectedPhotoMarkerIndex2
+                : hoveredMarker2?.dayIndex === index
+                  ? hoveredMarker2.markerIndex
+                  : hoveredPhotoMarker2?.dayIndex === index
+                    ? hoveredPhotoMarker2.markerIndex
+                    : null;
 
             const mapSection = (
               <section className={`history-day-map ${parityClass}-map`}>
@@ -259,7 +324,7 @@ function TripModal({ trip }: TripModalProps) {
                 {show ? (
                   <div
                     className="history-map"
-                    style={day.position2 ? { marginTop: "10rem" } : {}}
+                    style={day.position2 ? { marginTop: "6rem" } : {}}
                   >
                     <div className="history-map-frame">
                       {!day.hid && (
@@ -271,13 +336,15 @@ function TripModal({ trip }: TripModalProps) {
                             hoveredPhotoMarker !== null
                           }
                           setHoveredMarker={(markerIdx) => {
-                            if (typeof markerIdx === "number") {
-                              setHoveredMarker({
-                                dayIndex: index,
-                                markerIndex: markerIdx,
-                              });
-                            } else {
-                              setHoveredMarker(null);
+                            if (!selectedPhoto) {
+                              if (typeof markerIdx === "number") {
+                                setHoveredMarker({
+                                  dayIndex: index,
+                                  markerIndex: markerIdx,
+                                });
+                              } else {
+                                setHoveredMarker(null);
+                              }
                             }
                           }}
                         />
@@ -376,6 +443,19 @@ function TripModal({ trip }: TripModalProps) {
                     </div>
                   </div>
                 )} */}
+
+                {day.food && (
+                  <div className="food-container" style={day.food.styles}>
+                    <div className=" food-card has-caption">
+                      <img
+                        src={getImagePath(trip.folder, Number(day.food.img))}
+                        alt={day.food.name}
+                        loading="lazy"
+                      />
+                      <div className="photo-caption">{day.food.name}</div>
+                    </div>
+                  </div>
+                )}
               </section>
             );
 
@@ -407,13 +487,13 @@ function TripModal({ trip }: TripModalProps) {
                 {day.transit ? (
                   isEven ? (
                     <div className="history-day-transit">
-                      <GetSvg t={day.transit.type} />
-                      {day.transit.from} ➤ {day.transit.to}
+                      {day.transit.from} <GetSvg t={day.transit.type} />➤{" "}
+                      {day.transit.to}
                     </div>
                   ) : (
                     <div className="history-day-transit">
-                      {day.transit.to} ⮜ {day.transit.from}
-                      <GetSvg t={day.transit.type} />
+                      {day.transit.to} ⮜<GetSvg t={day.transit.type} />{" "}
+                      {day.transit.from}
                     </div>
                   )
                 ) : (
@@ -436,7 +516,7 @@ function TripModal({ trip }: TripModalProps) {
                     </div>
                     {trip.transit && (
                       <div className="history-day-transit start-transit">
-                        <GetSvg t={trip.transit.type} /> {trip.transit.from} ➤{" "}
+                        {trip.transit.from} <GetSvg t={trip.transit.type} />➤{" "}
                         {trip.transit.through !== undefined &&
                           `${trip.transit.through} ➤ `}{" "}
                         {trip.transit.to}
@@ -474,7 +554,7 @@ function TripModal({ trip }: TripModalProps) {
               )}
             </div>
 
-            {trip.food && (
+            {/* {trip.food && (
               <div
                 className="food-pile"
                 style={{
@@ -505,7 +585,7 @@ function TripModal({ trip }: TripModalProps) {
                   );
                 })}
               </div>
-            )}
+            )} */}
           </div>
         );
 

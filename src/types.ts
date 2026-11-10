@@ -83,4 +83,9 @@ export type MyHistory = {
   img?: JSX.Element;
   imgStyles?: CSSProperties;
   hid?: 1;
+  food?: {
+    name: string;
+    img: number;
+    styles?: CSSProperties;
+  };
 };
