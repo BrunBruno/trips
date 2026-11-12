@@ -1,12 +1,20 @@
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type Dispatch,
+  type SetStateAction,
+} from "react";
 import "./trip-modal.css";
 import type { CountryRecord } from "./types";
 import HistoryMap from "./history/map/HistoryMap";
-import React from "react";
 import GetSvg from "./svg/svg/GetSvg";
 
 type TripModalProps = {
   trip: CountryRecord;
+  coverBg: boolean;
+  setCoverBg: Dispatch<SetStateAction<boolean>>;
 };
 
 type HoveredMarkerState = {
@@ -16,13 +24,12 @@ type HoveredMarkerState = {
 
 const show = true;
 
-function TripModal({ trip }: TripModalProps) {
+function TripModal({ trip, coverBg, setCoverBg }: TripModalProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const imageRotations = useRef<number[]>([]);
-  // const foodRotations = useRef<Record<string, number>>({});
 
   const coverCount = trip.coverCount || 1;
-  const [activeCover, setActiveCover] = useState(0);
+  const [activeCover, setActiveCover] = useState<number>(0);
 
   const [hoveredMarker, setHoveredMarker] = useState<HoveredMarkerState>(null);
   const [hoveredPhotoMarker, setHoveredPhotoMarker] =
@@ -85,16 +92,8 @@ function TripModal({ trip }: TripModalProps) {
 
   return (
     <div ref={scrollRef} className="trip-modal">
-      <header className="trip-modal-header">
-        <div
-          className="header-cover"
-          onClick={() => {
-            scrollRef.current?.scrollBy({
-              top: window.innerHeight * 1.1,
-              behavior: "smooth",
-            });
-          }}
-        >
+      <header className={`trip-modal-header ${coverBg ? "" : "covers"}`}>
+        <div className="header-cover">
           {Array.from({ length: coverCount }, (_, i) => (
             <img
               key={`cover-${i}`}
@@ -114,13 +113,45 @@ function TripModal({ trip }: TripModalProps) {
           {trip.year} {getMonth(trip.month)}
         </h3>
 
-        <div className="flags">
-          {trip.flags?.map((flag, i) => (
-            <React.Fragment key={`f-${i}`}>{flag}</React.Fragment>
-          ))}
-        </div>
+        <div
+          className="header-decorator"
+          onClick={() => {
+            scrollRef.current?.scrollBy({
+              top: window.innerHeight * 1.1,
+              behavior: "smooth",
+            });
+          }}
+        ></div>
 
-        <div className="header-decorator"></div>
+        <div
+          className="switch-cover"
+          onClick={() => {
+            setCoverBg((prev) => !prev);
+          }}
+        >
+          {coverBg ? (
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" fill-rule="evenodd">
+                <path d="m0 0h32v32h-32z" />
+                <path
+                  d="m24 2c4.418278 0 8 3.581722 8 8v12c0 4.418278-3.581722 8-8 8h-16c-4.418278 0-8-3.581722-8-8v-12c0-4.418278 3.581722-8 8-8zm-15.15704017 11.3933983-6.84295983 6.8426017v1.764c0 3.2383969 2.56557489 5.8775718 5.77506174 5.9958615l.22493826.0041385h15.45zm21.15704017-1.8643983-10.096 10.097 6.048224 6.0492469c2.2878684-.7868384 3.9503124-2.9181728 4.0436375-5.4503086l.0041385-.2249383zm-6-7.529h-16c-3.23839694 0-5.87757176 2.56557489-5.99586153 5.77506174l-.00413847.22493826v7.407l5.42874627-5.4278153c.74554637-.7455464 1.93326028-.7794348 2.71900373-.1016654l.1094234.1016654 8.2318266 8.2318153 11.3946671-11.39268045c-.5346164-2.67667729-2.8501212-4.71066623-5.6587288-4.81418108zm-5.4 2c2.209139 0 4 1.790861 4 4s-1.790861 4-4 4-4-1.790861-4-4 1.790861-4 4-4zm0 2c-1.1045695 0-2 .8954305-2 2s.8954305 2 2 2 2-.8954305 2-2-.8954305-2-2-2z"
+                  fill="#fff"
+                  fillRule="nonzero"
+                />
+              </g>
+            </svg>
+          ) : (
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" fill-rule="evenodd">
+                <path d="m0 0h32v32h-32z" />
+                <path
+                  d="m24 2c4.418278 0 8 3.581722 8 8v12c0 4.418278-3.581722 8-8 8h-16c-4.418278 0-8-3.581722-8-8v-12c0-4.418278 3.581722-8 8-8zm3.9664169 10.0170472c-.3931622-.3878686-1.0263128-.383604-1.4141979.0095418l-8.064877 8.174411-7.3096788-7.3096867-.1065935-.0974039c-.6578416-.5483979-1.63218518-.4507514-2.24541524.1624787l-5.15541928 5.1554192-.07770636.0872208c-.31082546.3925177-.28492334.9643631.07770636 1.3269928l.08722082.0777064c.39251765.3108254.96436305.2849233 1.32699275-.0777064l4.95025505-4.950354 9.8989874 9.9001015.0872208.0777063c.3925176.3108255.964363.2849234 1.3269927-.0777063.3905243-.3905243.3905243-1.0236893 0-1.4142136l-1.4465627-1.4465548 8.0745839-8.1837549.0771171-.0877422c.3081746-.3946023.2784215-.9662603-.0866261-1.3264557zm-9.3664169-5.0170472c-2.209139 0-4 1.790861-4 4s1.790861 4 4 4 4-1.790861 4-4-1.790861-4-4-4zm0 2c1.1045695 0 2 .8954305 2 2s-.8954305 2-2 2-2-.8954305-2-2 .8954305-2 2-2z"
+                  fill="#fff"
+                />
+              </g>
+            </svg>
+          )}
+        </div>
       </header>
 
       {trip.history && trip.history.length > 0 && (
@@ -535,57 +566,60 @@ function TripModal({ trip }: TripModalProps) {
         const parityClass = isEven ? "even" : "odd";
 
         const summaryDataSection = (
-          <div className="summary-data-container">
-            <div className="summary-maps">
-              {trip.maps && trip.maps[0] && (
-                <div className="summary-map">
-                  <div className="summary-map-item">
-                    <HistoryMap position={trip.maps[0]} />
-                  </div>
+          <div className="summary-maps">
+            {trip.maps && trip.maps[0] && (
+              <div className="summary-map">
+                <div className="summary-map-item">
+                  <HistoryMap
+                    position={trip.maps[0]}
+                    hoveredMarker={
+                      hoveredMarker?.dayIndex === -2
+                        ? hoveredMarker.markerIndex
+                        : null
+                    }
+                    setHoveredMarker={(markerIdx) => {
+                      if (!selectedPhoto) {
+                        if (typeof markerIdx === "number") {
+                          setHoveredMarker({
+                            dayIndex: -2,
+                            markerIndex: markerIdx,
+                          });
+                        } else {
+                          setHoveredMarker(null);
+                        }
+                      }
+                    }}
+                  />
                 </div>
-              )}
-
-              {trip.maps && trip.maps[1] && (
-                <div className="summary-map">
-                  <div className="summary-map-item">
-                    <HistoryMap position={trip.maps[1]} />
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* {trip.food && (
-              <div
-                className="food-pile"
-                style={{
-                  gridTemplateColumns:
-                    Object.entries(trip.food).length > 15
-                      ? "repeat(4, 1fr)"
-                      : "repeat(3, 1fr)",
-                }}
-              >
-                {Object.entries(trip.food).map(([imgNum, caption]) => {
-                  if (foodRotations.current[imgNum] === undefined) {
-                    foodRotations.current[imgNum] =
-                      Math.floor(Math.random() * 19) - 9;
-                  }
-                  const randomRotate = foodRotations.current[imgNum];
-                  const imageSrc = getImagePath(trip.folder, Number(imgNum));
-
-                  return (
-                    <div key={imgNum} className="food-container">
-                      <div
-                        className="photo-card food-card has-caption"
-                        style={{ rotate: `${randomRotate}deg` }}
-                      >
-                        <img src={imageSrc} alt={caption} loading="lazy" />
-                        <div className="photo-caption">{caption}</div>
-                      </div>
-                    </div>
-                  );
-                })}
               </div>
-            )} */}
+            )}
+
+            {trip.maps && trip.maps[1] && (
+              <div className="summary-map">
+                <div className="summary-map-item">
+                  <HistoryMap
+                    position={trip.maps[1]}
+                    hoveredMarker={
+                      hoveredMarker?.dayIndex === -1
+                        ? hoveredMarker.markerIndex
+                        : null
+                    }
+                    setHoveredMarker={(markerIdx) => {
+                      if (!selectedPhoto) {
+                        if (typeof markerIdx === "number") {
+                          setHoveredMarker({
+                            dayIndex: -1,
+                            markerIndex: markerIdx,
+                          });
+                        } else {
+                          setHoveredMarker(null);
+                        }
+                      }
+                    }}
+                  />
+                </div>
+              </div>
+            )}
           </div>
         );
 

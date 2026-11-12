@@ -1,14 +1,11 @@
-import MadeiraMap from "./map/MadeiraMap";
 import type { CountryRecord } from "./types";
 import {
-  MAURITIUS_FOOD,
   MAURITIUS_HISTORY,
   MAURITIUS_SLEEP,
   MAURITIUS_TRANSPORT,
 } from "./history/2026MauritiusHistory";
 import EuropeanUnion from "./svg/flags/eeu";
 import {
-  BALI_FOOD,
   BALI_HISTORY,
   BALI_SLEEP,
   BALI_TRANSPORT,
@@ -18,25 +15,27 @@ import {
   SRI_LANKA_SLEEP,
   SRI_LANKA_TRANSPORT,
 } from "./history/2024SriLankaHistory";
-import { EURO_TRIP_HISTORY } from "./history/2022EuroTrip";
-import SaudiArabia from "./svg/flags/sau";
-import UnitedArabEmirates from "./svg/flags/uae";
-import Portugal from "./svg/flags/ptg";
+import {
+  EURO_TRIP_HISTORY,
+  EURO_TRIP_SLEEP,
+  EURO_TRIP_TRANSPORT,
+} from "./history/2022EuroTrip";
+
 import { MADEIRA_HISTORY } from "./history/2023MaderaHistory";
-import Austria from "./svg/flags/aut";
-import Czechia from "./svg/flags/cze";
-import France from "./svg/flags/fra";
-import Germany from "./svg/flags/ger";
 import Indonesia from "./svg/flags/idn";
-import Italy from "./svg/flags/ita";
 import Madeira from "./svg/flags/mdr";
 import Mauritius from "./svg/flags/mus";
-import Malaysia from "./svg/flags/mys";
-import Poland from "./svg/flags/pol";
-import Qatar from "./svg/flags/qat";
-import Spain from "./svg/flags/spa";
-import Switzerland from "./svg/flags/swi";
 import SriLanka from "./svg/flags/slk";
+import Croatia from "./svg/flags/cro";
+import { SPLIT_HISTORY } from "./history/2026SplitHistory";
+import Egypt from "./svg/flags/egy";
+import { MARSA_ALAM_HISTORY } from "./history/2025MarsaAlam";
+import Sicily from "./svg/flags/scl";
+import { SICILY_HISTORY } from "./history/2024Sicily";
+import Cyprus from "./svg/flags/cyp";
+import Greece from "./svg/flags/grc";
+import Bulgaria from "./svg/flags/bgr";
+import { GOLDEN_SANDS_18_HISTORY } from "./history/2018GoldenSands";
 
 const countries: CountryRecord[] = [
   // {
@@ -85,51 +84,59 @@ const countries: CountryRecord[] = [
   //   map: OrebicMap("croatia-orebic"),
   // },
 
-  // {
-  //   name: "Złote Piaski",
-  //   country: "Bułgaria",
-  //   year: 2018,
-  //   flag: Bulgaria,
-  //   folder: "bulgaria-zlote-piaski-18",
-  //   map: GoldenSands18Map("bulgaria-zlote-piaski-18"),
-  // },
+  {
+    name: "Złote Piaski",
+    country: "Bułgaria",
+    year: 2018,
+    month: 7,
+    flag: Bulgaria,
+    folder: "golden-sands-18",
+    history: GOLDEN_SANDS_18_HISTORY,
+    transit: {
+      from: "Katowice",
+      to: "Vállaj",
+      type: "bus",
+    },
+  },
 
-  // {
-  //   name: "Złote Piaski",
-  //   country: "Bułgaria",
-  //   year: 2019,
-  //   flag: Bulgaria,
-  //   folder: "bulgaria-zlote-piaski-19",
-  //   map: GoldenSands19Map("bulgaria-zlote-piaski-19"),
-  // },
+  {
+    name: "Złote Piaski",
+    country: "Bułgaria",
+    year: 2019,
+    month: 8,
+    flag: Bulgaria,
+    folder: "golden-sands-19",
+    transit: {
+      from: "Katowice",
+      to: "Złote Piaski",
+      type: "bus",
+    },
+  },
 
-  // {
-  //   name: "Kreta",
-  //   country: "Grecja",
-  //   year: 2021,
-  //   flag: Greece,
-  //   folder: "greece-crete",
-  //   map: CreteMap("greece-crete"),
-  // },
+  {
+    name: "Kreta",
+    country: "Grecja",
+    year: 2021,
+    month: 9,
+    flag: Greece,
+    folder: "greece-crete",
+    transit: {
+      from: "Katowice",
+      to: "Iraklion",
+      type: "plane",
+    },
+  },
 
   {
     name: "EuroTrip",
     country: "Europa",
     year: 2022,
+    month: 9,
     flag: EuropeanUnion,
-    flags: [
-      <Austria />,
-      <Switzerland />,
-      <Italy />,
-      <France />,
-      <Spain />,
-      <Germany />,
-      <Czechia />,
-      <Poland />,
-    ],
     folder: "euro-trip",
-    history: EURO_TRIP_HISTORY,
     coverCount: 12,
+    history: EURO_TRIP_HISTORY,
+    maps: [EURO_TRIP_TRANSPORT, EURO_TRIP_SLEEP],
     transit: {
       from: "Katowice",
       to: "Wiedeń",
@@ -137,14 +144,18 @@ const countries: CountryRecord[] = [
     },
   },
 
-  // {
-  //   name: "Cypr",
-  //   year: 2023,
-  //   month: 3,
-  //   flag: Cyprus,
-  //   folder: "cyprus",
-  //   map: CyprusMap("cyprus"),
-  // },
+  {
+    name: "Cypr",
+    year: 2023,
+    month: 3,
+    flag: Cyprus,
+    folder: "cyprus",
+    transit: {
+      from: "Katowice",
+      to: "Pafos",
+      type: "plane",
+    },
+  },
 
   {
     name: "Madera",
@@ -152,9 +163,7 @@ const countries: CountryRecord[] = [
     year: 2023,
     month: 8,
     flag: Madeira,
-    flags: [<Madeira />, <Portugal />],
     folder: "madeira",
-    map: MadeiraMap("madeira"),
     history: MADEIRA_HISTORY,
     coverCount: 9,
     transit: {
@@ -164,14 +173,20 @@ const countries: CountryRecord[] = [
     },
   },
 
-  // {
-  //   name: "Sycylia",
-  //   country: "Włochy",
-  //   year: 2024,
-  //   flag: Sicily,
-  //   folder: "sicily",
-  //   map: SicilyMap("sicily"),
-  // },
+  {
+    name: "Sycylia",
+    country: "Włochy",
+    year: 2024,
+    month: 2,
+    flag: Sicily,
+    folder: "sicily",
+    history: SICILY_HISTORY,
+    transit: {
+      from: "Katowice",
+      to: "Katania",
+      type: "plane",
+    },
+  },
 
   // {
   //   name: "Oslo",
@@ -186,28 +201,33 @@ const countries: CountryRecord[] = [
   {
     name: "Sri Lanka",
     year: 2024,
+    month: 9,
     flag: SriLanka,
-    flags: [<SriLanka />, <UnitedArabEmirates />],
     folder: "sri-lanka",
+    coverCount: 9,
     history: SRI_LANKA_HISTORY,
+    maps: [SRI_LANKA_TRANSPORT, SRI_LANKA_SLEEP],
     transit: {
       from: "Katowice",
       to: "Dubai",
       type: "plane",
     },
-    coverCount: 9,
-    maps: [SRI_LANKA_TRANSPORT, SRI_LANKA_SLEEP],
   },
 
-  // {
-  //   name: "Marsa Alam",
-  //   country: "Egipt",
-  //   year: 2025,
-  //   month: 3,
-  //   flag: Egypt,
-  //   folder: "egypt-marsa-alam",
-  //   map: MarsaAlamMap("egypt-marsa-alam"),
-  // },
+  {
+    name: "Marsa Alam",
+    country: "Egipt",
+    year: 2025,
+    month: 3,
+    flag: Egypt,
+    folder: "marsa-alam",
+    history: MARSA_ALAM_HISTORY,
+    transit: {
+      from: "Kraków",
+      to: "Marsa Alam",
+      type: "plane",
+    },
+  },
 
   {
     name: "Bali",
@@ -215,41 +235,42 @@ const countries: CountryRecord[] = [
     year: 2025,
     month: 9,
     flag: Indonesia,
-    flags: [<Indonesia />, <Malaysia />, <Qatar />, <Austria />],
     folder: "indonesia-bali",
-    history: BALI_HISTORY,
     coverCount: 10,
+    history: BALI_HISTORY,
+    maps: [BALI_TRANSPORT, BALI_SLEEP],
     transit: {
       from: "Katowice",
       to: "Doha",
       through: "Wiedeń",
       type: "plane",
     },
-    maps: [BALI_TRANSPORT, BALI_SLEEP],
-    food: BALI_FOOD,
   },
 
-  // {
-  //   name: "Split",
-  //   country: "Chorwacja",
-  //   year: 2026,
-  //   month: 7,
-  //   flag: Croatia,
-  //   folder: "croatia-split",
-  //   history: SPLIT_HISTORY,
-  // },
+  {
+    name: "Split",
+    country: "Chorwacja",
+    year: 2026,
+    month: 7,
+    flag: Croatia,
+    folder: "croatia-split",
+    history: SPLIT_HISTORY,
+    transit: {
+      from: "Katowice",
+      to: "Split",
+      type: "plane",
+    },
+  },
 
   {
     name: "Mauritius",
     year: 2026,
     month: 9,
     flag: Mauritius,
-    flags: [<Spain />, <Mauritius />, <SaudiArabia />, <Austria />],
     folder: "mauritius",
+    coverCount: 9,
     history: MAURITIUS_HISTORY,
     maps: [MAURITIUS_TRANSPORT, MAURITIUS_SLEEP],
-    food: MAURITIUS_FOOD,
-    coverCount: 9,
     transit: {
       from: "Kraków",
       to: "Madryt",

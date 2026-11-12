@@ -38,7 +38,7 @@
 
   text-align: center;
   animation: open-cover 0.5s forwards;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 @keyframes open-cover {
@@ -54,13 +54,15 @@
   width: 100%;
   height: 100%;
 
-  opacity: 0;
+  opacity: 0.2;
+  filter: blur(10px);
   animation: open-cover-img 0.5s 0.5s forwards;
+  transition: opacity 1s;
 }
 
 @keyframes open-cover-img {
   to {
-    opacity: 0.2;
+    filter: blur(0px);
   }
 }
 
@@ -82,8 +84,16 @@
 
 .trip-modal-header > :not(.header-cover) {
   position: relative;
-  z-index: 1;
-  cursor: default;
+  transition: opacity 0.3s;
+}
+
+.trip-modal-header.covers > .header-cover {
+  opacity: 1 !important;
+}
+
+.trip-modal-header.covers > :not(.header-cover) {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .trip-modal-header svg {
@@ -139,7 +149,7 @@
   left: 50%;
   transform: translateX(-50%);
   height: 10rem;
-  pointer-events: none;
+  cursor: pointer;
 }
 
 .header-decorator::after {
@@ -166,14 +176,30 @@
 
   background-color: #0000;
   border: solid 0.3rem #fff;
-  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-  cursor: pointer;
 }
 
+.switch-cover {
+  position: absolute !important;
+  pointer-events: all !important;
+  opacity: 0.5 !important;
+
+  width: 4rem;
+  height: 4rem;
+  left: 0rem;
+  bottom: 0rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.switch-cover svg {
+  height: 2rem;
+}
 /* ==========================================================================
    3. HISTORY TIMELINE LAYOUT
    ========================================================================== */
@@ -1241,13 +1267,13 @@
 
 .country-map {
   position: absolute;
-  right: -1rem;
-  top: -1rem;
+  right: -2rem;
+  top: -2rem;
   z-index: 100;
 }
 
 .country-map img {
-  height: 5rem;
+  height: 7rem;
 }
 
 .summary-data-container {
@@ -1260,15 +1286,18 @@
 
 .summary-maps {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  height: 100%;
 }
 
 .summary-maps::before {
   position: absolute;
   content: "Lotniska i Noclegi";
-  top: 0rem;
+  top: 3rem;
   left: 60%;
   transform: translate(-50%);
   rotate: 5deg;
@@ -1281,23 +1310,30 @@
   font-size: 1.2rem;
   white-space: nowrap;
   box-shadow: 0.1rem 0.3rem 1rem rgba(0, 0, 0, 1);
+  z-index: 101;
 }
 
 .summary-map {
   position: relative;
-  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.summary-map:first-child {
+  align-items: end;
+}
+.summary-map:last-child {
+  align-items: start;
+}
+
 .summary-map-item {
-  position: absolute;
+  position: relative;
   height: 80%;
-  aspect-ratio: 1/1;
-  border-radius: 8px;
+  aspect-ratio: 4/3;
   overflow: hidden;
+  border-radius: 16px;
 }
 
 .summary-map-item::after {
@@ -1309,17 +1345,18 @@
   width: 100%;
   height: 100%;
   box-shadow: inset 0 0 0 0.5rem #fff;
+  border-radius: 16px;
   z-index: 100;
   pointer-events: none;
 }
 
 .summary-map:first-child > .summary-map-item {
-  rotate: 5deg;
-  transform: translateY(-3rem);
+  rotate: 2deg;
+  transform: translate(1rem, 1rem);
 }
 .summary-map:last-child > .summary-map-item {
-  rotate: -5deg;
-  transform: translateY(0rem);
+  rotate: -2deg;
+  transform: translate(-1rem, -1rem);
 }
 
 .summary-map-item .map-caption {
@@ -1373,33 +1410,6 @@
   z-index: 2;
   background-color: #fff;
   border-radius: 50%;
-}
-
-.food-pile {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: grid;
-  align-items: center;
-  padding-bottom: 4rem;
-}
-
-.food-pile::before {
-  position: absolute;
-  content: "Kuchnia";
-  top: -3rem;
-  left: 20%;
-  transform: translate(-50%);
-  rotate: -7deg;
-  z-index: 100;
-  background-color: #fff;
-  color: #333;
-  font-weight: bold;
-  padding: 0.6rem 2.2rem;
-  border-radius: 1rem;
-  font-size: 1.2rem;
-  white-space: nowrap;
-  box-shadow: 0.1rem 0.3rem 1rem rgba(0, 0, 0, 1);
 }
 
 .food-container {

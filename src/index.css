@@ -241,6 +241,8 @@ body {
   z-index: 1200;
 
   cursor: pointer;
+
+  transition: background-color 0.3s;
 }
 
 .map-info {

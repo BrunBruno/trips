@@ -4,7 +4,7 @@ import countries from "./data";
 import TripModal from "./TripModal";
 
 const countriesYearOrder = [...countries].sort(
-  (a, b) => b.year - a.year || (a.month ?? 0) - (b.month ?? 0),
+  (a, b) => b.year - a.year || (b.month ?? 0) - (a.month ?? 0),
 );
 
 const Idx = null;
@@ -13,11 +13,16 @@ function World() {
   const [selectedCountry, setSelectedCountry] = useState<
     (typeof countries)[number] | null
   >(null);
+  const [coverBg, setCoverBg] = useState<boolean>(true);
 
   return (
     <main className="world">
       {selectedCountry ? (
-        <TripModal trip={selectedCountry} />
+        <TripModal
+          trip={selectedCountry}
+          coverBg={coverBg}
+          setCoverBg={setCoverBg}
+        />
       ) : (
         <section className="country-grid">
           {countriesYearOrder.map((country, index) => {
@@ -55,6 +60,7 @@ function World() {
       {selectedCountry && (
         <button
           className="trip-modal-close"
+          style={coverBg ? {} : { backgroundColor: "#0000", boxShadow: "none" }}
           onClick={() => setSelectedCountry(null)}
         >
           ×

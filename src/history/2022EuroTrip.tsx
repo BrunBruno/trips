@@ -1,18 +1,16 @@
 import Austria from "../svg/flags/aut";
-import Catania from "../svg/flags/cat";
 import Czechia from "../svg/flags/cze";
 import France from "../svg/flags/fra";
 import Germany from "../svg/flags/ger";
 import Italy from "../svg/flags/ita";
-import Poland from "../svg/flags/pol";
 import Spain from "../svg/flags/spa";
 import Switzerland from "../svg/flags/swi";
-import type { MyHistory } from "../types";
+import type { MyHistory, Position } from "../types";
 
 export const EURO_TRIP_HISTORY: MyHistory[] = [
   //01 0109
   {
-    hid: 1,
+    //hid: 1,
     date: "01 wrz. 2022",
     name: "Wiedeń",
     sleep: { name: "Be Free Hostel", styles: { left: "unset", right: 0 } },
@@ -43,7 +41,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     //prettier-ignore
     position: {
       points: [
-        { lat: 48.185195, lng: 16.376606, cap: "Wien Hauptbahnhof", typ: "l", imgs: [97] },
+        { lat: 48.185195, lng: 16.376606, cap: "Wien HB", typ: "l", imgs: [97] },
         { lat: 48.198354, lng: 16.332845, cap: "Be Free", typ: "n", imgs: [] },
         { lat: 48.191539, lng: 16.380846, cap: "Belvedere", imgs: [3,2,4,101] },
         { lat: 48.198684, lng: 16.371701, cap: "Karlskirche", imgs: [1,100] },
@@ -68,7 +66,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
 
   //02 0209
   {
-    hid: 1,
+    //hid: 1,
     date: "02 wrz. 2022",
     name: "Wiedeń",
     transit: {
@@ -118,7 +116,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
 
   //03 0309
   {
-    hid: 1,
+    //hid: 1,
     date: "03 wrz. 2022",
     name: "Przełęcz Bernina",
     transit: {
@@ -183,7 +181,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
 
   //04 0409 127
   {
-    hid: 1,
+    //hid: 1,
     date: "04 wrz. 2022",
     name: "Mediolan",
     transit: {
@@ -234,7 +232,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
 
   //05 0509
   {
-    hid: 1,
+    //hid: 1,
     date: "05 wrz. 2022",
     name: "Cannes",
     sleep: {
@@ -274,7 +272,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
 
   //06 0609
   {
-    hid: 1,
+    //hid: 1,
     date: "06 wrz. 2022",
     name: "Cannes",
     //prettier-ignore
@@ -315,7 +313,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
 
   //07 0709
   {
-    hid: 1,
+    //hid: 1,
     date: "07 wrz. 2022",
     name: "Cannes",
     transit: {
@@ -355,7 +353,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
 
   //08 0809
   {
-    hid: 1,
+    //hid: 1,
     date: "08 wrz. 2022",
     name: "Lloret de Mar",
     sleep: {
@@ -406,7 +404,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
 
   //09 0909
   {
-    hid: 1,
+    //hid: 1,
     date: "09 wrz. 2022",
     name: "Lloret de Mar",
     //prettier-ignore
@@ -434,15 +432,11 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       ],
       zoom: 14,
     },
-    svg: {
-      item: <Catania />,
-      styles: { rotate: "7deg", left: "unset", right: "-1rem" },
-    },
   },
 
   //10 1009
   {
-    hid: 1,
+    //hid: 1,
     date: "10 wrz. 2022",
     name: "Lloret de Mar",
     images: [154, 155, 39, 40],
@@ -465,7 +459,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
 
   //11 1109
   {
-    hid: 1,
+    //hid: 1,
     date: "11 wrz. 2022",
     name: "Lloret de Mar",
     transit: {
@@ -510,6 +504,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
 
   //12 1209
   {
+    //hid: 1,
     date: "12 wrz. 2022",
     name: "Barcelona",
     transit: {
@@ -566,38 +561,46 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
 
   //13 1309
   {
+    //hid: 1,
     date: "13 wrz. 2022",
     name: "Paryż",
     sleep: { name: "International Youth Hostel" },
     //prettier-ignore
     images: [
-      56, 92,
-      93, 57,
+      171,172,176,177,
+      175,173,174,92,
+      56, 93, 57,
     ],
     captions: {
       "56": "Clignancourt",
       "57": "Tour Eiffel",
       "92": "Paris",
       "93": "International Youth Hostel",
+      "171": "Lloret de Mar",
+      "172": "Girona",
+      "173": "TGV",
+      "174": "Paris Gare de Lyon",
+      "175": "Métro de Paris",
+      "176": "Basilique du Sacré-Cœur de Montmartre",
+      "177": "Tour Eiffel",
     },
     //prettier-ignore
     position: {
       points: [
-        { lat: 48.851204, lng: 2.378623, cap: "International Youth Hostel", typ:"n", imgs:[93] },
-        { lat: 48.844226, lng: 2.374485, cap: "Gare de Lyon", typ:"l", imgs:[] },
-        { lat: 48.858448, lng: 2.294503, cap: "Tour Eiffel", imgs:[57] },
-        { lat: 48.886180, lng: 2.343095, cap: "Clignancourt", imgs:[56] },
+        { lat: 48.851204, lng: 2.378623, cap: "International Youth Hostel", typ:"n", imgs:[93,92] },
+        { lat: 48.844226, lng: 2.374485, cap: "Gare de Lyon", typ:"l", imgs:[174] },
+        { lat: 48.858448, lng: 2.294503, cap: "Tour Eiffel", imgs:[57,177] },
+        { lat: 48.886180, lng: 2.343095, cap: "Clignancourt", imgs:[56,176,175] },
       ],
-      zoom: 13,
+      zoom: 12,
     },
     //prettier-ignore
     position2: {
       points: [
-        { lat: 41.701043, lng: 2.842350, cap: "Lloret", typ: "l", imgs: [] },
-        { lat: 41.979311, lng: 2.816998, cap: "Girona", typ: "l", imgs: [] },
-        { lat: 48.844226, lng: 2.374485, cap: "Gare de Lyon", typ:"l", imgs:[] },
+        { lat: 41.979311, lng: 2.816998, cap: "Girona", typ: "l", imgs: [171,172,173] },
+        { lat: 48.844226, lng: 2.374485, cap: "Gare de Lyon", typ:"l", imgs:[93,174,57,177,56,176,175,92] },
       ],
-      zoom: 5,
+      zoom: 3,
     },
     svg: {
       item: <France />,
@@ -607,52 +610,76 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
 
   //14 1409
   {
+    //hid: 1,
     date: "14 wrz. 2022",
     name: "Paryż",
     transit: {
       from: "Paryż",
       to: "Berlin",
+      type: "train",
     },
     // prettier-ignore
     images: [
-      63, 62, 59,
-      58, 60, 64,
-      61,
+      178,63 ,180,181,
+      182,179, 62, 59,
+      58, 60, 64, 61,
     ],
     captions: {
       "58": "Musée du Louvre",
+      "59": "Musée du Louvre",
       "60": "Arc de Triomphe du Carrousel",
-      "61": "Taras Wieży Eiffla",
+      "61": "Paris",
+      "62": "Paris",
+      "63": "Paris",
       "64": "Cathédrale Notre-Dame de Paris",
+      "178": "Musée du Louvre",
+      "179": "Musée du Louvre",
+      "180": "Musée du Louvre",
+      "181": "Le Sommet de la Tour Eiffel",
+      "182": "Paris",
     },
     //prettier-ignore
     position: {
       points: [
-        { lat: 48.858448, lng: 2.294503, cap: "Tour Eiffel", imgs:[63,62,61] },
+        { lat: 48.858448, lng: 2.294503, cap: "Tour Eiffel", imgs:[63,62,61,181,182] },
         { lat: 48.853039, lng: 2.349891, cap: "Notre-Dame", imgs:[64] },
-        { lat: 48.860651, lng: 2.337621, cap: "Louvre", imgs:[58,60,59] },
+        { lat: 48.860651, lng: 2.337621, cap: "Louvre", imgs:[58,60,59,178,179,180] },
         { lat: 48.876949, lng: 2.359101, cap: "Gare de l'Est", typ:'l', imgs:[] },
+        { lat: 48.851204, lng: 2.378623, cap: "International Youth Hostel", typ:"n", imgs:[] },
       ],
-      zoom: 13,
+      zoom: 12,
     },
   },
 
   //15 1509
   {
+    //hid: 1,
     date: "15 wrz. 2022",
     name: "Berlin",
     transit: {
       from: "Berlin",
       to: "Praga",
+      type: "train",
     },
     sleep: {
       name: "BNB Berlin",
       styles: { left: "unset", right: 0 },
     },
+    food: {
+      name: "Bratwurst",
+      img: 190,
+      styles: {
+        left: "unset",
+        right: "-4rem",
+        bottom: "10rem",
+        rotate: "5deg",
+      },
+    },
     // prettier-ignore
     images: [
-      65, 66, 67, 68,
-      69, 70, 72, 71,
+      183,69, 185,186,68,
+      187,65, 66, 67, 188,
+      189,184, 70, 72, 71,
     ],
     captions: {
       "65": "Berlin Hauptbahnhof",
@@ -663,27 +690,35 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       "70": "Brandenburger Tor",
       "71": "Reichstag",
       "72": "Spree in Berlin",
+      "183": "Reichstag",
+      "184": "Alexanderplatz",
+      "185": "Rotes Rathaus",
+      "186": "Berliner Dom",
+      "187": "Konzerthaus Berlin",
+      "188": "Brandenburger Tor",
+      "189": "Berlin Hauptbahnhof",
     },
     //prettier-ignore
     position: {
       points: [
-        { lat: 52.525045, lng: 13.369381, cap: "Berlin Hbf", typ:'l', imgs:[65,66] },
+        { lat: 52.525045, lng: 13.369381, cap: "Berlin HB", typ:'l', imgs:[65,66,189] },
         { lat: 52.512350, lng: 13.383535, cap: "BNB Berlin", typ:'n', imgs:[] },
-        { lat: 52.518757, lng: 13.376198, cap: "Reichstag", imgs:[71] },
-        { lat: 52.512762, lng: 13.392587, cap: "Deutscher Dom", imgs:[68,72] },
-        { lat: 52.520848, lng: 13.409355, cap: "Berliner Fernsehturm", imgs:[67] },
-        { lat: 52.516425, lng: 13.378832, cap: "Brandenburger Tor", imgs:[69,70] },
+        { lat: 52.518757, lng: 13.376198, cap: "Reichstag", imgs:[71,183] },
+        { lat: 52.522251, lng: 13.412691, cap: "Alexanderplatz", imgs:[67,184,185] },
+        { lat: 52.516425, lng: 13.378832, cap: "Pariser Platz", imgs:[69,70,188] },
+        { lat: 52.513264, lng: 13.392555, cap: "Gendarmenmarkt", imgs:[68,187] },
+          { lat: 52.519106, lng: 13.401164, cap: "Berliner Dom", imgs:[186,72] },
       ],
       zoom: 13,
     },
     //prettier-ignore
     position2: {
       points: [
-        { lat: 52.525045, lng: 13.369381, cap: "Berlin Hbf", typ:'l', imgs:[65,65,67,68,69,70,71,72] },
-        { lat: 49.478871, lng: 8.471853, cap: "Mannheim Hbf", typ:'l', imgs:[] },
+        { lat: 52.525045, lng: 13.369381, cap: "Berlin HB", typ:'l', imgs:[183,69,185,186,68,187,65,66,67,188,189,184,70,72,71] },
+        { lat: 49.478871, lng: 8.471853, cap: "Mannheim HB", typ:'l', imgs:[] },
         { lat: 48.876949, lng: 2.359101, cap: "Gare de l'Est", typ:'l', imgs:[] },
       ],
-      zoom: 5,
+      zoom: 4,
     },
     svg: {
       item: <Germany />,
@@ -693,62 +728,108 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
 
   //16 1609
   {
+    //hid: 1,
     date: "16 wrz. 2022",
     name: "Praga",
     transit: {
       from: "Praga",
       to: "Katowice",
+      type: "train",
+    },
+    food: {
+      name: "Knedlíky",
+      img: 195,
+      styles: { left: "unset", right: "-2rem", rotate: "7deg", bottom: "7rem" },
     },
     // prettier-ignore
     images: [
-      76, 77, 75,
-      73, 74, 78,
+      193,192,191,79,75,
+      196,77, 198,199,197,
+      76, 78, 73, 194, 74,
     ],
     captions: {
       "73": "Staroměstské Náměstí",
-      "74": "Pražský Hrad",
+      "74": "Karlův Most",
+      "75": "Karlův Most",
+      "76": "Praha",
+      "77": "Pražský Hrad",
       "78": "Letenské Sady",
+      "79": "Praha Hlavní Nádraží",
+      "191": "Chrám Matky Boží před Týnem",
+      "192": "Hlava Franze Kafky",
+      "193": "Tančící Dům",
+      "194": "Pražský Hrad",
+      "196": "Pražský Hrad",
+      "197": "Letenské Sady",
+      "198": "Vltava",
+      "199": "Staroměstská Radnice",
     },
     //prettier-ignore
     position: {
       points: [
-        { lat: 50.091138, lng: 14.401649, cap: "Pražský Hrad", imgs:[76,77,75,74] },
-        { lat: 50.096026, lng: 14.415290, cap: "Letenské Sady", imgs:[78] },
-        { lat: 50.087610, lng: 14.421166, cap: "Staroměstské Náměstí", imgs:[73] },
-        { lat: 50.083477, lng: 14.434086, cap: "Praha HN", typ:'l', imgs:[] },
+        { lat: 50.083477, lng: 14.434086, cap: "Praha HN", typ:'l', imgs:[79] },
+        { lat: 50.091138, lng: 14.401649, cap: "Pražský Hrad", imgs:[196,77,76,194] },
+        { lat: 50.086161, lng: 14.413658, cap: "Karlův Most", imgs:[74,75] },
+        { lat: 50.096026, lng: 14.415290, cap: "Letenské Sady", imgs:[198,197,78] },
+        { lat: 50.087610, lng: 14.421166, cap: "Staroměstské Náměstí", imgs:[191,199,73] },
+        { lat: 50.081737, lng: 14.420841, cap: "Franz Kafka", imgs:[192] },
+        { lat: 50.075527, lng: 14.414222, cap: "Tančící Dům", imgs:[193] },
       ],
-      zoom: 12,
+      zoom: 13,
     },
     //prettier-ignore
     position2: {
       points: [
         { lat: 52.525045, lng: 13.369381, cap: "Berlin HB", typ:'l', imgs:[] },
-        { lat: 50.083477, lng: 14.434086, cap: "Praha HN", typ:'l', imgs:[76,77,75,73,74,78] },
+        { lat: 50.083477, lng: 14.434086, cap: "Praha HN", typ:'l', imgs:[193,192,191,79,75,196,77,198,199,197,76,78,73,194,74] },
+        { lat: 50.259712, lng: 19.017540, cap: "Katowice", typ: "l", imgs: [] },
       ],
-      zoom: 5,
+      zoom: 4,
     },
     svg: {
       item: <Czechia />,
       styles: { rotate: "-7deg" },
     },
   },
-
-  //17 1709
-  {
-    date: "17 wrz. 2022",
-    name: "Katowice",
-    images: [79, 80],
-    // prettier-ignore
-    position: {
-      points: [
-        { lat: 50.083477, lng: 14.434086, cap: "Praha HN", typ:'l', imgs:[79,80] },
-        { lat: 50.259712, lng: 19.017540, cap: "Katowice", typ: "l", imgs: [] },
-      ],
-      zoom: 6,
-    },
-    svg: {
-      item: <Poland />,
-      styles: { rotate: "-7deg", left: "unset", right: 0 },
-    },
-  },
 ];
+
+export const EURO_TRIP_TRANSPORT: Position = {
+  //prettier-ignore
+  points: [
+    { lat: 50.259712, lng: 19.01754, cap: "Katowice", typ: "l" },
+    { lat: 48.185195, lng: 16.376606, cap: "Wien HB", typ: "l" },
+    { lat: 47.41155, lng: 8.544091, cap: "Zürich HB", typ: "l" },
+    { lat: 46.853572, lng: 9.529726, cap: "Chur HB", typ: "l" },
+    { lat: 46.498018, lng: 9.845863, cap: "St. Moritz", typ: "l" },
+    { lat: 46.215623, lng: 10.166966, cap: "Tirano", typ: "l" },
+    { lat: 46.040036, lng: 9.303778, cap: "Bellano", typ: "l" },
+    { lat: 45.487205, lng: 9.204779, cap: "Milano", typ: "l" },
+    { lat: 43.792477, lng: 7.609777, cap: "Ventimiglia", typ: "l" },
+    { lat: 43.548851, lng: 6.986575, cap: "Cannes La Bocca", typ: "l" },
+    { lat: 43.303366, lng: 5.381476, cap: "Marseille St-Charles", typ: "l" },
+    { lat: 43.604981, lng: 3.88073, cap: "Montpellier Saint-Roch", typ: "l" },
+    { lat: 42.424699, lng: 3.157963, cap: "Portbou", typ: "l" },
+    { lat: 41.979311, lng: 2.816998, cap: "Girona", typ: "l" },
+    { lat: 41.701043, lng: 2.84235, cap: "Lloret de Mar", typ: "l" },
+    { lat: 41.394676, lng: 2.18272, cap: "Barcelona", typ: "l" },
+    { lat: 48.844226, lng: 2.374485, cap: "Paris Gare de Lyon", typ: "l" },
+    { lat: 48.876949, lng: 2.359101, cap: "Paris Gare de l'Est", typ: "l" },
+    { lat: 49.478871, lng: 8.471853, cap: "Mannheim HB", typ: "l" },
+    { lat: 52.525045, lng: 13.369381, cap: "Berlin HB", typ: "l" },
+    { lat: 50.083477, lng: 14.434086, cap: "Praha HN", typ: "l" },
+  ],
+  zoom: 4,
+};
+
+export const EURO_TRIP_SLEEP: Position = {
+  //prettier-ignore
+  points: [
+    { lat: 48.198354, lng: 16.332845, cap: "Be Free Hostel", typ: "n" },
+    { lat: 45.49051, lng: 9.172719, cap: "Hotel Residence Cenisio", typ: "n" },
+    { lat: 43.552725, lng: 6.990855, cap: "Résidence Villa Francia", typ: "n" },
+    { lat: 41.698669, lng: 2.844155, cap: "Apartaments Blau", typ: "n" },
+    { lat: 48.851204, lng: 2.378623, cap: "International Youth Hostel", typ: "n" },
+    { lat: 52.51235, lng: 13.383535, cap: "BNB Berlin", typ: "n" },
+  ],
+  zoom: 4,
+};

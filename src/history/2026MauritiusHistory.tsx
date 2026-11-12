@@ -1,18 +1,8 @@
-import Beach from "../svg/icons/beach";
-import Dodo from "../svg/icons/dodo";
-import SeaTurtle from "../svg/icons/sea-turtle";
-import TropicalFish from "../svg/icons/tropical-fish";
 import SaudiArabia from "../svg/flags/sau";
 import type { MyHistory, Position } from "../types";
 import Austria from "../svg/flags/aut";
 import Mauritius from "../svg/flags/mus";
 import Spain from "../svg/flags/spa";
-import Crab from "../svg/icons/crab";
-import Monkey from "../svg/icons/monkey";
-import Tortoise from "../svg/icons/tortoise";
-import Gecko from "../svg/icons/gecko";
-import Bat from "../svg/icons/bat";
-import Ring from "../svg/icons/ring";
 
 export const MAURITIUS_HISTORY: MyHistory[] = [
   //01 2609
@@ -47,13 +37,18 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       ],
       zoom: 11,
     },
+    //prettier-ignore
+    position2: {
+      points: [
+        { lat: 40.492736, lng: -3.563839, cap: "MAD", typ: "l", imgs: [98,74, 75, 76, 77, 78, 100,79,99] },
+        { lat: 50.08043, lng: 19.788938, cap: "KRK", typ: "l", imgs:[] },
+      ],
+      zoom: 3,
+    },
     svg: {
       item: <Spain />,
       styles: { rotate: "7deg", left: "unset", right: 0 },
     },
-    // imgs: {
-    //   items: ["palacio-real", "park-retiro"],
-    // },
   },
 
   //02 2709
@@ -90,6 +85,14 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
         { lat: 40.43732, lng: -3.642415, cap: "Capsules", typ: "n", imgs: [] },
       ],
       zoom: 12,
+    },
+    //prettier-ignore
+    position2: {
+      points: [
+        { lat: 40.492736, lng: -3.563839, cap: "MAD", typ: "l", imgs: [85,101,86,84, 80, 82, 81, 102, 83] },
+        { lat: -20.43071, lng: 57.679108, cap: "MRU", typ: "l", imgs:[] },
+      ],
+      zoom: 1,
     },
   },
 
@@ -128,16 +131,6 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       item: <Mauritius />,
       styles: { rotate: "7deg" },
     },
-    svg2: {
-      item: <Crab />,
-      styles: {
-        rotate: "-45deg",
-        left: "unset",
-        right: "0",
-        bottom: "1rem",
-        scale: 0.8,
-      },
-    },
   },
 
   //04 2909
@@ -165,10 +158,6 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
         { lat: -20.451470, lng: 57.312739, cap: "Le Morne Beach", imgs: [14,13,17]},
       ],
       zoom: 12,
-    },
-    svg: {
-      item: <SeaTurtle />,
-      styles: { rotate: "45deg", left: "2rem", bottom: "20rem" },
     },
   },
 
@@ -210,10 +199,6 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
         { lat: -20.509228, lng: 57.466005, cap: "St Felix Beach", imgs: [129] },
       ],
       zoom: 11,
-    },
-    svg: {
-      item: <Monkey />,
-      styles: { left: "unset", right: "0", bottom: "3rem" },
     },
   },
 
@@ -273,14 +258,6 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       ],
       zoom: 9,
     },
-    svg: {
-      item: <TropicalFish />,
-      styles: { left: "unset", right: "2rem", bottom: "22rem" },
-    },
-    svg2: {
-      item: <Ring />,
-      styles: { left: "1rem", bottom: "2rem", rotate: "30deg" },
-    },
   },
 
   //08 0310
@@ -312,10 +289,6 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       ],
       zoom: 10,
     },
-    svg2: {
-      item: <Bat />,
-      styles: { left: "0rem", bottom: "20rem" },
-    },
   },
 
   //09 0410
@@ -342,16 +315,6 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
         { lat: -20.009158, lng: 57.581453, cap: "Grand Baie", imgs: [53, 145, 47] },
       ],
       zoom: 13,
-    },
-    svg: {
-      item: <Dodo />,
-      styles: {
-        scale: 1.5,
-        left: "unset",
-        right: "-0.5rem",
-        bottom: "-0.5rem",
-        rotate: "5deg",
-      },
     },
   },
 
@@ -406,14 +369,6 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       ],
       zoom: 11,
     },
-    svg: {
-      item: <Tortoise />,
-      styles: { left: "unset", right: "1rem", bottom: "0rem", scale: 1.2 },
-    },
-    svg2: {
-      item: <Gecko />,
-      styles: { left: "2rem", bottom: "18rem", rotate: "90deg" },
-    },
   },
 
   //12 0710
@@ -441,10 +396,6 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
         { lat: -20.014158, lng: 57.581453, cap: "Grand Baie", imgs: [69,70] },
       ],
       zoom: 12,
-    },
-    svg: {
-      item: <Beach />,
-      styles: { scale: 1.2 },
     },
   },
 

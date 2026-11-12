@@ -16,8 +16,6 @@ export type CountryRecord = {
   year: number;
   month?: number;
   flag: ComponentType;
-  flags?: JSX.Element[];
-  map?: JSX.Element;
   maps?: Position[];
   history?: MyHistory[];
   imgCount?: number;
@@ -27,9 +25,6 @@ export type CountryRecord = {
     to: string;
     through?: string;
     type?: Transit;
-  };
-  food?: {
-    [key in number]: string;
   };
 };
 

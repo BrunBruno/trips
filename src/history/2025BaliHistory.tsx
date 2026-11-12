@@ -2,15 +2,7 @@ import Austria from "../svg/flags/aut";
 import Indonesia from "../svg/flags/idn";
 import Malaysia from "../svg/flags/mys";
 import Qatar from "../svg/flags/qat";
-import Diamond from "../svg/icons/diamond";
 import Frog from "../svg/icons/frog";
-import Island from "../svg/icons/island";
-import Monkey from "../svg/icons/monkey";
-import Octopus from "../svg/icons/octopus";
-import Surfboard from "../svg/icons/surfboard";
-import TwinTower from "../svg/icons/twin-tower";
-import Volcano from "../svg/icons/volcano";
-import Yacht from "../svg/icons/yacht";
 import type { MyHistory, Position } from "../types";
 
 export const BALI_HISTORY: MyHistory[] = [
@@ -78,6 +70,14 @@ export const BALI_HISTORY: MyHistory[] = [
       ],
       zoom: 4,
     },
+    // prettier-ignore
+    position2: {
+      points: [
+        { lat: -8.745633, lng: 115.168307, cap: "DPS", typ: "l", imgs:[121] },
+        { lat: -8.736988, lng: 115.165126, cap: "D Nux", typ: "n", imgs:[] },
+      ],
+      zoom: 12,
+    },
     svg: {
       item: <Malaysia />,
       styles: { rotate: "7deg" },
@@ -120,10 +120,6 @@ export const BALI_HISTORY: MyHistory[] = [
       ],
       zoom: 9,
     },
-    svg: {
-      item: <Diamond />,
-      styles: { rotate: "15deg", left: "1rem", bottom: "1rem" },
-    },
   },
 
   //04 2509
@@ -157,10 +153,6 @@ export const BALI_HISTORY: MyHistory[] = [
       ],
       zoom: 11,
     },
-    svg: {
-      item: <Octopus />,
-      styles: { rotate: "-7deg", left: "1rem", bottom: "6rem" },
-    },
   },
 
   //05 2609
@@ -169,6 +161,7 @@ export const BALI_HISTORY: MyHistory[] = [
     name: "Gili Air",
     sleep: {
       name: "Oceans 5 Gili Air",
+      styles: { left: "unset", right: 0 },
     },
     //prettier-ignore
     images: [
@@ -189,10 +182,6 @@ export const BALI_HISTORY: MyHistory[] = [
         { lat: -8.471610, lng: 116.121856, cap: "Lombok", imgs:[32] },
       ],
       zoom: 9,
-    },
-    svg: {
-      item: <Yacht />,
-      styles: { rotate: "-7deg", left: "10rem", bottom: "20rem" },
     },
   },
 
@@ -237,10 +226,6 @@ export const BALI_HISTORY: MyHistory[] = [
         { lat: -8.358227, lng: 116.081349, cap: "Gili Air", imgs:[37,38,39] },
       ],
       zoom: 14,
-    },
-    svg: {
-      item: <Island />,
-      styles: { left: "1rem", bottom: "1rem" },
     },
   },
 
@@ -325,10 +310,6 @@ export const BALI_HISTORY: MyHistory[] = [
       ],
       zoom: 10,
     },
-    svg: {
-      item: <Volcano />,
-      styles: { left: "0rem", bottom: "2rem", scale: 1.4 },
-    },
   },
 
   //11 0210
@@ -367,10 +348,6 @@ export const BALI_HISTORY: MyHistory[] = [
       ],
       zoom: 10,
     },
-    svg: {
-      item: <Monkey />,
-      styles: { left: "20rem", bottom: "5rem" },
-    },
   },
 
   //12 0310
@@ -383,7 +360,7 @@ export const BALI_HISTORY: MyHistory[] = [
       to: "Kuala Lumpur",
       type: "plane",
     },
-    images: [78, 77, 80, 125, 79],
+    images: [78, 77, 125, 79],
     captions: {
       "79": "Legian Beach",
       "80": "[DPS] Port lotniczy Denpasar",
@@ -392,16 +369,12 @@ export const BALI_HISTORY: MyHistory[] = [
     //prettier-ignore
     position: {
       points: [
-        { lat: -8.709098, lng: 115.166499, cap: "Pantai Legian Bali", imgs:[77,79,78] },
-        { lat: -8.708677, lng: 115.170961, cap: "Kost Melasti Legian", typ: "n", imgs:[] },
+        { lat: -8.708677, lng: 115.170961, cap: "Kost Melasti Legian", typ: "n", imgs:[77,79,78] },
+        { lat: -8.521912, lng: 115.263096, cap: "Eka Bali Guest House", typ: "n" },
         { lat: -8.809953, lng: 115.167983, cap: "Garuda Wisnu Kencana", imgs:[125] },
-        { lat: -8.745633, lng: 115.168307, cap: "DPS", typ: "l", imgs:[80] },
+        { lat: -8.745633, lng: 115.168307, cap: "DPS", typ: "l", imgs:[] },
       ],
-      zoom: 11,
-    },
-    svg: {
-      item: <Surfboard />,
-      styles: { left: "18rem", bottom: "2rem", rotate: "-15deg", scale: 1.2 },
+      zoom: 10,
     },
   },
 
@@ -416,7 +389,8 @@ export const BALI_HISTORY: MyHistory[] = [
     //prettier-ignore
     images: [
       126, 127, 128,
-      82, 84, 83,
+      82, 84, 80,
+      83,
     ],
     captions: {
       "82": "Quill City Mall Kuala Lumpur",
@@ -434,6 +408,14 @@ export const BALI_HISTORY: MyHistory[] = [
         { lat: 3.159362, lng: 101.713391, cap: "KLCC", typ: "l", imgs:[126] },
       ],
       zoom: 9,
+    },
+    //prettier-ignore
+    position2: {
+      points: [
+        { lat: 2.743373, lng: 101.701633, cap: "KUL", typ: "l", imgs:[126, 127, 128,82, 84, 83] },
+        { lat: -8.745633, lng: 115.168307, cap: "DPS", typ: "l", imgs:[80] },
+      ],
+      zoom: 3,
     },
     svg: {
       item: <Malaysia />,
@@ -480,10 +462,6 @@ export const BALI_HISTORY: MyHistory[] = [
       ],
       zoom: 11,
     },
-    svg: {
-      item: <TwinTower />,
-      styles: { left: "0rem", bottom: "1rem", scale: 1.2 },
-    },
   },
 
   //15 0610
@@ -527,6 +505,14 @@ export const BALI_HISTORY: MyHistory[] = [
       ],
       zoom: 11,
     },
+    //prettier-ignore
+    position2: {
+      points: [
+        { lat: 25.271518, lng: 51.600731, cap: "DOH", typ: "l", imgs:[110, 104, 111, 106,107, 103, 109,108,105] },
+        { lat: 2.743373, lng: 101.701633, cap: "KUL", typ: "l", imgs:[] },
+      ],
+      zoom: 2,
+    },
     svg: {
       item: <Qatar />,
       styles: { rotate: "7deg", left: "unset", right: "-1rem" },
@@ -550,6 +536,14 @@ export const BALI_HISTORY: MyHistory[] = [
         { lat: 48.184741, lng: 16.378619, cap: "Wien Hauptbahnhof", typ: "l", imgs:[114]  },
       ],
       zoom: 11,
+    },
+    //prettier-ignore
+    position2: {
+      points: [
+        { lat: 48.118233, lng: 16.566228, cap: "VIE", typ: "l", imgs:[112,113,114]  },
+        { lat: 25.271518, lng: 51.600731, cap: "DOH", typ: "l", imgs:[] },
+      ],
+      zoom: 2,
     },
     svg: {
       item: <Austria />,
