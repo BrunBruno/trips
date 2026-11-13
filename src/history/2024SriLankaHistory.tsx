@@ -289,7 +289,7 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
       "54": "Pearl Beach",
     },
     //prettier-ignore
-    position: {
+    position: { 
       points: [
         { lat: 6.007784, lng: 80.780056, cap: "Rocky Point Beach", typ: 'n', imgs:[50,54] },
         { lat: 6.025939, lng: 80.797223, cap: "Tangalla Center", imgs:[51,53] }, 

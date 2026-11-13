@@ -31,7 +31,11 @@ import { SPLIT_HISTORY } from "./history/2026SplitHistory";
 import Egypt from "./svg/flags/egy";
 import { MARSA_ALAM_HISTORY } from "./history/2025MarsaAlam";
 import Sicily from "./svg/flags/scl";
-import { SICILY_HISTORY } from "./history/2024Sicily";
+import {
+  SICILY_HISTORY,
+  SICILY_SLEEP,
+  SICILY_TRANSPORT,
+} from "./history/2024Sicily";
 import Cyprus from "./svg/flags/cyp";
 import Greece from "./svg/flags/grc";
 import Bulgaria from "./svg/flags/bgr";
@@ -180,7 +184,9 @@ const countries: CountryRecord[] = [
     month: 2,
     flag: Sicily,
     folder: "sicily",
+    coverCount: 6,
     history: SICILY_HISTORY,
+    maps: [SICILY_TRANSPORT, SICILY_SLEEP],
     transit: {
       from: "Katowice",
       to: "Katania",

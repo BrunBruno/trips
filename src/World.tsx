@@ -49,7 +49,9 @@ function World() {
 
                 <div className="country-info">
                   <h2>{country.name}</h2>
-                  <span>{country.year}</span>
+                  <span>
+                    {country.year} ({country.history?.length ?? 0})
+                  </span>
                 </div>
               </article>
             );

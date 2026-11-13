@@ -219,7 +219,8 @@ function TripModal({ trip, coverBg, setCoverBg }: TripModalProps) {
                           selectedPhoto?.dayIndex === index ? "none" : "all",
                       };
                       const imageSrc = getImagePath(trip.folder, imgNum);
-                      const caption = day.captions?.[imgNum];
+                      // const hasCaption = day.captions?.[imgNum] !== undefined;
+                      const caption = day.captions?.[imgNum] ?? ".....";
 
                       return (
                         <div
@@ -265,9 +266,12 @@ function TripModal({ trip, coverBg, setCoverBg }: TripModalProps) {
                             loading="lazy"
                           />
 
-                          {caption && (
-                            <div className="photo-caption">{caption}</div>
-                          )}
+                          <div
+                            className="photo-caption"
+                            // style={hasCaption ? {} : { color: "#fff" }}
+                          >
+                            {caption}
+                          </div>
                         </div>
                       );
                     })}
@@ -357,7 +361,14 @@ function TripModal({ trip, coverBg, setCoverBg }: TripModalProps) {
                     className="history-map"
                     style={day.position2 ? { marginTop: "6rem" } : {}}
                   >
-                    <div className="history-map-frame">
+                    <div
+                      className="history-map-frame"
+                      style={
+                        day.position2 !== undefined
+                          ? { borderTopLeftRadius: 0, borderTopRightRadius: 0 }
+                          : {}
+                      }
+                    >
                       {!day.hid && (
                         <HistoryMap
                           position={day.position}
@@ -467,13 +478,13 @@ function TripModal({ trip, coverBg, setCoverBg }: TripModalProps) {
                     </div>
                   </div>
                 )}
-                {/* {day.trip && (
+                {day.trip && (
                   <div className="day-trip" style={day.trip.styles}>
                     <div className="day-trip-data">
                       <GetSvg t={day.trip.type} /> ➤ {day.trip.to}
                     </div>
                   </div>
-                )} */}
+                )}
 
                 {day.food && (
                   <div className="food-container" style={day.food.styles}>

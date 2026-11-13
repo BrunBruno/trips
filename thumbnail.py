@@ -14,8 +14,8 @@ for folder in PUBLIC_DIR.iterdir():
     if not folder.is_dir():
         continue
 
-    cover = folder / "cover.jpg"
-    thumbnail = folder / "thumbnail.jpg"
+    cover = folder / "cover/cover.jpg"
+    thumbnail = folder / "cover/thumbnail.jpg"
 
     if not cover.exists():
         print(f"[SKIP] Brak cover.jpg: {folder}")
