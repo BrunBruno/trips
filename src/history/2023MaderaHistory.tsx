@@ -23,22 +23,22 @@ export const MADEIRA_HISTORY: MyHistory[] = [
       74,
     ],
     captions: {
-      "2": "[KTW] Międzynarodowy Port Lotniczy Katowice",
+      "2": "Katowice ➤ Madera",
       "71": "Jardins d'Ajuda",
       "74": "[FNC] Międzynarodowy Port Lotniczy Cristiano Ronaldo",
     },
     // prettier-ignore
     position: {
       points: [
-        { lat: 32.697667, lng: -16.774107, cap: "FNC", typ: "l", imgs:[] },
-        { lat: 32.636701, lng: -16.941952, cap: "Jardins d'Ajuda", typ: "n", imgs:[] },
+        { lat: 32.697667, lng: -16.774107, cap: "FNC", typ: "l", imgs:[74] },
+        { lat: 32.636701, lng: -16.941952, cap: "Jardins d'Ajuda", typ: "n", imgs:[73,72,71] },
       ],
       zoom: 10,
     },
     // prettier-ignore
     position2: {
       points: [
-        { lat: 32.697667, lng: -16.774107, cap: "FNC", typ: "l", imgs:[] },
+        { lat: 32.697667, lng: -16.774107, cap: "FNC", typ: "l", imgs:[71,72,73,74] },
         { lat: 50.475412, lng: 19.081145, cap: "KTW", typ: "l", imgs:[] },
       ],
       zoom: 2,
@@ -73,23 +73,21 @@ export const MADEIRA_HISTORY: MyHistory[] = [
     captions: {
       "3": "Miradouro Água d'Alto",
       "4": "Piscinas Naturais do Aquário",
-      "6": "Porto Moniz",
       "7": "Piscinas Naturais do Porto Moniz",
       "9": "Praia do Porto do Seixal",
       "10": "Floresta do Fanal",
       "11": "Raça Madeirense",
       "12": "Ribeira da Janela",
-      "13": "São Vicente",
       "77": "Miradouro do Guindaste",
     },
     // prettier-ignore
     position: {
       points: [
         { lat: 32.867366, lng: -17.166557, cap: "Porto Moniz", imgs:[4,5,6,7] },
-        { lat: 32.822931, lng: -17.103589, cap: "Praia do Porto do Seixal", imgs:[8,9,75] },
-        { lat: 32.810011, lng: -17.144285, cap: "Floresta do Fanal", imgs:[10,11,12,76] },
+        { lat: 32.822931, lng: -17.103589, cap: "Seixal", imgs:[8,9,75] },
+        { lat: 32.810011, lng: -17.144285, cap: "Fanal", imgs:[10,11,12,76] },
         { lat: 32.808559, lng: -17.049511, cap: "São Vicente", imgs:[3, 13] },
-        { lat: 32.794304, lng: -16.849346, cap: "Miradouro do Guindaste", imgs:[78,77] },
+        { lat: 32.794304, lng: -16.849346, cap: "Guindaste", imgs:[78,77] },
       ],
       zoom: 10,
     },
@@ -135,7 +133,7 @@ export const MADEIRA_HISTORY: MyHistory[] = [
         { lat: 32.648409, lng: -16.975215, cap: "Câmara de Lobos", imgs:[16, 17, 18, 19,81,82] },
         { lat: 32.655524, lng: -17.004255, cap: "Cabo Girão", imgs:[20,83] },
         { lat: 32.814028, lng: -17.262596, cap: "Ponta do Pargo", imgs:[22, 23, 24] },
-        { lat: 32.723851, lng: -16.758707, cap: "Miradouro do Pico do Facho", imgs:[25] },
+        { lat: 32.723851, lng: -16.758707, cap: "Pico do Facho", imgs:[25] },
         { lat: 32.720641, lng: -17.178301, cap: "Praia da Calheta", imgs:[] },
         { lat: 32.692013, lng: -17.115075, cap: "Cascata dos Anjos", imgs:[21,84] },
       ],
@@ -216,8 +214,7 @@ export const MADEIRA_HISTORY: MyHistory[] = [
     //prettier-ignore
     position: {
       points: [
-        { lat: 32.636701, lng: -16.941952, cap: "Jardins d'Ajuda", typ: "n", imgs:[38] },
-        { lat: 32.635912, lng: -16.942954, cap: "Fórum Madeira", imgs:[93] },
+        { lat: 32.636701, lng: -16.941952, cap: "Jardins d'Ajuda", typ: "n", imgs:[38,93] },
         { lat: 32.644055, lng: -16.914069, cap: "Museu CR7", imgs:[95,39] },
         { lat: 32.646577, lng: -16.908073, cap: "Avenida do Mar", imgs:[41,43,90,92,42,40] },
         { lat: 32.648868, lng: -16.904092, cap: "Mercado dos Lavradores", imgs:[91] },
@@ -356,7 +353,7 @@ export const MADEIRA_HISTORY: MyHistory[] = [
     //prettier-ignore
     position2: {
       points: [
-        { lat: 32.697667, lng: -16.774107, cap: "FNC", typ: "l", imgs:[70] },
+        { lat: 32.697667, lng: -16.774107, cap: "FNC", typ: "l", imgs:[69,67,68,104,66,103,65,102,70] },
         { lat: 50.475412, lng: 19.081145, cap: "KTW", typ: "l", imgs:[] },
       ],
       zoom: 2,

@@ -12,10 +12,6 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
       to: "Kolombo",
       type: "plane",
     },
-    trip: {
-      to: "Colombo",
-      type: "plane",
-    },
     images: [2, 1, 120, 3],
     captions: {
       "3": "[DXB] Dubai International Airport",
@@ -104,10 +100,6 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
       to: "Ella",
       type: "train",
     },
-    trip: {
-      to: "Kandy",
-      type: "bus",
-    },
     sleep: { name: "OneView Chalet" },
     //prettier-ignore
     images: [
@@ -148,10 +140,6 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
     date: "25 wrz. 2024",
     name: "Ella",
     sleep: { name: "On Rock Home by Nature Green" },
-    trip: {
-      to: "Ella",
-      type: "train",
-    },
     // prettier-ignore
     images: [
       17, 21, 18, 20,
@@ -231,10 +219,6 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
       to: "Tangalle",
       type: "tuktuk",
     },
-    trip: {
-      to: "Udawalawe",
-      type: "taxi",
-    },
     //prettier-ignore
     images: [
       126, 39, 37,
@@ -269,10 +253,6 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
     date: "28 wrz. 2024",
     name: "Tangalle",
     sleep: { name: "Rocky Point Beach" },
-    trip: {
-      to: "Tangalle",
-      type: "tuktuk",
-    },
     // prettier-ignore
     images: [
       49, 51, 46, 45,
@@ -303,7 +283,7 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
         { lat: 6.474923, lng: 80.876261, cap: "Udawalawe National Park", imgs:[45,46,44,40,48,49] },
         { lat: 6.025939, lng: 80.797223, cap: "Tangalla", imgs:[51,53,52,50,54] },
       ],
-      zoom: 8,
+      zoom: 7,
     },
   },
 
@@ -345,7 +325,7 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
     trip: {
       to: "Mirissa",
       type: "bus",
-      styles: { top: "90%" },
+      styles: { top: "85%", rotate: "3deg" },
     },
     // prettier-ignore
     images: [
@@ -408,6 +388,7 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
     transit: {
       from: "Unawatuna",
       to: "Colombo",
+      type: "train",
     },
     // prettier-ignore
     images: [
@@ -440,10 +421,6 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
   {
     date: "03 paź. 2024",
     name: "Colombo",
-    trip: {
-      to: "Colombo",
-      type: "train",
-    },
     sleep: { name: "City Beds Colombo" },
     // prettier-ignore
     images: [
@@ -490,8 +467,9 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
       to: "Dubaj",
     },
     trip: {
-      to: "Dubai",
-      type: "plane",
+      to: "CMB",
+      type: "tuktuk",
+      styles: { top: "70%", rotate: "2deg" },
     },
     //prettier-ignore
     images: [
@@ -528,10 +506,6 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
     transit: {
       from: "Dubaj",
       to: "Kraków",
-    },
-    trip: {
-      to: "Kraków",
-      type: "plane",
     },
     // prettier-ignore
     images: [
