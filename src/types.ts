@@ -18,7 +18,6 @@ export type CountryRecord = {
   flag: ComponentType;
   maps?: Position[];
   history?: MyHistory[];
-  imgCount?: number;
   coverCount?: number;
   transit?: {
     from: string;

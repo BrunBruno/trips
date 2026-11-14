@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import countries from "./data";
 import TripModal from "./TripModal";
@@ -14,6 +14,10 @@ function World() {
     (typeof countries)[number] | null
   >(null);
   const [coverBg, setCoverBg] = useState<boolean>(true);
+
+  useEffect(() => {
+    setCoverBg(true);
+  }, [selectedCountry]);
 
   return (
     <main className="world">

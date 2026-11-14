@@ -40,53 +40,71 @@ import Cyprus from "./svg/flags/cyp";
 import Greece from "./svg/flags/grc";
 import Bulgaria from "./svg/flags/bgr";
 import { GOLDEN_SANDS_18_HISTORY } from "./history/2018GoldenSands";
+import Tunisia from "./svg/flags/tun";
+import { SOUSSE_HISTORY } from "./history/2008Sousse";
+import Turkey from "./svg/flags/tur";
+import { ALANYA_HISTORY } from "./history/2010Alanya";
+import { HURGHADA_HISTORY } from "./history/2012Hurghada";
+import { LEPTOKARIA_HISTORY } from "./history/2014Leptokaria";
+import { OREBIC_HISTORY } from "./history/2017Obrebic";
+import Norway from "./svg/flags/nor";
 
 const countries: CountryRecord[] = [
-  // {
-  //   name: "Sousse",
-  //   country: "Tunezja",
-  //   year: 2008,
-  //   month: 6,
-  //   flag: Tunisia,
-  //   folder: "tunisia-sousse",
-  //   map: SousseMap("tunisia-sousse"),
-  // },
+  {
+    name: "Sousse",
+    country: "Tunezja",
+    year: 2008,
+    month: 6,
+    flag: Tunisia,
+    folder: "08-tunisia-sousse",
+    history: SOUSSE_HISTORY,
+  },
 
-  // {
-  //   name: "Alanya",
-  //   country: "Turcja",
-  //   year: 2010,
-  //   flag: Turkey,
-  //   folder: "turkey-alanya",
-  //   map: AlanyaMap("turkey-alanya"),
-  // },
+  {
+    name: "Alanya",
+    country: "Turcja",
+    year: 2010,
+    flag: Turkey,
+    folder: "10-turkey-alanya",
+    history: ALANYA_HISTORY,
+  },
 
-  // {
-  //   name: "Hurghada",
-  //   country: "Egipt",
-  //   year: 2012,
-  //   flag: Egypt,
-  //   folder: "egypt-hurghada",
-  //   map: HurghadaMap("egypt-hurghada"),
-  // },
+  {
+    name: "Hurghada",
+    country: "Egipt",
+    year: 2012,
+    flag: Egypt,
+    folder: "12-egypt-hurghada",
+    history: HURGHADA_HISTORY,
+  },
 
-  // {
-  //   name: "Leptokaria",
-  //   country: "Grecja",
-  //   year: 2014,
-  //   flag: Greece,
-  //   folder: "greece-leptokaria",
-  //   map: LeptokariaMap("greece-leptokaria"),
-  // },
+  {
+    name: "Leptokaria",
+    country: "Grecja",
+    year: 2014,
+    flag: Greece,
+    folder: "14-greece-leptokaria",
+    history: LEPTOKARIA_HISTORY,
+    transit: {
+      from: "Katowice",
+      to: "Leptokaria",
+      type: "bus",
+    },
+  },
 
-  // {
-  //   name: "Orebić",
-  //   country: "Chorwacja",
-  //   year: 2017,
-  //   flag: Croatia,
-  //   folder: "croatia-orebic",
-  //   map: OrebicMap("croatia-orebic"),
-  // },
+  {
+    name: "Orebić",
+    country: "Chorwacja",
+    year: 2017,
+    flag: Croatia,
+    folder: "17-croatia-orebic",
+    history: OREBIC_HISTORY,
+    transit: {
+      from: "Sosnowiec",
+      to: "Orebić",
+      type: "car",
+    },
+  },
 
   {
     name: "Złote Piaski",
@@ -94,7 +112,7 @@ const countries: CountryRecord[] = [
     year: 2018,
     month: 7,
     flag: Bulgaria,
-    folder: "golden-sands-18",
+    folder: "18-bulgaria-golden-sands",
     history: GOLDEN_SANDS_18_HISTORY,
     transit: {
       from: "Katowice",
@@ -109,7 +127,8 @@ const countries: CountryRecord[] = [
     year: 2019,
     month: 8,
     flag: Bulgaria,
-    folder: "golden-sands-19",
+    folder: "19-bulgaria-golden-sands",
+    coverCount: 5,
     transit: {
       from: "Katowice",
       to: "Złote Piaski",
@@ -123,7 +142,8 @@ const countries: CountryRecord[] = [
     year: 2021,
     month: 9,
     flag: Greece,
-    folder: "greece-crete",
+    folder: "21-greece-crete",
+    coverCount: 10,
     transit: {
       from: "Katowice",
       to: "Iraklion",
@@ -137,7 +157,7 @@ const countries: CountryRecord[] = [
     year: 2022,
     month: 9,
     flag: EuropeanUnion,
-    folder: "euro-trip",
+    folder: "22-euro-trip",
     coverCount: 12,
     history: EURO_TRIP_HISTORY,
     maps: [EURO_TRIP_TRANSPORT, EURO_TRIP_SLEEP],
@@ -153,7 +173,8 @@ const countries: CountryRecord[] = [
     year: 2023,
     month: 3,
     flag: Cyprus,
-    folder: "cyprus",
+    folder: "23-cyprus",
+    coverCount: 8,
     transit: {
       from: "Katowice",
       to: "Pafos",
@@ -167,7 +188,7 @@ const countries: CountryRecord[] = [
     year: 2023,
     month: 8,
     flag: Madeira,
-    folder: "madeira",
+    folder: "23-portugal-madeira",
     history: MADEIRA_HISTORY,
     coverCount: 9,
     transit: {
@@ -183,7 +204,7 @@ const countries: CountryRecord[] = [
     year: 2024,
     month: 2,
     flag: Sicily,
-    folder: "sicily",
+    folder: "24-italy-sicily",
     coverCount: 6,
     history: SICILY_HISTORY,
     maps: [SICILY_TRANSPORT, SICILY_SLEEP],
@@ -194,22 +215,22 @@ const countries: CountryRecord[] = [
     },
   },
 
-  // {
-  //   name: "Oslo",
-  //   country: "Norwegia",
-  //   year: 2023,
-  //   month: 8,
-  //   flag: Norway,
-  //   folder: "norway-oslo",
-  //   map: OsloMap("norway-oslo"),
-  // },
+  {
+    name: "Oslo",
+    country: "Norwegia",
+    year: 2023,
+    month: 8,
+    flag: Norway,
+    folder: "23-norway-oslo",
+    coverCount: 6,
+  },
 
   {
     name: "Sri Lanka",
     year: 2024,
     month: 9,
     flag: SriLanka,
-    folder: "sri-lanka",
+    folder: "24-sri-lanka",
     coverCount: 9,
     history: SRI_LANKA_HISTORY,
     maps: [SRI_LANKA_TRANSPORT, SRI_LANKA_SLEEP],
@@ -226,7 +247,8 @@ const countries: CountryRecord[] = [
     year: 2025,
     month: 3,
     flag: Egypt,
-    folder: "marsa-alam",
+    folder: "25-egypt-marsa-alam",
+    coverCount: 7,
     history: MARSA_ALAM_HISTORY,
     transit: {
       from: "Kraków",
@@ -241,7 +263,7 @@ const countries: CountryRecord[] = [
     year: 2025,
     month: 9,
     flag: Indonesia,
-    folder: "indonesia-bali",
+    folder: "25-indonesia-bali",
     coverCount: 10,
     history: BALI_HISTORY,
     maps: [BALI_TRANSPORT, BALI_SLEEP],
@@ -259,7 +281,8 @@ const countries: CountryRecord[] = [
     year: 2026,
     month: 7,
     flag: Croatia,
-    folder: "croatia-split",
+    folder: "26-croatia-split",
+    coverCount: 9,
     history: SPLIT_HISTORY,
     transit: {
       from: "Katowice",
@@ -273,7 +296,7 @@ const countries: CountryRecord[] = [
     year: 2026,
     month: 9,
     flag: Mauritius,
-    folder: "mauritius",
+    folder: "26-mauritius",
     coverCount: 9,
     history: MAURITIUS_HISTORY,
     maps: [MAURITIUS_TRANSPORT, MAURITIUS_SLEEP],
