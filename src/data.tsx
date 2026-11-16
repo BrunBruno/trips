@@ -22,7 +22,6 @@ import {
 } from "./history/2022EuroTrip";
 
 import { MADEIRA_HISTORY } from "./history/2023MaderaHistory";
-import Indonesia from "./svg/flags/idn";
 import Madeira from "./svg/flags/mdr";
 import Mauritius from "./svg/flags/mus";
 import SriLanka from "./svg/flags/slk";
@@ -48,6 +47,9 @@ import { HURGHADA_HISTORY } from "./history/2012Hurghada";
 import { LEPTOKARIA_HISTORY } from "./history/2014Leptokaria";
 import { OREBIC_HISTORY } from "./history/2017Obrebic";
 import Norway from "./svg/flags/nor";
+import { GOLDEN_SANDS_19_HISTORY } from "./history/2019GoldenSands";
+import Crete from "./svg/flags/cre";
+import Bali from "./svg/flags/bli";
 
 const countries: CountryRecord[] = [
   {
@@ -129,6 +131,7 @@ const countries: CountryRecord[] = [
     flag: Bulgaria,
     folder: "19-bulgaria-golden-sands",
     coverCount: 5,
+    history: GOLDEN_SANDS_19_HISTORY,
     transit: {
       from: "Katowice",
       to: "Złote Piaski",
@@ -141,7 +144,7 @@ const countries: CountryRecord[] = [
     country: "Grecja",
     year: 2021,
     month: 9,
-    flag: Greece,
+    flag: Crete,
     folder: "21-greece-crete",
     coverCount: 10,
     transit: {
@@ -262,7 +265,7 @@ const countries: CountryRecord[] = [
     country: "Indonezja",
     year: 2025,
     month: 9,
-    flag: Indonesia,
+    flag: Bali,
     folder: "25-indonesia-bali",
     coverCount: 10,
     history: BALI_HISTORY,
