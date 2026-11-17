@@ -16,15 +16,15 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     sleep: { name: "Be Free Hostel", styles: { left: "unset", right: 0 } },
     // prettier-ignore
     images: [
-      97, 98, 99, 105,3,
-      103,104,100,4,  2,
-      101,6,  81, 5,  1
+      97, 98, 99, 105, 3,
+      103, 104, 100, 4, 2,
+      101, 6, 81, 5, 1,
     ],
     captions: {
       "1": "Karlskirche",
       "2": "Schloss Belvedere",
       "3": "Schloss Belvedere",
-      "4": "Belvedere-Schlossgarten",
+      "4": "Belvederegarten",
       "5": "Stephansdom",
       "6": "Volksgarten",
       "81": "Österreichisches Parlament",
@@ -32,7 +32,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       "98": "Haus des Meeres",
       "99": "Wien",
       "100": "Karlskirche",
-      "101": "Belvedere-Schlossgarten",
+      "101": "Belvederegarten",
       "102": "Wien",
       "103": "Pestsäule",
       "104": "Hofburg",
@@ -41,19 +41,19 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     //prettier-ignore
     position: {
       points: [
-        { lat: 48.185195, lng: 16.376606, cap: "Wien HB", typ: "l", imgs: [97] },
-        { lat: 48.198354, lng: 16.332845, cap: "Be Free", typ: "n", imgs: [] },
-        { lat: 48.191539, lng: 16.380846, cap: "Belvedere", imgs: [3,2,4,101] },
-        { lat: 48.198684, lng: 16.371701, cap: "Karlskirche", imgs: [1,100] },
+        { lat: 48.185195, lng: 16.376606, cap: "Wiedeń Dworzec Główny", typ: "l", imgs: [97] },
+        { lat: 48.198354, lng: 16.332845, cap: "Be Free Hostel", typ: "n", imgs: [] },
+        { lat: 48.191539, lng: 16.380846, cap: "Belweder", imgs: [3, 2, 4, 101] },
+        { lat: 48.198684, lng: 16.371701, cap: "Kościół św. Karola Boromeusza", imgs: [1, 100] },
         { lat: 48.197695, lng: 16.352859, cap: "Haus des Meeres", imgs: [98] },
-        { lat: 48.208301, lng: 16.370559, cap: "Innere Stadt", imgs: [104,6,81,105,103,5] },
+        { lat: 48.208301, lng: 16.370559, cap: "Stare Miasto (Innere Stadt)", imgs: [104, 6, 81, 105, 103, 5] },
       ],
       zoom: 12,
     },
     //prettier-ignore
     position2: {
       points: [
-        { lat: 48.185195, lng: 16.376606, cap: "Wien HB", typ: "l", imgs: [97,98,99,105,3,103,104,100,4,5,101,6,81,2,1] },
+        { lat: 48.185195, lng: 16.376606, cap: "Wiedeń Dworzec Główny", typ: "l", imgs: [97, 98, 99, 105, 3, 103, 104, 100, 4, 5, 101, 6, 81, 2, 1] },
         { lat: 50.259712, lng: 19.017540, cap: "Katowice", typ: "l", imgs: [] },
       ],
       zoom: 4,
@@ -76,17 +76,17 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     //prettier-ignore
     images: [
-      106,9,  109,107,
-      112,11, 10 ,114,
-      7,  115,113,8,
+      106, 9, 109, 107,
+      112, 11, 10, 114,
+      7, 115, 113, 8,
     ],
     captions: {
       "7": "Be Free Hostel",
       "8": "Schloss Schönbrunn",
       "9": "Schloss Schönbrunn",
-      "10": "Schönbrunn Wien Wiew",
+      "10": "Schönbrunn Wien View",
       "11": "Gloriette Schönbrunn",
-      "106": "Wien Hbf",
+      "106": "Wien Hauptbahnhof",
       "107": "Schlosspark Schönbrunn",
       "109": "Schlosspark Schönbrunn",
       "112": "Wien Hauptbahnhof",
@@ -97,18 +97,18 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     //prettier-ignore
     position: {
       points: [
-        { lat: 48.198354, lng: 16.332845, cap: "Be Free", typ: "n", imgs: [7] },
-        { lat: 48.185837, lng: 16.312722, cap: "Schönbrunn", imgs: [8,9,10,11,109,107] },
-        { lat: 48.185195, lng: 16.376606, cap: "Wien HB", typ: "l", imgs: [112,113,106] },
+        { lat: 48.198354, lng: 16.332845, cap: "Be Free Hostel", typ: "n", imgs: [7] },
+        { lat: 48.185837, lng: 16.312722, cap: "Pałac Schönbrunn", imgs: [8, 9, 10, 11, 109, 107] },
+        { lat: 48.185195, lng: 16.376606, cap: "Wiedeń Dworzec Główny", typ: "l", imgs: [112, 113, 106] },
       ],
       zoom: 12,
     },
     //prettier-ignore
     position2: {
       points: [
-        { lat: 48.185195, lng: 16.376606, cap: "Wien HB", typ: "l", imgs: [8,9,10,11,109,107,112,113,106,7] },
-        { lat: 47.411550, lng: 8.544091, cap: "Zürich HB", typ: "l", imgs: [114,115] },
-        { lat: 46.853572, lng: 9.529726, cap: "Chur HB", typ: "l", imgs: [] },
+        { lat: 48.185195, lng: 16.376606, cap: "Wiedeń Dworzec Główny", typ: "l", imgs: [8, 9, 10, 11, 109, 107, 112, 113, 106, 7] },
+        { lat: 47.411550, lng: 8.544091, cap: "Zurych Dworzec Główny", typ: "l", imgs: [114, 115] },
+        { lat: 46.853572, lng: 9.529726, cap: "Chur Dworzec Główny", typ: "l", imgs: [] },
       ],
       zoom: 5,
     },
@@ -127,12 +127,12 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     sleep: { name: "Hotel Residence Cenisio" },
     // prettier-ignore
     images: [
-      15, 13, 119,121,95,
-      116,118,16, 120,122,
+      15, 13, 119, 121, 95,
+      116, 118, 16, 120, 122,
       12, 17, 18, 82, 14,
     ],
     captions: {
-      "12": "Chur Hauptbahnhof",
+      "12": "Bahnhof Chur",
       "13": "Berninapass",
       "14": "Berninapass",
       "15": "Berninapass",
@@ -140,7 +140,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       "17": "Lago di Como",
       "18": "Navigli",
       "82": "Bellano",
-      "95": "Chur Hbf",
+      "95": "Bahnhof Chur",
       "116": "St. Moritz",
       "118": "Tirano",
       "119": "Bellano",
@@ -151,21 +151,21 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     //prettier-ignore
     position: {
       points: [
-        { lat: 46.410906, lng: 10.026428, cap: "Berninapass", imgs: [15,13,16,14,117] },
-        { lat: 46.853572, lng: 9.529726, cap: "Chur HB", typ: "l", imgs: [95,12] },
-        { lat: 46.498018, lng: 9.845863, cap: "St.Moritz", typ: "l", imgs: [116] },
-        { lat: 46.040036, lng: 9.303778, cap: "Bellano", typ: "l", imgs: [17,82,119] },
+        { lat: 46.410906, lng: 10.026428, cap: "Przełęcz Bernina", imgs: [15, 13, 16, 14, 117] },
+        { lat: 46.853572, lng: 9.529726, cap: "Chur Dworzec Główny", typ: "l", imgs: [95, 12] },
+        { lat: 46.498018, lng: 9.845863, cap: "St. Moritz", typ: "l", imgs: [116] },
+        { lat: 46.040036, lng: 9.303778, cap: "Bellano", typ: "l", imgs: [17, 82, 119] },
         { lat: 46.215623, lng: 10.166966, cap: "Tirano", typ: "l", imgs: [118] },
-        { lat: 45.487205, lng: 9.204779, cap: "Milano", typ: "l", imgs: [18,120,121] },
+        { lat: 45.487205, lng: 9.204779, cap: "Mediolan", typ: "l", imgs: [18, 120, 121] },
       ],
       zoom: 7,
     },
     //prettier-ignore
     position2: {
       points: [
-        { lat: 45.487205, lng: 9.204779, cap: "Milano", typ: "l", imgs: [120] }, 
-        { lat: 45.490510, lng: 9.172719, cap: "Residence Cenisio", typ: "n", imgs: [122] },
-        { lat: 45.452454, lng: 9.176919, cap: "Navigli", imgs: [18,121] },
+        { lat: 45.487205, lng: 9.204779, cap: "Mediolan", typ: "l", imgs: [120] },
+        { lat: 45.490510, lng: 9.172719, cap: "Hotel Residence Cenisio", typ: "n", imgs: [122] },
+        { lat: 45.452454, lng: 9.176919, cap: "Navigli", imgs: [18, 121] },
       ],
       zoom: 10,
     },
@@ -191,8 +191,8 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     // prettier-ignore
     images: [
-      123,124,125,126,
-      128,84, 20, 21,
+      123, 124, 125, 126,
+      128, 84, 20, 21,
       22, 83, 23, 19,
     ],
     captions: {
@@ -201,30 +201,30 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       "21": "Bosco Verticale",
       "22": "Torre UniCredit",
       "23": "Duomo di Milano",
-      "83": "Famedio",
+      "83": "Famedio del Cimitero Monumentale",
       "84": "Galleria Vittorio Emanuele II",
       "123": "Arco della Pace",
       "124": "Castello Sforzesco",
       "125": "Piazza Gae Aulenti",
       "126": "Galleria Vittorio Emanuele II",
-      "128": "Residence Cenisio",
+      "128": "Hotel Residence Cenisio",
     },
     //prettier-ignore
     position: {
       points: [
-        { lat: 45.490457, lng: 9.172709, cap: "Residence Cenisio", typ:'n', imgs:[128] },
-        { lat: 45.487205, lng: 9.204779, cap: "Milano", typ: "l", imgs: [] },
-        { lat: 45.475753, lng: 9.172398, cap: "Arco della Pace", imgs:[19,123] },
-        { lat: 45.464206, lng: 9.191864, cap: "Duomo", imgs:[23,84,126] },
-        { lat: 45.483580, lng: 9.189388, cap: "Piazza Gae Aulenti", imgs:[22,21,125] },
-        { lat: 45.470514, lng: 9.179332, cap: "Castello Sforzesco", imgs:[20,124] },
-        { lat: 45.485685, lng: 9.179104, cap: "Famedio", imgs:[83] },
+        { lat: 45.490457, lng: 9.172709, cap: "Hotel Residence Cenisio", typ: "n", imgs: [128] },
+        { lat: 45.487205, lng: 9.204779, cap: "Mediolan", typ: "l", imgs: [] },
+        { lat: 45.475753, lng: 9.172398, cap: "Łuk Pokoju (Arco della Pace)", imgs: [19, 123] },
+        { lat: 45.464206, lng: 9.191864, cap: "Katedra w Mediolanie", imgs: [23, 84, 126] },
+        { lat: 45.483580, lng: 9.189388, cap: "Plac Gae Aulenti", imgs: [22, 21, 125] },
+        { lat: 45.470514, lng: 9.179332, cap: "Zamek Sforzów", imgs: [20, 124] },
+        { lat: 45.485685, lng: 9.179104, cap: "Famedio", imgs: [83] },
         { lat: 45.452454, lng: 9.176919, cap: "Navigli", imgs: [] },
       ],
       zoom: 12,
     },
     food: {
-      name: "Pizza al Trancio",
+      name: "Pizza al trancio",
       img: 127,
       styles: { left: "-4rem", bottom: "8rem", rotate: "-7deg" },
     },
@@ -248,19 +248,18 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     captions: {
       "24": "Menton",
       "25": "Résidence Villa Francia",
-      "129": "Milano Central",
-      "130": "Milan ➤ Cannes",
-      "131": "Milan ➤ Cannes",
+      "129": "Milano Centrale",
+      "130": "Milano ➤ Cannes",
+      "131": "Milano ➤ Cannes",
       "132": "Résidence Villa Francia",
       "133": "Résidence Villa Francia",
     },
     //prettier-ignore
     position: {
       points: [
-        { lat: 43.548851, lng: 6.986575, cap: "Cannes La Bocca", typ: "l", imgs: [25,132,133] },
-        { lat: 43.792477, lng: 7.609777, cap: "Ventimiglia", typ: "l", imgs: [24,130,131] },
-        { lat: 45.487205, lng: 9.204779, cap: "Milano", typ: "l", imgs: [129] },
-       
+        { lat: 43.548851, lng: 6.986575, cap: "Cannes La Bocca", typ: "l", imgs: [25, 132, 133] },
+        { lat: 43.792477, lng: 7.609777, cap: "Ventimiglia", typ: "l", imgs: [24, 130, 131] },
+        { lat: 45.487205, lng: 9.204779, cap: "Mediolan", typ: "l", imgs: [129] },
       ],
       zoom: 6,
     },
@@ -277,35 +276,35 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     name: "Cannes",
     //prettier-ignore
     images: [
-      136,140,138,139,135,
+      136, 140, 138, 139, 135,
       28, 85, 86, 87, 134,
-      26, 29, 137,27,30,
+      26, 29, 137, 27, 30,
     ],
     captions: {
-      "26": "Plage Du Midi",
+      "26": "Plage du Midi",
       "27": "Résidence Villa Francia",
       "28": "Résidence Villa Francia",
-      "29": "Palace of Festivals and Congresses of Cannes",
-      "30": "La Croisette",
+      "29": "Palais des Festivals et des Congrès de Cannes",
+      "30": "Boulevard de la Croisette",
       "85": "Résidence Villa Francia",
-      "86": "Plage Du Midi",
-      "87": "Plage Du Midi",
+      "86": "Plage du Midi",
+      "87": "Plage du Midi",
       "134": "Résidence Villa Francia",
       "135": "Résidence Villa Francia",
       "136": "Le Suquet",
       "137": "Le Suquet",
-      "138": "Casino Barriere Le Croisette",
-      "139": "La Croisette",
+      "138": "Casino Barrière Le Croisette",
+      "139": "Boulevard de la Croisette",
       "140": "Plage de la Roseraie",
     },
     //prettier-ignore
     position: {
       points: [
-        { lat: 43.552725, lng: 6.990855, cap: "Villa Francia", typ:"n", imgs:[28,85,27,135,134] },
-        { lat: 43.548204, lng: 6.985127, cap: "Midi", imgs:[86,87,26] },
-        { lat: 43.546144, lng: 7.032580, cap: "Roseraie", imgs:[30,140] },
-        { lat: 43.550766, lng: 7.018282, cap: "La Croisette", imgs:[29,138,139] },
-        { lat: 43.551102, lng: 7.010418, cap: "Le Suquet", imgs:[136,137] },
+        { lat: 43.552725, lng: 6.990855, cap: "Résidence Villa Francia", typ: "n", imgs: [28, 85, 27, 135, 134] },
+        { lat: 43.548204, lng: 6.985127, cap: "Plaża du Midi", imgs: [86, 87, 26] },
+        { lat: 43.546144, lng: 7.032580, cap: "Plaża de la Roseraie", imgs: [30, 140] },
+        { lat: 43.550766, lng: 7.018282, cap: "Bulwar La Croisette", imgs: [29, 138, 139] },
+        { lat: 43.551102, lng: 7.010418, cap: "Le Suquet", imgs: [136, 137] },
       ],
       zoom: 13,
     },
@@ -323,17 +322,17 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     //prettier-ignore
     images: [
-      141,144,31,143,
+      141, 144, 31, 143,
       145, 142, 88, 33,
-      32
+      32,
     ],
     captions: {
-      "31": "Plage Du Midi",
+      "31": "Plage du Midi",
       "32": "Cannes",
-      "33": "Croix des Gardes",
+      "33": "Parc naturel forestier de la Croix-des-Gardes",
       "88": "Résidence Villa Francia",
       "141": "Résidence Villa Francia",
-      "142": "Cannes la Bocca",
+      "142": "Cannes-la-Bocca",
       "143": "MSC Meraviglia",
       "144": "Cannes",
       "145": "Le Suquet",
@@ -341,11 +340,11 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     //prettier-ignore
     position: {
       points: [
-        { lat: 43.552725, lng: 6.990855, cap: "Villa Francia", typ:"n", imgs:[88,141] },
-        { lat: 43.549204, lng: 6.991127, cap: "Midi", imgs:[31,143] },
-        { lat: 43.558180, lng: 7.000890, cap: "Croix des Gardes", imgs:[32,33,144] },
-        { lat: 43.551102, lng: 7.010418, cap: "Le Suquet", imgs:[145] },
-        { lat: 43.548967, lng: 6.986542, cap: "Cannes La Bocca", typ:"l", imgs:[142] },
+        { lat: 43.552725, lng: 6.990855, cap: "Résidence Villa Francia", typ: "n", imgs: [88, 141] },
+        { lat: 43.549204, lng: 6.991127, cap: "Plaża du Midi", imgs: [31, 143] },
+        { lat: 43.558180, lng: 7.000890, cap: "Croix-des-Gardes", imgs: [32, 33, 144] },
+        { lat: 43.551102, lng: 7.010418, cap: "Le Suquet", imgs: [145] },
+        { lat: 43.548967, lng: 6.986542, cap: "Cannes La Bocca", typ: "l", imgs: [142] },
       ],
       zoom: 13,
     },
@@ -362,12 +361,12 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     //prettier-ignore
     images: [
-      90,150,148,149,
-      35, 89, 146,34,
+      90, 150, 148, 149,
+      35, 89, 146, 34,
     ],
     captions: {
       "34": "Lloret de Mar",
-      "35": "Platja Sa Caravera",
+      "35": "Platja de sa Caravera",
       "89": "Portbou",
       "90": "Cannes",
       "146": "Cannes",
@@ -378,11 +377,11 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     //prettier-ignore
     position: {
       points: [
-        { lat: 41.701043, lng: 2.842350, cap: "Lloret", typ: "l", imgs: [34,35] },
+        { lat: 41.701043, lng: 2.842350, cap: "Lloret de Mar", typ: "l", imgs: [34, 35] },
         { lat: 41.979311, lng: 2.816998, cap: "Girona", typ: "l", imgs: [] },
-        { lat: 42.424699, lng: 3.157963, cap: "Portbou", typ: "l", imgs: [89,149] },
-        { lat: 43.548851, lng: 6.986575, cap: "Cannes La Bocca", typ: "l", imgs: [90,146] },
-        { lat: 43.303366, lng: 5.381476, cap: "Marseille St-Charles", typ: "l", imgs: [148] },
+        { lat: 42.424699, lng: 3.157963, cap: "Portbou", typ: "l", imgs: [89, 149] },
+        { lat: 43.548851, lng: 6.986575, cap: "Cannes La Bocca", typ: "l", imgs: [90, 146] },
+        { lat: 43.303366, lng: 5.381476, cap: "Marsylia Saint-Charles", typ: "l", imgs: [148] },
         { lat: 43.604981, lng: 3.880730, cap: "Montpellier Saint-Roch", typ: "l", imgs: [] },
       ],
       zoom: 6,
@@ -390,9 +389,9 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     //prettier-ignore
     position2: {
       points: [
-        { lat: 41.701043, lng: 2.842350, cap: "Lloret", typ: "l", imgs: [34,150] },
+        { lat: 41.701043, lng: 2.842350, cap: "Lloret de Mar", typ: "l", imgs: [34, 150] },
         { lat: 41.698669, lng: 2.844155, cap: "Apartaments Blau", typ: "n", imgs: [] },
-        { lat: 41.696074, lng: 2.845183, cap: "Platja Sa Caravera", imgs: [35] },
+        { lat: 41.696074, lng: 2.845183, cap: "Plaża sa Caravera", imgs: [35] },
       ],
       zoom: 13,
     },
@@ -409,7 +408,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     name: "Lloret de Mar",
     //prettier-ignore
     images: [
-      151,153,152,
+      151, 153, 152,
       91, 36, 38,
       37,
     ],
@@ -417,7 +416,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       "36": "Platja de Lloret de Mar",
       "37": "Dona Marinera",
       "38": "Apartaments Blau",
-      "91": "Klub Disco Tropics",
+      "91": "Disco Tropics",
       "151": "Platja de Lloret de Mar",
       "152": "Dona Marinera",
       "153": "Dona Marinera",
@@ -426,8 +425,8 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     position: {
       points: [
         { lat: 41.698669, lng: 2.844155, cap: "Apartaments Blau", typ: "n", imgs: [38] },
-        { lat: 41.699158, lng: 2.850656, cap: "Platja de Lloret de Mar", imgs: [36,151] },
-        { lat: 41.695291, lng: 2.844845, cap: "Dona Marinera", imgs: [37,152,153] },
+        { lat: 41.699158, lng: 2.850656, cap: "Plaża w Lloret de Mar", imgs: [36, 151] },
+        { lat: 41.695291, lng: 2.844845, cap: "Pomnik Dona Marinera", imgs: [37, 152, 153] },
         { lat: 41.700097, lng: 2.842749, cap: "Disco Tropics", imgs: [91] },
       ],
       zoom: 14,
@@ -444,14 +443,14 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       "39": "Platja de Lloret de Mar",
       "40": "Lloret de Mar",
       "154": "Apartaments Blau",
-      "155": "Platja Sa Caravera",
+      "155": "Platja de sa Caravera",
     },
     //prettier-ignore
     position: {
       points: [
-        { lat: 41.698669, lng: 2.844155, cap: "Apartaments Blau", typ: "n", imgs: [154,40] },
-        { lat: 41.699158, lng: 2.850656, cap: "Platja de Lloret de Mar", imgs: [39] },
-        { lat: 41.696074, lng: 2.845183, cap: "Platja Sa Caravera", imgs: [155] },
+        { lat: 41.698669, lng: 2.844155, cap: "Apartaments Blau", typ: "n", imgs: [154, 40] },
+        { lat: 41.699158, lng: 2.850656, cap: "Plaża w Lloret de Mar", imgs: [39] },
+        { lat: 41.696074, lng: 2.845183, cap: "Plaża sa Caravera", imgs: [155] },
       ],
       zoom: 14,
     },
@@ -462,26 +461,21 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     //hid: 1,
     date: "11 wrz. 2022",
     name: "Lloret de Mar",
-    transit: {
-      from: "Lloret de Mar",
-      to: "Barcelona",
-      type: "bus",
-    },
     //prettier-ignore
     images: [
-      156,159,158,157,46,
-      43, 47, 163,41, 161,
-      45, 162,42, 44, 160,
+      156, 159, 158, 157, 46,
+      43, 47, 163, 41, 161,
+      45, 162, 42, 44, 160,
     ],
     captions: {
       "41": "Platja de Lloret de Mar",
       "42": "Platja de Lloret de Mar",
-      "43": "Castell de Lloret",
-      "44": "Castell de Lloret",
+      "43": "Castell d'en Plaja",
+      "44": "Castell d'en Plaja",
       "45": "Camí de Ronda",
       "46": "Camí de Ronda",
       "47": "Camí de Ronda",
-      "156": "Lloret Bus Station",
+      "156": "Estació d'autobusos de Lloret de Mar",
       "157": "Platja de Lloret de Mar",
       "158": "Platja de Lloret de Mar",
       "159": "Platja de Lloret de Mar",
@@ -494,9 +488,9 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     position: {
       points: [
         { lat: 41.698669, lng: 2.844155, cap: "Apartaments Blau", typ: "n", imgs: [163] },
-        { lat: 41.699158, lng: 2.850656, cap: "Platja de Lloret", imgs: [42,41,157,158,159] },
-        { lat: 41.699142, lng: 2.859981, cap: "Camí de Ronda", imgs: [43,44,45,46,47,160,161,] },
-        { lat: 41.695291, lng: 2.844845, cap: "Dona Marinera", imgs: [162] },
+        { lat: 41.699158, lng: 2.850656, cap: "Plaża w Lloret de Mar", imgs: [42, 41, 157, 158, 159] },
+        { lat: 41.699142, lng: 2.859981, cap: "Szlak Camí de Ronda", imgs: [43, 44, 45, 46, 47, 160, 161] },
+        { lat: 41.695291, lng: 2.844845, cap: "Pomnik Dona Marinera", imgs: [162] },
       ],
       zoom: 14,
     },
@@ -512,17 +506,22 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       to: "Paryż",
       type: "train",
     },
+    trip: {
+      to: "Barcelona",
+      type: "bus",
+      styles: { rotate: "3deg" },
+    },
     //prettier-ignore
     images: [
-      168,165,166,170,164,
-      169,51, 53, 50, 167,
-      48,52, 54, 49, 55,
+      168, 165, 166, 170, 164,
+      169, 51, 53, 50, 167,
+      48, 52, 54, 49, 55,
     ],
     captions: {
-      "48": "Sagrada Família",
+      "48": "Basílica de la Sagrada Família",
       "49": "Parc del Guinardó",
       "50": "Mirador del Nen de la Rutlla",
-      "51": "Parc Güell",
+      "51": "Park Güell",
       "52": "Mirador del Nen de la Rutlla",
       "53": "Camp Nou",
       "54": "Torres Venecianes",
@@ -540,20 +539,20 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       points: [
         { lat: 41.394676, lng: 2.182720, cap: "Barcelona", typ: "l", imgs: [] },
         { lat: 41.403948, lng: 2.173903, cap: "Sagrada Família", imgs: [48] },
-        { lat: 41.420104, lng: 2.166840, cap: "Parc del Guinardó", imgs: [50,52,49,165,164] },
-        { lat: 41.414511, lng: 2.152684, cap: "Parc Güell", imgs: [51] },
+        { lat: 41.420104, lng: 2.166840, cap: "Park Guinardó", imgs: [50, 52, 49, 165, 164] },
+        { lat: 41.414511, lng: 2.152684, cap: "Park Güell", imgs: [51] },
         { lat: 41.380928, lng: 2.122766, cap: "Camp Nou", imgs: [53] },
         { lat: 41.385585, lng: 2.169860, cap: "La Rambla", imgs: [169, 170] },
-        { lat: 41.375059, lng: 2.149224, cap: "Plaça d'Espanya i Montjuïc", imgs: [168,54,55,167] },
+        { lat: 41.375059, lng: 2.149224, cap: "Plac Hiszpański i Montjuïc", imgs: [168, 54, 55, 167] },
       ],
       zoom: 12,
     },
     //prettier-ignore
     position2: {
       points: [
-        { lat: 41.701043, lng: 2.842350, cap: "Lloret", typ: "l", imgs: [] },
+        { lat: 41.701043, lng: 2.842350, cap: "Lloret de Mar", typ: "l", imgs: [] },
         { lat: 41.979311, lng: 2.816998, cap: "Girona", typ: "l", imgs: [] },
-        { lat: 41.394676, lng: 2.182720, cap: "Barcelona", typ: "l", imgs: [168,165,166,170,164,169,51,53,50,167,48,52,54,49,55,] },
+        { lat: 41.394676, lng: 2.182720, cap: "Barcelona", typ: "l", imgs: [168, 165, 166, 170, 164, 169, 51, 53, 50, 167, 48, 52, 54, 49, 55] },
       ],
       zoom: 7,
     },
@@ -567,8 +566,8 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     sleep: { name: "International Youth Hostel" },
     //prettier-ignore
     images: [
-      171,172,176,177,
-      175,173,174,92,
+      171, 172, 176, 177,
+      175, 173, 174, 92,
       56, 93, 57,
     ],
     captions: {
@@ -579,7 +578,7 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       "171": "Lloret de Mar",
       "172": "Girona",
       "173": "TGV",
-      "174": "Paris Gare de Lyon",
+      "174": "Paris-Gare-de-Lyon",
       "175": "Métro de Paris",
       "176": "Basilique du Sacré-Cœur de Montmartre",
       "177": "Tour Eiffel",
@@ -587,18 +586,18 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     //prettier-ignore
     position: {
       points: [
-        { lat: 48.851204, lng: 2.378623, cap: "International Youth Hostel", typ:"n", imgs:[93,92] },
-        { lat: 48.844226, lng: 2.374485, cap: "Gare de Lyon", typ:"l", imgs:[174] },
-        { lat: 48.858448, lng: 2.294503, cap: "Tour Eiffel", imgs:[57,177] },
-        { lat: 48.886180, lng: 2.343095, cap: "Clignancourt", imgs:[56,176,175] },
+        { lat: 48.851204, lng: 2.378623, cap: "International Youth Hostel", typ: "n", imgs: [93, 92] },
+        { lat: 48.844226, lng: 2.374485, cap: "Dworzec Lyoński (Gare de Lyon)", typ: "l", imgs: [174] },
+        { lat: 48.858448, lng: 2.294503, cap: "Wieża Eiffla", imgs: [57, 177] },
+        { lat: 48.886180, lng: 2.343095, cap: "Clignancourt", imgs: [56, 176, 175] },
       ],
       zoom: 12,
     },
     //prettier-ignore
     position2: {
       points: [
-        { lat: 41.979311, lng: 2.816998, cap: "Girona", typ: "l", imgs: [171,172,173] },
-        { lat: 48.844226, lng: 2.374485, cap: "Gare de Lyon", typ:"l", imgs:[93,174,57,177,56,176,175,92] },
+        { lat: 41.979311, lng: 2.816998, cap: "Girona", typ: "l", imgs: [171, 172, 173] },
+        { lat: 48.844226, lng: 2.374485, cap: "Dworzec Lyoński (Gare de Lyon)", typ: "l", imgs: [93, 174, 57, 177, 56, 176, 175, 92] },
       ],
       zoom: 3,
     },
@@ -620,8 +619,8 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     // prettier-ignore
     images: [
-      178,63 ,180,181,
-      182,179, 62, 59,
+      178, 63, 180, 181,
+      182, 179, 62, 59,
       58, 60, 64, 61,
     ],
     captions: {
@@ -641,11 +640,11 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     //prettier-ignore
     position: {
       points: [
-        { lat: 48.858448, lng: 2.294503, cap: "Tour Eiffel", imgs:[63,62,61,181,182] },
-        { lat: 48.853039, lng: 2.349891, cap: "Notre-Dame", imgs:[64] },
-        { lat: 48.860651, lng: 2.337621, cap: "Louvre", imgs:[58,60,59,178,179,180] },
-        { lat: 48.876949, lng: 2.359101, cap: "Gare de l'Est", typ:'l', imgs:[] },
-        { lat: 48.851204, lng: 2.378623, cap: "International Youth Hostel", typ:"n", imgs:[] },
+        { lat: 48.858448, lng: 2.294503, cap: "Wieża Eiffla", imgs: [63, 62, 61, 181, 182] },
+        { lat: 48.853039, lng: 2.349891, cap: "Katedra Notre-Dame", imgs: [64] },
+        { lat: 48.860651, lng: 2.337621, cap: "Luwr", imgs: [58, 60, 59, 178, 179, 180] },
+        { lat: 48.876949, lng: 2.359101, cap: "Dworzec Wschodni (Gare de l'Est)", typ: "l", imgs: [] },
+        { lat: 48.851204, lng: 2.378623, cap: "International Youth Hostel", typ: "n", imgs: [] },
       ],
       zoom: 12,
     },
@@ -677,9 +676,9 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     },
     // prettier-ignore
     images: [
-      183,69, 185,186,68,
-      187,65, 66, 67, 188,
-      189,184, 70, 72, 71,
+      183, 69, 185, 186, 68,
+      187, 65, 66, 67, 188,
+      189, 184, 70, 72, 71,
     ],
     captions: {
       "65": "Berlin Hauptbahnhof",
@@ -688,9 +687,9 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       "68": "Deutscher Dom",
       "69": "Berliner Mauer",
       "70": "Brandenburger Tor",
-      "71": "Reichstag",
+      "71": "Reichstagsgebäude",
       "72": "Spree in Berlin",
-      "183": "Reichstag",
+      "183": "Reichstagsgebäude",
       "184": "Alexanderplatz",
       "185": "Rotes Rathaus",
       "186": "Berliner Dom",
@@ -701,22 +700,22 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
     //prettier-ignore
     position: {
       points: [
-        { lat: 52.525045, lng: 13.369381, cap: "Berlin HB", typ:'l', imgs:[65,66,189] },
-        { lat: 52.512350, lng: 13.383535, cap: "BNB Berlin", typ:'n', imgs:[] },
-        { lat: 52.518757, lng: 13.376198, cap: "Reichstag", imgs:[71,183] },
-        { lat: 52.522251, lng: 13.412691, cap: "Alexanderplatz", imgs:[67,184,185] },
-        { lat: 52.516425, lng: 13.378832, cap: "Pariser Platz", imgs:[69,70,188] },
-        { lat: 52.513264, lng: 13.392555, cap: "Gendarmenmarkt", imgs:[68,187] },
-          { lat: 52.519106, lng: 13.401164, cap: "Berliner Dom", imgs:[186,72] },
+        { lat: 52.525045, lng: 13.369381, cap: "Berlin Dworzec Główny", typ: "l", imgs: [65, 66, 189] },
+        { lat: 52.512350, lng: 13.383535, cap: "BNB Berlin", typ: "n", imgs: [] },
+        { lat: 52.518757, lng: 13.376198, cap: "Reichstag", imgs: [71, 183] },
+        { lat: 52.522251, lng: 13.412691, cap: "Alexanderplatz", imgs: [67, 184, 185] },
+        { lat: 52.516425, lng: 13.378832, cap: "Plac Paryski", imgs: [69, 70, 188] },
+        { lat: 52.513264, lng: 13.392555, cap: "Gendarmenmarkt", imgs: [68, 187] },
+        { lat: 52.519106, lng: 13.401164, cap: "Katedra Berlińska", imgs: [186, 72] },
       ],
       zoom: 13,
     },
     //prettier-ignore
     position2: {
       points: [
-        { lat: 52.525045, lng: 13.369381, cap: "Berlin HB", typ:'l', imgs:[183,69,185,186,68,187,65,66,67,188,189,184,70,72,71] },
-        { lat: 49.478871, lng: 8.471853, cap: "Mannheim HB", typ:'l', imgs:[] },
-        { lat: 48.876949, lng: 2.359101, cap: "Gare de l'Est", typ:'l', imgs:[] },
+        { lat: 52.525045, lng: 13.369381, cap: "Berlin Dworzec Główny", typ: "l", imgs: [183, 69, 185, 186, 68, 187, 65, 66, 67, 188, 189, 184, 70, 72, 71] },
+        { lat: 49.478871, lng: 8.471853, cap: "Mannheim Dworzec Główny", typ: "l", imgs: [] },
+        { lat: 48.876949, lng: 2.359101, cap: "Dworzec Wschodni (Gare de l'Est)", typ: "l", imgs: [] },
       ],
       zoom: 4,
     },
@@ -737,51 +736,51 @@ export const EURO_TRIP_HISTORY: MyHistory[] = [
       type: "train",
     },
     food: {
-      name: "Knedlíky",
+      name: "Knedliki",
       img: 195,
       styles: { left: "unset", right: "-2rem", rotate: "7deg", bottom: "7rem" },
     },
     // prettier-ignore
     images: [
-      193,192,191,79,75,
-      196,77, 198,199,197,
+      193, 192, 191, 79, 75,
+      196, 77, 198, 199, 197,
       76, 78, 73, 194, 74,
     ],
     captions: {
-      "73": "Staroměstské Náměstí",
-      "74": "Karlův Most",
-      "75": "Karlův Most",
+      "73": "Staroměstské náměstí",
+      "74": "Karlův most",
+      "75": "Karlův most",
       "76": "Praha",
-      "77": "Pražský Hrad",
-      "78": "Letenské Sady",
-      "79": "Praha Hlavní Nádraží",
+      "77": "Pražský hrad",
+      "78": "Letenské sady",
+      "79": "Praha hlavní nádraží",
       "191": "Chrám Matky Boží před Týnem",
       "192": "Hlava Franze Kafky",
-      "193": "Tančící Dům",
-      "194": "Pražský Hrad",
-      "196": "Pražský Hrad",
-      "197": "Letenské Sady",
+      "193": "Tančící dům",
+      "194": "Pražský hrad",
+      "196": "Pražský hrad",
+      "197": "Letenské sady",
       "198": "Vltava",
-      "199": "Staroměstská Radnice",
+      "199": "Staroměstská radnice",
     },
     //prettier-ignore
     position: {
       points: [
-        { lat: 50.083477, lng: 14.434086, cap: "Praha HN", typ:'l', imgs:[79] },
-        { lat: 50.091138, lng: 14.401649, cap: "Pražský Hrad", imgs:[196,77,76,194] },
-        { lat: 50.086161, lng: 14.413658, cap: "Karlův Most", imgs:[74,75] },
-        { lat: 50.096026, lng: 14.415290, cap: "Letenské Sady", imgs:[198,197,78] },
-        { lat: 50.087610, lng: 14.421166, cap: "Staroměstské Náměstí", imgs:[191,199,73] },
-        { lat: 50.081737, lng: 14.420841, cap: "Franz Kafka", imgs:[192] },
-        { lat: 50.075527, lng: 14.414222, cap: "Tančící Dům", imgs:[193] },
+        { lat: 50.083477, lng: 14.434086, cap: "Praga Dworzec Główny", typ: "l", imgs: [79] },
+        { lat: 50.091138, lng: 14.401649, cap: "Zamek Praski", imgs: [196, 77, 76, 194] },
+        { lat: 50.086161, lng: 14.413658, cap: "Most Karola", imgs: [74, 75] },
+        { lat: 50.096026, lng: 14.415290, cap: "Błonia Leteńskie", imgs: [198, 197, 78] },
+        { lat: 50.087610, lng: 14.421166, cap: "Rynek Staromiejski", imgs: [191, 199, 73] },
+        { lat: 50.081737, lng: 14.420841, cap: "Głowa Franza Kafky", imgs: [192] },
+        { lat: 50.075527, lng: 14.414222, cap: "Tańczący Dom", imgs: [193] },
       ],
       zoom: 13,
     },
     //prettier-ignore
     position2: {
       points: [
-        { lat: 52.525045, lng: 13.369381, cap: "Berlin HB", typ:'l', imgs:[] },
-        { lat: 50.083477, lng: 14.434086, cap: "Praha HN", typ:'l', imgs:[193,192,191,79,75,196,77,198,199,197,76,78,73,194,74] },
+        { lat: 52.525045, lng: 13.369381, cap: "Berlin Dworzec Główny", typ: "l", imgs: [] },
+        { lat: 50.083477, lng: 14.434086, cap: "Praga Dworzec Główny", typ: "l", imgs: [193, 192, 191, 79, 75, 196, 77, 198, 199, 197, 76, 78, 73, 194, 74] },
         { lat: 50.259712, lng: 19.017540, cap: "Katowice", typ: "l", imgs: [] },
       ],
       zoom: 4,

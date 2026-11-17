@@ -84,6 +84,8 @@ function HistoryMap({
       position.points.length,
   };
 
+  // return <></>;
+
   return (
     <APIProvider apiKey={API_KEY}>
       <GoogleMap

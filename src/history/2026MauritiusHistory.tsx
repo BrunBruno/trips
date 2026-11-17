@@ -8,7 +8,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
   //01 2609
   {
     date: "26 wrz. 2026",
-    name: "Madrid",
+    name: "Madryt",
     sleep: { name: "Min Hostel Capsules" },
     //prettier-ignore
     images: [
@@ -17,10 +17,10 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       75,
     ],
     captions: {
-      "74": "Monument to Felipe IV",
+      "74": "Monumento a Felipe IV",
       "75": "Catedral de la Almudena",
       "76": "Palacio Real de Madrid",
-      "77": "Royal Palace's Ledge Viewpoint",
+      "77": "Mirador de la Cornisa",
       "78": "Plaza de la Villa",
       "79": "Monumento a Alfonso XII",
       "98": "[MAD] Aeropuerto Adolfo Suárez Madrid-Barajas",
@@ -32,7 +32,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       points: [
         { lat: 40.418815, lng: -3.703784, cap: "Centro", imgs: [74, 75, 76, 77, 78, 100] },
         { lat: 40.415389, lng: -3.68353, cap: "Retiro", imgs: [79] },
-        { lat: 40.43732, lng: -3.642415, cap: "Capsules", typ: "n", imgs: [99] },
+        { lat: 40.43732, lng: -3.642415, cap: "Min Hostel Capsules", typ: "n", imgs: [99] },
         { lat: 40.492736, lng: -3.563839, cap: "MAD", typ: "l", imgs: [98] },
       ],
       zoom: 11,
@@ -40,10 +40,10 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     //prettier-ignore
     position2: {
       points: [
-        { lat: 40.492736, lng: -3.563839, cap: "MAD", typ: "l", imgs: [98,74, 75, 76, 77, 78, 100,79,99] },
-        { lat: 50.08043, lng: 19.788938, cap: "KRK", typ: "l", imgs:[] },
+        { lat: 40.492736, lng: -3.563839, cap: "MAD", typ: "l", imgs: [98, 74, 75, 76, 77, 78, 100, 79, 99] },
+        { lat: 50.08043, lng: 19.788938, cap: "KRK", typ: "l", imgs: [] },
       ],
-      zoom: 3,
+      zoom: 2,
     },
     svg: {
       item: <Spain />,
@@ -54,7 +54,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
   //02 2709
   {
     date: "27 wrz. 2026",
-    name: "Madrid",
+    name: "Madryt",
     transit: {
       from: "Madryt",
       to: "Mauritius",
@@ -67,30 +67,32 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       83
     ],
     captions: {
-      "80": "Muzeum Aeronautyki i Astronautyki",
-      "81": "Arco de Moncloa",
-      "82": "Panorama Madrytu",
-      "84": "Park del Oeste",
+      "80": "Museo de Aeronáutica y Astronáutica",
+      "81": "Arco de la Victoria",
+      "82": "Panorámica de Madrid",
+      "84": "Parque del Oeste",
       "85": "Puerta de Alcalá",
-      "86": "Park Retiro",
-      "101": "Pałac Cybele",
-      "102": "Latarnia Moncloa",
+      "86": "Parque de El Retiro",
+      "101": "Palacio de Cibeles",
+      "102": "Faro de Moncloa",
+      "83": "Madrid",
     },
     // prettier-ignore
     position: {
       points: [
-        { lat: 40.418815, lng: -3.703784, cap: "Centro", imgs: [85,101] },
+        { lat: 40.418815, lng: -3.703784, cap: "Centro", imgs: [85, 101] },
         { lat: 40.415389, lng: -3.68353, cap: "Retiro", imgs: [86] },
         { lat: 40.434477, lng: -3.71902, cap: "Moncloa", imgs: [84, 80, 82, 81, 102, 83] },
-        { lat: 40.43732, lng: -3.642415, cap: "Capsules", typ: "n", imgs: [] },
+        { lat: 40.43732, lng: -3.642415, cap: "Min Hostel Capsules", typ: "n", imgs: [] },
       ],
       zoom: 12,
     },
     //prettier-ignore
     position2: {
       points: [
-        { lat: 40.492736, lng: -3.563839, cap: "MAD", typ: "l", imgs: [85,101,86,84, 80, 82, 81, 102, 83] },
-        { lat: -20.43071, lng: 57.679108, cap: "MRU", typ: "l", imgs:[] },
+        { lat: 40.492736, lng: -3.563839, cap: "MAD", typ: "l", imgs: [85, 101, 86, 84, 80, 82, 81, 102, 83] },
+        { lat: -20.43071, lng: 57.679108, cap: "", typ:"x"},
+        { lat: -20.43071, lng: 57.679108, cap: "MRU", typ: "l", imgs: [] },
       ],
       zoom: 1,
     },
@@ -104,15 +106,25 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       name: "The Paramount",
       styles: { left: "unset", right: "0" },
     },
+    food: {
+      name: "Suzuki Espresso",
+      img: 105,
+      styles: {
+        left: "unset",
+        right: "-4rem",
+        rotate: "2deg",
+        bottom: "25rem",
+      },
+    },
     // prettier-ignore
     images: [
       104, 4, 5, 2,
-      27, 105, 1, 28,
+      27, 1, 28,
       3,
     ],
     captions: {
       "1": "[MRU] Sir Seewoosagur Ramgoolam International Airport",
-      "3": "Plaża Flic en Flac",
+      "3": "Flic en Flac Beach",
       "27": "Trois Mamelles",
       "28": "The Paramount",
       "105": "Suzuki Espresso",
@@ -120,7 +132,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     // prettier-ignore
     position: {
       points: [
-        { lat: -20.27741, lng: 57.3751, cap: "Paramount", typ: "n", imgs: [2, 28, 105] },
+        { lat: -20.27741, lng: 57.3751, cap: "The Paramount", typ: "n", imgs: [2, 28, 105] },
         { lat: -20.43071, lng: 57.679108, cap: "MRU", typ: "l", imgs: [1, 104] },
         { lat: -20.288799, lng: 57.363213, cap: "Flic en Flac", imgs: [3, 4, 5] },
         { lat: -20.304980, lng: 57.440604, cap: "Trois Mamelles", imgs: [27] },
@@ -137,6 +149,11 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
   {
     date: "29 wrz. 2026",
     name: "Le Morne Brabant",
+    trip: {
+      to: "Le Morne",
+      type: "car",
+      styles: { top: "2rem", rotate: "2deg" },
+    },
     // prettier-ignore
     images: [
       17, 9, 14, 109,
@@ -144,18 +161,17 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       115, 8, 13, 12,
     ],
     captions: {
-      "8": "Podwodny Wodospad",
-      "12": "Plaża La Prairie",
-      "13": "Plaża Le Morne",
+      "8": "Underwater Waterfall",
+      "12": "La Prairie Beach",
+      "13": "Le Morne Beach",
       "115": "Le Morne Brabant",
     },
     // prettier-ignore
     position: {
       points: [
-        // 
-        { lat: -20.452125, lng: 57.324657, cap: "Le Morne", imgs: [8,9,109,7,115]},
-        { lat: -20.483012, lng: 57.353716, cap: "La Prairie Beach", imgs: [12,11,16,113]},
-        { lat: -20.451470, lng: 57.312739, cap: "Le Morne Beach", imgs: [14,13,17]},
+        { lat: -20.452125, lng: 57.324657, cap: "Góra Le Morne", imgs: [8, 9, 109, 7, 115] },
+        { lat: -20.483012, lng: 57.353716, cap: "Plaża La Prairie", imgs: [12, 11, 16, 113] },
+        { lat: -20.451470, lng: 57.312739, cap: "Plaża Le Morne", imgs: [14, 13, 17] },
       ],
       zoom: 12,
     },
@@ -164,7 +180,12 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
   //05 3009
   {
     date: "30 wrz. 2026",
-    name: "Black River Gorges\n National Park",
+    name: "Park Narodowy Black River Gorges",
+    trip: {
+      to: "Południe Mauritiusa",
+      type: "car",
+      styles: { right: "unset", left: "-2rem", rotate: "-3deg", top: "1.5rem" },
+    },
     // prettier-ignore
     images: [
       18, 129, 19, 26,
@@ -172,31 +193,30 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       22, 21, 128, 20,
     ],
     captions: {
-      "18": "Grand Bassin Temple",
+      "18": "Ganga Talao (Grand Bassin)",
       "19": "Alexandra Falls Viewpoint",
-      "20": "Wodospad Chamarel",
-      "21": "Seven Colored Earth Ground Zero",
-      "22": "Żółw Olbrzymi z Aldabry",
-      "23": "Maconde Viewpoint",
-      "24": "Plaża Gris Gris",
-      "25": "Roche Qui Pleure",
+      "20": "Chamarel Waterfall",
+      "21": "Seven Coloured Earths",
+      "22": "Aldabra Giant Tortoise",
+      "23": "Macondé Viewpoint",
+      "24": "Gris Gris Beach",
+      "25": "La Roche Qui Pleure",
       "26": "Rochester Falls",
-      "117": "Posąg Śiwy",
-      "128": "Zatoka Baie du Cap",
-      "129": "Plaża St. Felix",
-      // prettier-ignore
+      "117": "Mangal Mahadev (Shiva Statue)",
+      "128": "Baie du Cap",
+      "129": "St. Felix Beach",
     },
     // prettier-ignore
     position: {
       points: [
-        { lat: -20.418185, lng: 57.492077, cap: "Grand Bassin", imgs: [18, 117],},
-        { lat: -20.425017, lng: 57.391269, cap: "Chamarel", imgs: [20, 21, 22], },
-        { lat: -20.485279, lng: 57.371538, cap: "Maconde", imgs: [23, 128] },
+        { lat: -20.418185, lng: 57.492077, cap: "Grand Bassin", imgs: [18, 117] },
+        { lat: -20.425017, lng: 57.391269, cap: "Chamarel", imgs: [20, 21, 22] },
+        { lat: -20.485279, lng: 57.371538, cap: "Macondé", imgs: [23, 128] },
         { lat: -20.503967, lng: 57.412576, cap: "Bel Ombre", imgs: [] },
         { lat: -20.524421, lng: 57.532203, cap: "Gris Gris", imgs: [24, 25] },
-        { lat: -20.500738, lng: 57.516257, cap: "Rochester Falls", imgs: [26] },
-        { lat: -20.432520, lng: 57.45694, cap: "Alexandra Falls", imgs: [19] },
-        { lat: -20.509228, lng: 57.466005, cap: "St Felix Beach", imgs: [129] },
+        { lat: -20.500738, lng: 57.516257, cap: "Wodospad Rochester", imgs: [26] },
+        { lat: -20.432520, lng: 57.45694, cap: "Wodospad Alexandra", imgs: [19] },
+        { lat: -20.509228, lng: 57.466005, cap: "Plaża St. Felix", imgs: [129] },
       ],
       zoom: 11,
     },
@@ -206,6 +226,11 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
   {
     date: "01 paź. 2026",
     name: "Black River Peak",
+    trip: {
+      to: "Black River Peak",
+      type: "car",
+      styles: { rotate: "3deg", top: "2rem" },
+    },
     // prettier-ignore
     images: [
       33, 32, 135,
@@ -213,16 +238,16 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       30,
     ],
     captions: {
-      "29": "Gorges Viewpoint",
+      "29": "Black River Gorges Viewpoint",
       "30": "Piton Saint Denis",
       "31": "Piton de la Petite Rivière Noire",
-      "35": "Plaża z widokiem na Le Morne",
+      "35": "La Preneuse Beach",
     },
     // prettier-ignore
     position: {
       points: [
-        { lat: -20.418198, lng: 57.430019, cap: "Black River Peak", imgs: [29,30,31,32,33] }, 
-        { lat: -20.372205, lng: 57.359588, cap: "Le Morne Viewpoint", imgs: [35,135] },
+        { lat: -20.418198, lng: 57.430019, cap: "Black River Peak", imgs: [29, 30, 31, 32, 33] },
+        { lat: -20.372205, lng: 57.359588, cap: "Punkt widokowy na Le Morne", imgs: [35, 135] },
         { lat: -20.335959, lng: 57.373654, cap: "Tamarin", imgs: [] },
       ],
       zoom: 11,
@@ -233,6 +258,11 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
   {
     date: "02 paź. 2026",
     name: "Île aux Cerfs",
+    trip: {
+      to: "Wyspa Jeleni",
+      type: "ferry",
+      styles: { rotate: "3deg", top: "70%" },
+    },
     transit: {
       from: "Flic en Flac",
       to: "Grand Baie",
@@ -248,13 +278,13 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       "39": "Île aux Cerfs",
       "40": "La Prairie Beach",
       "41": "Pointe Maurice",
-      "136": "Ustnik Pawik",
+      "136": "Red-backed Butterflyfish",
     },
     // prettier-ignore
     position: {
       points: [
-        { lat: -20.27234, lng: 57.803991, cap: "Île aux Cerfs", imgs: [39,41,136,36,37,38] },
-        { lat: -20.483012, lng: 57.353716, cap: "La Prairie Beach", imgs: [40] },
+        { lat: -20.27234, lng: 57.803991, cap: "Île aux Cerfs", imgs: [39, 41, 136, 36, 37, 38] },
+        { lat: -20.483012, lng: 57.353716, cap: "Plaża La Prairie", imgs: [40] },
       ],
       zoom: 9,
     },
@@ -265,6 +295,11 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     date: "03 paź. 2026",
     name: "Le Pouce",
     sleep: { name: "Grand Baie View Appart" },
+    trip: {
+      to: "Le Pouce",
+      type: "car",
+      styles: { rotate: "2deg", top: "75%" },
+    },
     // prettier-ignore
     images: [
       140, 143, 45,
@@ -272,11 +307,11 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       42,
     ],
     captions: {
-      "42": "Szczyt Pieter Both",
-      "43": "Szczyt Le Pouce",
-      "44": "Widok na Moka",
-      "45": "China Town w Port Louis",
-      "46": "Promenada Caudan Waterfront",
+      "42": "Pieter Both",
+      "43": "Le Pouce",
+      "44": "View of Moka",
+      "45": "Chinatown, Port Louis",
+      "46": "Le Caudan Waterfront",
       "140": "Grand Baie View Appart",
       "143": "Central Market Port Louis",
     },
@@ -302,10 +337,10 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
       53,
     ],
     captions: {
-      "49": "Plaża La Cuvette",
-      "51": "Plaża Pereybere",
-      "53": "Plaża Grand Baie",
-      "145": "Super U Grand Bay",
+      "49": "La Cuvette Beach",
+      "51": "Pereybere Public Beach",
+      "53": "Grand Baie Public Beach",
+      "145": "Super U Grand Baie",
     },
     // prettier-ignore
     position: {
@@ -322,6 +357,11 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
   {
     date: "05 paź. 2026",
     name: "Cap Malheureux",
+    trip: {
+      to: "Cap Malheureux",
+      type: "bus",
+      styles: { right: "unset", left: "-2rem", rotate: "-3deg", top: "2rem" },
+    },
     // prettier-ignore
     images: [
       58, 54,
@@ -330,17 +370,17 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     ],
     captions: {
       "54": "Notre-Dame Auxiliatrice de Cap Malheureux",
-      "55": "Gunner's Quoin",
-      "56": "Temple Tamoul",
-      "57": "Northernmost point of Mauritius",
-      "58": "Bain Boeuf Beach",
+      "55": "Coin de Mire (Gunner's Quoin)",
+      "56": "Tamil Temple Cap Malheureux",
+      "57": "Northernmost Point of Mauritius",
+      "58": "Bain Boeuf Public Beach",
     },
     // prettier-ignore
     position: {
       points: [
         { lat: -19.986337, lng: 57.622253, cap: "Cap Malheureux", imgs: [54, 56, 57] },
         { lat: -19.941948, lng: 57.619791, cap: "Gunner's Quoin", imgs: [55] },
-        { lat: -19.986063, lng: 57.605575, cap: "Bain Boeuf Beach", imgs: [58] },
+        { lat: -19.986063, lng: 57.605575, cap: "Plaża Bain Boeuf", imgs: [58] },
       ],
       zoom: 12,
     },
@@ -349,16 +389,21 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
   //11 0610
   {
     date: "06 paź. 2026",
-    name: "Pamplemousses\n Botanical Garden",
+    name: "Ogród Botaniczny w Pamplemousses",
+    trip: {
+      to: "Pamplemousses",
+      type: "bus",
+      styles: { rotate: "3deg", top: "2rem" },
+    },
     // prettier-ignore
     images: [
       59, 62, 61, 63,
       60, 66, 65, 64,
     ],
     captions: {
-      "60": "Le Château de Mon Plaisir",
+      "60": "Château de Mon Plaisir",
       "64": "Madagascar Day Gecko",
-      "65": "Amazon Water Lily",
+      "65": "Victoria Amazonica",
       "66": "Aldabra Giant Tortoise",
     },
     // prettier-ignore
@@ -375,6 +420,11 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
   {
     date: "07 paź. 2026",
     name: "Trou-aux-Biches",
+    trip: {
+      to: "Trou-aux-Biches",
+      type: "bus",
+      styles: { right: "unset", left: "-3rem", rotate: "-2deg", top: "2rem" },
+    },
     transit: {
       from: "Grand Baie",
       to: "Mahébourg",
@@ -387,13 +437,13 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     ],
     captions: {
       "68": "Trou-aux-Biches Beach",
-      "69": "Molo w Grand Baie",
+      "69": "Grand Baie Jetty",
     },
     //prettier-ignore
     position: {
       points: [
-        { lat: -20.036961, lng: 57.548335, cap: "Trou-aux-Biches", imgs: [68,67] },
-        { lat: -20.014158, lng: 57.581453, cap: "Grand Baie", imgs: [69,70] },
+        { lat: -20.036961, lng: 57.548335, cap: "Trou-aux-Biches", imgs: [68, 67] },
+        { lat: -20.014158, lng: 57.581453, cap: "Grand Baie", imgs: [69, 70] },
       ],
       zoom: 12,
     },
@@ -427,8 +477,8 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     // prettier-ignore
     position: {
       points: [
-        { lat: -20.411451, lng: 57.710688, cap: "Hotel Orient", typ: "n", imgs: [] },
-        { lat: -20.404857, lng: 57.709703, cap: "Mahébourg Waterfront", imgs: [71, 72, 73, 87] },
+        { lat: -20.411451, lng: 57.710688, cap: "Hotel Orient Guesthouse Auberge", typ: "n", imgs: [] },
+        { lat: -20.404857, lng: 57.709703, cap: "Promenada w Mahébourgu", imgs: [71, 72, 73, 87] },
         { lat: -20.423801, lng: 57.697728, cap: "Bo'Valon Mall", imgs: [88] },
         { lat: -20.43071, lng: 57.679108, cap: "MRU", typ: "l", imgs: [89] },
       ],
@@ -453,7 +503,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     // prettier-ignore
     position: {
       points: [
-        { lat: 21.68543, lng: 39.166107, cap: "JED", typ: "l", imgs: [92,91,93] },
+        { lat: 21.68543, lng: 39.166107, cap: "JED", typ: "l", imgs: [92, 91, 93] },
         { lat: 21.734147, lng: 39.082876, cap: "Jeddah Tower", imgs: [138] },
       ],
       zoom: 11,
@@ -477,7 +527,7 @@ export const MAURITIUS_HISTORY: MyHistory[] = [
     captions: {
       "95": "Schloss Belvedere",
       "96": "Wien Hauptbahnhof",
-      "137": "[VIE] Flughafen Wien Schwechat",
+      "137": "[VIE] Flughafen Wien-Schwechat",
     },
     // prettier-ignore
     position: {

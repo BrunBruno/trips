@@ -481,7 +481,7 @@ function TripModal({ trip, coverBg, setCoverBg }: TripModalProps) {
                 {day.trip && (
                   <div className="day-trip" style={day.trip.styles}>
                     <div className="day-trip-data">
-                      <GetSvg t={day.trip.type} /> ➤ {day.trip.to}
+                      <GetSvg t={day.trip.type} />➤ {day.trip.to}
                     </div>
                   </div>
                 )}
@@ -573,6 +573,8 @@ function TripModal({ trip, coverBg, setCoverBg }: TripModalProps) {
       )}
 
       {(() => {
+        if (!trip.maps) return <></>;
+
         const isEven = (trip.history.length + 1) % 2 === 0;
         const parityClass = isEven ? "even" : "odd";
 

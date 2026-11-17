@@ -30,11 +30,7 @@ import { SPLIT_HISTORY } from "./history/2026SplitHistory";
 import Egypt from "./svg/flags/egy";
 import { MARSA_ALAM_HISTORY } from "./history/2025MarsaAlam";
 import Sicily from "./svg/flags/scl";
-import {
-  SICILY_HISTORY,
-  SICILY_SLEEP,
-  SICILY_TRANSPORT,
-} from "./history/2024Sicily";
+import { SICILY_HISTORY } from "./history/2024Sicily";
 import Cyprus from "./svg/flags/cyp";
 import Greece from "./svg/flags/grc";
 import Bulgaria from "./svg/flags/bgr";
@@ -50,6 +46,9 @@ import Norway from "./svg/flags/nor";
 import { GOLDEN_SANDS_19_HISTORY } from "./history/2019GoldenSands";
 import Crete from "./svg/flags/cre";
 import Bali from "./svg/flags/bli";
+import { OSLO_HISTORY } from "./history/2023Oslo";
+import { CYPRUS_HISTORY } from "./history/2023Cyprus";
+import { CRETE_HISTORY } from "./history/2021CreteHistory";
 
 const countries: CountryRecord[] = [
   {
@@ -147,6 +146,7 @@ const countries: CountryRecord[] = [
     flag: Crete,
     folder: "21-greece-crete",
     coverCount: 10,
+    history: CRETE_HISTORY,
     transit: {
       from: "Katowice",
       to: "Iraklion",
@@ -178,6 +178,7 @@ const countries: CountryRecord[] = [
     flag: Cyprus,
     folder: "23-cyprus",
     coverCount: 8,
+    history: CYPRUS_HISTORY,
     transit: {
       from: "Katowice",
       to: "Pafos",
@@ -210,7 +211,6 @@ const countries: CountryRecord[] = [
     folder: "24-italy-sicily",
     coverCount: 6,
     history: SICILY_HISTORY,
-    maps: [SICILY_TRANSPORT, SICILY_SLEEP],
     transit: {
       from: "Katowice",
       to: "Katania",
@@ -226,6 +226,7 @@ const countries: CountryRecord[] = [
     flag: Norway,
     folder: "23-norway-oslo",
     coverCount: 6,
+    history: OSLO_HISTORY,
   },
 
   {

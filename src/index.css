@@ -121,10 +121,27 @@ body {
   font-weight: 700;
 }
 
-.country-info span {
+.info-year {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.info-year span {
   color: #858d96;
   font-size: 0.8rem;
   font-weight: 600;
+}
+
+.info-year span:last-child {
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  aspect-ratio: 1/1 !important;
+  color: #000;
+  background-color: #747c85;
+  font-size: 0.6rem;
 }
 
 /* HOVER */
