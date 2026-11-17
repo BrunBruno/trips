@@ -97,21 +97,30 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
       to: "Ella",
       type: "train",
     },
+    trip: {
+      to: "Pidurangala Rock",
+      type: "tuktuk",
+      styles: { rotate: "2deg", top: "-4rem", right: "-4rem" },
+    },
     sleep: { name: "OneView Chalet" },
     //prettier-ignore
     images: [
-      10, 9, 123, 15,
+      13, 9, 123, 15,
       14, 124, 12, 119,
-      13, 11, 16,
+      10, 11, 16,
     ],
     captions: {
-      "12": "Dambulla",
+      "9": "Pidurangala Rock",
+      "10": "▼ Pidurangala Rock",
+      "11": "⮝ Sigiriya Rock",
+      "12": "Dambulla ➤ Kandy",
       "13": "Kandy Lake",
       "14": "Diyathilaka Mandapaya",
+      "15": "OneView Chalet",
       "16": "OneView Chalet",
-      "11": "Pidurangala Rock",
-      "119": "Sigiriya Rock",
-      "124": "Kandy City Centre",
+      "119": "Pidurangala Vihara",
+      "123": "Kandy",
+      "124": "Kandy",
     },
     //prettier-ignore
     position: {

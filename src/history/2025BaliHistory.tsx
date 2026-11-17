@@ -187,8 +187,8 @@ export const BALI_HISTORY: MyHistory[] = [
       122, 124, 32, 31,
     ],
     captions: {
-      "31": "Gili Air",
-      "32": "Pulau Lombok",
+      "31": "▼ Gili Air",
+      "32": "⮝ Pulau Lombok",
       "122": "Pelabuhan Banjar Nyuh",
       "124": "Pelabuhan Gili Air",
     },

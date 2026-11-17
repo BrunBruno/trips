@@ -83,3 +83,10 @@ export type MyHistory = {
     styles?: CSSProperties;
   };
 };
+
+export type YearRecord = {
+  year: string;
+  folder: string;
+  history?: MyHistory[];
+  coverCount?: number;
+};
