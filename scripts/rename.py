@@ -1,13 +1,12 @@
 import os
 import sys
 
-# Pobranie podfolderu z argumentu
 if len(sys.argv) < 2:
     print("Użycie: python rename.py folder/subfolder")
     sys.exit(1)
 
 subfolder = sys.argv[1]
-folder_path = os.path.join("public", subfolder)
+folder_path = os.path.join("../public", subfolder)
 
 suffix_to_remove = "-removebg-preview"
 

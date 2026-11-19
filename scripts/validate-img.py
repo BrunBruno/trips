@@ -3,16 +3,12 @@ import re
 from pathlib import Path
 from collections import defaultdict
 
-# ================= CONFIG =================
 
-PUBLIC_DIR = Path("public")
-SRC_DIR = Path("src")
-DATA_FILE = SRC_DIR / "data.tsx"
+PUBLIC_DIR = Path("../public")
+SRC_DIR = Path("../src")
+DATA_FILE = ".." / SRC_DIR / "data.tsx"
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg"}
-
-# ==========================================
-
 
 def remove_comments(code):
     """Remove JS/TS comments while preserving strings."""
@@ -70,7 +66,6 @@ def extract_balanced(text, start, opening, closing):
 def extract_array(text, variable):
     """Extract exported array, correctly handling TypeScript array types."""
 
-    # Find exported variable declaration
     match = re.search(
         rf'\bexport\s+const\s+{re.escape(variable)}\b',
         text
@@ -80,15 +75,12 @@ def extract_array(text, variable):
         print(f"    DEBUG: declaration not found: {variable}")
         return ""
 
-    # Find assignment AFTER the variable declaration
     equal_pos = text.find("=", match.end())
 
     if equal_pos == -1:
         print(f"    DEBUG: assignment not found: {variable}")
         return ""
 
-    # Find opening bracket AFTER assignment.
-    # This avoids matching MyHistory[] in the type declaration.
     start = equal_pos + 1
 
     while start < len(text) and text[start].isspace():
@@ -123,7 +115,6 @@ def extract_imports(data):
 
         stem = Path(source).name
 
-        # Search actual file instead of assuming extension
         candidates = list(SRC_DIR.joinpath("history").glob(stem + ".*"))
 
         history_path = next(
@@ -163,7 +154,6 @@ def extract_country_records(data):
         print("ERROR: countries declaration not found")
         return []
 
-    # Regex ends exactly at the opening array bracket
     start = match.end() - 1
 
     content = extract_balanced(data, start, "[", "]")
@@ -210,8 +200,6 @@ def get_used_images(history_content):
     """Extract image numbers used in a history array."""
     used = set()
 
-    # images: [1, 2, 3]
-    # imgs: [1, 2, 3]
     for match in re.finditer(
         r'\b(?:images|imgs)\s*:\s*\[([\s\S]*?)\]',
         history_content
@@ -220,7 +208,6 @@ def get_used_images(history_content):
             int(n) for n in re.findall(r'\b\d+\b', match.group(1))
         )
 
-    # img: 14
     for match in re.finditer(
         r'\bimg\s*:\s*(\d+)',
         history_content
@@ -344,7 +331,6 @@ def main():
             print(f"  MISSING ({len(missing)}):")
             print("  " + ", ".join(f"{n:03}.jpg" for n in missing))
 
-    # Folders not registered in data.tsx
     registered = {
         re.search(
             r'\bfolder\s*:\s*["\']([^"\']+)["\']',

@@ -13,7 +13,7 @@ EXTENSIONS = {
 }
 
 BASE_DIR = Path(__file__).parent
-TEMP_FOLDER = BASE_DIR / "public" / "temp"
+TEMP_FOLDER = ".." / BASE_DIR / "public" / "temp"
 
 try:
     from pillow_heif import register_heif_opener
