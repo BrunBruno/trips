@@ -1,67 +1,18 @@
-// src/travel-options/TravelOptionsList.tsx
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { TRAVEL_OPTIONS } from "./travel-options";
 import rawCsv from "../../scripts/data/normalized_risk.csv?raw";
-import type { StayOption, TravelOption } from "../types";
-
-type RiskLevel = 1 | 2 | 3 | 4;
-
-interface EnrichedTravelOption extends TravelOption {
-  compositeRiskScore: number | null; // skala 0 - 100
-  riskLevel: RiskLevel | null; // 1 - 4
-  avgPrice: number; // dokładna średnia z pricePlane oraz priceStay (1 - 5)
-  avgPriceLevel: number; // zaokrąglony poziom 1 - 5 odpowiadający znakom $ - $$$$$
-}
-
-type SortField = "season" | "risk" | "avgPrice";
-type SortDirection = "asc" | "desc";
-type FilterColumn = "season" | "avgPrice" | "risk" | "stayOpt";
-
-interface SortState {
-  field: SortField;
-  direction: SortDirection;
-}
-
-const ALL_MONTHS = [
-  "Sty",
-  "Lut",
-  "Mar",
-  "Kwi",
-  "Maj",
-  "Cze",
-  "Lip",
-  "Sie",
-  "Wrz",
-  "Paź",
-  "Lis",
-  "Gru",
-] as const;
-
-const MONTH_ORDER: Record<string, number> = {
-  sty: 1,
-  styczeń: 1,
-  lut: 2,
-  luty: 2,
-  mar: 3,
-  marzec: 3,
-  kwi: 4,
-  kwiecień: 4,
-  maj: 5,
-  cze: 6,
-  czerwiec: 6,
-  lip: 7,
-  lipiec: 7,
-  sie: 8,
-  sierpień: 8,
-  wrz: 9,
-  wrzesień: 9,
-  paź: 10,
-  październik: 10,
-  lis: 11,
-  listopad: 11,
-  gru: 12,
-  grudzień: 12,
-};
+import type { StayOption } from "../types";
+import {
+  ALL_MONTHS,
+  ISO3_TO_ISO2,
+  MONTH_ORDER,
+  STAY_OPT_DAYS,
+  type EnrichedTravelOption,
+  type FilterColumn,
+  type RiskLevel,
+  type SortField,
+  type SortState,
+} from "./helpers";
 
 function getMonthIndex(month: string): number {
   return MONTH_ORDER[month.trim().toLowerCase()] ?? 99;
@@ -83,62 +34,6 @@ function isMonthInRange(
   // Zakres przechodzący przez przełom roku, np. Lis (11) -> Mar (3)
   return targetMonthIdx >= start || targetMonthIdx <= end;
 }
-
-// Mapowanie kodów ISO-3 (z CSV / TRAVEL_OPTIONS) na ISO-2 wymagane przez FlagCDN
-const ISO3_TO_ISO2: Record<string, string> = {
-  THA: "th",
-  VNM: "vn",
-  PER: "pe",
-  JPN: "jp",
-  KOR: "kr",
-  CRI: "cr",
-  PHL: "ph",
-  CPV: "cv",
-  PRT: "pt",
-  BHS: "bs",
-  ISL: "is",
-  TTO: "tt",
-  KGZ: "kg",
-  CHN: "cn",
-  GEO: "ge",
-  ESP: "es",
-  MEX: "mx",
-  NZL: "nz",
-  AUS: "au",
-  MDV: "mv",
-  BRN: "bn",
-  TWN: "tw",
-  HKG: "hk",
-  SGP: "sg",
-  MAR: "ma",
-  TUN: "tn",
-  MLT: "mt",
-  USA: "us",
-  CAN: "ca",
-  BRA: "br",
-  ARG: "ar",
-  ALB: "al",
-  GBR: "gb",
-  NLD: "nl",
-  SYC: "sc",
-  PLW: "pw",
-  FJI: "fj",
-  MYS: "my",
-  YEM: "ye",
-  TZA: "tz",
-  MDG: "mg",
-  REU: "re",
-  ABW: "aw",
-  ZAF: "za",
-  OMN: "om",
-  IND: "in",
-  NPL: "np",
-  KEN: "ke",
-  TUR: "tr",
-  SVN: "si",
-  KAZ: "kz",
-  MNG: "mn",
-};
 
 function getFlagUrl(iso3: string): string | null {
   const iso2 = ISO3_TO_ISO2[iso3.toUpperCase()];
@@ -389,6 +284,9 @@ export const TravelOptionsList: React.FC = () => {
       const score = riskMap[option.code] ?? null;
       const avgPrice = (option.pricePlane + option.priceStay) / 2;
       const avgPriceLevel = Math.min(5, Math.max(1, Math.round(avgPrice)));
+      const estimatedDays = STAY_OPT_DAYS[option.stayOpt] ?? 7;
+      const estimatedTotalCostZL =
+        option.pricePlaneZL + estimatedDays * option.priceStayZL;
 
       return {
         ...option,
@@ -396,6 +294,8 @@ export const TravelOptionsList: React.FC = () => {
         riskLevel: score !== null ? getRiskLevel(score) : null,
         avgPrice,
         avgPriceLevel,
+        estimatedDays,
+        estimatedTotalCostZL,
       };
     });
   }, []);
@@ -440,6 +340,13 @@ export const TravelOptionsList: React.FC = () => {
     });
 
     return [...filtered].sort((a, b) => {
+      // Rekordy z done: true zawsze lądują na końcu tabeli
+      const aDone = Boolean(a.done);
+      const bDone = Boolean(b.done);
+      if (aDone !== bDone) {
+        return aDone ? 1 : -1;
+      }
+
       if (sort.field === "season") {
         const startDiff = getMonthIndex(a.monthF) - getMonthIndex(b.monthF);
         const diff =
@@ -451,11 +358,11 @@ export const TravelOptionsList: React.FC = () => {
       }
 
       if (sort.field === "avgPrice") {
-        const priceDiff = a.avgPrice - b.avgPrice;
+        const priceDiff = a.estimatedTotalCostZL - b.estimatedTotalCostZL;
         return sort.direction === "asc" ? priceDiff : -priceDiff;
       }
 
-      // Sortowanie po ryzyku (rekordy z "Brak danych" zawsze lądują na dole tabeli)
+      // Sortowanie po ryzyku (rekordy z "Brak danych" zawsze lądują na dole swojej grupy)
       if (a.compositeRiskScore === null && b.compositeRiskScore === null) {
         return 0;
       }
@@ -817,7 +724,7 @@ export const TravelOptionsList: React.FC = () => {
                     }}
                     title="Sortuj po średnim koszcie podróży"
                   >
-                    <span>Śr. koszt (l+p=ś)</span>
+                    <span>Śr. koszt</span>
                     {renderSortIcon("avgPrice")}
                   </button>
                   {renderFilterButton("avgPrice", selectedAvgPrices.length)}
@@ -1222,7 +1129,12 @@ export const TravelOptionsList: React.FC = () => {
                 return (
                   <tr
                     key={`${item.code}-${item.place ?? "default"}`}
-                    style={{ borderBottom: "1px solid #555555" }}
+                    style={{
+                      borderBottom: "1px solid #555555",
+                      backgroundColor: item.done
+                        ? "rgba(34, 197, 94, 0.14)"
+                        : undefined,
+                    }}
                   >
                     <td style={{ padding: "0.75rem 1rem" }}>
                       {flagUrl ? (
@@ -1249,19 +1161,12 @@ export const TravelOptionsList: React.FC = () => {
                       )}
                     </td>
                     <td style={{ padding: "0.75rem 1rem" }}>
-                      <div style={{ fontWeight: 600 }}>{item.name}</div>
-                      {item.place && (
-                        <div
-                          style={{
-                            fontSize: "0.82rem",
-                            color: "#999999",
-                            marginTop: "0.15rem",
-                          }}
-                        >
-                          {item.place}
-                        </div>
-                      )}
+                      <div style={{ fontWeight: 600 }}>
+                        {item.name}
+                        {item.place && ` (${item.place})`}
+                      </div>
                     </td>
+
                     <td style={{ padding: "0.75rem 1rem", color: "#666666" }}>
                       {item.region ?? "—"}
                     </td>
@@ -1339,8 +1244,8 @@ export const TravelOptionsList: React.FC = () => {
                     >
                       {renderPriceCell(
                         item.avgPrice,
-                        `Średni koszt: ${item.avgPrice.toFixed(1)} / 5 (Loty: ${item.pricePlane}, Pobyt: ${item.priceStay})`,
-                        `(${item.pricePlaneZL}zł & ${item.priceStayZL}zł/dzień)`,
+                        `Szacowany koszt (${item.estimatedDays} dni): ${item.estimatedTotalCostZL.toLocaleString("pl-PL")} zł (Loty: ${item.pricePlaneZL} zł + ${item.estimatedDays} × ${item.priceStayZL} zł)`,
+                        `${item.estimatedTotalCostZL.toLocaleString("pl-PL")} zł`,
                       )}
                     </td>
                     <td style={{ padding: "0.75rem 1rem" }}>

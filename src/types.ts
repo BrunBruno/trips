@@ -107,6 +107,7 @@ export interface TravelOption {
   pricePlaneZL: number;
   priceStayZL: number;
   stayOpt: StayOption;
+  done?: true;
 }
 
 export interface CountrySafetyMetrics {

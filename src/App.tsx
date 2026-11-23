@@ -1,9 +1,9 @@
 import { TravelOptionsList } from "./travel-options/TravelOptionsList";
-// import World from "./World";
+import World from "./World";
 
 function App() {
-  // return <World />;
   return <TravelOptionsList />;
+  return <World />;
 }
 
 export default App;
