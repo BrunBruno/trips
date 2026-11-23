@@ -640,7 +640,13 @@ export const TravelOptionsList: React.FC = () => {
               <th style={{ padding: "0.75rem 1rem" }}>Region</th>
 
               {/* KOLUMNA: SEZON + FILTR */}
-              <th style={{ padding: "0.75rem 1rem", position: "relative" }}>
+              <th
+                style={{
+                  padding: "0.75rem 1rem",
+                  position: "relative",
+                  width: "128px",
+                }}
+              >
                 <div
                   style={{
                     display: "inline-flex",
@@ -773,7 +779,9 @@ export const TravelOptionsList: React.FC = () => {
               </th>
 
               {/* KOLUMNA: UNIKAĆ (dangerF - dangerT) */}
-              <th style={{ padding: "0.75rem 1rem" }}>Unikać</th>
+              <th style={{ padding: "0.75rem 1rem", width: "128px" }}>
+                Unikać
+              </th>
 
               {/* KOLUMNA: ŚR. KOSZT + FILTR (1-5) */}
               <th
