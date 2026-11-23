@@ -940,7 +940,6 @@ export const TravelOptionsList: React.FC = () => {
               <th
                 style={{
                   padding: "0.75rem 1rem",
-                  textAlign: "right",
                   position: "relative",
                 }}
               >
@@ -1344,7 +1343,7 @@ export const TravelOptionsList: React.FC = () => {
                         `(${item.pricePlaneZL}zł & ${item.priceStayZL}zł/dzień)`,
                       )}
                     </td>
-                    <td style={{ padding: "0.75rem 1rem", textAlign: "right" }}>
+                    <td style={{ padding: "0.75rem 1rem" }}>
                       {item.compositeRiskScore !== null && badge ? (
                         <span
                           style={{
