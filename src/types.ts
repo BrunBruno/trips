@@ -90,3 +90,37 @@ export type YearRecord = {
   history?: MyHistory[];
   coverCount?: number;
 };
+
+type Price = 1 | 2 | 3 | 4 | 5;
+export interface TravelOption {
+  code: string;
+  name: string;
+  place?: string;
+  region?: string;
+  monthF: string;
+  monthT: string;
+  dangerF?: string;
+  dangerT?: string;
+  pricePlane: Price;
+  priceStay: Price;
+}
+
+export interface CountrySafetyMetrics {
+  code: string;
+  raw: {
+    govAdvisory: number; // 1 - 4
+    stabilityIndex: number; // 1 - 5
+    informRisk: number; // 0 - 10
+    worldRisk: number; // 0 - 100
+  };
+  normalized: {
+    govAdvisory: number; // 0 - 100
+    stabilityIndex: number; // 0 - 100
+    informRisk: number; // 0 - 100
+    worldRisk: number; // 0 - 100
+  };
+  compositeRiskScore: number; // 0 - 100
+  updatedAt: string;
+}
+
+export type SafetyScoresMap = Record<string, CountrySafetyMetrics>;

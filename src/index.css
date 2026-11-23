@@ -426,3 +426,12 @@ body {
 
   object-fit: cover;
 }
+
+.no-scrollbar {
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
