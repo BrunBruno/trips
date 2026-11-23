@@ -92,6 +92,7 @@ export type YearRecord = {
 };
 
 type Price = 1 | 2 | 3 | 4 | 5;
+export type StayOption = "HOTEL" | "SIGHTSEEING" | "STOPOVER";
 export interface TravelOption {
   code: string;
   name: string;
@@ -103,6 +104,9 @@ export interface TravelOption {
   dangerT?: string;
   pricePlane: Price;
   priceStay: Price;
+  pricePlaneZL: number;
+  priceStayZL: number;
+  stayOpt: StayOption;
 }
 
 export interface CountrySafetyMetrics {

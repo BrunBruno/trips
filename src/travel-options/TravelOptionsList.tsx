@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { TRAVEL_OPTIONS } from "./travel-options";
 import rawCsv from "../../scripts/data/normalized_risk.csv?raw";
-import type { TravelOption } from "../types";
+import type { StayOption, TravelOption } from "../types";
 
 type RiskLevel = 1 | 2 | 3 | 4;
 
@@ -15,7 +15,7 @@ interface EnrichedTravelOption extends TravelOption {
 
 type SortField = "season" | "risk" | "avgPrice";
 type SortDirection = "asc" | "desc";
-type FilterColumn = "season" | "avgPrice" | "risk";
+type FilterColumn = "season" | "avgPrice" | "risk" | "stayOpt";
 
 interface SortState {
   field: SortField;
@@ -23,32 +23,43 @@ interface SortState {
 }
 
 const ALL_MONTHS = [
-  "Styczeń",
-  "Luty",
-  "Marzec",
-  "Kwiecień",
+  "Sty",
+  "Lut",
+  "Mar",
+  "Kwi",
   "Maj",
-  "Czerwiec",
-  "Lipiec",
-  "Sierpień",
-  "Wrzesień",
-  "Październik",
-  "Listopad",
-  "Grudzień",
+  "Cze",
+  "Lip",
+  "Sie",
+  "Wrz",
+  "Paź",
+  "Lis",
+  "Gru",
 ] as const;
 
 const MONTH_ORDER: Record<string, number> = {
+  sty: 1,
   styczeń: 1,
+  lut: 2,
   luty: 2,
+  mar: 3,
   marzec: 3,
+  kwi: 4,
   kwiecień: 4,
   maj: 5,
+  cze: 6,
   czerwiec: 6,
+  lip: 7,
   lipiec: 7,
+  sie: 8,
   sierpień: 8,
+  wrz: 9,
   wrzesień: 9,
+  paź: 10,
   październik: 10,
+  lis: 11,
   listopad: 11,
+  gru: 12,
   grudzień: 12,
 };
 
@@ -69,7 +80,7 @@ function isMonthInRange(
   if (start <= end) {
     return targetMonthIdx >= start && targetMonthIdx <= end;
   }
-  // Zakres przechodzący przez przełom roku, np. Listopad (11) -> Marzec (3)
+  // Zakres przechodzący przez przełom roku, np. Lis (11) -> Mar (3)
   return targetMonthIdx >= start || targetMonthIdx <= end;
 }
 
@@ -122,6 +133,11 @@ const ISO3_TO_ISO2: Record<string, string> = {
   OMN: "om",
   IND: "in",
   NPL: "np",
+  KEN: "ke",
+  TUR: "tr",
+  SVN: "si",
+  KAZ: "kz",
+  MNG: "mn",
 };
 
 function getFlagUrl(iso3: string): string | null {
@@ -169,9 +185,9 @@ function getSeasonStyle(month: string): {
   bg: string;
   border: string;
 } {
-  const normalized = month.trim().toLowerCase();
+  const monthIdx = getMonthIndex(month);
 
-  if (["grudzień", "styczeń", "luty"].includes(normalized)) {
+  if ([12, 1, 2].includes(monthIdx)) {
     return {
       seasonName: "Zima",
       color: "#0369a1",
@@ -179,7 +195,7 @@ function getSeasonStyle(month: string): {
       border: "#bae6fd",
     };
   }
-  if (["marzec", "kwiecień", "maj"].includes(normalized)) {
+  if ([3, 4, 5].includes(monthIdx)) {
     return {
       seasonName: "Wiosna",
       color: "#15803d",
@@ -187,7 +203,7 @@ function getSeasonStyle(month: string): {
       border: "#bbf7d0",
     };
   }
-  if (["czerwiec", "lipiec", "sierpień"].includes(normalized)) {
+  if ([6, 7, 8].includes(monthIdx)) {
     return {
       seasonName: "Lato",
       color: "#a16207",
@@ -195,7 +211,7 @@ function getSeasonStyle(month: string): {
       border: "#fde047",
     };
   }
-  if (["wrzesień", "październik", "listopad"].includes(normalized)) {
+  if ([9, 10, 11].includes(monthIdx)) {
     return {
       seasonName: "Jesień",
       color: "#c2410c",
@@ -259,6 +275,29 @@ const RISK_FILTER_OPTIONS: {
   { level: 4, label: "4 – Wysokie (76–100)", color: "#b91c1c", bg: "#fee2e2" },
 ];
 
+const STAY_OPT_META: Record<
+  StayOption,
+  { emoji: string; label: string; description: string }
+> = {
+  HOTEL: {
+    emoji: "🏨",
+    label: "Tylko hotel",
+    description: "Wypoczynek stacjonarny / resort (lub bezpieczniej w hotelu)",
+  },
+  SIGHTSEEING: {
+    emoji: "🎒",
+    label: "Zwiedzanie",
+    description: "Dłuższy wyjazd objazdowy, bezpieczny do eksploracji",
+  },
+  STOPOVER: {
+    emoji: "✈️",
+    label: "Przelotem",
+    description: "Krótki wypad na kilka dni / blisko Polski / city break",
+  },
+};
+
+const STAY_OPT_LIST: StayOption[] = ["HOTEL", "SIGHTSEEING", "STOPOVER"];
+
 function getPriceBadge(level: number): {
   symbols: string;
   label: string;
@@ -315,7 +354,7 @@ function getPriceBadge(level: number): {
 }
 
 export const TravelOptionsList: React.FC = () => {
-  // Domyślne sortowanie: po sezonie rosnąco (Styczeń -> Grudzień)
+  // Domyślne sortowanie: po sezonie rosnąco (Sty -> Gru)
   const [sort, setSort] = useState<SortState>({
     field: "season",
     direction: "asc",
@@ -325,6 +364,7 @@ export const TravelOptionsList: React.FC = () => {
   const [selectedMonths, setSelectedMonths] = useState<number[]>([]);
   const [selectedAvgPrices, setSelectedAvgPrices] = useState<number[]>([]);
   const [selectedRisks, setSelectedRisks] = useState<RiskLevel[]>([]);
+  const [selectedStayOpts, setSelectedStayOpts] = useState<StayOption[]>([]);
 
   // Aktualnie otwarte menu filtra w nagłówku
   const [openFilter, setOpenFilter] = useState<FilterColumn | null>(null);
@@ -388,6 +428,14 @@ export const TravelOptionsList: React.FC = () => {
         }
       }
 
+      // Filter Typ Pobytu
+      if (
+        selectedStayOpts.length > 0 &&
+        !selectedStayOpts.includes(item.stayOpt)
+      ) {
+        return false;
+      }
+
       return true;
     });
 
@@ -417,7 +465,14 @@ export const TravelOptionsList: React.FC = () => {
       const riskDiff = a.compositeRiskScore - b.compositeRiskScore;
       return sort.direction === "asc" ? riskDiff : -riskDiff;
     });
-  }, [allEnrichedRows, selectedMonths, selectedAvgPrices, selectedRisks, sort]);
+  }, [
+    allEnrichedRows,
+    selectedMonths,
+    selectedAvgPrices,
+    selectedRisks,
+    selectedStayOpts,
+    sort,
+  ]);
 
   const toggleNumberSelection = <T extends number>(
     value: T,
@@ -425,6 +480,12 @@ export const TravelOptionsList: React.FC = () => {
   ) => {
     setter((prev) =>
       prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value],
+    );
+  };
+
+  const toggleStayOptSelection = (opt: StayOption) => {
+    setSelectedStayOpts((prev) =>
+      prev.includes(opt) ? prev.filter((v) => v !== opt) : [...prev, opt],
     );
   };
 
@@ -611,7 +672,7 @@ export const TravelOptionsList: React.FC = () => {
                 </div>
 
                 {openFilter === "season" && (
-                  <div style={{ ...dropdownStyle, minWidth: "235px" }}>
+                  <div style={{ ...dropdownStyle, minWidth: "215px" }}>
                     <div
                       style={{
                         display: "flex",
@@ -663,14 +724,14 @@ export const TravelOptionsList: React.FC = () => {
                         gap: "0.3rem 0.5rem",
                       }}
                     >
-                      {ALL_MONTHS.map((monthName, idx) => {
+                      {ALL_MONTHS.map((monthShort, idx) => {
                         const monthNum = idx + 1;
                         const checked = selectedMonths.includes(monthNum);
-                        const seasonMeta = getSeasonStyle(monthName);
+                        const seasonMeta = getSeasonStyle(monthShort);
 
                         return (
                           <label
-                            key={monthName}
+                            key={monthShort}
                             style={{
                               display: "flex",
                               alignItems: "center",
@@ -702,7 +763,7 @@ export const TravelOptionsList: React.FC = () => {
                                 flexShrink: 0,
                               }}
                             />
-                            <span>{monthName}</span>
+                            <span>{monthShort}</span>
                           </label>
                         );
                       })}
@@ -711,7 +772,7 @@ export const TravelOptionsList: React.FC = () => {
                 )}
               </th>
 
-              {/* NOWA KOLUMNA: UNIKAĆ (dangerF - dangerT) */}
+              {/* KOLUMNA: UNIKAĆ (dangerF - dangerT) */}
               <th style={{ padding: "0.75rem 1rem" }}>Unikać</th>
 
               {/* KOLUMNA: ŚR. KOSZT + FILTR (1-5) */}
@@ -1012,13 +1073,126 @@ export const TravelOptionsList: React.FC = () => {
                   </div>
                 )}
               </th>
+
+              <th
+                style={{
+                  padding: "0.75rem 1rem",
+                  width: "92px",
+                  textAlign: "center",
+                  position: "relative",
+                }}
+              >
+                <div
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "0.4rem",
+                  }}
+                >
+                  <span>Typ</span>
+                  {renderFilterButton("stayOpt", selectedStayOpts.length)}
+                </div>
+
+                {openFilter === "stayOpt" && (
+                  <div
+                    style={{
+                      ...dropdownStyle,
+                      left: "auto",
+                      right: 0,
+                      minWidth: "210px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        paddingBottom: "0.45rem",
+                        marginBottom: "0.45rem",
+                        borderBottom: "1px solid #404040",
+                      }}
+                    >
+                      <label
+                        style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "0.4rem",
+                          cursor: "pointer",
+                          fontWeight: 600,
+                        }}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={selectedStayOpts.length === 0}
+                          onChange={() => setSelectedStayOpts([])}
+                        />
+                        <span>Wszystkie</span>
+                      </label>
+                      {selectedStayOpts.length > 0 && (
+                        <button
+                          type="button"
+                          onClick={() => setSelectedStayOpts([])}
+                          style={{
+                            background: "transparent",
+                            border: "none",
+                            color: "#60a5fa",
+                            fontSize: "0.78rem",
+                            cursor: "pointer",
+                            padding: 0,
+                          }}
+                        >
+                          Wyczyść
+                        </button>
+                      )}
+                    </div>
+
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "0.35rem",
+                      }}
+                    >
+                      {STAY_OPT_LIST.map((opt) => {
+                        const checked = selectedStayOpts.includes(opt);
+                        const meta = STAY_OPT_META[opt];
+                        return (
+                          <label
+                            key={opt}
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "0.5rem",
+                              cursor: "pointer",
+                              padding: "0.25rem 0.35rem",
+                              borderRadius: "4px",
+                              backgroundColor: checked
+                                ? "#374151"
+                                : "transparent",
+                            }}
+                          >
+                            <input
+                              type="checkbox"
+                              checked={checked}
+                              onChange={() => toggleStayOptSelection(opt)}
+                            />
+                            <span>{meta.emoji}</span>
+                            <span>{meta.label}</span>
+                          </label>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+              </th>
             </tr>
           </thead>
           <tbody>
             {rows.length === 0 ? (
               <tr>
                 <td
-                  colSpan={6}
+                  colSpan={7}
                   style={{
                     padding: "2rem 1rem",
                     textAlign: "center",
@@ -1089,14 +1263,14 @@ export const TravelOptionsList: React.FC = () => {
                         style={{
                           display: "inline-flex",
                           alignItems: "center",
-                          gap: "0.4rem",
-                          flexWrap: "wrap",
+                          gap: "0.35rem",
+                          whiteSpace: "nowrap",
                         }}
                       >
                         <span
                           title={`Od: ${styleFrom.seasonName}`}
                           style={{
-                            padding: "0.2rem 0.55rem",
+                            padding: "0.2rem 0.5rem",
                             borderRadius: "6px",
                             fontSize: "0.82rem",
                             fontWeight: 500,
@@ -1113,7 +1287,7 @@ export const TravelOptionsList: React.FC = () => {
                         <span
                           title={`Do: ${styleTo.seasonName}`}
                           style={{
-                            padding: "0.2rem 0.55rem",
+                            padding: "0.2rem 0.5rem",
                             borderRadius: "6px",
                             fontSize: "0.82rem",
                             fontWeight: 500,
@@ -1159,7 +1333,7 @@ export const TravelOptionsList: React.FC = () => {
                       {renderPriceCell(
                         item.avgPrice,
                         `Średni koszt: ${item.avgPrice.toFixed(1)} / 5 (Loty: ${item.pricePlane}, Pobyt: ${item.priceStay})`,
-                        `(${item.pricePlane} + ${item.priceStay}) = ${Number(item.avgPrice.toFixed(1))}`,
+                        `(${item.pricePlaneZL}zł & ${item.priceStayZL}zł/dzień)`,
                       )}
                     </td>
                     <td style={{ padding: "0.75rem 1rem", textAlign: "right" }}>
@@ -1183,6 +1357,31 @@ export const TravelOptionsList: React.FC = () => {
                       ) : (
                         <span style={{ color: "#9ca3af" }}>Brak danych</span>
                       )}
+                    </td>
+                    <td
+                      style={{
+                        padding: "0.75rem 1rem",
+                        textAlign: "center",
+                      }}
+                    >
+                      {(() => {
+                        const meta = STAY_OPT_META[item.stayOpt];
+                        return meta ? (
+                          <span
+                            title={`${meta.label} – ${meta.description}`}
+                            style={{
+                              fontSize: "1.25rem",
+                              cursor: "help",
+                              display: "inline-block",
+                              lineHeight: 1,
+                            }}
+                          >
+                            {meta.emoji}
+                          </span>
+                        ) : (
+                          "—"
+                        );
+                      })()}
                     </td>
                   </tr>
                 );
