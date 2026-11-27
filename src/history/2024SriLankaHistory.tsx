@@ -530,7 +530,7 @@ export const SRI_LANKA_HISTORY: MyHistory[] = [
     position: {
       points: [
         { lat: 25.256664, lng: 55.368307, cap: "DXB", typ: "l", imgs: [106] },
-        { lat: 25.243326, lng: 55.358701, cap: "Premier Inn Dubai International Airport", typ: "n", imgs: [107, 109] },
+        { lat: 25.243326, lng: 55.358701, cap: "Premier Inn Dubai", typ: "n", imgs: [107, 109] },
         { lat: 25.197457, lng: 55.279798, cap: "Centrum handlowe The Dubai Mall", imgs: [113, 111, 112, 114, 115] },
         { lat: 25.118233, lng: 55.200565, cap: "Centrum handlowe Mall of the Emirates", imgs: [116, 130] },
         { lat: 25.235627, lng: 55.300362, cap: "Rama Dubaju (Dubai Frame)", imgs: [118] },

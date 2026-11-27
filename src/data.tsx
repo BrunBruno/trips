@@ -1,4 +1,4 @@
-import type { CountryRecord, YearRecord } from "./types";
+import type { CountryRecord } from "./types";
 import {
   MAURITIUS_HISTORY,
   MAURITIUS_SLEEP,
@@ -312,33 +312,33 @@ export const countries: CountryRecord[] = [
   },
 ];
 
-export const years: YearRecord[] = [
-  {
-    year: "2026",
-    folder: "2026",
-  },
-  {
-    year: "2025",
-    folder: "2025",
-  },
-  {
-    year: "2024",
-    folder: "2024",
-  },
-  {
-    year: "2023",
-    folder: "2023",
-  },
-  {
-    year: "2022",
-    folder: "2022",
-  },
-  {
-    year: "2021",
-    folder: "2021",
-  },
-  {
-    year: "2020",
-    folder: "2020",
-  },
-];
+// export const years: YearRecord[] = [
+//   {
+//     year: "2026",
+//     folder: "2026",
+//   },
+//   {
+//     year: "2025",
+//     folder: "2025",
+//   },
+//   {
+//     year: "2024",
+//     folder: "2024",
+//   },
+//   {
+//     year: "2023",
+//     folder: "2023",
+//   },
+//   {
+//     year: "2022",
+//     folder: "2022",
+//   },
+//   {
+//     year: "2021",
+//     folder: "2021",
+//   },
+//   {
+//     year: "2020",
+//     folder: "2020",
+//   },
+// ];

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   APIProvider,
   Map as GoogleMap,
@@ -16,7 +16,14 @@ type HistoryMapProps = {
   hoveredMarker?: number | null;
   isFromPhoto?: boolean;
   setHoveredMarker?: (markerIndex: number | null) => void;
+  gestureHandling?: true;
 };
+
+// Wylicza minimalny zoom, przy którym wysokość mapy świata >= wysokości kontenera
+function getMinZoomForHeight(heightPx: number): number {
+  const minZoom = Math.ceil(Math.log2(heightPx / 256));
+  return Math.max(2, minZoom);
+}
 
 function MapController({
   position,
@@ -72,7 +79,24 @@ function HistoryMap({
   hoveredMarker,
   isFromPhoto,
   setHoveredMarker,
+  gestureHandling,
 }: HistoryMapProps) {
+  const [minZoom, setMinZoom] = useState<number>(() =>
+    typeof window !== "undefined" ? getMinZoomForHeight(window.innerHeight) : 3,
+  );
+
+  // Aktualizacja minZoom przy zmianie rozmiaru okna (np. F11 / resize)
+  useEffect(() => {
+    if (!gestureHandling) return;
+
+    const handleResize = () => {
+      setMinZoom(getMinZoomForHeight(window.innerHeight));
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [gestureHandling]);
+
   if (!position.points.length) return null;
 
   const defaultCenter = {
@@ -84,14 +108,28 @@ function HistoryMap({
       position.points.length,
   };
 
-  // return <></>;
-
   return (
     <APIProvider apiKey={API_KEY}>
       <GoogleMap
         defaultCenter={defaultCenter}
-        defaultZoom={position.zoom}
-        gestureHandling="none"
+        defaultZoom={
+          gestureHandling ? Math.max(position.zoom, minZoom) : position.zoom
+        }
+        minZoom={gestureHandling ? minZoom : undefined}
+        restriction={
+          gestureHandling
+            ? {
+                latLngBounds: {
+                  north: 85,
+                  south: -85,
+                  west: -180,
+                  east: 180,
+                },
+                strictBounds: true,
+              }
+            : undefined
+        }
+        gestureHandling={gestureHandling ? "all" : "none"}
         disableDefaultUI={true}
         className="history-map"
         mapId={MAP_ID}

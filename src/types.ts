@@ -91,6 +91,14 @@ export type YearRecord = {
   coverCount?: number;
 };
 
+export type DangerType =
+  | "CYCLONES"
+  | "MONSOON"
+  | "RAINY_SEASON"
+  | "EXTREME_HEAT"
+  | "EXTREME_COLD"
+  | "ROUGH_SEAS";
+
 type Price = 1 | 2 | 3 | 4 | 5;
 export type StayOption = "HOTEL" | "SIGHTSEEING" | "STOPOVER";
 export interface TravelOption {
@@ -102,12 +110,12 @@ export interface TravelOption {
   monthT: string;
   dangerF?: string;
   dangerT?: string;
+  dangerType?: DangerType;
   pricePlane: Price;
   priceStay: Price;
   pricePlaneZL: number;
   priceStayZL: number;
   stayOpt: StayOption;
-  done?: true;
 }
 
 export interface CountrySafetyMetrics {

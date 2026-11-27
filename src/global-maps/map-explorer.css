@@ -1,0 +1,173 @@
+.map-explorer {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #1a1a1a;
+}
+
+.map-explorer-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* Panel boczny w stylu Google Maps */
+.map-explorer-sidebar {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 30;
+  width: 300px;
+  max-height: calc(100vh - 2rem);
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(38, 38, 38, 0.96);
+  backdrop-filter: blur(8px);
+  color: #f5f5f5;
+  border: 1px solid #404040;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.map-explorer-sidebar--collapsed {
+  transform: translateX(calc(-100% - 2rem));
+  opacity: 0;
+  pointer-events: none;
+}
+
+.map-explorer-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 1rem 1rem 0.85rem;
+  border-bottom: 1px solid #404040;
+  background-color: #333333;
+}
+
+.map-explorer-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.map-explorer-subtitle {
+  margin: 0.2rem 0 0;
+  font-size: 0.78rem;
+  color: #a3a3a3;
+}
+
+.map-explorer-collapse-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #a3a3a3;
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.15s ease;
+}
+
+.map-explorer-collapse-btn:hover {
+  background-color: #444444;
+  color: #ffffff;
+}
+
+.map-explorer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.75rem;
+  overflow-y: auto;
+}
+
+.map-explorer-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: #e5e5e5;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.map-explorer-option:hover {
+  background-color: #374151;
+}
+
+.map-explorer-option--active {
+  background-color: #2563eb;
+  border-color: #60a5fa;
+  color: #ffffff;
+}
+
+.map-explorer-option--active:hover {
+  background-color: #1d4ed8;
+}
+
+.map-explorer-option-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.map-explorer-option-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.map-explorer-option-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.map-explorer-option-desc {
+  font-size: 0.75rem;
+  color: #a3a3a3;
+  line-height: 1.25;
+}
+
+.map-explorer-option--active .map-explorer-option-desc {
+  color: #dbeafe;
+}
+
+/* Przycisk przywracania zwiniętego panelu */
+.map-explorer-expand-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 30;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 0.9rem;
+  background-color: #262626;
+  color: #ffffff;
+  border: 1px solid #404040;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.15s ease;
+}
+
+.map-explorer-expand-btn:hover {
+  background-color: #333333;
+}

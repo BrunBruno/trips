@@ -435,3 +435,136 @@ body {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Wyśrodkowanie całej zawartości na ekranie - Ciemny motyw */
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #0b1120; /* Głęboki ciemny granat */
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  box-sizing: border-box;
+  color: #f8fafc;
+}
+
+/* Siatka kafelków */
+.main-options-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 960px;
+}
+
+/* Pojedynczy kafelek */
+.option-card {
+  background: #161f33; /* Ciemny grafitowy odcień */
+  border-radius: 16px;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #26334d;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.3),
+    0 2px 4px -2px rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+  user-select: none;
+}
+
+/* Efekt po najechaniu kursorem */
+.option-card:hover {
+  transform: translateY(-6px);
+  background: #1c2740;
+  border-color: #3b82f6;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.45),
+    0 0 20px -5px rgba(59, 130, 246, 0.25); /* Delikatna niebieska poświata */
+}
+
+/* Efekt kliknięcia */
+.option-card:active {
+  transform: translateY(-2px);
+}
+
+/* Miejsce na ikonę */
+.card-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background-color: rgba(59, 130, 246, 0.12); /* Półprzezroczysty niebieski */
+  color: #60a5fa; /* Jaśniejszy niebieski dla lepszego kontrastu */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* Skalowanie ikon SVG wewnątrz kontenera */
+.card-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Zmiana koloru tła ikony po najechaniu na kafelek */
+.option-card:hover .card-icon {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+/* Tytuł kafelka */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 0.5rem;
+}
+
+/* Podtytuł */
+.card-subtitle {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+/* Przycisk powrotu */
+.back-button {
+  align-self: flex-start;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  background: #161f33;
+  border: 1px solid #26334d;
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  background: #1e293b;
+  border-color: #475569;
+  color: #ffffff;
+}
